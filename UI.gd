@@ -16,8 +16,10 @@ func _process(delta):
 		for node in dicesList:
 			if node.get_global_rect().has_point(mousePos):
 				if node in frozenDices:
+					node.modulate = Color(1, 1, 1)
 					frozenDices.erase(node)
 				else:
+					node.modulate = Color(0.5, 0.5, 0.5)
 					frozenDices.append(node)
 
 
