@@ -8,3 +8,5 @@ export_presets.cfg
 .mono/
 data_*/
 
+.godot/editor/project_metadata.cfg
+.godot/editor/filesystem_*
