@@ -6,6 +6,7 @@ signal update_hand(hand)
 
 func _ready():
 	rng.randomize()
+	emit_signal("update_hand", hand)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,4 +21,3 @@ func _on_ui_roll(unfrozen):
 		if i in unfrozen_id:
 			hand[i] = rng.randi_range(1, 6)
 	emit_signal("update_hand", hand)
-	

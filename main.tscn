@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b743kpk7xsaoi"]
+[gd_scene load_steps=4 format=3 uid="uid://b743kpk7xsaoi"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ngr4a"]
 [ext_resource type="PackedScene" uid="uid://bmmio2i8d54re" path="res://UI.tscn" id="1_tqsw0"]
+[ext_resource type="Script" path="res://YamsManager.gd" id="3_87et0"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ngr4a")
@@ -11,5 +12,10 @@ script = ExtResource("1_ngr4a")
 [node name="Camera2d" type="Camera2D" parent="."]
 position = Vector2(968, 543)
 
+[node name="YamsManager" type="Node" parent="."]
+script = ExtResource("3_87et0")
+
 [connection signal="update_hand" from="." to="UI" method="_on_main_update_hand"]
+[connection signal="update_hand" from="." to="YamsManager" method="_on_main_update_hand"]
 [connection signal="roll" from="UI" to="." method="_on_ui_roll"]
+[connection signal="update_combi" from="YamsManager" to="UI" method="_on_yams_manager_update_combi"]

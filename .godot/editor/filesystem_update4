@@ -1,4 +1,5 @@
 res://main.tscn
+res://YamsManager.gd
 res://UI.tscn
-res://UI.gd
 res://main.gd
+res://UI.gd
