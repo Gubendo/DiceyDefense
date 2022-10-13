@@ -92,4 +92,28 @@ offset_right = 790.0
 offset_bottom = 1010.0
 texture = ExtResource("6_dewjj")
 
+[node name="ValeurMain" type="Label" parent="CanvasLayer"]
+offset_left = 1072.0
+offset_top = 68.0
+offset_right = 1398.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 40
+text = "Main réelle : [1, 2, 3, 4, 5]"
+
+[node name="Relancer" type="Label" parent="CanvasLayer"]
+offset_left = 330.0
+offset_top = 850.0
+offset_right = 481.0
+offset_bottom = 910.0
+theme_override_font_sizes/font_size = 40
+text = "Relancer"
+
+[node name="Garder" type="Label" parent="CanvasLayer"]
+offset_left = 1330.0
+offset_top = 850.0
+offset_right = 1481.0
+offset_bottom = 910.0
+theme_override_font_sizes/font_size = 40
+text = "Garder"
+
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_roll_pressed"]

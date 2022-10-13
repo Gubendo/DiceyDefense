@@ -12,12 +12,12 @@ func _process(delta):
 	pass
 
 
-func _on_ui_roll(frozen):
-	var frozen_id = []
-	for i in range(len(frozen)):
-		frozen_id.append((str(frozen[i].name).right(1)).to_int() - 1)
+func _on_ui_roll(unfrozen):
+	var unfrozen_id = []
+	for i in range(len(unfrozen)):
+		unfrozen_id.append((str(unfrozen[i].name).right(1)).to_int() - 1)
 	for i in range(5):
-		if i not in frozen_id:
+		if i in unfrozen_id:
 			hand[i] = rng.randi_range(1, 6)
 	emit_signal("update_hand", hand)
 	
