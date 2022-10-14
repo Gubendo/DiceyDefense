@@ -17,5 +17,7 @@ script = ExtResource("3_87et0")
 
 [connection signal="update_hand" from="." to="UI" method="_on_main_update_hand"]
 [connection signal="update_hand" from="." to="YamsManager" method="_on_main_update_hand"]
+[connection signal="choix" from="UI" to="YamsManager" method="_on_ui_choix"]
 [connection signal="roll" from="UI" to="." method="_on_ui_roll"]
 [connection signal="update_combi" from="YamsManager" to="UI" method="_on_yams_manager_update_combi"]
+[connection signal="update_grille" from="YamsManager" to="UI" method="_on_yams_manager_update_grille"]

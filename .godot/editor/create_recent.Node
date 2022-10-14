@@ -1,8 +1,9 @@
+Button
+Control
+Container
 Node
 Label
 Camera2D
 TextureRect
 AnimatedSprite2D
-Control
-Button
 CanvasLayer
