@@ -6,8 +6,12 @@ signal choix(coup)
 var unfrozenDices = []
 var frozenDices = []
 @export var dicesSprites: Array[Texture2D]
+
+@export var nbCoups = 2
+var coupsRestant
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	coupsRestant = nbCoups + 1
 	for dice in dicesList:
 		unfrozenDices.append(dice)
 	update_dice_pos()
@@ -42,7 +46,8 @@ func update_dice_pos():
 		unfrozen_id += 1
 
 func nouveau_coup():
-	print(frozenDices)
+	coupsRestant = nbCoups + 1
+	get_node("CanvasLayer/RollButton").visible = true
 	for node in frozenDices:
 		unfrozenDices.append(node)
 		node.modulate = Color(1, 1, 1)
@@ -52,11 +57,17 @@ func nouveau_coup():
 	
 func _on_roll_pressed():
 	emit_signal("roll", unfrozenDices)
+	
 
 func _on_main_update_hand(hand):
 	for i in range(5):
 		dicesList[i].texture = dicesSprites[hand[i] - 1]
 	get_node("CanvasLayer/ValeurMain").text = "Main réelle : " + str(hand)
+	coupsRestant -= 1
+	get_node("CanvasLayer/nbCoups").text = "Coups restants : " + str(coupsRestant)
+	if coupsRestant == 0:
+		get_node("CanvasLayer/RollButton").visible = false
+	
 		
 
 func _on_yams_manager_update_combi(combinaisons):
@@ -146,3 +157,5 @@ func _on_yams_pressed():
 	emit_signal("choix", "yams")
 	nouveau_coup()
 	get_node("CanvasLayer/Coups/Yams").visible = false
+
+	

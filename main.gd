@@ -21,3 +21,4 @@ func _on_ui_roll(unfrozen):
 		if i in unfrozen_id:
 			hand[i] = rng.randi_range(1, 6)
 	emit_signal("update_hand", hand)
+
