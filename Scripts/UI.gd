@@ -40,9 +40,11 @@ func update_dice_pos():
 	var frozen_id = 0
 	for node in frozenDices:
 		node.position.x = 1330 + 100*frozen_id
+		node.position.y = 950
 		frozen_id += 1
 	for node in unfrozenDices:
 		node.position.x = 330 + 100*unfrozen_id
+		node.position.y = 950
 		unfrozen_id += 1
 
 func nouveau_coup():
@@ -60,6 +62,7 @@ func _on_roll_pressed():
 	
 
 func _on_main_update_hand(hand):
+	print("update")
 	for i in range(5):
 		dicesList[i].texture = dicesSprites[hand[i] - 1]
 	get_node("CanvasLayer/ValeurMain").text = "Main réelle : " + str(hand)
@@ -92,6 +95,7 @@ func _on_yams_manager_update_grille(grille):
 	grille["total1"], grille["total2"], grille["total3"], grille["total4"], grille["total5"],
 	grille["total6"], grille["brelan"], grille["carre"], grille["full"], grille["p_suite"],
 	grille["g_suite"], grille["chance"], grille["yams"]])
+	nouveau_coup()
 
 func _on_total_1_pressed():
 	emit_signal("choix", "total1")

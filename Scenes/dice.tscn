@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmul6nit5rrj5"]
+
+[ext_resource type="Texture2D" uid="uid://ctnevp2mir5ra" path="res://Sprites/dice1.png" id="1_v3adw"]
+
+[node name="Dice" type="TextureRect"]
+offset_right = 60.0
+offset_bottom = 60.0
+texture = ExtResource("1_v3adw")

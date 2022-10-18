@@ -1,10 +1,11 @@
-TileMap
 Button
+Sprite2D
+TextureRect
+TileMap
 Control
 Container
 Node
 Label
 Camera2D
-TextureRect
 AnimatedSprite2D
 CanvasLayer

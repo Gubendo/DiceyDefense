@@ -6,7 +6,6 @@ signal update_hand(hand)
 
 func _ready():
 	rng.randomize()
-	emit_signal("update_hand", hand)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,3 +1,9 @@
-res://main.tscn
+res://Scenes/main.tscn
 res://UI.tres
-res://UI.tscn
+res://Scenes/unit.tscn
+res://Scripts/unit.gd
+res://Scripts/UI.gd
+res://Scripts/unit1.gd
+res://Scripts/YamsManager.gd
+res://Scenes/UI.tscn
+res://Scripts/main.gd
