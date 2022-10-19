@@ -85,7 +85,7 @@ func _on_main_update_hand(hand):
 	
 		
 
-func _on_yams_manager_update_combi(combinaisons):
+func update_combi(combinaisons):
 	get_node(\"CanvasLayer/Coups/Total1\").text = \"Total des 1\\n\" + str(combinaisons[\"total1\"]) + \" points\"
 	get_node(\"CanvasLayer/Coups/Total2\").text = \"Total des 2\\n\" + str(combinaisons[\"total2\"]) + \" points\"
 	get_node(\"CanvasLayer/Coups/Total3\").text = \"Total des 3\\n\" + str(combinaisons[\"total3\"]) + \" points\"
@@ -100,7 +100,7 @@ func _on_yams_manager_update_combi(combinaisons):
 	get_node(\"CanvasLayer/Coups/Chance\").text = \"Chance\\n\" + str(combinaisons[\"chance\"]) + \" points\"
 	get_node(\"CanvasLayer/Coups/Yams\").text = \"Yams\\n\" + str(combinaisons[\"yams\"]) + \" points\"
 	
-func _on_yams_manager_update_grille(grille):
+func update_grille(grille):
 	get_node(\"CanvasLayer/Grille\").text = \"Grille \\n\\nTotal des 1 : {0}\\nTotal des 2 : {1}\\nTotal des 3 : {2}
 	Total des 4 : {3}\\nTotal des 5 : {4}\\nTotal des 6 : {5}\\nBrelan : {6}\\nCarré : {7}\\nFull : {8}
 	Petite suite : {9}\\nGrande suite : {10}\\nChance : {11}\\nYam's : {12}\".format([
@@ -220,19 +220,14 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Dice1" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice2" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice3" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice4" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice5" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="ValeurMain" type="Label" parent="CanvasLayer"]
 visible = false
@@ -285,7 +280,6 @@ offset_right = 1850.0
 offset_bottom = 775.0
 
 [node name="Total1" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 25.0
 offset_top = 25.0
 offset_right = 175.0
@@ -294,7 +288,6 @@ theme = ExtResource("9_k0giq")
 text = "Total 1"
 
 [node name="Total2" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 225.0
 offset_top = 25.0
 offset_right = 375.0
@@ -303,7 +296,6 @@ theme = ExtResource("9_k0giq")
 text = "Total 2"
 
 [node name="Total3" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 425.0
 offset_top = 25.0
 offset_right = 575.0
@@ -313,7 +305,6 @@ text = "Total 3
 "
 
 [node name="Total4" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 625.0
 offset_top = 25.0
 offset_right = 775.0
@@ -323,7 +314,6 @@ text = "Total 4
 "
 
 [node name="Total5" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 25.0
 offset_top = 175.0
 offset_right = 175.0
@@ -332,7 +322,6 @@ theme = ExtResource("9_k0giq")
 text = "Total 5"
 
 [node name="Total6" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 225.0
 offset_top = 175.0
 offset_right = 375.0
@@ -341,7 +330,6 @@ theme = ExtResource("9_k0giq")
 text = "Total 6"
 
 [node name="Brelan" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 425.0
 offset_top = 175.0
 offset_right = 575.0
@@ -350,7 +338,6 @@ theme = ExtResource("9_k0giq")
 text = "Brelan"
 
 [node name="Carre" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 625.0
 offset_top = 175.0
 offset_right = 775.0
@@ -359,7 +346,6 @@ theme = ExtResource("9_k0giq")
 text = "Carré"
 
 [node name="Full" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 25.0
 offset_top = 325.0
 offset_right = 175.0
@@ -368,7 +354,6 @@ theme = ExtResource("9_k0giq")
 text = "Full"
 
 [node name="PSuite" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 225.0
 offset_top = 325.0
 offset_right = 375.0
@@ -377,7 +362,6 @@ theme = ExtResource("9_k0giq")
 text = "Petite Suite"
 
 [node name="GSuite" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 425.0
 offset_top = 325.0
 offset_right = 575.0
@@ -386,7 +370,6 @@ theme = ExtResource("9_k0giq")
 text = "Grande Suite"
 
 [node name="Chance" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 625.0
 offset_top = 325.0
 offset_right = 775.0
@@ -396,7 +379,6 @@ text = "Chance
 "
 
 [node name="Yams" type="Button" parent="CanvasLayer/Coups"]
-layout_mode = 0
 offset_left = 250.0
 offset_top = 475.0
 offset_right = 550.0

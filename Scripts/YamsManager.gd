@@ -32,12 +32,11 @@ var combinaisons = {
 	"yams": -1
 }
 
-signal update_combi(combinaisons)
-signal update_grille(grille)
+var nodeUI
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	emit_signal("update_grille", grille)
-
+	nodeUI = get_node("/root/Main/UI")
+	nodeUI.update_grille(grille)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -98,7 +97,7 @@ func hand_sum(hand: Array):
 	return total
 
 
-func _on_main_update_hand(hand):
+func calcul_hand(hand):
 	combinaisons['total1'] = calcul_total_x(hand, 1)
 	combinaisons['total2'] = calcul_total_x(hand, 2)
 	combinaisons['total3'] = calcul_total_x(hand, 3)
@@ -112,9 +111,9 @@ func _on_main_update_hand(hand):
 	combinaisons['g_suite'] = calcul_g_suite(hand)
 	combinaisons['chance'] = calcul_chance(hand)
 	combinaisons['yams'] = calcul_yams(hand)
-	emit_signal("update_combi", combinaisons)
+	nodeUI.update_combi(combinaisons)
 
 
 func _on_ui_choix(coup):
 	grille[coup] = combinaisons[coup]
-	emit_signal("update_grille", grille)
+	nodeUI.update_grille(grille)

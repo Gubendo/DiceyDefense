@@ -1,10 +1,10 @@
+Node
 Button
 Sprite2D
 TextureRect
 TileMap
 Control
 Container
-Node
 Label
 Camera2D
 AnimatedSprite2D

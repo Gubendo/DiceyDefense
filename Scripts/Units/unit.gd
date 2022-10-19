@@ -2,11 +2,15 @@ extends Node2D
 
 var sprite
 var button
+
+var activated
+var value = ""
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	activated = false
 	sprite = get_node("Sprite2d")
-	button = get_node("Button")
+	button = get_node("Activate")
 	sprite.modulate = Color(0.5, 0.5, 0.5)
 
 
@@ -15,7 +19,8 @@ func _process(delta):
 	pass
 
 
-func _on_button_pressed():
+func activate():
 	sprite.modulate = Color(1, 1, 1)
 	button.visible = false
-	emit_signal("choix", "total1")
+	activated = true
+	emit_signal("choix", value)

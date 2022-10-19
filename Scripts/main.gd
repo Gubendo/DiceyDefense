@@ -2,7 +2,6 @@ extends Node
 
 var hand = [1, 2, 3, 4, 5]
 var rng = RandomNumberGenerator.new()
-signal update_hand(hand)
 
 func _ready():
 	rng.randomize()
@@ -19,5 +18,6 @@ func _on_ui_roll(unfrozen):
 	for i in range(5):
 		if i in unfrozen_id:
 			hand[i] = rng.randi_range(1, 6)
-	emit_signal("update_hand", hand)
+	get_node("YamsManager").calcul_hand(hand)
+	get_node("UI").update_hand(hand)
 

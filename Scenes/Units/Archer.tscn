@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5tp2dhwh1sjy"]
+
+[ext_resource type="Script" path="res://Scenes/Units/Archer.gd" id="1_mqvs0"]
+[ext_resource type="Texture2D" uid="uid://bw24p5hfsc5j4" path="res://Sprites/Units/archer.png" id="2_h8mpf"]
+
+[node name="Archer" type="Node2D"]
+position = Vector2(23, 11)
+script = ExtResource("1_mqvs0")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_h8mpf")
+
+[node name="Activate" type="Button" parent="."]
+offset_left = 4.0
+offset_top = -15.0
+offset_right = 12.0
+offset_bottom = -7.0
+
+[connection signal="pressed" from="Activate" to="." method="_on_activate_pressed"]

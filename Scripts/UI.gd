@@ -61,8 +61,7 @@ func _on_roll_pressed():
 	emit_signal("roll", unfrozenDices)
 	
 
-func _on_main_update_hand(hand):
-	print("update")
+func update_hand(hand):
 	for i in range(5):
 		dicesList[i].texture = dicesSprites[hand[i] - 1]
 	get_node("CanvasLayer/ValeurMain").text = "Main réelle : " + str(hand)
@@ -73,7 +72,7 @@ func _on_main_update_hand(hand):
 	
 		
 
-func _on_yams_manager_update_combi(combinaisons):
+func update_combi(combinaisons):
 	get_node("CanvasLayer/Coups/Total1").text = "Total des 1\n" + str(combinaisons["total1"]) + " points"
 	get_node("CanvasLayer/Coups/Total2").text = "Total des 2\n" + str(combinaisons["total2"]) + " points"
 	get_node("CanvasLayer/Coups/Total3").text = "Total des 3\n" + str(combinaisons["total3"]) + " points"
@@ -88,7 +87,7 @@ func _on_yams_manager_update_combi(combinaisons):
 	get_node("CanvasLayer/Coups/Chance").text = "Chance\n" + str(combinaisons["chance"]) + " points"
 	get_node("CanvasLayer/Coups/Yams").text = "Yams\n" + str(combinaisons["yams"]) + " points"
 	
-func _on_yams_manager_update_grille(grille):
+func update_grille(grille):
 	get_node("CanvasLayer/Grille").text = "Grille \n\nTotal des 1 : {0}\nTotal des 2 : {1}\nTotal des 3 : {2}
 	Total des 4 : {3}\nTotal des 5 : {4}\nTotal des 6 : {5}\nBrelan : {6}\nCarré : {7}\nFull : {8}
 	Petite suite : {9}\nGrande suite : {10}\nChance : {11}\nYam's : {12}".format([
