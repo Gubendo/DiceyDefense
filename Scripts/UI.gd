@@ -66,7 +66,7 @@ func update_hand(hand):
 		dicesList[i].texture = dicesSprites[hand[i] - 1]
 	get_node("CanvasLayer/ValeurMain").text = "Main réelle : " + str(hand)
 	coupsRestant -= 1
-	get_node("CanvasLayer/nbCoups").text = "Coups restants : " + str(coupsRestant)
+	get_node("CanvasLayer/nbLancer").text = "Lancers restants : " + str(coupsRestant)
 	if coupsRestant == 0:
 		get_node("CanvasLayer/RollButton").visible = false
 	
