@@ -10,3 +10,4 @@ data_*/
 
 .godot/editor/project_metadata.cfg
 .godot/editor/filesystem_*
+*.cfg
