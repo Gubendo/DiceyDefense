@@ -6,10 +6,9 @@ func _init():
 	unitName = "Soldier"
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_activate_pressed():
 	activate()
+
+func special():
+	print("Je donne un coup d'épée")
+	target.take_dmg(GameData.unit_data["Soldier"]["damage"])

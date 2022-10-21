@@ -1,7 +1,13 @@
 res://Scenes/Enemies/Test.tscn
 res://UI.tres
+res://Scripts/main.gd
 res://Scenes/main.tscn
 res://Scenes/Units/Archer.tscn
 res://Scenes/Units/Soldier.tscn
 res://Scenes/UI.tscn
+res://Scripts/Units/unit.gd
+res://Scripts/Units/Soldier.gd
+res://Scenes/Units/Archer.gd
+res://Scripts/YamsManager.gd
+res://Singletons/GameData.gd
 res://Scripts/Enemies/Test.gd

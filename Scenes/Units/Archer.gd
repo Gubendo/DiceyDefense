@@ -5,11 +5,9 @@ extends "res://Scripts/Units/unit.gd"
 func _init():
 	unitName = "Archer"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_activate_pressed():
 	activate()
+
+func special():
+	print("Je tire une flèche")
+	target.take_dmg(GameData.unit_data["Archer"]["damage"])
