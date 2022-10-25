@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://csjhew2hhmlsp" path="res://Sprites/dice5.png" id="6_jlkly"]
 [ext_resource type="Texture2D" uid="uid://vixwo325hsro" path="res://Sprites/dice6.png" id="7_akuqu"]
 [ext_resource type="PackedScene" uid="uid://bmul6nit5rrj5" path="res://Scenes/dice.tscn" id="8_72j4t"]
-[ext_resource type="Theme" uid="uid://dcbgwqk4nede7" path="res://UI.tres" id="9_k0giq"]
+
+[sub_resource type="Texture2D" id="Texture2D_d3id7"]
+resource_local_to_scene = false
+resource_name = ""
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx3p0"]
 bg_color = Color(0, 0.329412, 0.521569, 1)
@@ -39,11 +42,18 @@ dicesSprites = [ExtResource("2_67tmu"), ExtResource("3_3eyb1"), ExtResource("4_t
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="PlateauOverlay" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0.462745)
+offset_top = 770.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("Texture2D_d3id7")
+
 [node name="RollButton" type="Button" parent="CanvasLayer"]
-offset_left = 60.0
-offset_top = 840.0
-offset_right = 260.0
-offset_bottom = 1040.0
+offset_left = 100.0
+offset_top = 830.0
+offset_right = 250.0
+offset_bottom = 980.0
 theme = SubResource("Theme_lm4wp")
 theme_override_font_sizes/font_size = 50
 text = "Roll"
@@ -72,164 +82,35 @@ theme_override_font_sizes/font_size = 40
 text = "Main réelle : "
 
 [node name="nbLancer" type="Label" parent="CanvasLayer"]
-offset_left = 1075.0
-offset_top = 100.0
-offset_right = 1400.0
-offset_bottom = 160.0
+offset_left = 20.0
+offset_top = 988.0
+offset_right = 358.0
+offset_bottom = 1048.0
 theme_override_font_sizes/font_size = 40
 text = "Lancers restants :"
 
 [node name="Grille" type="Label" parent="CanvasLayer"]
-offset_left = 50.0
-offset_top = 45.0
-offset_right = 520.0
-offset_bottom = 131.0
+offset_left = 55.0
+offset_top = 10.0
+offset_right = 525.0
+offset_bottom = 95.0
 theme_override_font_sizes/font_size = 30
-text = "Scores par coup :"
+text = "Grille"
 
 [node name="Relancer" type="Label" parent="CanvasLayer"]
 offset_left = 330.0
-offset_top = 850.0
-offset_right = 481.0
-offset_bottom = 910.0
-theme_override_font_sizes/font_size = 40
+offset_top = 820.0
+offset_right = 498.0
+offset_bottom = 880.0
+theme_override_font_sizes/font_size = 60
 text = "Relancer"
 
 [node name="Garder" type="Label" parent="CanvasLayer"]
 offset_left = 1330.0
-offset_top = 850.0
+offset_top = 820.0
 offset_right = 1481.0
-offset_bottom = 910.0
+offset_bottom = 880.0
 theme_override_font_sizes/font_size = 40
 text = "Garder"
 
-[node name="Coups" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1050.0
-offset_top = 175.0
-offset_right = 1850.0
-offset_bottom = 775.0
-
-[node name="Total1" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 175.0
-offset_bottom = 125.0
-theme = ExtResource("9_k0giq")
-text = "Total 1"
-
-[node name="Total2" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 225.0
-offset_top = 25.0
-offset_right = 375.0
-offset_bottom = 125.0
-theme = ExtResource("9_k0giq")
-text = "Total 2"
-
-[node name="Total3" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 425.0
-offset_top = 25.0
-offset_right = 575.0
-offset_bottom = 125.0
-theme = ExtResource("9_k0giq")
-text = "Total 3
-"
-
-[node name="Total4" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 625.0
-offset_top = 25.0
-offset_right = 775.0
-offset_bottom = 125.0
-theme = ExtResource("9_k0giq")
-text = "Total 4
-"
-
-[node name="Total5" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 25.0
-offset_top = 175.0
-offset_right = 175.0
-offset_bottom = 275.0
-theme = ExtResource("9_k0giq")
-text = "Total 5"
-
-[node name="Total6" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 225.0
-offset_top = 175.0
-offset_right = 375.0
-offset_bottom = 275.0
-theme = ExtResource("9_k0giq")
-text = "Total 6"
-
-[node name="Brelan" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 425.0
-offset_top = 175.0
-offset_right = 575.0
-offset_bottom = 275.0
-theme = ExtResource("9_k0giq")
-text = "Brelan"
-
-[node name="Carre" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 625.0
-offset_top = 175.0
-offset_right = 775.0
-offset_bottom = 275.0
-theme = ExtResource("9_k0giq")
-text = "Carré"
-
-[node name="Full" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 25.0
-offset_top = 325.0
-offset_right = 175.0
-offset_bottom = 425.0
-theme = ExtResource("9_k0giq")
-text = "Full"
-
-[node name="PSuite" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 225.0
-offset_top = 325.0
-offset_right = 375.0
-offset_bottom = 425.0
-theme = ExtResource("9_k0giq")
-text = "Petite Suite"
-
-[node name="GSuite" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 425.0
-offset_top = 325.0
-offset_right = 575.0
-offset_bottom = 425.0
-theme = ExtResource("9_k0giq")
-text = "Grande Suite"
-
-[node name="Chance" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 625.0
-offset_top = 325.0
-offset_right = 775.0
-offset_bottom = 425.0
-theme = ExtResource("9_k0giq")
-text = "Chance
-"
-
-[node name="Yams" type="Button" parent="CanvasLayer/Coups"]
-offset_left = 250.0
-offset_top = 475.0
-offset_right = 550.0
-offset_bottom = 575.0
-theme = ExtResource("9_k0giq")
-text = "Yams"
-
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_roll_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Total1" to="." method="_on_total_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Total2" to="." method="_on_total_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Total3" to="." method="_on_total_3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Total4" to="." method="_on_total_4_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Total5" to="." method="_on_total_5_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Total6" to="." method="_on_total_6_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Brelan" to="." method="_on_brelan_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Carre" to="." method="_on_carre_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Full" to="." method="_on_full_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/PSuite" to="." method="_on_p_suite_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/GSuite" to="." method="_on_g_suite_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Chance" to="." method="_on_chance_pressed"]
-[connection signal="pressed" from="CanvasLayer/Coups/Yams" to="." method="_on_yams_pressed"]

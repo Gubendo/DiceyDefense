@@ -5,10 +5,15 @@ extends "res://Scripts/Units/unit.gd"
 func _init():
 	unitName = "Soldier"
 
-
-func _on_activate_pressed():
-	activate()
-
 func special():
 	print("Je donne un coup d'épée")
-	target.take_dmg(GameData.unit_data["Soldier"]["damage"])
+	target.take_dmg(stats[level]["damage"])
+
+func update_level(value):
+	if value < 3: level= 0
+	else: level = 1
+	
+func update_tooltip():
+	update_stats()
+	tooltipText.text = "Unité d'attaque au corps à corps qui inflige {0} points de \
+dégâts toutes les {1} secondes".format([currentStats[0], currentStats[1]])

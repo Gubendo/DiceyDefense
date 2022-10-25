@@ -111,9 +111,9 @@ func calcul_hand(hand):
 	combinaisons['g_suite'] = calcul_g_suite(hand)
 	combinaisons['chance'] = calcul_chance(hand)
 	combinaisons['yams'] = calcul_yams(hand)
-	nodeUI.update_combi(combinaisons)
 
 
 func _on_ui_choix(coup):
 	grille[coup] = combinaisons[coup]
 	nodeUI.update_grille(grille)
+	get_node("/root/Main").start_next_wave()
