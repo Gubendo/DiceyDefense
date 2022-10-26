@@ -1,6 +1,14 @@
-res://Scenes/main.tscn
-res://Scripts/main.gd
+res://Scenes/Units/Mage.tscn
 res://Scripts/Units/unit.gd
+res://Scenes/main.tscn
 res://Scenes/Units/Archer.tscn
 res://Scenes/Units/Soldier.tscn
-res://Scenes/UI.tscn
+res://Scripts/main.gd
+res://Scripts/Enemies/Test.gd
+res://Scenes/Enemies/Test.tscn
+res://Scripts/Units/Mage.gd
+res://Scripts/YamsManager.gd
+res://Singletons/GameData.gd
+res://Scenes/Units/Paladin.tscn
+res://Scripts/Units/Paladin.gd
+res://Scripts/UI.gd

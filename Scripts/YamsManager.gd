@@ -113,7 +113,7 @@ func calcul_hand(hand):
 	combinaisons['yams'] = calcul_yams(hand)
 
 
-func _on_ui_choix(coup):
+func on_unit_choice(coup):
 	grille[coup] = combinaisons[coup]
 	nodeUI.update_grille(grille)
 	get_node("/root/Main").start_next_wave()

@@ -9,6 +9,7 @@ extends Node2D
 @onready var rangeSprite = get_node("Range/RangeSprite")
 
 @onready var stats = GameData.unit_data[unitName]["stats"]
+@onready var yamsMgr = get_tree().get_root().get_node("Main/YamsManager")
 var currentStats = []
 
 var enemies_in_range = []
@@ -33,7 +34,7 @@ func _ready():
 func _process(delta):
 	if activated and enemies_in_range.size() != 0:
 		select_enemy()
-		turn()
+		turn((target.position - position).x)
 		if atkReady:
 			attack()
 	else:
@@ -50,6 +51,8 @@ func connect_signals():
 	range.body_exited.connect(_on_range_body_exited)
 	button.mouse_entered.connect(enable_tooltip)
 	button.mouse_exited.connect(disable_tooltip)
+	choix.connect(Callable(yamsMgr, "on_unit_choice"))
+
 	
 func activate():
 	button.modulate = Color(1, 1, 1)
@@ -67,8 +70,11 @@ func select_enemy():
 	var max_enemy = progress_array.find(max_progress)
 	target = enemies_in_range[max_enemy]
 
-func turn():
-	unit.look_at(target.position)
+func turn(direction):
+	if direction < 0:
+		unit.scale = Vector2(-1, 1)
+	else:
+		unit.scale = Vector2(1, 1)
 
 func attack():
 	atkReady = false

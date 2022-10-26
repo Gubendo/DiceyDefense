@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://rtuageh4fjhm"]
+[gd_scene load_steps=8 format=3 uid="uid://drdr6dkao3hnd"]
 
-[ext_resource type="Script" path="res://Scripts/Units/Soldier.gd" id="1_ua233"]
-[ext_resource type="Texture2D" uid="uid://dccfoc68ajb6a" path="res://Sprites/Units/soldier.png" id="2_yjfs8"]
+[ext_resource type="Script" path="res://Scripts/Units/Mage.gd" id="1_t5djv"]
+[ext_resource type="Texture2D" uid="uid://dtom1n33r4ufi" path="res://Sprites/Units/mage.png" id="2_4cg3e"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
-[ext_resource type="Texture2D" uid="uid://csq4lvdpjevhn" path="res://Sprites/Units/soldier-hover.png" id="3_px5te"]
+[ext_resource type="Texture2D" uid="uid://cf00j1hu3v1fu" path="res://Sprites/Units/mage-hover.png" id="3_e2hdd"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
@@ -13,8 +13,8 @@ radius = 8.0
 resource_local_to_scene = false
 resource_name = ""
 
-[node name="Soldier" type="Node2D"]
-script = ExtResource("1_ua233")
+[node name="Mage" type="Node2D"]
+script = ExtResource("1_t5djv")
 
 [node name="Unit" type="Node2D" parent="."]
 
@@ -30,11 +30,10 @@ offset_right = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("2_yjfs8")
+texture_normal = ExtResource("2_4cg3e")
 
 [node name="Hover" type="Sprite2D" parent="Unit"]
-position = Vector2(0.5, 0)
-texture = ExtResource("3_px5te")
+texture = ExtResource("3_e2hdd")
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -51,7 +50,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_left = 12.0
 offset_top = -7.0
-offset_right = 72.0
+offset_right = 74.0
 offset_bottom = 43.0
 theme = ExtResource("4_xrb4r")
 
@@ -60,7 +59,8 @@ modulate = Color(0.0352941, 0.0117647, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -15.0
+offset_right = -1.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("Texture2D_ko2dj")
@@ -70,7 +70,7 @@ offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
 offset_bottom = 9.0
-text = "Soldat / Total des 1"
+text = "Mage / Total des 5"
 
 [node name="Description" type="RichTextLabel" parent="Tooltip"]
 offset_left = 2.0
@@ -83,6 +83,6 @@ theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
 text = "Unité d'attaque à distance qui
 inflige [color=5d5d5d]1/5/[color=fff]10[/color]/15[/color] points de 
-dégâts toutes les [color=5d5d5d]2/1/[color=fff]0.5[/color]/0.1 [/color]secondes selon le niveau"
+dégâts et réduit la vitesse de déplacement des ennemis  toutes les [color=5d5d5d]2/1/[color=fff]0.5[/color]/0.1 [/color]secondes "
 fit_content_height = true
 scroll_active = false

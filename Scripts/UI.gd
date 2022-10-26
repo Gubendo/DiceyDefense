@@ -82,7 +82,7 @@ func update_phase(waveStarted):
 	if !waveStarted: nouveau_coup()
 
 func update_grille(grille):
-	get_node("CanvasLayer/Grille").text = "Grille \n\nTotal des 1 : {0}\nTotal des 2 : {1}\nTotal des 3 : {2}
+	get_node("CanvasLayer/Grille").text = "Grille (DEV)\n\nTotal des 1 : {0}\nTotal des 2 : {1}\nTotal des 3 : {2}
 	Total des 4 : {3}\nTotal des 5 : {4}\nTotal des 6 : {5}\nBrelan : {6}\nCarré : {7}\nFull : {8}
 	Petite suite : {9}\nGrande suite : {10}\nChance : {11}\nYam's : {12}".format([
 	grille["total1"], grille["total2"], grille["total3"], grille["total4"], grille["total5"],

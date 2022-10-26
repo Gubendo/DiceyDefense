@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://b5tp2dhwh1sjy"]
 
-[ext_resource type="Script" path="res://Scenes/Units/Archer.gd" id="1_mqvs0"]
+[ext_resource type="Script" path="res://Scripts/Units/Archer.gd" id="1_mqvs0"]
 [ext_resource type="Texture2D" uid="uid://bw24p5hfsc5j4" path="res://Sprites/Units/archer.png" id="2_h8mpf"]
+[ext_resource type="Texture2D" uid="uid://rpjxxh0dg3o" path="res://Sprites/Units/archer-hover.png" id="3_mii2q"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_ulfwh"]
-[ext_resource type="Texture2D" uid="uid://c051oo4ejkjk3" path="res://Sprites/Units/hover.png" id="3_vpnao"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_0yqvr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwprr"]
@@ -34,7 +34,7 @@ shortcut_in_tooltip = false
 texture_normal = ExtResource("2_h8mpf")
 
 [node name="Hover" type="Sprite2D" parent="Unit"]
-texture = ExtResource("3_vpnao")
+texture = ExtResource("3_mii2q")
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -46,6 +46,7 @@ texture = ExtResource("3_ulfwh")
 shape = SubResource("CircleShape2D_kwprr")
 
 [node name="Tooltip" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 12.0

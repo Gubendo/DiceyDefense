@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://4gnc4coty71j"]
+[gd_scene load_steps=12 format=3 uid="uid://4gnc4coty71j"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_f05js"]
 [ext_resource type="PackedScene" uid="uid://b5kwsmxglfbp6" path="res://Scenes/UI.tscn" id="2_sfx10"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b5cwnsigjnr0o" path="res://tilesets/terrain.png" id="4_e4dkg"]
 [ext_resource type="PackedScene" uid="uid://rtuageh4fjhm" path="res://Scenes/Units/Soldier.tscn" id="5_vqr24"]
 [ext_resource type="PackedScene" uid="uid://b5tp2dhwh1sjy" path="res://Scenes/Units/Archer.tscn" id="7_5k768"]
+[ext_resource type="PackedScene" uid="uid://drdr6dkao3hnd" path="res://Scenes/Units/Mage.tscn" id="7_e1n3n"]
+[ext_resource type="PackedScene" uid="uid://cmu6gp2op0k0a" path="res://Scenes/Units/Paladin.tscn" id="8_08tlg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8abaa"]
 texture = ExtResource("4_e4dkg")
@@ -44,12 +46,20 @@ zoom = Vector2(3, 3)
 
 [node name="Units" type="Node" parent="."]
 
-[node name="Soldier" parent="Units" instance=ExtResource("5_vqr24")]
-position = Vector2(-426, -172)
+[node name="Archer" parent="Units" instance=ExtResource("7_5k768")]
+position = Vector2(-330, -188)
 scale = Vector2(1.5, 1.5)
 
-[node name="Archer" parent="Units" instance=ExtResource("7_5k768")]
-position = Vector2(-326, -188)
+[node name="Paladin" parent="Units" instance=ExtResource("8_08tlg")]
+position = Vector2(-358, -159)
+scale = Vector2(1.5, 1.5)
+
+[node name="Mage" parent="Units" instance=ExtResource("7_e1n3n")]
+position = Vector2(-377, -188)
+scale = Vector2(1.5, 1.5)
+
+[node name="Soldier" parent="Units" instance=ExtResource("5_vqr24")]
+position = Vector2(-426, -172)
 scale = Vector2(1.5, 1.5)
 
 [node name="Path2d" type="Path2D" parent="."]
@@ -57,5 +67,3 @@ curve = SubResource("Curve2D_lxoc7")
 
 [connection signal="choix" from="UI" to="YamsManager" method="_on_ui_choix"]
 [connection signal="roll" from="UI" to="." method="_on_ui_roll"]
-[connection signal="choix" from="Units/Soldier" to="YamsManager" method="_on_ui_choix"]
-[connection signal="choix" from="Units/Archer" to="YamsManager" method="_on_ui_choix"]

@@ -38,6 +38,8 @@ func update_phase():
 		if !unit.activated : 
 			unit.button.disabled = waveStarted
 			unit.sleeping = waveStarted
+		else:
+			unit.turn(1)
 	
 ### Gestion de vagues
 
@@ -65,4 +67,3 @@ func spawn_enemies(wave_data):
 		
 func on_enemy_death():
 	enemies_in_wave -= 1
-	print(enemies_in_wave)
