@@ -21,6 +21,8 @@ var atkReady = true
 
 var unitName = ""
 var level = 0
+var buff_as = 1
+var buff_dmg = 1
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
@@ -34,6 +36,7 @@ func _ready():
 func _process(delta):
 	if activated and enemies_in_range.size() != 0:
 		select_enemy()
+		show_target("")
 		turn((target.position - position).x)
 		if atkReady:
 			attack()
@@ -55,12 +58,18 @@ func connect_signals():
 
 	
 func activate():
-	button.modulate = Color(1, 1, 1)
-	button.disabled = true
-	activated = true
-	rangeSprite.modulate.a = 0.3
+	if level == 0:
+		queue_free()
+	else:
+		button.modulate = Color(1, 1, 1)
+		button.disabled = true
+		activated = true
+		rangeSprite.modulate.a = 0.3
+		update_tooltip()
 	emit_signal("choix", GameData.unit_data[unitName]["value"])
-	update_tooltip()
+	
+
+### ACTION TARGET ###
 
 func select_enemy():
 	var progress_array = []
@@ -69,6 +78,14 @@ func select_enemy():
 	var max_progress = progress_array.max()
 	var max_enemy = progress_array.find(max_progress)
 	target = enemies_in_range[max_enemy]
+
+func show_target(unit):
+	if unitName == unit:
+		for enemy in get_tree().get_root().get_node("Main/KingsRoad").get_children():
+			if enemy == target:
+				enemy.sprite.modulate = Color(0, 0, 1)
+			else:
+				enemy.sprite.modulate = Color(1, 1, 1)
 
 func turn(direction):
 	if direction < 0:
@@ -79,12 +96,14 @@ func turn(direction):
 func attack():
 	atkReady = false
 	special()
-	await get_tree().create_timer(stats[level]["cooldown"]).timeout
+	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
 	atkReady = true
 
 func special(): #Dépend de chaque unité
 	pass
-	
+
+### GESTION LVL & STATS ###
+
 func update_level(value):
 	pass
 	
@@ -94,10 +113,10 @@ func update_stats():
 		for stat in stats[level]:
 			currentStats.append(stat_color(stats[level][stat], 1))
 	else:
-		for stat in stats[0]:
-			if level == 0: currentStats.append(stat_color(stats[0][stat], 1))
-			else: currentStats.append(stat_color(stats[0][stat], 0))
-		for idx in range(1, len(stats)):
+		for stat in stats[1]:
+			if level == 1: currentStats.append(stat_color(stats[1][stat], 1))
+			else: currentStats.append(stat_color(stats[1][stat], 0))
+		for idx in range(2, len(stats) + 1):
 			var statNb = 0
 			for stat in stats[idx]:
 				if level == idx:
@@ -106,7 +125,12 @@ func update_stats():
 					currentStats[statNb] = currentStats[statNb] + "/" + stat_color(stats[idx][stat], 0)
 				statNb += 1
 	
-	range.scale = Vector2(stats[level]["range"] + 1, stats[level]["range"] + 1)
+	if level != 0:
+		range.scale = Vector2(stats[level]["range"] + 1, stats[level]["range"] + 1)
+		rangeSprite.modulate = Color(1, 1, 1, 0.3)
+	else:
+		range.scale = Vector2(2, 2)
+		rangeSprite.modulate = Color(1, 0, 0, 0.3)
 	
 
 func stat_color(stat, focus):

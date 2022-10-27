@@ -3,7 +3,7 @@ extends Node
 var hand = [1, 2, 3, 4, 5]
 var rng = RandomNumberGenerator.new()
 
-var current_wave = 1
+var current_wave = 0
 var enemies_in_wave = 0
 var waveStarted = false
 
@@ -62,7 +62,7 @@ func spawn_enemies(wave_data):
 	for i in wave_data:
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
 		new_enemy.death.connect(on_enemy_death)
-		get_node("Path2d").add_child(new_enemy, true)
+		get_node("KingsRoad").add_child(new_enemy, true)
 		await get_tree().create_timer(i[1]).timeout
 		
 func on_enemy_death():

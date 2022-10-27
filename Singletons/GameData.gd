@@ -2,11 +2,6 @@ extends Node
 
 
 var soldier_stats = {
-	0: {
-		"damage": 10,
-		"cooldown": 1,
-		"range": 2,
-	},
 	1: {
 		"damage": 20,
 		"cooldown": 0.5,
@@ -15,11 +10,6 @@ var soldier_stats = {
 }
 
 var archer_stats = {
-	0: {
-		"damage": 10,
-		"cooldown": 1,
-		"range": 2,
-	},
 	1: {
 		"damage": 20,
 		"cooldown": 0.5,
@@ -38,7 +28,7 @@ var archer_stats = {
 }
 
 var loup_stats = {
-	0: {
+	1: {
 		"damage": 10,
 		"cooldown": 0.5,
 		"range": 5
@@ -46,7 +36,7 @@ var loup_stats = {
 }
 
 var bard_stats = {
-	0: {
+	1: {
 		"damage": 10,
 		"cooldown": 0.5,
 		"range": 5
@@ -54,11 +44,6 @@ var bard_stats = {
 }
 
 var mage_stats = {
-	0: {
-		"damage": 10,
-		"cooldown": 0.1,
-		"range": 2,
-	},
 	1: {
 		"damage": 20,
 		"cooldown": 0.1,
@@ -77,7 +62,7 @@ var mage_stats = {
 }
 
 var paladin_stats = {
-	0: {
+	1: {
 		"damage": 10,
 		"cooldown": 0.5,
 		"range": 5
@@ -116,6 +101,6 @@ var unit_data = {
 
 
 var wave_data = {
-	0: [["Test", 1.5], ["Test", 0.1]],
-	1: [["Test", 0.1], ["Test", 0.1], ["Test", 0.1], ["Test", 0.1]]
+	0: [["Test", 1.5]],
+	1: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]]
 }

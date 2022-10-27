@@ -7,6 +7,7 @@ func _init():
 
 func special():
 	print("Je graille un coup")
+	target.apply_bleed(10, 1, 0.5)
 
 func update_level(value):
 	level = 0

@@ -31,3 +31,9 @@ show_percentage = false
 
 [node name="SlowTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BleedTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BleedFrequency" type="Timer" parent="."]
+one_shot = true

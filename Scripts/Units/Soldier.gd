@@ -7,7 +7,7 @@ func _init():
 
 func special():
 	print("Je donne un coup d'épée")
-	target.take_dmg(stats[level]["damage"])
+	target.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value):
 	if value < 3: level= 0

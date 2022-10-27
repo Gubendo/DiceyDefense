@@ -7,7 +7,7 @@ func _init():
 
 func special():
 	print("Je tire une flèche")
-	target.take_dmg(stats[level]["damage"])
+	target.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value):
 	level = value / 2

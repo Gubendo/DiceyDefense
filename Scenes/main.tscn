@@ -59,7 +59,7 @@ position = Vector2(-330, -188)
 scale = Vector2(1.5, 1.5)
 
 [node name="Paladin" parent="Units" instance=ExtResource("8_08tlg")]
-position = Vector2(-358, -159)
+position = Vector2(-358, -161)
 scale = Vector2(1.5, 1.5)
 
 [node name="Mage" parent="Units" instance=ExtResource("7_e1n3n")]
@@ -74,7 +74,7 @@ scale = Vector2(1.5, 1.5)
 position = Vector2(-391, -243)
 scale = Vector2(1.5, 1.5)
 
-[node name="Path2d" type="Path2D" parent="."]
+[node name="KingsRoad" type="Path2D" parent="."]
 curve = SubResource("Curve2D_lxoc7")
 
 [connection signal="choix" from="UI" to="YamsManager" method="_on_ui_choix"]
