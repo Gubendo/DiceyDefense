@@ -37,8 +37,10 @@ var loup_stats = {
 
 var bard_stats = {
 	1: {
-		"damage": 10,
-		"cooldown": 0.5,
+		"target": 2,
+		"buff": 2,
+		"duration": 2,
+		"cooldown": 3,
 		"range": 5
 	}
 }

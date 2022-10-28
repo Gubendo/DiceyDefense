@@ -71,7 +71,7 @@ position = Vector2(-426, -172)
 scale = Vector2(1.5, 1.5)
 
 [node name="Bard" parent="Units" instance=ExtResource("9_pydge")]
-position = Vector2(-391, -243)
+position = Vector2(-373, -243)
 scale = Vector2(1.5, 1.5)
 
 [node name="KingsRoad" type="Path2D" parent="."]

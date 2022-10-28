@@ -6,7 +6,7 @@ func _init():
 	unitName = "Mage"
 
 func special():
-	print("Je tire une boule de givre")
+	print("MAGE : Je tire une boule de givre")
 	target.apply_slow(0.5, 2)
 	#target.take_dmg(stats[level]["damage"])
 

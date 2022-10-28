@@ -6,14 +6,15 @@ func _init():
 	unitName = "Paladin"
 
 func special():
-	print("Je donne un coup de marteau")
+	print("PALADIN : Je donne un coup de marteau")
 	var enemies = get_tree().get_root().get_node("Main/KingsRoad").get_children()
 	for enemy in enemies:
 		if abs(target.position.distance_to(enemy.position)) < 40:
 			enemy.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value):
-	level = 0
+	if value == 0: level = 0
+	else: level = 1
 	
 func update_tooltip():
 	update_stats()

@@ -119,10 +119,7 @@ func update_stats():
 		for idx in range(2, len(stats) + 1):
 			var statNb = 0
 			for stat in stats[idx]:
-				if level == idx:
-					currentStats[statNb] = currentStats[statNb] + "/" + stat_color(stats[idx][stat], 1)
-				else:
-					currentStats[statNb] = currentStats[statNb] + "/" + stat_color(stats[idx][stat], 0)
+				currentStats[statNb] = currentStats[statNb] + "/" + stat_color(stats[idx][stat], level==idx)
 				statNb += 1
 	
 	if level != 0:

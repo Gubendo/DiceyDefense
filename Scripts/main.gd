@@ -28,9 +28,9 @@ func _on_ui_roll(unfrozen):
 	get_node("YamsManager").calcul_hand(hand)
 	get_node("UI").update_hand(hand)
 	
-	for node in get_node("Units").get_children():
-		if !node.activated : 
-			node.update_level(get_node("YamsManager").combinaisons[GameData.unit_data[node.name]["value"]])
+	for unit in get_node("Units").get_children():
+		if !unit.activated : 
+			unit.update_level(get_node("YamsManager").combinaisons[GameData.unit_data[unit.name]["value"]])
 
 func update_phase():
 	get_node("UI").update_phase(waveStarted)

@@ -6,7 +6,7 @@ func _init():
 	unitName = "Soldier"
 
 func special():
-	print("Je donne un coup d'épée")
+	print("PAYSAN : Je donne un coup d'épée")
 	target.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value):

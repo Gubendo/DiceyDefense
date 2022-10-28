@@ -6,11 +6,12 @@ func _init():
 	unitName = "Loup"
 
 func special():
-	print("Je graille un coup")
+	print("LOUP : Je graille un coup")
 	target.apply_bleed(10, 1, 0.5)
 
 func update_level(value):
-	level = 0
+	if value == 0: level = 0
+	else: level = 1
 	
 func update_tooltip():
 	update_stats()
