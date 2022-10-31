@@ -23,7 +23,7 @@ func _ready():
 	currentHP = baseHP
 	health_bar.max_value = baseHP
 	health_bar.value = currentHP
-	health_bar.set_as_top_level(true)
+	#health_bar.set_as_top_level(true)
 
 func _physics_process(delta):
 	if progress_ratio >= 1.0:
@@ -47,7 +47,7 @@ func _physics_process(delta):
 	
 func move(delta):
 	progress += currentSpeed*delta
-	health_bar.position = (position - Vector2(15, 20))
+	#health_bar.position = (position - Vector2(15, 20))
 	
 func take_dmg(damage):
 	var oldColor = sprite.modulate

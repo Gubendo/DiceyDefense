@@ -3,28 +3,33 @@
 [ext_resource type="Script" path="res://Scripts/Enemies/Test.gd" id="1_3118j"]
 [ext_resource type="Texture2D" uid="uid://euskiuanfoc1" path="res://Sprites/Enemies/test.png" id="1_qkk8e"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4pjf4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4sa"]
+size = Vector2(8.66667, 11.3333)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmkik"]
 bg_color = Color(0, 0.717647, 0.345098, 1)
 
 [node name="TestEnemy" type="PathFollow2D"]
+rotates = false
 loop = false
 script = ExtResource("1_3118j")
 
 [node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2d" type="Sprite2D" parent="CharacterBody2d"]
 texture = ExtResource("1_qkk8e")
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
-shape = SubResource("CircleShape2D_4pjf4")
+position = Vector2(0.333333, 2.33333)
+shape = SubResource("RectangleShape2D_ix4sa")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -15.0
-offset_top = -20.0
-offset_right = 15.0
-offset_bottom = -15.0
+offset_left = -7.0
+offset_top = -17.0
+offset_right = 8.0
+offset_bottom = -12.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_lmkik")
 value = 50.0
 show_percentage = false

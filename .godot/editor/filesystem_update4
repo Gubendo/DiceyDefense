@@ -1,10 +1,5 @@
-res://Scenes/Units/Mage.tscn
-res://Singletons/GameData.gd
-res://Scenes/Units/Bard.tscn
-res://Scripts/Units/Bard.gd
-res://Scenes/main.tscn
 res://Scenes/Enemies/Test.tscn
-res://Scripts/Units/Paladin.gd
-res://Scripts/Units/Loup.gd
-res://Scripts/Units/Mage.gd
-res://Scripts/Units/Soldier.gd
+res://Scenes/main.tscn
+res://Scenes/Units/Bard.tscn
+res://Scenes/Units/Mage.tscn
+res://Scripts/Enemies/Test.gd
