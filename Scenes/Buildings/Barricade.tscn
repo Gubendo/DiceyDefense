@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://caysjjwlcdyug"]
+
+[ext_resource type="Texture2D" uid="uid://dpav0a5j5ddsy" path="res://Sprites/Buildings/barricade.png" id="1_1dnx7"]
+[ext_resource type="Script" path="res://Scripts/Buildings/Barricade.gd" id="1_61exy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0p6ou"]
+
+[node name="Barricade" type="Node2D"]
+script = ExtResource("1_61exy")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = ExtResource("1_1dnx7")
+
+[node name="Area2d" type="Area2D" parent="."]
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Area2d"]
+shape = SubResource("RectangleShape2D_0p6ou")

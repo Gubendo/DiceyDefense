@@ -1,6 +1,8 @@
-Timer
+CollisionShape2D
+Area2D
 Sprite2D
 Node2D
+Timer
 TextureButton
 RichTextLabel
 Label
@@ -10,8 +12,6 @@ ItemList
 TextureRect
 ProgressBar
 TextureProgressBar
-CollisionShape2D
-Area2D
 CharacterBody2D
 PathFollow2D
 Path2D

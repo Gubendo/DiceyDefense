@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://iyu3xrydx143"]
+
+[ext_resource type="Script" path="res://Scripts/Units/Tavernier.gd" id="1_wdcm1"]
+[ext_resource type="Texture2D" uid="uid://cj0ic6mgggg88" path="res://Sprites/Units/tavernier.png" id="2_1gqyq"]
+[ext_resource type="Texture2D" uid="uid://dxoeycj4voq3m" path="res://Sprites/Units/tavernier-hover.png" id="3_6hpbs"]
+[ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
+[ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
+radius = 8.0
+
+[sub_resource type="Texture2D" id="Texture2D_ko2dj"]
+resource_local_to_scene = false
+resource_name = ""
+
+[node name="Tavernier" type="Node2D"]
+script = ExtResource("1_wdcm1")
+
+[node name="Unit" type="Node2D" parent="."]
+
+[node name="Activate" type="TextureButton" parent="Unit"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_1gqyq")
+
+[node name="Hover" type="Sprite2D" parent="Unit"]
+texture = ExtResource("3_6hpbs")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="RangeSprite" type="Sprite2D" parent="Range"]
+modulate = Color(1, 1, 1, 0.392157)
+texture = ExtResource("3_8gm61")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_qj271")
+
+[node name="Tooltip" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 12.0
+offset_top = -7.0
+offset_right = 72.0
+offset_bottom = 43.0
+theme = ExtResource("4_xrb4r")
+
+[node name="bg" type="TextureRect" parent="Tooltip"]
+modulate = Color(0.0352941, 0.0117647, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_ko2dj")
+
+[node name="Name" type="Label" parent="Tooltip"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 42.0
+offset_bottom = 9.0
+text = "Tavernier / Full House"
+
+[node name="Description" type="RichTextLabel" parent="Tooltip"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 62.0
+offset_bottom = 46.0
+theme_override_colors/default_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_constants/line_separation = -2
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Unité d'attaque à distance qui
+inflige [color=5d5d5d]1/5/[color=fff]10[/color]/15[/color] points de 
+dégâts toutes les [color=5d5d5d]2/1/[color=fff]0.5[/color]/0.1 [/color]secondes selon le niveau"
+fit_content_height = true
+scroll_active = false

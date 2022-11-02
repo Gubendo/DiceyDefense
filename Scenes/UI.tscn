@@ -43,7 +43,7 @@ dicesSprites = [ExtResource("2_67tmu"), ExtResource("3_3eyb1"), ExtResource("4_t
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlateauOverlay" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0, 0, 0, 0.462745)
+modulate = Color(0, 0, 0.156863, 0.717647)
 offset_top = 770.0
 offset_right = 1920.0
 offset_bottom = 1080.0

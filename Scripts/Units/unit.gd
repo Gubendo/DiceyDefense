@@ -44,7 +44,7 @@ func _process(delta):
 		target = null
 
 func init_sprite():
-	button.modulate = Color(0.5, 0.5, 0.5)
+	#button.modulate = Color(0.5, 0.5, 0.5)
 	rangeSprite.modulate.a = 0
 	unitHover.visible = false
 

@@ -10,7 +10,7 @@ func special():
 	target.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value):
-	if value < 3: level= 0
+	if value < 3: level = 0
 	else: level = 1
 	
 func update_tooltip():

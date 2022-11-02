@@ -71,6 +71,62 @@ var paladin_stats = {
 	}
 }
 
+var builder_stats = {
+	1: {
+		"damage": 10,
+		"cooldown": 0.5,
+		"range": -1
+	}
+}
+
+var bourreau_stats = {
+	1: {
+		"damage": 10,
+		"cooldown": 0.5,
+		"range": 5
+	}
+}
+
+var tavernier_stats = {
+	1: {
+		"damage": 10,
+		"cooldown": 0.5,
+		"range": 5
+	}
+}
+
+var catapulte_stats = {
+	1: {
+		"damage": 10,
+		"cooldown": 0.5,
+		"range": 5
+	}
+}
+
+var trebuchet_stats = {
+	1: {
+		"damage": 10,
+		"cooldown": 0.5,
+		"range": 5
+	}
+}
+
+var colosse_stats = {
+	1: {
+		"damage": 10,
+		"cooldown": 0.5,
+		"range": 5
+	}
+}
+
+var charlatan_stats = {
+	1: {
+		"damage": 10,
+		"cooldown": 0.5,
+		"range": 5
+	}
+}
+
 
 
 var unit_data = {
@@ -97,6 +153,34 @@ var unit_data = {
 	"Paladin": {
 		"value": "total6",
 		"stats": paladin_stats
+	},
+	"Builder": {
+		"value": "brelan",
+		"stats": builder_stats
+	},
+	"Bourreau": {
+		"value": "carre",
+		"stats": bourreau_stats
+	},
+	"Tavernier": {
+		"value": "full",
+		"stats": tavernier_stats
+	},
+	"IngeJR": {
+		"value": "p_suite",
+		"stats": catapulte_stats
+	},
+	"IngeSR": {
+		"value": "g_suite",
+		"stats": trebuchet_stats
+	},
+	"Colosse": {
+		"value": "yams",
+		"stats": colosse_stats
+	},
+	"Charlatan": {
+		"value": "chance",
+		"stats": charlatan_stats
 	}
 	
 }
