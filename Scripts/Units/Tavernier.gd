@@ -8,8 +8,19 @@ func _init():
 func special():
 	print("TAVERNIER : Je buff")
 
+func activate():
+	super.activate()
+	buff_everyone()
+	
 func update_level(value):
-	level= 0
+	level = 1
+
+func buff_everyone():
+	for unit in get_tree().get_root().get_node("Main/Units").get_children():
+		unit.buff_dmg = stats[level]["buff_dmg"]
+
+func _process(delta):
+	pass
 	
 func update_tooltip():
 	update_stats()

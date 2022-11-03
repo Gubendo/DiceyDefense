@@ -17,6 +17,7 @@ script = ExtResource("1_3118j")
 [node name="CharacterBody2d" type="CharacterBody2D" parent="."]
 position = Vector2(0, -4)
 scale = Vector2(1.5, 1.5)
+collision_mask = 3
 
 [node name="Sprite2d" type="Sprite2D" parent="CharacterBody2d"]
 texture = ExtResource("1_qkk8e")

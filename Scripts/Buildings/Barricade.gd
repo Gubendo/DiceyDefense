@@ -2,18 +2,24 @@ extends Node2D
 
 var baseHP = 100
 var currentHP = 100
+var thorns
+var destroyed = false
 
 @onready var health_bar = get_node("HealthBar")
 @onready var sprite = get_node("Sprite2d")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func init():
 	currentHP = baseHP
 	health_bar.max_value = baseHP
 	health_bar.value = currentHP
 
 func repair():
 	currentHP = baseHP
+	health_bar.value = currentHP
+	sprite.visible = true
+	health_bar.visible = true
+	destroyed = false
 	
 func take_dmg(damage):
 	var oldColor = sprite.modulate
@@ -30,4 +36,12 @@ func _process(delta):
 	pass
 	
 func destroy():
-	pass
+	destroyed = true
+	sprite.visible = false # PLUTOT CHANGER LE SPRITE
+	health_bar.visible = false
+
+
+func _on_area_2d_body_entered(body):
+	if !destroyed:
+		body.owner.blocked = true
+		body.owner.blockedBy = self

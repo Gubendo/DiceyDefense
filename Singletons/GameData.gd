@@ -73,8 +73,8 @@ var paladin_stats = {
 
 var builder_stats = {
 	1: {
-		"damage": 10,
-		"cooldown": 0.5,
+		"health": 5,
+		"damage": 5,
 		"range": -1
 	}
 }
@@ -83,15 +83,15 @@ var bourreau_stats = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
-		"range": 5
+		"exec": 0.5,
+		"range": 10
 	}
 }
 
 var tavernier_stats = {
 	1: {
-		"damage": 10,
-		"cooldown": 0.5,
-		"range": 5
+		"buff_dmg": 3,
+		"range": -1
 	}
 }
 

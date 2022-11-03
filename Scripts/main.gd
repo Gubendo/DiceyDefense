@@ -40,6 +40,7 @@ func update_phase():
 			unit.sleeping = waveStarted
 		else:
 			unit.turn(1)
+			unit.start_wave()
 	
 ### Gestion de vagues
 

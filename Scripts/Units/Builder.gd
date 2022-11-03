@@ -22,9 +22,20 @@ func update_tooltip():
 	
 func _process(delta):
 	pass
-	
+
+func start_wave():
+	repair_barricade()
+
+func repair_barricade():
+	if barricade and barricade.baseHP != barricade.currentHP:
+		print("BUILDER : Je répare")
+		barricade.repair()
+
 func build_barricade():
-	print("BUILDER : Je construit ?")
+	print("BUILDER : Je construis une barricade")
 	barricade = barricadeTemp.instantiate()
 	get_tree().get_root().add_child(barricade)
 	barricade.position = Vector2(-312, -250)
+	barricade.baseHP = stats[level]["health"]
+	barricade.thorns = stats[level]["damage"]
+	barricade.init()

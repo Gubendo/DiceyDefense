@@ -44,7 +44,7 @@ func _process(delta):
 		target = null
 
 func init_sprite():
-	#button.modulate = Color(0.5, 0.5, 0.5)
+	button.modulate = Color(0.5, 0.5, 0.5)
 	rangeSprite.modulate.a = 0
 	unitHover.visible = false
 
@@ -100,6 +100,9 @@ func attack():
 	atkReady = true
 
 func special(): #Dépend de chaque unité
+	pass
+
+func start_wave(): # Dépend de chaque unité
 	pass
 
 ### GESTION LVL & STATS ###
