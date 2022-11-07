@@ -103,7 +103,7 @@ func special(): #Dépend de chaque unité
 	pass
 
 func start_wave(): # Dépend de chaque unité
-	pass
+	atkReady = true
 
 ### GESTION LVL & STATS ###
 

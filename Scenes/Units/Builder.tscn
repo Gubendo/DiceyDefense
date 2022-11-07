@@ -56,7 +56,6 @@ theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="Tooltip"]
 modulate = Color(0.0352941, 0.0117647, 0, 1)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,7 +65,6 @@ grow_vertical = 2
 texture = SubResource("Texture2D_ko2dj")
 
 [node name="Name" type="Label" parent="Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -74,7 +72,6 @@ offset_bottom = 9.0
 text = "Bâtisseur / Brelan"
 
 [node name="Description" type="RichTextLabel" parent="Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 62.0

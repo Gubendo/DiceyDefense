@@ -67,6 +67,8 @@ var paladin_stats = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
+		"aoe": 40,
+		"splash": 5,
 		"range": 5
 	}
 }
@@ -99,31 +101,36 @@ var catapulte_stats = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
+		"aoe": 40,
 		"range": 5
 	}
 }
 
 var trebuchet_stats = {
 	1: {
-		"damage": 10,
-		"cooldown": 0.5,
-		"range": 5
+		"damage": 40,
+		"cooldown": 3,
+		"aoe": 40,
+		"range": 25
 	}
 }
 
 var colosse_stats = {
 	1: {
-		"damage": 10,
-		"cooldown": 0.5,
-		"range": 5
+		"damage": 40,
+		"cooldown": 3,
+		"range": 50
 	}
 }
 
 var charlatan_stats = {
 	1: {
-		"damage": 10,
-		"cooldown": 0.5,
-		"range": 5
+		"bonus_roll": 1,
+		"range": -1
+	},
+	2: {
+		"bonus_roll": 2,
+		"range": -1
 	}
 }
 
@@ -188,5 +195,6 @@ var unit_data = {
 
 var wave_data = {
 	0: [["Test", 1.5]],
-	1: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]]
+	1: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]],
+	2: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]]
 }

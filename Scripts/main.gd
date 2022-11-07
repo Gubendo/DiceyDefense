@@ -33,7 +33,7 @@ func _on_ui_roll(unfrozen):
 			unit.update_level(get_node("YamsManager").combinaisons[GameData.unit_data[unit.name]["value"]])
 
 func update_phase():
-	get_node("UI").update_phase(waveStarted)
+	get_node("UI").update_phase(waveStarted, current_wave)
 	for unit in get_node("Units").get_children():
 		if !unit.activated : 
 			unit.button.disabled = waveStarted
@@ -54,9 +54,12 @@ func start_next_wave():
 	
 	
 func retrieve_wave_data():
-	var wave_data = GameData.wave_data[current_wave]
+	var wave_data
 	if current_wave < GameData.wave_data.size() - 1:
-		current_wave += 1
+		wave_data = GameData.wave_data[current_wave]
+	else:
+		wave_data = GameData.wave_data[GameData.wave_data.keys()[-1]]
+	current_wave += 1
 	return wave_data
 	
 func spawn_enemies(wave_data):

@@ -63,14 +63,19 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Dice1" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice2" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice3" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice4" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice5" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="ValeurMain" type="Label" parent="CanvasLayer"]
 visible = false
@@ -112,5 +117,13 @@ offset_right = 1481.0
 offset_bottom = 880.0
 theme_override_font_sizes/font_size = 40
 text = "Garder"
+
+[node name="Vague" type="Label" parent="CanvasLayer"]
+offset_left = 1440.0
+offset_top = 10.0
+offset_right = 1910.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 30
+text = "Prochaine vague : 1/13"
 
 [connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_roll_pressed"]

@@ -6,11 +6,21 @@ func _init():
 	unitName = "Charlatan"
 
 func special():
-	print("CHARLATAN : Je ???")
+	pass
+
+func activate():
+	super.activate()
+	var ui = get_tree().get_root().get_node("Main/UI")
+	ui.nbRolls += stats[level]["bonus_roll"]
 
 func update_level(value):
-	level= 0
+	if value < 20: level = 1
+	else: level = 2
 	
 func update_tooltip():
 	update_stats()
-	tooltipText.text = "".format([currentStats[0], currentStats[1]])
+	tooltipText.text = "Unité inactive pendant les vagues d'ennemis et qui permet \
+d'obtenir {0} lancers de dés supplémentaires".format([currentStats[0]])
+	
+func _process(delta):
+	pass

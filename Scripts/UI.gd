@@ -7,11 +7,11 @@ var unfrozenDices = []
 var frozenDices = []
 @export var dicesSprites: Array[Texture2D]
 
-@export var nbCoups = 2
+@export var nbRolls = 2
 var coupsRestant
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	coupsRestant = nbCoups + 1
+	coupsRestant = nbRolls + 1
 	for dice in dicesList:
 		unfrozenDices.append(dice)
 	update_dice_pos()
@@ -49,7 +49,7 @@ func update_dice_pos():
 		unfrozen_id += 1
 
 func nouveau_coup():
-	coupsRestant = nbCoups + 1
+	coupsRestant = nbRolls + 1
 	for node in frozenDices:
 		unfrozenDices.append(node)
 		node.modulate = Color(1, 1, 1)
@@ -72,7 +72,7 @@ func update_hand(hand):
 	else:
 		get_node("CanvasLayer/nbLancer").text = "Lancers restants : " + str(coupsRestant)
 	
-func update_phase(waveStarted):
+func update_phase(waveStarted, currentWave):
 	get_node("CanvasLayer/DiceHand").visible = !waveStarted
 	get_node("CanvasLayer/RollButton").visible = !waveStarted
 	get_node("CanvasLayer/nbLancer").visible = !waveStarted
@@ -80,6 +80,12 @@ func update_phase(waveStarted):
 	get_node("CanvasLayer/Garder").visible = !waveStarted
 	
 	if !waveStarted: nouveau_coup()
+	
+	if waveStarted:
+		get_node("CanvasLayer/Vague").text = "Vague " + str(currentWave) + "/13"
+	else:
+		get_node("CanvasLayer/Vague").text = "Prochaine vague : " + str(currentWave + 1) + "/13"
+		
 
 func update_grille(grille):
 	get_node("CanvasLayer/Grille").text = "Grille (DEV)\n\nTotal des 1 : {0}\nTotal des 2 : {1}\nTotal des 3 : {2}
