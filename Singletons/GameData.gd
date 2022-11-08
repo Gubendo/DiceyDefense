@@ -29,7 +29,9 @@ var archer_stats: Dictionary = {
 
 var loup_stats: Dictionary = {
 	1: {
-		"damage": 10,
+		"bleed": 10,
+		"freq": 1,
+		"duration": 3,
 		"cooldown": 0.5,
 		"range": 5
 	}
@@ -39,7 +41,7 @@ var bard_stats: Dictionary = {
 	1: {
 		"target": 2,
 		"buff": 2,
-		"duration": 2,
+		"duration": 1,
 		"cooldown": 3,
 		"range": 5
 	}
@@ -85,16 +87,25 @@ var bourreau_stats: Dictionary = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
-		"exec": 0.5,
+		"exec": 50,
 		"range": 10
 	}
 }
 
 var tavernier_stats: Dictionary = {
 	1: {
+		"buff_dmg": 2,
+		"range": -1
+	},
+	2: {
+		"buff_dmg": 2.5,
+		"range": -1
+	},
+	3: {
 		"buff_dmg": 3,
 		"range": -1
 	}
+	
 }
 
 var catapulte_stats: Dictionary = {

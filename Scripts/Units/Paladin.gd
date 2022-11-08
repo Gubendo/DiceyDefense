@@ -19,4 +19,6 @@ func update_level(value: int) -> void:
 func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité d'attaque au corps à corps qui inflige {0} points de \
-dégâts en zone toutes les {1} secondes".format([currentStats[0], currentStats[1]])
+dégâts toutes les {1} secondes. 
+Les unités proches de la cible subissent {2} points de \
+dégâts".format([currentStats[0], currentStats[1], currentStats[3]])

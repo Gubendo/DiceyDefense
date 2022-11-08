@@ -91,11 +91,11 @@ position = Vector2(-273, -316)
 scale = Vector2(1.5, 1.5)
 
 [node name="Builder" parent="Units" instance=ExtResource("13_6k7hd")]
-position = Vector2(-161, -254)
+position = Vector2(-276, -254)
 scale = Vector2(1.5, 1.5)
 
 [node name="Charlatan" parent="Units" instance=ExtResource("14_26xcc")]
-position = Vector2(-214, -145)
+position = Vector2(-214, -120)
 scale = Vector2(1.5, 1.5)
 
 [node name="Colosse" parent="Units" instance=ExtResource("15_iyrnu")]
@@ -107,11 +107,11 @@ position = Vector2(-223, -316)
 scale = Vector2(1.5, 1.5)
 
 [node name="IngeJR" parent="Units" instance=ExtResource("17_kbue6")]
-position = Vector2(-73, -201)
+position = Vector2(-118, -201)
 scale = Vector2(1.5, 1.5)
 
 [node name="IngeSR" parent="Units" instance=ExtResource("18_r0j2n")]
-position = Vector2(-98, -236)
+position = Vector2(-157, -250)
 scale = Vector2(1.5, 1.5)
 
 [node name="KingsRoad" type="Path2D" parent="."]

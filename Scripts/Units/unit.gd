@@ -4,8 +4,8 @@ extends Node2D
 @onready var button: TextureButton = get_node("Unit/Activate")
 @onready var unitHover: Sprite2D = get_node("Unit/Hover")
 @onready var range: Area2D = get_node("Range")
-@onready var tooltip: Control = get_node("Tooltip")
-@onready var tooltipText: RichTextLabel = get_node("Tooltip/Description")
+@onready var tooltip: Control = get_node("CanvasLayer/Tooltip")
+@onready var tooltipText: RichTextLabel = get_node("CanvasLayer/Tooltip/Description")
 @onready var rangeSprite: Sprite2D = get_node("Range/RangeSprite")
 
 @onready var stats: Dictionary = GameData.unit_data[unitName]["stats"]

@@ -1,7 +1,8 @@
+Node2D
+CanvasLayer
 CollisionShape2D
 Area2D
 Sprite2D
-Node2D
 Timer
 TextureButton
 RichTextLabel
@@ -20,4 +21,3 @@ Button
 TileMap
 Camera2D
 AnimatedSprite2D
-CanvasLayer

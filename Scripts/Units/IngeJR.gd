@@ -17,4 +17,5 @@ func update_level(value: int) -> void:
 	
 func update_tooltip() -> void:
 	update_stats()
-	tooltipText.text = "".format([currentStats[0], currentStats[1]])
+	tooltipText.text = "Unité de soutien qui construit une catapulte infligeant \
+{0} points de dégâts en zone toutes les {1} secondes".format([currentStats[0], currentStats[1]])

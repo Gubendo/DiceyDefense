@@ -7,7 +7,7 @@ func _init() -> void:
 
 func special() -> void:
 	print("LOUP : Je graille un coup")
-	target.apply_bleed(10, 1, 0.5)
+	target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0
@@ -15,5 +15,7 @@ func update_level(value: int) -> void:
 	
 func update_tooltip() -> void:
 	update_stats()
-	tooltipText.text = "Animal qui mord un ennemi toutes les {0} secondes et lui \
-inflige un saignement pendant {1} secondes".format([currentStats[1], currentStats[1]])
+	tooltipText.text = "Animal qui mord un ennemi toutes les {0} secondes, provoquant \
+un saignement. 
+Le saignement inflige {1} points de dégâts toutes les {2} secondes \
+pendant {3} secondes".format([currentStats[3], currentStats[0], currentStats[1], currentStats[2]])

@@ -6,7 +6,7 @@ func _init() -> void:
 	unitName = "Bourreau"
 
 func special() -> void:
-	if float(target.currentHP) / float(target.baseHP) <= stats[level]["exec"]:
+	if float(target.currentHP) / float(target.baseHP) <= stats[level]["exec"]/100:
 		target.destroy()
 		print("BOURREAU : J'exec")
 	else:
@@ -18,13 +18,16 @@ func update_level(value: int) -> void:
 	
 func update_tooltip() -> void:
 	update_stats()
-	tooltipText.text = "".format([currentStats[0], currentStats[1]])
+	tooltipText.text = "Unité d'attaque à distance qui inflige {0} points de \
+dégâts toutes les {1} secondes. 
+Si la cible possède moins de {2} pcent de ses PV, \
+elle est executée".format([currentStats[0], currentStats[1], currentStats[2]])
 
 func select_enemy() -> void:
 	var progress_array: Array = []
 	var exec_array: Array = []
 	for i in enemies_in_range:
-		if float(i.currentHP) / float(i.baseHP) <= stats[level]["exec"]:
+		if float(i.currentHP) / float(i.baseHP) <= stats[level]["exec"]/100:
 			exec_array.append(i.progress)
 		progress_array.append(i.progress)
 	var max_progress: float

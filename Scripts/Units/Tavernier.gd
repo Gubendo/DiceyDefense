@@ -24,4 +24,5 @@ func _process(delta: float) -> void:
 	
 func update_tooltip() -> void:
 	update_stats()
-	tooltipText.text = "".format([currentStats[0], currentStats[1]])
+	tooltipText.text = "Unité de soutien qui multiplie les dégâts des troupes \
+alliées par {0} de manière permanente".format([currentStats[0]])
