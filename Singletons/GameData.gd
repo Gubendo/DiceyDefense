@@ -1,7 +1,7 @@
 extends Node
 
 
-var soldier_stats = {
+var soldier_stats: Dictionary = {
 	1: {
 		"damage": 20,
 		"cooldown": 0.5,
@@ -9,7 +9,7 @@ var soldier_stats = {
 	}
 }
 
-var archer_stats = {
+var archer_stats: Dictionary = {
 	1: {
 		"damage": 20,
 		"cooldown": 0.5,
@@ -27,7 +27,7 @@ var archer_stats = {
 	}
 }
 
-var loup_stats = {
+var loup_stats: Dictionary = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
@@ -35,7 +35,7 @@ var loup_stats = {
 	}
 }
 
-var bard_stats = {
+var bard_stats: Dictionary = {
 	1: {
 		"target": 2,
 		"buff": 2,
@@ -45,7 +45,7 @@ var bard_stats = {
 	}
 }
 
-var mage_stats = {
+var mage_stats: Dictionary = {
 	1: {
 		"damage": 20,
 		"cooldown": 0.1,
@@ -63,7 +63,7 @@ var mage_stats = {
 	}
 }
 
-var paladin_stats = {
+var paladin_stats: Dictionary = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
@@ -73,7 +73,7 @@ var paladin_stats = {
 	}
 }
 
-var builder_stats = {
+var builder_stats: Dictionary = {
 	1: {
 		"health": 5,
 		"damage": 5,
@@ -81,7 +81,7 @@ var builder_stats = {
 	}
 }
 
-var bourreau_stats = {
+var bourreau_stats: Dictionary = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
@@ -90,14 +90,14 @@ var bourreau_stats = {
 	}
 }
 
-var tavernier_stats = {
+var tavernier_stats: Dictionary = {
 	1: {
 		"buff_dmg": 3,
 		"range": -1
 	}
 }
 
-var catapulte_stats = {
+var catapulte_stats: Dictionary = {
 	1: {
 		"damage": 10,
 		"cooldown": 0.5,
@@ -106,7 +106,7 @@ var catapulte_stats = {
 	}
 }
 
-var trebuchet_stats = {
+var trebuchet_stats: Dictionary = {
 	1: {
 		"damage": 40,
 		"cooldown": 3,
@@ -115,7 +115,7 @@ var trebuchet_stats = {
 	}
 }
 
-var colosse_stats = {
+var colosse_stats: Dictionary = {
 	1: {
 		"damage": 40,
 		"cooldown": 3,
@@ -123,7 +123,7 @@ var colosse_stats = {
 	}
 }
 
-var charlatan_stats = {
+var charlatan_stats: Dictionary = {
 	1: {
 		"bonus_roll": 1,
 		"range": -1
@@ -136,7 +136,7 @@ var charlatan_stats = {
 
 
 
-var unit_data = {
+var unit_data: Dictionary = {
 	"Soldier": {
 		"value": "total1",
 		"stats": soldier_stats
@@ -193,7 +193,7 @@ var unit_data = {
 }
 
 
-var wave_data = {
+var wave_data: Dictionary = {
 	0: [["Test", 1.5]],
 	1: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]],
 	2: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]]

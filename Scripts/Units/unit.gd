@@ -1,39 +1,39 @@
 extends Node2D
 
-@onready var unit = get_node("Unit")
-@onready var button = get_node("Unit/Activate")
-@onready var unitHover = get_node("Unit/Hover")
-@onready var range = get_node("Range")
-@onready var tooltip = get_node("Tooltip")
-@onready var tooltipText = get_node("Tooltip/Description")
-@onready var rangeSprite = get_node("Range/RangeSprite")
+@onready var unit: Node2D = get_node("Unit")
+@onready var button: TextureButton = get_node("Unit/Activate")
+@onready var unitHover: Sprite2D = get_node("Unit/Hover")
+@onready var range: Area2D = get_node("Range")
+@onready var tooltip: Control = get_node("Tooltip")
+@onready var tooltipText: RichTextLabel = get_node("Tooltip/Description")
+@onready var rangeSprite: Sprite2D = get_node("Range/RangeSprite")
 
-@onready var stats = GameData.unit_data[unitName]["stats"]
-@onready var yamsMgr = get_tree().get_root().get_node("Main/YamsManager")
-var currentStats = []
+@onready var stats: Dictionary = GameData.unit_data[unitName]["stats"]
+@onready var yamsMgr: Node = get_tree().get_root().get_node("Main/YamsManager")
+var currentStats: Array = []
 
-var enemies_in_range = []
-var target
+var enemies_in_range: Array = []
+var target: Node
 
-var activated = false
-var sleeping = false
-var atkReady = true
+var activated: bool = false
+var sleeping: bool = false
+var atkReady: bool = true
 
-var unitName = ""
-var level = 0
-var buff_as = 1
-var buff_dmg = 1
+var unitName: String = ""
+var level: int = 0
+var buff_as: float = 1
+var buff_dmg: float = 1
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	init_sprite()
 	connect_signals()
 	disable_tooltip()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	if activated and enemies_in_range.size() != 0:
 		select_enemy()
 		show_target("")
@@ -43,12 +43,12 @@ func _process(delta):
 	else:
 		target = null
 
-func init_sprite():
+func init_sprite() -> void:
 	button.modulate = Color(0.5, 0.5, 0.5)
 	rangeSprite.modulate.a = 0
 	unitHover.visible = false
 
-func connect_signals():
+func connect_signals() -> void:
 	button.pressed.connect(activate)
 	range.body_entered.connect(_on_range_body_entered)
 	range.body_exited.connect(_on_range_body_exited)
@@ -57,7 +57,7 @@ func connect_signals():
 	choix.connect(Callable(yamsMgr, "on_unit_choice"))
 
 	
-func activate():
+func activate() -> void:
 	if level == 0:
 		queue_free()
 	else:
@@ -71,15 +71,21 @@ func activate():
 
 ### ACTION TARGET ###
 
-func select_enemy():
-	var progress_array = []
+func select_enemy() -> void:
+	var progress_array: Array = []
 	for i in enemies_in_range:
 		progress_array.append(i.progress)
 	var max_progress = progress_array.max()
 	var max_enemy = progress_array.find(max_progress)
 	target = enemies_in_range[max_enemy]
 
-func show_target(unit):
+func get_all_enemies() -> Array:
+	return get_tree().get_root().get_node("Main/KingsRoad").get_children()
+
+func get_all_allies() -> Array:
+	return get_tree().get_root().get_node("Main/Units").get_children()
+
+func show_target(unit: String) -> void:
 	if unitName == unit:
 		for enemy in get_tree().get_root().get_node("Main/KingsRoad").get_children():
 			if enemy == target:
@@ -87,30 +93,30 @@ func show_target(unit):
 			else:
 				enemy.sprite.modulate = Color(1, 1, 1)
 
-func turn(direction):
+func turn(direction: float) -> void:
 	if direction < 0:
 		unit.scale = Vector2(-1, 1)
 	else:
 		unit.scale = Vector2(1, 1)
 
-func attack():
+func attack() -> void:
 	atkReady = false
 	special()
 	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
 	atkReady = true
 
-func special(): #Dépend de chaque unité
+func special() -> void: #Dépend de chaque unité
 	pass
 
-func start_wave(): # Dépend de chaque unité
+func start_wave() -> void: # Dépend de chaque unité
 	atkReady = true
 
 ### GESTION LVL & STATS ###
 
-func update_level(value):
+func update_level(value: int) -> void:
 	pass
 	
-func update_stats():
+func update_stats() -> void:
 	currentStats = []
 	if activated:
 		for stat in stats[level]:
@@ -133,7 +139,7 @@ func update_stats():
 		rangeSprite.modulate = Color(1, 0, 0, 0.3)
 	
 
-func stat_color(stat, focus):
+func stat_color(stat:float, focus: bool) -> String:
 	if focus:
 		return "[color=fff]" + str(stat) + "[/color]"
 	else:
@@ -142,18 +148,18 @@ func stat_color(stat, focus):
 
 ### TOOLTIP ###
 
-func update_tooltip():
+func update_tooltip() -> void:
 	pass
 
 	
-func enable_tooltip():
+func enable_tooltip() -> void:
 	if(!sleeping):
 		update_tooltip()
 		tooltip.visible = true
 		unitHover.visible = true
 		rangeSprite.modulate.a = 0.3
 
-func disable_tooltip():
+func disable_tooltip() -> void:
 	tooltip.visible = false
 	unitHover.visible = false
 	if(!activated):
@@ -161,8 +167,8 @@ func disable_tooltip():
 
 ### ### ###
 
-func _on_range_body_entered(body):
+func _on_range_body_entered(body: CharacterBody2D) -> void:
 	enemies_in_range.append(body.get_parent())
 
-func _on_range_body_exited(body):
+func _on_range_body_exited(body: CharacterBody2D) -> void:
 	enemies_in_range.erase(body.get_parent())

@@ -1,39 +1,39 @@
 extends PathFollow2D
 
-var baseSpeed = 100
-var currentSpeed
-var baseHP = 50
-var currentHP
-var impaired = false
-var bleed = 0
-var bleedFreq = 0
+var baseSpeed: float = 100
+var currentSpeed: float
+var baseHP: float = 50
+var currentHP: float
+var impaired: bool = false
+var bleed: float = 0
+var bleedFreq: float = 0
 
-var blocked = false
-var blockedBy
-var atkReady = true
+var blocked: bool = false
+var blockedBy: Node
+var atkReady: bool = true
 
-var damage = 1
-var cd = 1
+var damage: float = 1
+var cd: float = 1
 
-@onready var health_bar = get_node("HealthBar")
-@onready var sprite = get_node("CharacterBody2d/Sprite2d")
-@onready var hitbox = get_node("CharacterBody2d/CollisionShape2d")
+@onready var health_bar: ProgressBar = get_node("HealthBar")
+@onready var sprite: Sprite2D = get_node("CharacterBody2d/Sprite2d")
+@onready var hitbox: CollisionShape2D = get_node("CharacterBody2d/CollisionShape2d")
 
-@onready var slow_timer = get_node("SlowTimer")
-@onready var bleed_timer = get_node("BleedTimer")
-@onready var bleed_frequency = get_node("BleedFrequency")
+@onready var slow_timer: Timer = get_node("SlowTimer")
+@onready var bleed_timer: Timer = get_node("BleedTimer")
+@onready var bleed_frequency: Timer = get_node("BleedFrequency")
 
 signal death()
 # Called when the node enters the scene tree for the first time.
 
-func _ready():
+func _ready() -> void:
 	currentSpeed = baseSpeed
 	currentHP = baseHP
 	health_bar.max_value = baseHP
 	health_bar.value = currentHP
 	#health_bar.set_as_top_level(true)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	if progress_ratio >= 1.0:
 		destroy()
 	if blocked:
@@ -58,13 +58,13 @@ func _physics_process(delta):
 			bleed_frequency.start(bleedFreq)
 		
 	
-func move(delta):
+func move(delta: float) -> void:
 	progress += currentSpeed*delta
 	#health_bar.position = (position - Vector2(15, 20))
 
-func take_dmg(damage):
-	var oldColor = sprite.modulate
-	currentHP -= damage
+func take_dmg(amount: float) -> void:
+	var oldColor: Color = sprite.modulate
+	currentHP -= amount
 	health_bar.value = currentHP
 	if currentHP <= 0:
 		destroy()
@@ -73,25 +73,25 @@ func take_dmg(damage):
 	await get_tree().create_timer(0.05).timeout
 	sprite.modulate = oldColor
 
-func attack_struct():
+func attack_struct() -> void:
 	atkReady = false
 	blockedBy.take_dmg(damage)
 	take_dmg(blockedBy.thorns)
 	await get_tree().create_timer(cd).timeout
 	atkReady = true
 
-func apply_slow(value, duration):
+func apply_slow(value: float, duration: float) -> void:
 	currentSpeed = baseSpeed * value
 	slow_timer.start(duration)
 	impaired = true
 	sprite.modulate = Color (0, 0.5, 1)
 	
-func apply_bleed(value, duration, freq):
+func apply_bleed(value: float, duration: float, freq: float) -> void:
 	bleed_timer.start(duration)
 	bleed = value
 	bleedFreq = freq
 	sprite.modulate = Color (1, 0.5, 0)
 
-func destroy():
+func destroy() -> void:
 	emit_signal("death")
 	self.queue_free()

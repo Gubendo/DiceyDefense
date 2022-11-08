@@ -1,6 +1,6 @@
 extends Node
 
-var grille = {
+var grille: Dictionary = {
 	"total1": -1,
 	"total2": -1,
 	"total3": -1,
@@ -16,7 +16,7 @@ var grille = {
 	"yams": -1
 }
 
-var combinaisons = {
+var combinaisons: Dictionary = {
 	"total1": -1,
 	"total2": -1,
 	"total3": -1,
@@ -32,37 +32,34 @@ var combinaisons = {
 	"yams": -1
 }
 
-var nodeUI
+var nodeUI: Control
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	nodeUI = get_node("/root/Main/UI")
 	nodeUI.update_grille(grille)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 	pass
 	
-func calcul_total_x(hand: Array, x:int):
-	var total = 0
+func calcul_total_x(hand: Array, x: int) -> int:
+	var total: int = 0
 	for dice in hand:
 		if dice == x : total += x
 		
 	return total
 
-func calcul_brelan(hand: Array):
-	var brelan = 0
+func calcul_brelan(hand: Array) -> int:
 	for i in range(1,7):
 		if hand.count(i) >= 3: return hand_sum(hand)
 	return 0
 	
-func calcul_carre(hand: Array):
-	var carre = 0
+func calcul_carre(hand: Array) -> int:
 	for i in range(1,7):
 		if hand.count(i) >= 4: return hand_sum(hand)
 	return 0
 	
-func calcul_full(hand: Array):
-	var full = 0
-	var faces = range(1, 7)
+func calcul_full(hand: Array) -> int:
+	var faces: Array = range(1, 7)
 	for i in faces:
 		if hand.count(i) >= 3:
 			faces.erase(i)
@@ -70,34 +67,33 @@ func calcul_full(hand: Array):
 				if hand.count(j) >= 2: return 25
 	return 0
 	
-func calcul_p_suite(hand: Array):
+func calcul_p_suite(hand: Array) -> int:
 	if 1 in hand and 2 in hand and 3 in hand and 4 in hand: return 30
 	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand: return 30
 	elif 3 in hand and 4 in hand and 5 in hand and 6 in hand: return 30
 	else: return 0
 	
-func calcul_g_suite(hand: Array):
+func calcul_g_suite(hand: Array) -> int:
 	if 1 in hand and 2 in hand and 3 in hand and 4 in hand and 5 in hand: return 40
 	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand and 6 in hand: return 40
 	else: return 0
 	
-func calcul_chance(hand: Array):
+func calcul_chance(hand: Array) -> int:
 	return hand_sum(hand)
 	
-func calcul_yams(hand: Array):
-	var yams = 0
+func calcul_yams(hand: Array) -> int:
 	for i in range(1,7):
 		if hand.count(i) == 5: return 50
 	return 0
 
-func hand_sum(hand: Array):
-	var total = 0
+func hand_sum(hand: Array) -> int:
+	var total: int = 0
 	for dice in hand:
 		total += dice
 	return total
 
 
-func calcul_hand(hand):
+func calcul_hand(hand) -> void:
 	combinaisons['total1'] = calcul_total_x(hand, 1)
 	combinaisons['total2'] = calcul_total_x(hand, 2)
 	combinaisons['total3'] = calcul_total_x(hand, 3)
@@ -113,7 +109,7 @@ func calcul_hand(hand):
 	combinaisons['yams'] = calcul_yams(hand)
 
 
-func on_unit_choice(coup):
+func on_unit_choice(coup) -> void:
 	grille[coup] = combinaisons[coup]
 	nodeUI.update_grille(grille)
 	get_node("/root/Main").start_next_wave()

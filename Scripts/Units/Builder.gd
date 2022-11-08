@@ -3,35 +3,35 @@ extends "res://Scripts/Units/unit.gd"
 @onready var barricadeTemp = load("res://Scenes/Buildings/Barricade.tscn")
 var barricade
 # Called when the node enters the scene tree for the first time.
-func _init():
+func _init() -> void:
 	unitName = "Builder"
 
-func special():
+func special() -> void:
 	pass
 
-func activate():
+func activate() -> void:
 	super.activate()
 	build_barricade()
 
-func update_level(value):
+func update_level(value: int) -> void:
 	level = 1
 	
-func update_tooltip():
+func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "".format([currentStats[0], currentStats[1]])
 	
-func _process(delta):
+func _process(delta: float) -> void:
 	pass
 
-func start_wave():
+func start_wave() -> void:
 	repair_barricade()
 
-func repair_barricade():
+func repair_barricade() -> void:
 	if barricade and barricade.baseHP != barricade.currentHP:
-		print("BUILDER : Je répare")
+		print("BUILDER : Je répare ma barricade")
 		barricade.repair()
 
-func build_barricade():
+func build_barricade() -> void:
 	print("BUILDER : Je construis une barricade")
 	barricade = barricadeTemp.instantiate()
 	get_tree().get_root().add_child(barricade)

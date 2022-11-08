@@ -1,34 +1,34 @@
 extends "res://Scripts/Units/unit.gd"
 
-@onready var root_node = get_tree().get_root()
-var rng = RandomNumberGenerator.new()
+@onready var root_node: Node = get_tree().get_root()
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-var targets = []
+var targets: Array = []
 # Called when the node enters the scene tree for the first time.
-func _init():
+func _init() -> void:
 	unitName = "Bard"
 	rng.randomize()
 
-func special():
+func special() -> void:
 	print("BARDE : Je joue de la musique sur " + str(targets))
 	for unit in targets:
-		unit.buff_as = stats[level]["buff"]
+		unit.buff_as *= stats[level]["buff"]
 		unit.button.modulate = Color(0.3, 0, 0.3)
 	await get_tree().create_timer(stats[level]["duration"]).timeout
 	for unit in targets:
-		unit.buff_as = 1
+		unit.buff_as /= stats[level]["buff"]
 		unit.button.modulate = Color(1, 1, 1)
 
-func update_level(value):
+func update_level(value: int) -> void:
 	if value == 0: level = 0
 	else: level = 1
 	
-func update_tooltip():
+func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité de soutien qui chante \
 toutes les {0} secondes".format([currentStats[1]])
 
-func _process(delta):
+func _process(delta: float) -> void:
 	if activated and root_node.get_node("Main").waveStarted:
 		if atkReady:
 			select_target()
@@ -36,11 +36,11 @@ func _process(delta):
 	else:
 		target = null
 
-func select_target():
-	var trueR = range.get_node("CollisionShape2d").shape.radius * (stats[level]["range"] + 1) * scale.x
-	var potential_targets = []
+func select_target() -> void:
+	var trueR: float = range.get_node("CollisionShape2d").shape.radius * (stats[level]["range"] + 1) * scale.x
+	var potential_targets: Array = []
 	targets = []
-	for unit in root_node.get_node("Main/Units").get_children():
+	for unit in get_all_allies():
 		if position.distance_to(unit.position) < trueR and unit != self and unit.activated:
 			potential_targets.append(unit)
 			
