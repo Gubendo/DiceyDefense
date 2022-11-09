@@ -2,7 +2,8 @@ extends Control
 
 signal roll(unfrozenDices)
 signal choix(coup)
-@onready var dicesList: Array = [get_node("CanvasLayer/DiceHand/Dice1"), get_node("CanvasLayer/DiceHand/Dice2"), get_node("CanvasLayer/DiceHand/Dice3"), get_node("CanvasLayer/DiceHand/Dice4"), get_node("CanvasLayer/DiceHand/Dice5")]
+var diceHand: String = "CanvasLayer/Plateau/DiceHand/"
+@onready var dicesList: Array = [get_node(diceHand + "Dice1"), get_node(diceHand + "Dice2"), get_node(diceHand + "Dice3"), get_node(diceHand + "Dice4"), get_node(diceHand + "Dice5")]
 var unfrozenDices: Array = []
 var frozenDices: Array = []
 
@@ -68,24 +69,25 @@ func update_hand(hand: Array) -> void:
 	get_node("CanvasLayer/ValeurMain").text = "Main réelle : " + str(hand)
 	coupsRestant -= 1
 	if coupsRestant == 0:
-		get_node("CanvasLayer/nbLancer").visible = false
-		get_node("CanvasLayer/RollButton").visible = false
+		get_node("CanvasLayer/Plateau/nbLancer").visible = false
+		get_node("CanvasLayer/Plateau/RollButton").visible = false
 	else:
-		get_node("CanvasLayer/nbLancer").text = "Lancers restants : " + str(coupsRestant)
+		get_node("CanvasLayer/Plateau/nbLancer").text = "Lancers restants : " + str(coupsRestant)
 	
 func update_phase(waveStarted: bool, currentWave: int) -> void:
-	get_node("CanvasLayer/DiceHand").visible = !waveStarted
-	get_node("CanvasLayer/RollButton").visible = !waveStarted
-	get_node("CanvasLayer/nbLancer").visible = !waveStarted
-	get_node("CanvasLayer/Relancer").visible = !waveStarted
-	get_node("CanvasLayer/Garder").visible = !waveStarted
+	get_node("CanvasLayer/Plateau/DiceHand").visible = !waveStarted
+	get_node("CanvasLayer/Plateau/RollButton").visible = !waveStarted
+	get_node("CanvasLayer/Plateau/nbLancer").visible = !waveStarted
+	get_node("CanvasLayer/Plateau/Relancer").visible = !waveStarted
+	get_node("CanvasLayer/Plateau/Garder").visible = !waveStarted
+	get_node("CanvasLayer/Vague/Controls").visible = waveStarted
 	
 	if !waveStarted: nouveau_coup()
 	
 	if waveStarted:
-		get_node("CanvasLayer/Vague").text = "Vague " + str(currentWave) + "/13"
+		get_node("CanvasLayer/Vague/number").text = "Vague " + str(currentWave) + "/13"
 	else:
-		get_node("CanvasLayer/Vague").text = "Prochaine vague : " + str(currentWave + 1) + "/13"
+		get_node("CanvasLayer/Vague/number").text = "Prochaine vague : " + str(currentWave + 1) + "/13"
 		
 
 func update_grille(grille: Dictionary) -> void:
@@ -95,4 +97,16 @@ func update_grille(grille: Dictionary) -> void:
 	grille["total1"], grille["total2"], grille["total3"], grille["total4"], grille["total5"],
 	grille["total6"], grille["brelan"], grille["carre"], grille["full"], grille["p_suite"],
 	grille["g_suite"], grille["chance"], grille["yams"]])
+	
+func on_PausePlay_pressed() -> void:
+	if get_tree().is_paused():
+		get_tree().paused = false
+	else:
+		get_tree().paused = true
+		
+func on_SpeedUp_pressed() -> void:
+	if Engine.get_time_scale() == 2.0:
+		Engine.set_time_scale(1.0)
+	else:
+		Engine.set_time_scale(2.0)
 

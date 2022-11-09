@@ -111,7 +111,7 @@ position = Vector2(-118, -201)
 scale = Vector2(1.5, 1.5)
 
 [node name="IngeSR" parent="Units" instance=ExtResource("18_r0j2n")]
-position = Vector2(-157, -250)
+position = Vector2(-170, -252)
 scale = Vector2(1.5, 1.5)
 
 [node name="KingsRoad" type="Path2D" parent="."]

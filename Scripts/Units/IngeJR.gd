@@ -12,9 +12,21 @@ func special() -> void:
 			enemy.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value: int) -> void:
-	if value == 0: level = 0
-	else: level = 1
+	level = 1
+
+func activate() -> void:
+	unit.visible = false
+	disable_tooltip()
 	
+	unit = get_node("Catapulte")
+	button = get_node("Catapulte/Activate")
+	unitHover= get_node("Catapulte/Hover")
+	unit.visible = true
+	connect_signals()
+	
+	super.activate()
+
+
 func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité de soutien qui construit une catapulte infligeant \

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b5kwsmxglfbp6"]
+[gd_scene load_steps=17 format=3 uid="uid://b5kwsmxglfbp6"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_nkvbb"]
 [ext_resource type="Texture2D" uid="uid://ctnevp2mir5ra" path="res://Sprites/dice1.png" id="2_67tmu"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://csjhew2hhmlsp" path="res://Sprites/dice5.png" id="6_jlkly"]
 [ext_resource type="Texture2D" uid="uid://vixwo325hsro" path="res://Sprites/dice6.png" id="7_akuqu"]
 [ext_resource type="PackedScene" uid="uid://bmul6nit5rrj5" path="res://Scenes/dice.tscn" id="8_72j4t"]
+[ext_resource type="Texture2D" uid="uid://d02wiylsy1qku" path="res://Sprites/UI/play.png" id="9_wlrd2"]
+[ext_resource type="Texture2D" uid="uid://dyswte0xgq8jp" path="res://Sprites/UI/pause.png" id="10_sc1jl"]
+[ext_resource type="Texture2D" uid="uid://cp5d76wfeqgrx" path="res://Sprites/UI/speed.png" id="11_yd43j"]
 
 [sub_resource type="Texture2D" id="Texture2D_d3id7"]
 resource_local_to_scene = false
@@ -42,41 +45,6 @@ dicesSprites = [ExtResource("2_67tmu"), ExtResource("3_3eyb1"), ExtResource("4_t
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PlateauOverlay" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0, 0, 0.156863, 0.717647)
-offset_top = 770.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = SubResource("Texture2D_d3id7")
-
-[node name="RollButton" type="Button" parent="CanvasLayer"]
-offset_left = 100.0
-offset_top = 830.0
-offset_right = 250.0
-offset_bottom = 980.0
-theme = SubResource("Theme_lm4wp")
-theme_override_font_sizes/font_size = 50
-text = "Roll"
-
-[node name="DiceHand" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="Dice1" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice2" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice3" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice4" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice5" parent="CanvasLayer/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
 [node name="ValeurMain" type="Label" parent="CanvasLayer"]
 visible = false
 offset_left = 1075.0
@@ -86,14 +54,6 @@ offset_bottom = 85.0
 theme_override_font_sizes/font_size = 40
 text = "Main réelle : "
 
-[node name="nbLancer" type="Label" parent="CanvasLayer"]
-offset_left = 20.0
-offset_top = 988.0
-offset_right = 358.0
-offset_bottom = 1048.0
-theme_override_font_sizes/font_size = 40
-text = "Lancers restants :"
-
 [node name="Grille" type="Label" parent="CanvasLayer"]
 offset_left = 55.0
 offset_top = 10.0
@@ -102,15 +62,60 @@ offset_bottom = 95.0
 theme_override_font_sizes/font_size = 30
 text = "Grille"
 
-[node name="Relancer" type="Label" parent="CanvasLayer"]
+[node name="Plateau" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlateauOverlay" type="TextureRect" parent="CanvasLayer/Plateau"]
+modulate = Color(0, 0, 0.156863, 0.717647)
+layout_mode = 0
+offset_top = 770.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("Texture2D_d3id7")
+
+[node name="DiceHand" type="Control" parent="CanvasLayer/Plateau"]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Dice1" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+
+[node name="Dice2" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+
+[node name="Dice3" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+
+[node name="Dice4" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+
+[node name="Dice5" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+
+[node name="RollButton" type="Button" parent="CanvasLayer/Plateau"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 830.0
+offset_right = 250.0
+offset_bottom = 980.0
+theme = SubResource("Theme_lm4wp")
+theme_override_font_sizes/font_size = 50
+text = "Roll"
+
+[node name="Relancer" type="Label" parent="CanvasLayer/Plateau"]
+layout_mode = 0
 offset_left = 330.0
 offset_top = 820.0
-offset_right = 498.0
-offset_bottom = 880.0
+offset_right = 584.0
+offset_bottom = 906.0
 theme_override_font_sizes/font_size = 60
 text = "Relancer"
 
-[node name="Garder" type="Label" parent="CanvasLayer"]
+[node name="Garder" type="Label" parent="CanvasLayer/Plateau"]
+layout_mode = 0
 offset_left = 1330.0
 offset_top = 820.0
 offset_right = 1481.0
@@ -118,12 +123,62 @@ offset_bottom = 880.0
 theme_override_font_sizes/font_size = 40
 text = "Garder"
 
-[node name="Vague" type="Label" parent="CanvasLayer"]
-offset_left = 1440.0
-offset_top = 10.0
-offset_right = 1910.0
-offset_bottom = 95.0
+[node name="nbLancer" type="Label" parent="CanvasLayer/Plateau"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 988.0
+offset_right = 358.0
+offset_bottom = 1048.0
+theme_override_font_sizes/font_size = 40
+text = "Lancers restants :"
+
+[node name="Vague" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 108.0
+offset_top = 4.0
+offset_right = 148.0
+offset_bottom = 44.0
+
+[node name="number" type="Label" parent="CanvasLayer/Vague"]
+offset_left = 1446.0
+offset_top = 83.0
+offset_right = 1916.0
+offset_bottom = 168.0
 theme_override_font_sizes/font_size = 30
 text = "Prochaine vague : 1/13"
 
-[connection signal="pressed" from="CanvasLayer/RollButton" to="." method="_on_roll_pressed"]
+[node name="Controls" type="HBoxContainer" parent="CanvasLayer/Vague"]
+visible = false
+layout_mode = 0
+offset_left = 1446.0
+offset_top = 1.0
+offset_right = 1646.0
+offset_bottom = 81.0
+
+[node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
+process_mode = 3
+custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 80.0
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("9_wlrd2")
+texture_pressed = ExtResource("10_sc1jl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
+custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
+offset_left = 104.0
+offset_right = 204.0
+offset_bottom = 80.0
+texture_normal = ExtResource("11_yd43j")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="CanvasLayer/Plateau/RollButton" to="." method="_on_roll_pressed"]
+[connection signal="pressed" from="CanvasLayer/Vague/Controls/PausePlay" to="." method="on_PausePlay_pressed"]
+[connection signal="pressed" from="CanvasLayer/Vague/Controls/SpeedUp" to="." method="on_SpeedUp_pressed"]

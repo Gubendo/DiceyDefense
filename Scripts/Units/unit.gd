@@ -18,6 +18,7 @@ var target: Node
 var activated: bool = false
 var sleeping: bool = false
 var atkReady: bool = true
+var debug: bool = false
 
 var unitName: String = ""
 var level: int = 0
@@ -64,7 +65,7 @@ func activate() -> void:
 		button.modulate = Color(1, 1, 1)
 		button.disabled = true
 		activated = true
-		rangeSprite.modulate.a = 0.3
+		rangeSprite.modulate.a = 0
 		update_tooltip()
 	emit_signal("choix", GameData.unit_data[unitName]["value"])
 	
@@ -162,7 +163,7 @@ func enable_tooltip() -> void:
 func disable_tooltip() -> void:
 	tooltip.visible = false
 	unitHover.visible = false
-	if(!activated):
+	if(!activated or !debug):
 		rangeSprite.modulate.a = 0
 
 ### ### ###

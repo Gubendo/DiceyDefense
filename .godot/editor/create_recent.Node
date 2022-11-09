@@ -1,13 +1,14 @@
+TextureButton
+HBoxContainer
+Control
 Node2D
 CanvasLayer
 CollisionShape2D
 Area2D
 Sprite2D
 Timer
-TextureButton
 RichTextLabel
 Label
-Control
 Container
 ItemList
 TextureRect

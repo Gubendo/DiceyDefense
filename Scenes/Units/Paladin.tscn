@@ -48,6 +48,7 @@ shape = SubResource("CircleShape2D_qj271")
 z_index = 10
 
 [node name="Tooltip" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 12.0

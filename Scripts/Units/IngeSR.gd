@@ -6,15 +6,26 @@ func _init() -> void:
 	unitName = "IngeSR"
 
 func special() -> void:
-	print("INGENIEUR JUNIOR : Mon trébuchet tire")
+	print("INGENIEUR SENIOR : Mon trébuchet tire")
 	for enemy in get_all_enemies():
 		if abs(target.position.distance_to(enemy.position)) < stats[level]["aoe"]:
 			enemy.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value: int) -> void:
-	if value == 0: level = 0
-	else: level = 1
+	level = 1
+
+func activate() -> void:
+	unit.visible = false
+	disable_tooltip()
 	
+	unit = get_node("Trebuchet")
+	button = get_node("Trebuchet/Activate")
+	unitHover= get_node("Trebuchet/Hover")
+	unit.visible = true
+	connect_signals()
+	
+	super.activate()
+
 func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité de soutien qui construit un trébuchet infligeant \
