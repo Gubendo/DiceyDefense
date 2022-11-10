@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://euskiuanfoc1"
-path="res://.godot/imported/test.png-74ff8e7022075630ba000fc6314b64dc.ctex"
+uid="uid://drsggjl0ha5n"
+path="res://.godot/imported/speed-toggle.png-fae550127e176e02c37a109816f643fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemies/test.png"
-dest_files=["res://.godot/imported/test.png-74ff8e7022075630ba000fc6314b64dc.ctex"]
+source_file="res://Sprites/UI/speed-toggle.png"
+dest_files=["res://.godot/imported/speed-toggle.png-fae550127e176e02c37a109816f643fa.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 extends PathFollow2D
 
-var baseSpeed: float = 100
+var baseSpeed: float
 var currentSpeed: float
-var baseHP: float = 50
+var baseHP: float
 var currentHP: float
 var impaired: bool = false
 var bleed: float = 0
@@ -12,8 +12,8 @@ var blocked: bool = false
 var blockedBy: Node
 var atkReady: bool = true
 
-var damage: float = 1
-var cd: float = 1
+var damage: float
+var cd: float
 
 @onready var health_bar: ProgressBar = get_node("HealthBar")
 @onready var sprite: Sprite2D = get_node("CharacterBody2d/Sprite2d")

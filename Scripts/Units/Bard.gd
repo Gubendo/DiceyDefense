@@ -25,8 +25,8 @@ func update_level(value: int) -> void:
 	
 func update_tooltip() -> void:
 	update_stats()
-	tooltipText.text = "Unité de soutien qui multiplie la vitesse d'attaque de {0} \
-unités proches par {1} pendant {2} secondes toutes les {3} secondes\
+	tooltipText.text = "Unité de soutien qui multiplie par {1} la vitesse d'attaque de {0} \
+unités proches pendant {2} secondes toutes les {3} secondes\
 ".format([currentStats[0], currentStats[1], currentStats[2], currentStats[3]])
 
 func _process(delta: float) -> void:

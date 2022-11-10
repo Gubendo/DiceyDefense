@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b5kwsmxglfbp6"]
+[gd_scene load_steps=18 format=3 uid="uid://b5kwsmxglfbp6"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_nkvbb"]
 [ext_resource type="Texture2D" uid="uid://ctnevp2mir5ra" path="res://Sprites/dice1.png" id="2_67tmu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d02wiylsy1qku" path="res://Sprites/UI/play.png" id="9_wlrd2"]
 [ext_resource type="Texture2D" uid="uid://dyswte0xgq8jp" path="res://Sprites/UI/pause.png" id="10_sc1jl"]
 [ext_resource type="Texture2D" uid="uid://cp5d76wfeqgrx" path="res://Sprites/UI/speed.png" id="11_yd43j"]
+[ext_resource type="Texture2D" uid="uid://drsggjl0ha5n" path="res://Sprites/UI/speed-toggle.png" id="12_8umxh"]
 
 [sub_resource type="Texture2D" id="Texture2D_d3id7"]
 resource_local_to_scene = false
@@ -55,10 +56,10 @@ theme_override_font_sizes/font_size = 40
 text = "Main réelle : "
 
 [node name="Grille" type="Label" parent="CanvasLayer"]
-offset_left = 55.0
-offset_top = 10.0
-offset_right = 525.0
-offset_bottom = 95.0
+offset_left = 81.0
+offset_top = 9.0
+offset_right = 551.0
+offset_bottom = 94.0
 theme_override_font_sizes/font_size = 30
 text = "Grille"
 
@@ -69,34 +70,27 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PlateauOverlay" type="TextureRect" parent="CanvasLayer/Plateau"]
-modulate = Color(0, 0, 0.156863, 0.717647)
-layout_mode = 0
+modulate = Color(0, 0, 0.156863, 0.866667)
 offset_top = 770.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = SubResource("Texture2D_d3id7")
 
 [node name="DiceHand" type="Control" parent="CanvasLayer/Plateau"]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 
 [node name="Dice1" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice2" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice3" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice4" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="Dice5" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
 
 [node name="RollButton" type="Button" parent="CanvasLayer/Plateau"]
-layout_mode = 0
 offset_left = 100.0
 offset_top = 830.0
 offset_right = 250.0
@@ -106,7 +100,6 @@ theme_override_font_sizes/font_size = 50
 text = "Roll"
 
 [node name="Relancer" type="Label" parent="CanvasLayer/Plateau"]
-layout_mode = 0
 offset_left = 330.0
 offset_top = 820.0
 offset_right = 584.0
@@ -115,7 +108,6 @@ theme_override_font_sizes/font_size = 60
 text = "Relancer"
 
 [node name="Garder" type="Label" parent="CanvasLayer/Plateau"]
-layout_mode = 0
 offset_left = 1330.0
 offset_top = 820.0
 offset_right = 1481.0
@@ -124,7 +116,6 @@ theme_override_font_sizes/font_size = 40
 text = "Garder"
 
 [node name="nbLancer" type="Label" parent="CanvasLayer/Plateau"]
-layout_mode = 0
 offset_left = 20.0
 offset_top = 988.0
 offset_right = 358.0
@@ -141,25 +132,24 @@ offset_right = 148.0
 offset_bottom = 44.0
 
 [node name="number" type="Label" parent="CanvasLayer/Vague"]
-offset_left = 1446.0
-offset_top = 83.0
-offset_right = 1916.0
-offset_bottom = 168.0
+offset_left = 1346.0
+offset_top = 44.0
+offset_right = 1816.0
+offset_bottom = 129.0
 theme_override_font_sizes/font_size = 30
 text = "Prochaine vague : 1/13"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Controls" type="HBoxContainer" parent="CanvasLayer/Vague"]
-visible = false
-layout_mode = 0
-offset_left = 1446.0
-offset_top = 1.0
-offset_right = 1646.0
-offset_bottom = 81.0
+offset_left = 1479.0
+offset_top = -7.0
+offset_right = 1683.0
+offset_bottom = 73.0
 
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_right = 100.0
 offset_bottom = 80.0
 toggle_mode = true
@@ -171,11 +161,12 @@ stretch_mode = 0
 
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 2
 offset_left = 104.0
 offset_right = 204.0
 offset_bottom = 80.0
+toggle_mode = true
 texture_normal = ExtResource("11_yd43j")
+texture_pressed = ExtResource("12_8umxh")
 ignore_texture_size = true
 stretch_mode = 0
 

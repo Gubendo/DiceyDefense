@@ -37,7 +37,7 @@ func build_barricade() -> void:
 	print("BUILDER : Je construis une barricade")
 	barricade = barricadeTemp.instantiate()
 	get_tree().get_root().add_child(barricade)
-	barricade.position = Vector2(-312, -250)
+	barricade.position = Vector2(-215, -200)
 	barricade.baseHP = stats[level]["health"]
 	barricade.thorns = stats[level]["damage"]
 	barricade.init()

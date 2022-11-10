@@ -136,10 +136,14 @@ var colosse_stats: Dictionary = {
 
 var charlatan_stats: Dictionary = {
 	1: {
-		"bonus_roll": 1,
+		"bonus_roll": 0,
 		"range": -1
 	},
 	2: {
+		"bonus_roll": 1,
+		"range": -1
+	},
+	3: {
 		"bonus_roll": 2,
 		"range": -1
 	}
@@ -205,7 +209,7 @@ var unit_data: Dictionary = {
 
 
 var wave_data: Dictionary = {
-	0: [["Test", 1.5]],
-	1: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]],
-	2: [["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2], ["Test", 0.2]]
+	0: [["Gobelin", 1.5]],
+	1: [["Bobelin", 0.2], ["Bobelin", 0.2], ["Bobelin", 0.2], ["Bobelin", 0.2]],
+	2: [["Gobelin", 0.2], ["Gobelin", 0.2], ["Bobelin", 0.2], ["Gobelin", 0.2], ["Gobelin", 0.2], ["Gobelin", 0.2], ["Gobelin", 0.2]]
 }

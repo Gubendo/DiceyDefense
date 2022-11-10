@@ -36,6 +36,7 @@ func update_phase() -> void:
 	get_node("UI").update_phase(waveStarted, current_wave)
 	for unit in get_node("Units").get_children():
 		if !unit.activated : 
+			unit.visible = !waveStarted
 			unit.button.disabled = waveStarted
 			unit.sleeping = waveStarted
 		else:
