@@ -1,0 +1,21 @@
+extends "res://Scripts/Units/unit.gd"
+
+
+# Called when the node enters the scene tree for the first time.
+func _init() -> void:
+	unitName = "Loup"
+
+func special() -> void:
+	print("LOUP : Je graille un coup")
+	target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
+
+func update_level(value: int) -> void:
+	if value == 0: level = 0
+	else: level = 1
+	
+func update_tooltip() -> void:
+	update_stats()
+	tooltipText.text = "Animal qui mord un ennemi toutes les {0} secondes, provoquant \
+un saignement. 
+Le saignement inflige {1} points de dégâts toutes les {2} secondes \
+pendant {3} secondes".format([currentStats[3], currentStats[0], currentStats[1], currentStats[2]])

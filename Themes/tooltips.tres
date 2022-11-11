@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dyx21ksbxmx85"]
+
+[ext_resource type="FontFile" uid="uid://ptfp88wcm6r" path="res://Fonts/Timmy-Regular.ttf" id="1_moptd"]
+
+[resource]
+default_font = ExtResource("1_moptd")
+Label/constants/line_spacing = 0
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 1
+Label/font_sizes/font_size = 6
+Label/fonts/font = ExtResource("1_moptd")

@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cum55mtelbl40"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Gobelin.gd" id="1_j61eq"]
+[ext_resource type="Texture2D" uid="uid://euskiuanfoc1" path="res://Sprites/Enemies/gobelin.png" id="2_aesmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4sa"]
+size = Vector2(8.66667, 11.3333)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmkik"]
+bg_color = Color(0, 0.717647, 0.345098, 1)
+
+[node name="Gobelin" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_j61eq")
+
+[node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.5, 1.5)
+collision_mask = 3
+
+[node name="Sprite2d" type="Sprite2D" parent="CharacterBody2d"]
+texture = ExtResource("2_aesmu")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
+position = Vector2(0.333333, 2.33333)
+shape = SubResource("RectangleShape2D_ix4sa")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -7.0
+offset_top = -17.0
+offset_right = 8.0
+offset_bottom = -12.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_lmkik")
+value = 50.0
+show_percentage = false
+
+[node name="SlowTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BleedTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BleedFrequency" type="Timer" parent="."]
+one_shot = true
