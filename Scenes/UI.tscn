@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5kwsmxglfbp6"]
+[gd_scene load_steps=18 format=3 uid="uid://b5kwsmxglfbp6"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_nkvbb"]
 [ext_resource type="Texture2D" uid="uid://ctnevp2mir5ra" path="res://Sprites/dice1.png" id="2_67tmu"]
@@ -10,31 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://bmul6nit5rrj5" path="res://Scenes/dice.tscn" id="8_72j4t"]
 [ext_resource type="Texture2D" uid="uid://bdj0okqe3e2x6" path="res://Sprites/UI/plateau.png" id="9_h45jj"]
 [ext_resource type="Texture2D" uid="uid://d02wiylsy1qku" path="res://Sprites/UI/play.png" id="9_wlrd2"]
+[ext_resource type="Texture2D" uid="uid://uwbxqkont7uu" path="res://Sprites/UI/gobelet-hover.png" id="10_6l2kn"]
 [ext_resource type="Texture2D" uid="uid://dk3jg0f0ordhe" path="res://Sprites/UI/gobelet.png" id="10_c6ft7"]
 [ext_resource type="Texture2D" uid="uid://dyswte0xgq8jp" path="res://Sprites/UI/pause.png" id="10_sc1jl"]
+[ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="11_7mjbh"]
 [ext_resource type="Texture2D" uid="uid://cp5d76wfeqgrx" path="res://Sprites/UI/speed.png" id="11_yd43j"]
 [ext_resource type="Texture2D" uid="uid://drsggjl0ha5n" path="res://Sprites/UI/speed-toggle.png" id="12_8umxh"]
 
-[sub_resource type="Texture2D" id="Texture2D_d3id7"]
+[sub_resource type="Texture2D" id="Texture2D_i8shy"]
 resource_local_to_scene = false
 resource_name = ""
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dx3p0"]
-bg_color = Color(0, 0.329412, 0.521569, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5p6o"]
-bg_color = Color(0.0941176, 0.458824, 0.670588, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ntte"]
-bg_color = Color(0.0352941, 0.156863, 0.478431, 1)
-
-[sub_resource type="Theme" id="Theme_lm4wp"]
-Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
-Button/font_sizes/font_size = 16
-Button/styles/focus = null
-Button/styles/hover = SubResource("StyleBoxFlat_dx3p0")
-Button/styles/normal = SubResource("StyleBoxFlat_t5p6o")
-Button/styles/pressed = SubResource("StyleBoxFlat_5ntte")
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -66,133 +51,97 @@ offset_bottom = 94.0
 theme_override_font_sizes/font_size = 30
 text = "Grille"
 
-[node name="Plateau" type="Control" parent="CanvasLayer"]
-visible = false
+[node name="Overlay" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlateauOverlay" type="TextureRect" parent="CanvasLayer/Plateau"]
-modulate = Color(0, 0, 0.156863, 0.866667)
+[node name="Plateau" type="TextureRect" parent="CanvasLayer/Overlay"]
 layout_mode = 0
-offset_top = 770.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = SubResource("Texture2D_d3id7")
-
-[node name="DiceHand" type="Control" parent="CanvasLayer/Plateau"]
-layout_mode = 1
-anchors_preset = 0
-
-[node name="Dice1" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice2" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice3" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice4" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="Dice5" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
-layout_mode = 0
-
-[node name="RollButton" type="Button" parent="CanvasLayer/Plateau"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 830.0
-offset_right = 250.0
-offset_bottom = 980.0
-theme = SubResource("Theme_lm4wp")
-theme_override_font_sizes/font_size = 50
-text = "Roll"
-
-[node name="Relancer" type="Label" parent="CanvasLayer/Plateau"]
-layout_mode = 0
-offset_left = 330.0
-offset_top = 820.0
-offset_right = 584.0
-offset_bottom = 906.0
-theme_override_font_sizes/font_size = 60
-text = "Relancer"
-
-[node name="Garder" type="Label" parent="CanvasLayer/Plateau"]
-layout_mode = 0
-offset_left = 1330.0
-offset_top = 820.0
-offset_right = 1481.0
-offset_bottom = 880.0
-theme_override_font_sizes/font_size = 40
-text = "Garder"
-
-[node name="nbLancer" type="Label" parent="CanvasLayer/Plateau"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 988.0
-offset_right = 358.0
-offset_bottom = 1048.0
-theme_override_font_sizes/font_size = 40
-text = "Lancers restants :"
-
-[node name="Plateau2" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Plateau2"]
-layout_mode = 0
-offset_left = 90.0
-offset_top = 656.0
-offset_right = 390.0
-offset_bottom = 956.0
+offset_left = 102.0
+offset_top = 598.0
+offset_right = 502.0
+offset_bottom = 998.0
 texture = ExtResource("9_h45jj")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Plateau2"]
+[node name="Gobelet" type="TextureButton" parent="CanvasLayer/Overlay"]
 layout_mode = 0
-offset_left = 458.0
-offset_top = 782.0
-offset_right = 558.0
-offset_bottom = 932.0
-texture = ExtResource("10_c6ft7")
+offset_left = 555.0
+offset_top = 812.0
+offset_right = 665.0
+offset_bottom = 975.0
+texture_normal = ExtResource("10_c6ft7")
+texture_hover = ExtResource("10_6l2kn")
 
-[node name="Dice1" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+[node name="Tooltip" type="Control" parent="CanvasLayer/Overlay/Gobelet"]
+visible = false
 layout_mode = 1
-offset_left = 156.0
-offset_top = 698.0
-offset_right = 216.0
-offset_bottom = 758.0
+anchors_preset = 0
+offset_left = 119.0
+offset_top = 42.0
+offset_right = 179.0
+offset_bottom = 92.0
+theme = ExtResource("11_7mjbh")
 
-[node name="Dice2" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+[node name="bg" type="TextureRect" parent="CanvasLayer/Overlay/Gobelet/Tooltip"]
+modulate = Color(0.0352941, 0.0117647, 0, 1)
 layout_mode = 1
-offset_left = 280.0
-offset_top = 695.0
-offset_right = 340.0
-offset_bottom = 755.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_i8shy")
 
-[node name="Dice3" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+[node name="nbLancers" type="Label" parent="CanvasLayer/Overlay/Gobelet/Tooltip"]
 layout_mode = 1
-offset_left = 118.0
+offset_left = 10.0
+offset_top = -6.0
+offset_right = 220.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 36
+text = "3 lancers restant"
+
+[node name="DiceHand" type="Control" parent="CanvasLayer/Overlay"]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="Dice1" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 864.0
+offset_right = 380.0
+offset_bottom = 924.0
+
+[node name="Dice2" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 760.0
+offset_right = 410.0
+offset_bottom = 820.0
+
+[node name="Dice3" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+offset_left = 215.0
 offset_top = 800.0
-offset_right = 178.0
+offset_right = 275.0
 offset_bottom = 860.0
 
-[node name="Dice4" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
-layout_mode = 1
-offset_left = 297.0
-offset_top = 800.0
-offset_right = 357.0
-offset_bottom = 860.0
+[node name="Dice4" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 670.0
+offset_right = 360.0
+offset_bottom = 730.0
 
-[node name="Dice5" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
-layout_mode = 1
-offset_left = 206.0
-offset_top = 851.0
-offset_right = 266.0
-offset_bottom = 911.0
+[node name="Dice5" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 700.0
+offset_right = 255.0
+offset_bottom = 760.0
 
 [node name="Vague" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -245,7 +194,3 @@ texture_normal = ExtResource("11_yd43j")
 texture_pressed = ExtResource("12_8umxh")
 ignore_texture_size = true
 stretch_mode = 0
-
-[connection signal="pressed" from="CanvasLayer/Plateau/RollButton" to="." method="_on_roll_pressed"]
-[connection signal="pressed" from="CanvasLayer/Vague/Controls/PausePlay" to="." method="on_PausePlay_pressed"]
-[connection signal="pressed" from="CanvasLayer/Vague/Controls/SpeedUp" to="." method="on_SpeedUp_pressed"]

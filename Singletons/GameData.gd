@@ -207,7 +207,13 @@ var unit_data: Dictionary = {
 	
 }
 
-
+var dice_data: Dictionary = {
+	1: [(Vector2(100, 100), Vector2(200, 200))],
+	2: [],
+	3: [],
+	4: [],
+	5: []
+}
 var wave_data: Dictionary = {
 	0: [["Gobelin", 1.5]],
 	1: [["Bobelin", 0.2], ["Bobelin", 0.2], ["Bobelin", 0.2], ["Bobelin", 0.2]],

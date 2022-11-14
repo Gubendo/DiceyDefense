@@ -7,3 +7,4 @@ res://Scenes/Units/IngeJR.tscn
 res://Scenes/UI.tscn
 res://Scenes/Enemies/Bobelin.tscn
 res://Scripts/UI.gd
+res://Singletons/GameData.gd
