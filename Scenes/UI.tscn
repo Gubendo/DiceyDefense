@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5kwsmxglfbp6"]
+[gd_scene load_steps=20 format=3 uid="uid://b5kwsmxglfbp6"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_nkvbb"]
 [ext_resource type="Texture2D" uid="uid://ctnevp2mir5ra" path="res://Sprites/dice1.png" id="2_67tmu"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://csjhew2hhmlsp" path="res://Sprites/dice5.png" id="6_jlkly"]
 [ext_resource type="Texture2D" uid="uid://vixwo325hsro" path="res://Sprites/dice6.png" id="7_akuqu"]
 [ext_resource type="PackedScene" uid="uid://bmul6nit5rrj5" path="res://Scenes/dice.tscn" id="8_72j4t"]
+[ext_resource type="Texture2D" uid="uid://bdj0okqe3e2x6" path="res://Sprites/UI/plateau.png" id="9_h45jj"]
 [ext_resource type="Texture2D" uid="uid://d02wiylsy1qku" path="res://Sprites/UI/play.png" id="9_wlrd2"]
+[ext_resource type="Texture2D" uid="uid://dk3jg0f0ordhe" path="res://Sprites/UI/gobelet.png" id="10_c6ft7"]
 [ext_resource type="Texture2D" uid="uid://dyswte0xgq8jp" path="res://Sprites/UI/pause.png" id="10_sc1jl"]
 [ext_resource type="Texture2D" uid="uid://cp5d76wfeqgrx" path="res://Sprites/UI/speed.png" id="11_yd43j"]
 [ext_resource type="Texture2D" uid="uid://drsggjl0ha5n" path="res://Sprites/UI/speed-toggle.png" id="12_8umxh"]
@@ -56,6 +58,7 @@ theme_override_font_sizes/font_size = 40
 text = "Main réelle : "
 
 [node name="Grille" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 81.0
 offset_top = 9.0
 offset_right = 551.0
@@ -64,6 +67,7 @@ theme_override_font_sizes/font_size = 30
 text = "Grille"
 
 [node name="Plateau" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -71,26 +75,33 @@ offset_bottom = 40.0
 
 [node name="PlateauOverlay" type="TextureRect" parent="CanvasLayer/Plateau"]
 modulate = Color(0, 0, 0.156863, 0.866667)
+layout_mode = 0
 offset_top = 770.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = SubResource("Texture2D_d3id7")
 
 [node name="DiceHand" type="Control" parent="CanvasLayer/Plateau"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 
 [node name="Dice1" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice2" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice3" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice4" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="Dice5" parent="CanvasLayer/Plateau/DiceHand" instance=ExtResource("8_72j4t")]
+layout_mode = 0
 
 [node name="RollButton" type="Button" parent="CanvasLayer/Plateau"]
+layout_mode = 0
 offset_left = 100.0
 offset_top = 830.0
 offset_right = 250.0
@@ -100,6 +111,7 @@ theme_override_font_sizes/font_size = 50
 text = "Roll"
 
 [node name="Relancer" type="Label" parent="CanvasLayer/Plateau"]
+layout_mode = 0
 offset_left = 330.0
 offset_top = 820.0
 offset_right = 584.0
@@ -108,6 +120,7 @@ theme_override_font_sizes/font_size = 60
 text = "Relancer"
 
 [node name="Garder" type="Label" parent="CanvasLayer/Plateau"]
+layout_mode = 0
 offset_left = 1330.0
 offset_top = 820.0
 offset_right = 1481.0
@@ -116,12 +129,70 @@ theme_override_font_sizes/font_size = 40
 text = "Garder"
 
 [node name="nbLancer" type="Label" parent="CanvasLayer/Plateau"]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 988.0
 offset_right = 358.0
 offset_bottom = 1048.0
 theme_override_font_sizes/font_size = 40
 text = "Lancers restants :"
+
+[node name="Plateau2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Plateau2"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 656.0
+offset_right = 390.0
+offset_bottom = 956.0
+texture = ExtResource("9_h45jj")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Plateau2"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 782.0
+offset_right = 558.0
+offset_bottom = 932.0
+texture = ExtResource("10_c6ft7")
+
+[node name="Dice1" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+layout_mode = 1
+offset_left = 156.0
+offset_top = 698.0
+offset_right = 216.0
+offset_bottom = 758.0
+
+[node name="Dice2" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+layout_mode = 1
+offset_left = 280.0
+offset_top = 695.0
+offset_right = 340.0
+offset_bottom = 755.0
+
+[node name="Dice3" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+layout_mode = 1
+offset_left = 118.0
+offset_top = 800.0
+offset_right = 178.0
+offset_bottom = 860.0
+
+[node name="Dice4" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+layout_mode = 1
+offset_left = 297.0
+offset_top = 800.0
+offset_right = 357.0
+offset_bottom = 860.0
+
+[node name="Dice5" parent="CanvasLayer/Plateau2" instance=ExtResource("8_72j4t")]
+layout_mode = 1
+offset_left = 206.0
+offset_top = 851.0
+offset_right = 266.0
+offset_bottom = 911.0
 
 [node name="Vague" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -132,6 +203,7 @@ offset_right = 148.0
 offset_bottom = 44.0
 
 [node name="number" type="Label" parent="CanvasLayer/Vague"]
+layout_mode = 0
 offset_left = 1346.0
 offset_top = 44.0
 offset_right = 1816.0
@@ -142,6 +214,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="HBoxContainer" parent="CanvasLayer/Vague"]
+visible = false
+layout_mode = 0
 offset_left = 1479.0
 offset_top = -7.0
 offset_right = 1683.0
@@ -150,6 +224,7 @@ offset_bottom = 73.0
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3
 custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
 offset_right = 100.0
 offset_bottom = 80.0
 toggle_mode = true
@@ -161,6 +236,7 @@ stretch_mode = 0
 
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 custom_minimum_size = Vector2i(100, 0)
+layout_mode = 2
 offset_left = 104.0
 offset_right = 204.0
 offset_bottom = 80.0

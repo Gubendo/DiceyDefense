@@ -77,11 +77,11 @@ func update_hand(hand: Array) -> void:
 func update_phase(waveStarted: bool, currentWave: int) -> void:
 	get_node("CanvasLayer/Plateau").visible = !waveStarted
 	#get_node("CanvasLayer/Plateau/DiceHand").visible = !waveStarted
-	#get_node("CanvasLayer/Plateau/RollButton").visible = !waveStarted
+	get_node("CanvasLayer/Plateau/RollButton").visible = !waveStarted
 	#get_node("CanvasLayer/Plateau/nbLancer").visible = !waveStarted
 	#get_node("CanvasLayer/Plateau/Relancer").visible = !waveStarted
 	#get_node("CanvasLayer/Plateau/Garder").visible = !waveStarted
-	#get_node("CanvasLayer/Vague/Controls").visible = waveStarted
+	get_node("CanvasLayer/Vague/Controls").visible = waveStarted
 	
 	if !waveStarted: nouveau_coup()
 	
