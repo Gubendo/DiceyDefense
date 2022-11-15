@@ -3,6 +3,7 @@ extends Control
 signal roll(unfrozenDices)
 signal choix(coup)
 var diceHand: String = "CanvasLayer/Overlay/DiceHand/"
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var dicesList: Array = [get_node(diceHand + "Dice1"), get_node(diceHand + "Dice2"), get_node(diceHand + "Dice3"), get_node(diceHand + "Dice4"), get_node(diceHand + "Dice5")]
 @onready var gobelet: TextureButton = get_node("CanvasLayer/Overlay/Gobelet")
 @onready var pausePlay: TextureButton = get_node("CanvasLayer/Vague/Controls/PausePlay")
@@ -12,8 +13,8 @@ var unfrozenDices: Array = []
 var frozenDices: Array = []
 var unfrozen_dice_pos: Dictionary = {0: Vector2(195, 700), 1: Vector2(300, 670), \
 2: Vector2(215, 800), 3: Vector2(350, 760), 4: Vector2(320, 865)}
-var frozen_dice_pos: Dictionary = {0: Vector2(1100, 100), 1: Vector2(1200, 200), \
-2: Vector2(1300, 300), 3: Vector2(1400, 400), 4: Vector2(1500, 500)}
+var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
+2: Vector2(880, 900), 3: Vector2(750, 820), 4: Vector2(830, 820)}
 
 @export var dicesSprites: Array[Texture2D]
 @export var nbRolls: int = 2
@@ -21,6 +22,7 @@ var frozen_dice_pos: Dictionary = {0: Vector2(1100, 100), 1: Vector2(1200, 200),
 var coupsRestant: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	rng.randomize()
 	coupsRestant = nbRolls + 1
 	for dice in dicesList:
 		unfrozenDices.append(dice)
@@ -43,11 +45,9 @@ func _process(delta: float) -> void:
 		for node in dicesList:
 			if node.get_global_rect().has_point(mousePos):
 				if node in frozenDices:
-					node.modulate = Color(1, 1, 1)
 					frozenDices.erase(node)
 					unfrozenDices.append(node)
 				else:
-					node.modulate = Color(0.5, 0.5, 0.5)
 					frozenDices.append(node)
 					unfrozenDices.erase(node)
 				update_dice_pos()
@@ -67,14 +67,34 @@ func nouveau_coup() -> void:
 	coupsRestant = nbRolls + 1
 	for node in frozenDices:
 		unfrozenDices.append(node)
-		node.modulate = Color(1, 1, 1)
 	frozenDices.clear()
-	update_dice_pos()
-	emit_signal("roll", unfrozenDices)
+	press_roll()
 	
 func press_roll() -> void:
-	print(len(unfrozenDices))
+	var rolled_dices: Array = []
+	for node in unfrozenDices:
+		var unfrozen_id: int = str(node.name).right(1).to_int() - 1
+		unfrozen_dice_pos[unfrozen_id] = Vector2(-100, -100)
+	update_dice_pos()
+	#await get_tree().create_timer(0.5).timeout
 	emit_signal("roll", unfrozenDices)
+
+	for node in unfrozenDices:
+		var alone: bool = false
+		var position: Vector2
+		var unfrozen_id: int = str(node.name).right(1).to_int() - 1
+		while not alone:
+			position = get_random_pos_in_circle(125, 275, 770)
+			for node2 in unfrozenDices:
+				var unfrozen_id2: int = str(node2.name).right(1).to_int() - 1
+				if abs(position.distance_to(unfrozen_dice_pos[unfrozen_id2])) > 90:
+					alone = true
+				else:
+					alone = false
+					break
+		unfrozen_dice_pos[unfrozen_id] = position
+	
+	update_dice_pos()
 	
 
 func update_hand(hand: Array) -> void:
@@ -128,4 +148,10 @@ func enable_tooltip_gobelet() -> void:
 	
 func disable_tooltip_gobelet() -> void:
 	gobelet.get_node("Tooltip").visible = false
+	
+func get_random_pos_in_circle (radius : float, centerX: float, centerY: float) -> Vector2:
+	var r: float = sqrt(rng.randf_range(0, 1)) * radius
+	var theta: float = rng.randf_range(0, 1) * 2 * PI
+	
+	return Vector2(centerX + r*cos(theta), centerY + r*sin(theta))
 

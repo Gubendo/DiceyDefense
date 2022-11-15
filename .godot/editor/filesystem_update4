@@ -1,10 +1,8 @@
-res://Scenes/Units/Tavernier.tscn
-res://Scenes/Units/Loup.tscn
+res://Scenes/Enemies/Bobelin.tscn
+res://Scripts/UI.gd
 res://Scenes/main.tscn
 res://Scenes/Units/Builder.tscn
 res://Scenes/Units/IngeSR.tscn
 res://Scenes/Units/IngeJR.tscn
 res://Scenes/UI.tscn
-res://Scenes/Enemies/Bobelin.tscn
-res://Scripts/UI.gd
 res://Singletons/GameData.gd
