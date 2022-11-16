@@ -1,8 +1,6 @@
-res://Scenes/Enemies/Bobelin.tscn
-res://Scripts/UI.gd
 res://Scenes/main.tscn
 res://Scenes/Units/Builder.tscn
 res://Scenes/Units/IngeSR.tscn
 res://Scenes/Units/IngeJR.tscn
 res://Scenes/UI.tscn
-res://Singletons/GameData.gd
+res://Scenes/Enemies/Bobelin.tscn
