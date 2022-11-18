@@ -30,7 +30,7 @@ func _on_ui_roll(unfrozen: Array) -> void:
 	
 	for unit in get_node("Units").get_children():
 		if !unit.activated : 
-			unit.update_level(get_node("YamsManager").combinaisons[GameData.unit_data[unit.name]["value"]])
+			unit.update_level(get_node("YamsManager").combinaisons[GameData.unit_data[unit.name]["value"]][0])
 
 func update_phase() -> void:
 	get_node("UI").update_phase(waveStarted, current_wave)
@@ -47,7 +47,9 @@ func update_phase() -> void:
 
 func start_next_wave() -> void:
 	var wave_data: Array = retrieve_wave_data()
-	enemies_in_wave = wave_data.size()
+	enemies_in_wave = 0
+	for group in wave_data:
+		enemies_in_wave += group[0]
 	waveStarted = true
 	update_phase()
 	await get_tree().create_timer(0.2).timeout
@@ -64,11 +66,13 @@ func retrieve_wave_data() -> Array:
 	return wave_data
 	
 func spawn_enemies(wave_data: Array) -> void:
-	for i in wave_data:
-		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
-		new_enemy.death.connect(on_enemy_death)
-		get_node("KingsRoad").add_child(new_enemy, true)
-		await get_tree().create_timer(i[1]).timeout
+	for group in wave_data:
+		for i in range(group[0]):
+			var new_enemy = load("res://Scenes/Enemies/" + group[1] + ".tscn").instantiate()
+			new_enemy.death.connect(on_enemy_death)
+			get_node("KingsRoad").add_child(new_enemy, true)
+			await get_tree().create_timer(group[2]).timeout
+		await get_tree().create_timer(group[3]).timeout
 		
 func on_enemy_death() -> void:
 	enemies_in_wave -= 1

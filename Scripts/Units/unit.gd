@@ -159,12 +159,20 @@ func enable_tooltip() -> void:
 		tooltip.visible = true
 		unitHover.visible = true
 		rangeSprite.modulate.a = 0.3
+		highlight_dices()
 
 func disable_tooltip() -> void:
 	tooltip.visible = false
 	unitHover.visible = false
 	if(!activated or !debug):
 		rangeSprite.modulate.a = 0
+	unhighlight_dices()
+
+func highlight_dices() -> void:
+	get_tree().get_root().get_node("Main/UI").highlight_dices(GameData.unit_data[unitName]["value"])
+	
+func unhighlight_dices() -> void:
+	get_tree().get_root().get_node("Main/UI").unhighlight_dices()
 
 ### ### ###
 

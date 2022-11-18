@@ -1,4 +1,6 @@
 TextureButton
+Sprite2D
+Node
 TextureRect
 Panel
 HBoxContainer
@@ -7,7 +9,6 @@ Node2D
 CanvasLayer
 CollisionShape2D
 Area2D
-Sprite2D
 Timer
 RichTextLabel
 Label
@@ -18,7 +19,6 @@ TextureProgressBar
 CharacterBody2D
 PathFollow2D
 Path2D
-Node
 Button
 TileMap
 Camera2D

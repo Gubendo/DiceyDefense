@@ -207,8 +207,8 @@ var unit_data: Dictionary = {
 	
 }
 
-var wave_data: Dictionary = {
-	0: [["Gobelin", 1.5]],
-	1: [["Bobelin", 0.2], ["Bobelin", 0.2], ["Bobelin", 0.2], ["Bobelin", 0.2]],
-	2: [["Gobelin", 0.2], ["Gobelin", 0.2], ["Bobelin", 0.2], ["Gobelin", 0.2], ["Gobelin", 0.2], ["Gobelin", 0.2], ["Gobelin", 0.2]]
+var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
+	0: [[1, "Gobelin", 0, 0]],
+	1: [[4, "Gobelin", 0.2, 1], [3, "Bobelin", 0.2, 0]],
+	2: [[2, "Gobelin", 0.2, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 0.2, 0]]
 }

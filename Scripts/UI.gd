@@ -17,7 +17,7 @@ var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
 2: Vector2(880, 900), 3: Vector2(750, 820), 4: Vector2(830, 820)}
 
 @export var dicesSprites: Array[Texture2D]
-@export var nbRolls: int = 2
+@export var nbRolls: int = 50
 
 var coupsRestant: int
 # Called when the node enters the scene tree for the first time.
@@ -154,4 +154,17 @@ func get_random_pos_in_circle (radius : float, centerX: float, centerY: float) -
 	var theta: float = rng.randf_range(0, 1) * 2 * PI
 	
 	return Vector2(centerX + r*cos(theta), centerY + r*sin(theta))
+
+func highlight_dices(value: String) -> void:
+	var dices: Array = get_tree().get_root().get_node("Main/YamsManager").combinaisons[value][1]
+	for i in range(5):
+		if i not in dices:
+			dicesList[i].modulate = Color(0.3, 0.3, 0.3)
+		else:
+			dicesList[i].get_node("Highlight").visible = true
+	
+func unhighlight_dices() -> void:
+	for dice in dicesList:
+		dice.modulate = Color(1, 1, 1)
+		dice.get_node("Highlight").visible = false
 
