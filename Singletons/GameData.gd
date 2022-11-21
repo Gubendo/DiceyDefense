@@ -79,6 +79,7 @@ var builder_stats: Dictionary = {
 	1: {
 		"health": 5,
 		"damage": 5,
+		"nb": 2,
 		"range": -1
 	}
 }

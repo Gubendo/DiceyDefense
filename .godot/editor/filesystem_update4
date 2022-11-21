@@ -5,3 +5,7 @@ res://Scenes/Units/IngeJR.tscn
 res://Scenes/UI.tscn
 res://Scenes/Enemies/Bobelin.tscn
 res://Scenes/Decors/panneau.tscn
+res://Scenes/Units/Colosse.tscn
+res://Scripts/Units/Builder.gd
+res://Singletons/GameData.gd
+res://Scenes/Units/Bard.tscn

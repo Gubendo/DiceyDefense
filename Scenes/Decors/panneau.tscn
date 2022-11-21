@@ -32,7 +32,6 @@ theme = ExtResource("3_1bjhb")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
 modulate = Color(0.960784, 0.490196, 0.290196, 1)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,7 +40,6 @@ grow_vertical = 2
 texture = SubResource("Texture2D_e8pld")
 
 [node name="sign" type="Label" parent="CanvasLayer/Tooltip"]
-layout_mode = 1
 offset_left = 2.0
 offset_top = -3.0
 offset_right = 63.0

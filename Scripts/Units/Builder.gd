@@ -1,7 +1,7 @@
 extends "res://Scripts/Units/unit.gd"
 
 @onready var barricadeTemp = load("res://Scenes/Buildings/Barricade.tscn")
-var barricade
+var barricades: Array = []
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Builder"
@@ -11,16 +11,20 @@ func special() -> void:
 
 func activate() -> void:
 	super.activate()
-	build_barricade()
+	print("BUILDER : Je construis des barricades")
+	if stats[level]["nb"] == 1: build_barricade(Vector2(-215, -200))
+	if stats[level]["nb"] == 2: 
+		build_barricade(Vector2(-200, -200))
+		build_barricade(Vector2(-232, -200))
 
 func update_level(value: int) -> void:
 	level = 1
 	
 func update_tooltip() -> void:
 	update_stats()
-	tooltipText.text = "Unité de soutien qui construit une barricade possédant \
-{0} points de vie et infligeant {1} points de dégâts aux unités qui \
-l'attaquent".format([currentStats[0], currentStats[1]])
+	tooltipText.text = "Unité de soutien qui construit {0} barricades possédant \
+{1} points de vie et infligeant {2} points de dégâts aux unités qui \
+les attaquent".format([currentStats[2], currentStats[0], currentStats[1]])
 	
 func _process(delta: float) -> void:
 	pass
@@ -29,15 +33,18 @@ func start_wave() -> void:
 	repair_barricade()
 
 func repair_barricade() -> void:
-	if barricade and barricade.baseHP != barricade.currentHP:
-		print("BUILDER : Je répare ma barricade")
-		barricade.repair()
+	if barricades.size() != 0:
+		for barricade in barricades:
+			if barricade.baseHP != barricade.currentHP:
+				print("BUILDER : Je répare ma barricade")
+				barricade.repair()
 
-func build_barricade() -> void:
-	print("BUILDER : Je construis une barricade")
-	barricade = barricadeTemp.instantiate()
-	get_tree().get_root().add_child(barricade)
-	barricade.position = Vector2(-215, -200)
+func build_barricade(b_position: Vector2) -> void:
+	var barricade = barricadeTemp.instantiate()
+	get_tree().get_root().get_node("Main").add_child(barricade)
+	get_tree().get_root().get_node("Main").move_child(barricade, 4)
+	barricade.position = b_position
 	barricade.baseHP = stats[level]["health"]
 	barricade.thorns = stats[level]["damage"]
 	barricade.init()
+	barricades.append(barricade)
