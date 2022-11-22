@@ -42,6 +42,9 @@ func update_phase() -> void:
 		else:
 			unit.turn(1)
 			unit.start_wave()
+			
+	for temp in get_node("Temporary").get_children():
+		temp.queue_free()
 	
 ### Gestion de vagues
 

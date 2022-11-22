@@ -137,27 +137,36 @@ offset_bottom = 760.0
 [node name="Vague" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 108.0
-offset_top = 4.0
-offset_right = 148.0
-offset_bottom = 44.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="number" type="Label" parent="CanvasLayer/Vague"]
-offset_left = 1346.0
-offset_top = 44.0
-offset_right = 1816.0
-offset_bottom = 129.0
+offset_left = 1454.0
+offset_top = 48.0
+offset_right = 1924.0
+offset_bottom = 133.0
 theme_override_font_sizes/font_size = 30
 text = "Prochaine vague : 1/13"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="remaining" type="Label" parent="CanvasLayer/Vague"]
+visible = false
+offset_left = 1454.0
+offset_top = 94.0
+offset_right = 1924.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 30
+text = "2 ennemis restant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Controls" type="HBoxContainer" parent="CanvasLayer/Vague"]
 visible = false
-offset_left = 1479.0
-offset_top = -7.0
-offset_right = 1683.0
-offset_bottom = 73.0
+offset_left = 1587.0
+offset_top = -3.0
+offset_right = 1791.0
+offset_bottom = 77.0
 
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3

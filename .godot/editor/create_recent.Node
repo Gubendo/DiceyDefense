@@ -1,11 +1,14 @@
 Sprite2D
-TextureButton
+AnimatedSprite2D
+AnimationPlayer
+AnimationTree
+Node2D
 Node
+TextureButton
 TextureRect
 Panel
 HBoxContainer
 Control
-Node2D
 CanvasLayer
 CollisionShape2D
 Area2D
@@ -22,4 +25,3 @@ Path2D
 Button
 TileMap
 Camera2D
-AnimatedSprite2D

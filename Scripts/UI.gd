@@ -8,6 +8,8 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var gobelet: TextureButton = get_node("CanvasLayer/Overlay/Gobelet")
 @onready var pausePlay: TextureButton = get_node("CanvasLayer/Vague/Controls/PausePlay")
 @onready var speedUp: TextureButton = get_node("CanvasLayer/Vague/Controls/SpeedUp")
+@onready var waveNumber: Label = get_node("CanvasLayer/Vague/number")
+@onready var remainingEnemies: Label = get_node("CanvasLayer/Vague/remaining")
 
 var unfrozenDices: Array = []
 var frozenDices: Array = []
@@ -52,6 +54,9 @@ func _process(delta: float) -> void:
 					unfrozenDices.erase(node)
 				update_dice_pos()
 				break
+	var enemies: float = get_tree().get_root().get_node("Main").enemies_in_wave
+	if enemies == 1: remainingEnemies.text = "1 ennemi restant"
+	else: remainingEnemies.text = str(enemies) + " ennemis restant"
 				
 
 func update_dice_pos() -> void:
@@ -118,9 +123,11 @@ func update_phase(waveStarted: bool, currentWave: int) -> void:
 	if !waveStarted: nouveau_coup()
 	
 	if waveStarted:
-		get_node("CanvasLayer/Vague/number").text = "Vague " + str(currentWave) + "/13"
+		waveNumber.text = "Vague " + str(currentWave) + "/13"
+		remainingEnemies.visible = true
 	else:
-		get_node("CanvasLayer/Vague/number").text = "Prochaine vague : " + str(currentWave + 1) + "/13"
+		waveNumber.text = "Prochaine vague : " + str(currentWave + 1) + "/13"
+		remainingEnemies.visible = false
 		
 
 func update_grille(grille: Dictionary) -> void:

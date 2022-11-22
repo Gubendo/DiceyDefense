@@ -138,10 +138,12 @@ position = Vector2(-325, -185)
 current = true
 zoom = Vector2(3, 3)
 
+[node name="Temporary" type="Node" parent="."]
+
 [node name="Décor" type="Node" parent="."]
 
 [node name="Billot" type="Sprite2D" parent="Décor"]
-position = Vector2(-337, -216)
+position = Vector2(-335, -216)
 texture = ExtResource("20_cg4cb")
 
 [node name="Panneau" parent="Décor" instance=ExtResource("20_abjxm")]

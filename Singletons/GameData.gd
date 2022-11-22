@@ -112,9 +112,9 @@ var tavernier_stats: Dictionary = {
 var catapulte_stats: Dictionary = {
 	1: {
 		"damage": 10,
-		"cooldown": 0.5,
+		"cooldown": 1,
 		"aoe": 40,
-		"range": 5
+		"range": 10
 	}
 }
 

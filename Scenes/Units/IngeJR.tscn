@@ -54,6 +54,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_6aond")
 
+[node name="ShootPos" type="Node2D" parent="Catapulte"]
+position = Vector2(-2, -2)
+
 [node name="Hover" type="Sprite2D" parent="Catapulte"]
 texture = ExtResource("5_i8c6k")
 

@@ -1,16 +1,23 @@
 extends "res://Scripts/Units/unit.gd"
 
-
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+@onready var unit_sprite: Sprite2D = get_node("Unit/Sprite")
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Soldier"
 
+func activate() -> void:
+	super.activate()
+	unit_sprite.visible = true
+	button.modulate.a = 0
+	animation_player.play("Soldier-idle")
+	
 func special() -> void:
 	print("PAYSAN : Je donne un coup d'épée")
 	target.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value: int) -> void:
-	if value < 3: level = 0
+	if value == 0: level = 0
 	else: level = 1
 	
 func update_tooltip() -> void:
