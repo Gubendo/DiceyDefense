@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byt8rh8wl5jwb"
-path="res://.godot/imported/soldier-hover-idle.png-00140c8082aca1819943ff632926a4d7.ctex"
+uid="uid://y62pvv3a4t4l"
+path="res://.godot/imported/test2.png-f151cea48dba2889dc28f3fc512cb3c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/soldier-hover-idle.png"
-dest_files=["res://.godot/imported/soldier-hover-idle.png-00140c8082aca1819943ff632926a4d7.ctex"]
+source_file="res://Sprites/Units/test2.png"
+dest_files=["res://.godot/imported/test2.png-f151cea48dba2889dc28f3fc512cb3c3.ctex"]
 
 [params]
 

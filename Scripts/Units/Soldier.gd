@@ -10,7 +10,10 @@ func activate() -> void:
 	super.activate()
 	unit_sprite.visible = true
 	button.modulate.a = 0
-	animation_player.play("Soldier-idle")
+	animation_player.play("idle")
+	
+func _process(delta):
+	super._process(delta)
 	
 func special() -> void:
 	print("PAYSAN : Je donne un coup d'épée")

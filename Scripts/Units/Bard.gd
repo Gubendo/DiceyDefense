@@ -3,21 +3,30 @@ extends "res://Scripts/Units/unit.gd"
 @onready var root_node: Node = get_tree().get_root()
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+@onready var unit_sprite: Sprite2D = get_node("Unit/Sprite")
+
 var targets: Array = []
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Bard"
 	rng.randomize()
+	
+func activate() -> void:
+	super.activate()
+	unit_sprite.visible = true
+	button.modulate.a = 0
+	animation_player.play("idle")
 
 func special() -> void:
 	print("BARDE : Je joue de la musique sur " + str(targets))
 	for unit in targets:
 		unit.buff_as *= stats[level]["buff"]
-		unit.button.modulate = Color(0.3, 0, 0.3)
+		#unit.unit_sprite.modulate = Color(0.3, 0, 0.3)
 	await get_tree().create_timer(stats[level]["duration"]).timeout
 	for unit in targets:
 		unit.buff_as /= stats[level]["buff"]
-		unit.button.modulate = Color(1, 1, 1)
+		#unit.unit_sprite.modulate = Color(1, 1, 1)
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0

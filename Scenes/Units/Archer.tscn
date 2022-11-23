@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5tp2dhwh1sjy"]
+[gd_scene load_steps=12 format=3 uid="uid://b5tp2dhwh1sjy"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Archer.gd" id="1_mqvs0"]
 [ext_resource type="Texture2D" uid="uid://bw24p5hfsc5j4" path="res://Sprites/Units/archer.png" id="2_h8mpf"]
-[ext_resource type="Texture2D" uid="uid://rpjxxh0dg3o" path="res://Sprites/Units/archer-hover.png" id="3_mii2q"]
+[ext_resource type="Texture2D" uid="uid://vheeshides7i" path="res://Animations/Archer/archer-hover-idle.png" id="3_daodx"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_ulfwh"]
+[ext_resource type="Texture2D" uid="uid://cofpmuhuwcetl" path="res://Animations/Archer/archer-idle.png" id="4_00hfp"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_0yqvr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwprr"]
@@ -12,6 +13,68 @@ radius = 8.0
 [sub_resource type="Texture2D" id="Texture2D_p5hpw"]
 resource_local_to_scene = false
 resource_name = ""
+
+[sub_resource type="Animation" id="Animation_tb62b"]
+resource_name = "idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/Hover:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_8l687"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Hover:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abedm"]
+_data = {
+"RESET": SubResource("Animation_8l687"),
+"idle": SubResource("Animation_tb62b")
+}
 
 [node name="Archer" type="Node2D"]
 script = ExtResource("1_mqvs0")
@@ -34,7 +97,13 @@ shortcut_in_tooltip = false
 texture_normal = ExtResource("2_h8mpf")
 
 [node name="Hover" type="Sprite2D" parent="Unit"]
-texture = ExtResource("3_mii2q")
+texture = ExtResource("3_daodx")
+hframes = 5
+
+[node name="Sprite" type="Sprite2D" parent="Unit"]
+visible = false
+texture = ExtResource("4_00hfp")
+hframes = 5
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -92,3 +161,8 @@ inflige [color=5d5d5d]1/5/[color=fff]10[/color]/15[/color] points de
 dégâts toutes les [color=5d5d5d]2/1/[color=fff]0.5[/color]/0.1 [/color]secondes selon le niveau"
 fit_content_height = true
 scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_abedm")
+}
