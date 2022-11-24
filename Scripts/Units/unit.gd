@@ -10,6 +10,10 @@ extends Node2D
 
 @onready var stats: Dictionary = GameData.unit_data[unitName]["stats"]
 @onready var yamsMgr: Node = get_tree().get_root().get_node("Main/YamsManager")
+
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+@onready var unit_sprite: Sprite2D = get_node("Unit/Sprite")
+
 var currentStats: Array = []
 
 var enemies_in_range: Array = []
@@ -67,6 +71,11 @@ func activate() -> void:
 		activated = true
 		rangeSprite.modulate.a = 0
 		update_tooltip()
+		
+		unit_sprite.visible = true
+		button.modulate.a = 0
+		animation_player.play("idle")
+	
 	emit_signal("choix", GameData.unit_data[unitName]["value"])
 	
 

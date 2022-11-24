@@ -17,6 +17,7 @@ func activate() -> void:
 	disable_tooltip()
 	
 	unit = get_node("Trebuchet")
+	unit_sprite = get_node("Trebuchet/Sprite")
 	button = get_node("Trebuchet/Activate")
 	unitHover= get_node("Trebuchet/Hover")
 	unit.visible = true
