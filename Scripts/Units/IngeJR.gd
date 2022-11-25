@@ -19,7 +19,7 @@ func activate() -> void:
 	unit = get_node("Catapulte")
 	unit_sprite = get_node("Catapulte/Sprite")
 	button = get_node("Catapulte/Activate")
-	unitHover= get_node("Catapulte/Hover")
+	unitHover = get_node("Catapulte/Hover")
 	unit.visible = true
 	connect_signals()
 	

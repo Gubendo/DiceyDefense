@@ -4,7 +4,7 @@ extends Node
 var soldier_stats: Dictionary = {
 	1: {
 		"damage": 20,
-		"cooldown": 0.5,
+		"cooldown": 1,
 		"range": 3,
 	}
 }
@@ -68,7 +68,7 @@ var mage_stats: Dictionary = {
 var paladin_stats: Dictionary = {
 	1: {
 		"damage": 10,
-		"cooldown": 0.5,
+		"cooldown": 1,
 		"aoe": 40,
 		"splash": 5,
 		"range": 5

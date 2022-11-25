@@ -7,6 +7,7 @@ extends Node2D
 @onready var tooltip: Control = get_node("CanvasLayer/Tooltip")
 @onready var tooltipText: RichTextLabel = get_node("CanvasLayer/Tooltip/Description")
 @onready var rangeSprite: Sprite2D = get_node("Range/RangeSprite")
+@onready var lastAttack: Timer = get_node("LastAttack")
 
 @onready var stats: Dictionary = GameData.unit_data[unitName]["stats"]
 @onready var yamsMgr: Node = get_tree().get_root().get_node("Main/YamsManager")
@@ -23,11 +24,15 @@ var activated: bool = false
 var sleeping: bool = false
 var atkReady: bool = true
 var debug: bool = false
+var idling: bool = false
 
 var unitName: String = ""
 var level: int = 0
 var buff_as: float = 1
 var buff_dmg: float = 1
+var last_attack_time: float = 2
+
+var nbAttack = 0
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
@@ -47,6 +52,11 @@ func _process(delta: float) -> void:
 			attack()
 	else:
 		target = null
+
+	if activated and lastAttack.time_left <= 0 and !idling:
+		idle_anim()
+		
+		
 
 func init_sprite() -> void:
 	button.modulate = Color(0.5, 0.5, 0.5)
@@ -74,7 +84,7 @@ func activate() -> void:
 		
 		unit_sprite.visible = true
 		button.modulate.a = 0
-		animation_player.play("idle")
+		idle_anim()
 	
 	emit_signal("choix", GameData.unit_data[unitName]["value"])
 	
@@ -111,7 +121,9 @@ func turn(direction: float) -> void:
 
 func attack() -> void:
 	atkReady = false
-	special()
+	#special()
+	
+	attack_anim()	
 	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
 	atkReady = true
 
@@ -183,6 +195,21 @@ func highlight_dices() -> void:
 func unhighlight_dices() -> void:
 	get_tree().get_root().get_node("Main/UI").unhighlight_dices()
 
+### ANIMATIONS ###
+func attack_anim() -> void:
+	idling = false
+	lastAttack.start(last_attack_time)
+	var anim: float = animation_player.get_animation("attack").length / animation_player.playback_speed
+	var attsp: float = stats[level]["cooldown"] / buff_as
+	if anim > attsp:
+		animation_player.playback_speed = (anim / attsp)*1.1
+	animation_player.play("attack")
+	
+func idle_anim() -> void:
+	animation_player.play("idle")
+	idling = true
+	animation_player.playback_speed = 1
+	
 ### ### ###
 
 func _on_range_body_entered(body: CharacterBody2D) -> void:

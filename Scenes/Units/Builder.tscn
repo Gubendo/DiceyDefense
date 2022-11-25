@@ -165,3 +165,6 @@ scroll_active = false
 libraries = {
 "": SubResource("AnimationLibrary_n382a")
 }
+
+[node name="LastAttack" type="Timer" parent="."]
+one_shot = true

@@ -43,14 +43,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		move(delta)
 	
-	if impaired and slow_timer.time_left == 0:
+	if impaired and slow_timer.time_left <= 0:
 		slow_timer.stop()
 		currentSpeed = baseSpeed
 		sprite.modulate = Color(1, 1, 1)
 		impaired = false
 	if bleedFreq != 0 and bleed != 0 and bleed_frequency.time_left == 0:
 		take_dmg(bleed)
-		if bleed_timer.time_left == 0:
+		if bleed_timer.time_left <= 0:
 			bleedFreq = 0
 			bleed = 0
 			sprite.modulate = Color(1, 1, 1)

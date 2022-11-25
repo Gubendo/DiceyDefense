@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5tp2dhwh1sjy"]
+[gd_scene load_steps=13 format=3 uid="uid://b5tp2dhwh1sjy"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Archer.gd" id="1_mqvs0"]
 [ext_resource type="Texture2D" uid="uid://bw24p5hfsc5j4" path="res://Sprites/Units/archer.png" id="2_h8mpf"]
-[ext_resource type="Texture2D" uid="uid://vheeshides7i" path="res://Animations/Archer/archer-hover-idle.png" id="3_daodx"]
+[ext_resource type="Texture2D" uid="uid://bj25qqy8wgfma" path="res://Animations/Archer/archer-hover-full.png" id="3_jtvlf"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_ulfwh"]
-[ext_resource type="Texture2D" uid="uid://cofpmuhuwcetl" path="res://Animations/Archer/archer-idle.png" id="4_00hfp"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_0yqvr"]
+[ext_resource type="Texture2D" uid="uid://dpenoc1k1m2hh" path="res://Animations/Archer/archer-full.png" id="4_hvx6a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwprr"]
 radius = 8.0
@@ -70,9 +70,52 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_121cn"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Hover:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"special"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_abedm"]
 _data = {
 "RESET": SubResource("Animation_8l687"),
+"attack": SubResource("Animation_121cn"),
 "idle": SubResource("Animation_tb62b")
 }
 
@@ -97,13 +140,15 @@ shortcut_in_tooltip = false
 texture_normal = ExtResource("2_h8mpf")
 
 [node name="Hover" type="Sprite2D" parent="Unit"]
-texture = ExtResource("3_daodx")
-hframes = 5
+texture = ExtResource("3_jtvlf")
+hframes = 6
+vframes = 2
 
 [node name="Sprite" type="Sprite2D" parent="Unit"]
 visible = false
-texture = ExtResource("4_00hfp")
-hframes = 5
+texture = ExtResource("4_hvx6a")
+hframes = 6
+vframes = 2
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -163,3 +208,6 @@ scroll_active = false
 libraries = {
 "": SubResource("AnimationLibrary_abedm")
 }
+
+[node name="LastAttack" type="Timer" parent="."]
+one_shot = true

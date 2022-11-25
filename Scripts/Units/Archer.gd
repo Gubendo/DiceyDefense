@@ -7,10 +7,12 @@ func _init() -> void:
 
 func special() -> void:
 	print("Je tire une flèche")
-	target.take_dmg(stats[level]["damage"] * buff_dmg)
+	if target != null:
+		target.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value: int) -> void:
-	level = value / 2
+	#level = value / 2
+	level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

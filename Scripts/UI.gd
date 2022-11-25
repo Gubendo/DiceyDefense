@@ -118,7 +118,7 @@ func update_phase(waveStarted: bool, currentWave: int) -> void:
 	get_node("CanvasLayer/Overlay").visible = !waveStarted
 	gobelet.visible = !waveStarted
 	gobelet.get_node("Tooltip").visible = false
-	get_node("CanvasLayer/Vague/Controls").visible = waveStarted
+	#get_node("CanvasLayer/Vague/Controls").visible = waveStarted
 	
 	if !waveStarted: nouveau_coup()
 	

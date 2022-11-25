@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bex6dbhhtj4hu"]
+[gd_scene load_steps=13 format=3 uid="uid://bex6dbhhtj4hu"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Colosse.gd" id="1_0lacd"]
 [ext_resource type="Texture2D" uid="uid://guxmgpf3kjnl" path="res://Sprites/Units/colosse.png" id="2_28yuf"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
-[ext_resource type="Texture2D" uid="uid://cby68nq7ebuh" path="res://Sprites/Units/colosse-hover.png" id="3_qmnd2"]
-[ext_resource type="Texture2D" uid="uid://cfq6ef7bwnbg6" path="res://Animations/Colosse/colosse-idle.png" id="4_o6oeb"]
+[ext_resource type="Texture2D" uid="uid://34twfqt7vmby" path="res://Animations/Colosse/colosse-hover-full.png" id="3_mvagu"]
+[ext_resource type="Texture2D" uid="uid://dx6y7y07d7t7m" path="res://Animations/Colosse/colosse-full.png" id="4_jtlwj"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mw3pv"]
@@ -14,6 +14,34 @@ height = 32.0
 [sub_resource type="Texture2D" id="Texture2D_ko2dj"]
 resource_local_to_scene = false
 resource_name = ""
+
+[sub_resource type="Animation" id="Animation_8lb7o"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/Hover:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
 
 [sub_resource type="Animation" id="Animation_a64wb"]
 resource_name = "idle"
@@ -32,25 +60,52 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 8]
 }
 
-[sub_resource type="Animation" id="Animation_8lb7o"]
-length = 0.001
-loop_mode = 2
+[sub_resource type="Animation" id="Animation_m0ugr"]
+resource_name = "attack"
+length = 1.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Unit/Sprite:frame")
+tracks/0/path = NodePath("Unit/Hover:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [9, 10, 11, 12, 13, 14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12, 13, 14]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"special"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wqylf"]
 _data = {
 "RESET": SubResource("Animation_8lb7o"),
+"attack": SubResource("Animation_m0ugr"),
 "idle": SubResource("Animation_a64wb")
 }
 
@@ -66,21 +121,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -8.0
-offset_top = -8.0
+offset_top = -16.0
 offset_right = 8.0
-offset_bottom = 8.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_28yuf")
 
 [node name="Hover" type="Sprite2D" parent="Unit"]
 position = Vector2(0, -0.5)
-texture = ExtResource("3_qmnd2")
+texture = ExtResource("3_mvagu")
+hframes = 9
+vframes = 2
+frame = 9
 
 [node name="Sprite" type="Sprite2D" parent="Unit"]
 visible = false
-texture = ExtResource("4_o6oeb")
+position = Vector2(0, -0.5)
+texture = ExtResource("4_jtlwj")
 hframes = 9
+vframes = 2
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -145,3 +205,6 @@ scroll_active = false
 libraries = {
 "": SubResource("AnimationLibrary_wqylf")
 }
+
+[node name="LastAttack" type="Timer" parent="."]
+one_shot = true

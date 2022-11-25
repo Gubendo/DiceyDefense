@@ -9,7 +9,10 @@ func _process(delta):
 	
 func special() -> void:
 	print("PAYSAN : Je donne un coup d'épée")
-	target.take_dmg(stats[level]["damage"] * buff_dmg)
+	if target != null: 
+		target.take_dmg(stats[level]["damage"] * buff_dmg)
+		nbAttack += 1
+		print("ATTAQUE N " + str(nbAttack))
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0

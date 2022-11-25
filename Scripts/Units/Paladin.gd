@@ -7,10 +7,11 @@ func _init() -> void:
 
 func special() -> void:
 	print("PALADIN : Je donne un coup de marteau")
-	target.take_dmg(stats[level]["damage"] * buff_dmg)
-	for enemy in get_all_enemies():
-		if abs(target.position.distance_to(enemy.position)) < stats[level]["aoe"] and target != enemy:
-			enemy.take_dmg(stats[level]["splash"] * buff_dmg)
+	if target != null:
+		target.take_dmg(stats[level]["damage"] * buff_dmg)
+		for enemy in get_all_enemies():
+			if abs(target.position.distance_to(enemy.position)) < stats[level]["aoe"] and target != enemy:
+				enemy.take_dmg(stats[level]["splash"] * buff_dmg)
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0
