@@ -2,13 +2,6 @@ res://Scenes/main.tscn
 res://Scenes/UI.tscn
 res://Scenes/Units/IngeSR.tscn
 res://Scenes/Units/Paladin.tscn
-res://Scenes/Units/Soldier.tscn
-res://Scripts/Units/unit.gd
 res://Scenes/Units/Archer.tscn
-res://Scripts/Units/Archer.gd
-res://Singletons/GameData.gd
-res://Scripts/Units/Paladin.gd
 res://Scenes/Units/Bard.tscn
-res://Scripts/Units/Bard.gd
 res://Scenes/Units/Colosse.tscn
-res://Scripts/Units/Colosse.gd
