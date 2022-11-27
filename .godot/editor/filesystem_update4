@@ -5,3 +5,7 @@ res://Scenes/Units/Paladin.tscn
 res://Scenes/Units/Archer.tscn
 res://Scenes/Units/Bard.tscn
 res://Scenes/Units/Colosse.tscn
+res://Scenes/Units/Builder.tscn
+res://Scripts/Units/Builder.gd
+res://Scenes/Buildings/Barricade.tscn
+res://Singletons/GameData.gd

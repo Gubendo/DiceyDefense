@@ -45,7 +45,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_m0ugr"]
 resource_name = "attack"
-length = 1.8
+length = 2.3
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -54,10 +54,10 @@ tracks/0/path = NodePath("Unit/Hover:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [9, 10, 11, 12, 13, 14]
+"values": [9, 10, 11, 12, 13, 14, 9]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,10 +66,10 @@ tracks/1/path = NodePath("Unit/Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [9, 10, 11, 12, 13, 14]
+"values": [9, 10, 11, 12, 13, 14, 9]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -169,6 +169,7 @@ theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
 modulate = Color(0.0352941, 0.0117647, 0, 1)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -178,6 +179,7 @@ grow_vertical = 2
 texture = SubResource("Texture2D_ko2dj")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -185,6 +187,7 @@ offset_bottom = 9.0
 text = "Colosse Royal / Yam's"
 
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0

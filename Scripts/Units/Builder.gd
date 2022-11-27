@@ -12,10 +12,10 @@ func special() -> void:
 func activate() -> void:
 	super.activate()
 	print("BUILDER : Je construis des barricades")
-	if stats[level]["nb"] == 1: build_barricade(Vector2(-215, -200))
+	if stats[level]["nb"] == 1: build_barricade(Vector2(-162, -150))
 	if stats[level]["nb"] == 2: 
-		build_barricade(Vector2(-200, -200))
-		build_barricade(Vector2(-232, -200))
+		build_barricade(Vector2(-174, -150))
+		build_barricade(Vector2(-150, -150))
 
 func update_level(value: int) -> void:
 	level = 1
