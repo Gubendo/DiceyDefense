@@ -8,8 +8,11 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var gobelet: TextureButton = get_node("CanvasLayer/Overlay/Gobelet")
 @onready var pausePlay: TextureButton = get_node("CanvasLayer/Vague/Controls/PausePlay")
 @onready var speedUp: TextureButton = get_node("CanvasLayer/Vague/Controls/SpeedUp")
+@onready var optionsButton: Button = get_node("CanvasLayer/Pause/Options")
+@onready var quitButton: Button = get_node("CanvasLayer/Pause/Quitter")
 @onready var waveNumber: Label = get_node("CanvasLayer/Vague/number")
 @onready var remainingEnemies: Label = get_node("CanvasLayer/Vague/remaining")
+@onready var pauseMenu: Control = get_node("CanvasLayer/Pause")
 
 var unfrozenDices: Array = []
 var frozenDices: Array = []
@@ -24,6 +27,7 @@ var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
 var coupsRestant: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_process_input(true)
 	rng.randomize()
 	coupsRestant = nbRolls + 1
 	for dice in dicesList:
@@ -37,8 +41,13 @@ func connect_signals() -> void:
 	gobelet.mouse_entered.connect(enable_tooltip_gobelet)
 	gobelet.mouse_exited.connect(disable_tooltip_gobelet)
 	gobelet.pressed.connect(press_roll)
+	
 	pausePlay.pressed.connect(on_PausePlay_pressed)
 	speedUp.pressed.connect(on_SpeedUp_pressed)
+	
+	quitButton.pressed.connect(quit)
+	optionsButton.pressed.connect(options)
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -54,6 +63,8 @@ func _process(delta: float) -> void:
 					unfrozenDices.erase(node)
 				update_dice_pos()
 				break
+	
+		
 	var enemies: float = get_tree().get_root().get_node("Main").enemies_in_wave
 	if enemies == 1: remainingEnemies.text = "1 ennemi restant"
 	else: remainingEnemies.text = str(enemies) + " ennemis restant"
@@ -141,8 +152,12 @@ func update_grille(grille: Dictionary) -> void:
 func on_PausePlay_pressed() -> void:
 	if get_tree().is_paused():
 		get_tree().paused = false
+		for node in pauseMenu.get_children():
+			node.visible = false
 	else:
 		get_tree().paused = true
+		for node in pauseMenu.get_children():
+			node.visible = true
 		
 func on_SpeedUp_pressed() -> void:
 	if Engine.get_time_scale() == 2.0:
@@ -174,4 +189,10 @@ func unhighlight_dices() -> void:
 	for dice in dicesList:
 		dice.modulate = Color(1, 1, 1)
 		dice.get_node("Highlight").visible = false
+		
+func quit() -> void:
+	get_tree().quit()
+	
+func options() -> void:
+	print("C'est les options !!")
 

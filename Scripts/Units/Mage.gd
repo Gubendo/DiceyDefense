@@ -7,7 +7,8 @@ func _init() -> void:
 
 func special() -> void:
 	print("MAGE : Je tire une boule de givre")
-	target.apply_slow(0.5, 2)
+	if target != null:
+		target.apply_slow(0.5, 2)
 	#target.take_dmg(stats[level]["damage"])
 
 func update_level(value: int) -> void:

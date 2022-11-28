@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5kwsmxglfbp6"]
+[gd_scene load_steps=20 format=3 uid="uid://b5kwsmxglfbp6"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_nkvbb"]
 [ext_resource type="Texture2D" uid="uid://ctnevp2mir5ra" path="res://Sprites/dice1.png" id="2_67tmu"]
@@ -16,6 +16,8 @@
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="11_7mjbh"]
 [ext_resource type="Texture2D" uid="uid://cp5d76wfeqgrx" path="res://Sprites/UI/speed.png" id="11_yd43j"]
 [ext_resource type="Texture2D" uid="uid://drsggjl0ha5n" path="res://Sprites/UI/speed-toggle.png" id="12_8umxh"]
+[ext_resource type="Theme" uid="uid://dcbgwqk4nede7" path="res://UI.tres" id="17_oh6jq"]
+[ext_resource type="Script" path="res://Scripts/Pause.gd" id="17_sfu0v"]
 
 [sub_resource type="Texture2D" id="Texture2D_i8shy"]
 resource_local_to_scene = false
@@ -54,8 +56,6 @@ text = "Grille"
 [node name="Overlay" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Plateau" type="TextureRect" parent="CanvasLayer/Overlay"]
 offset_left = 102.0
@@ -137,8 +137,6 @@ offset_bottom = 760.0
 [node name="Vague" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="number" type="Label" parent="CanvasLayer/Vague"]
 offset_left = 1454.0
@@ -180,6 +178,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
+process_mode = 1
 custom_minimum_size = Vector2i(100, 0)
 offset_left = 104.0
 offset_right = 204.0
@@ -189,3 +188,33 @@ texture_normal = ExtResource("11_yd43j")
 texture_pressed = ExtResource("12_8umxh")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Pause" type="Control" parent="CanvasLayer"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("17_sfu0v")
+
+[node name="Options" type="Button" parent="CanvasLayer/Pause"]
+process_mode = 3
+visible = false
+offset_left = 1500.0
+offset_top = 1000.0
+offset_right = 1650.0
+offset_bottom = 1060.0
+theme = ExtResource("17_oh6jq")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Quitter" type="Button" parent="CanvasLayer/Pause"]
+process_mode = 3
+visible = false
+offset_left = 1700.0
+offset_top = 1000.0
+offset_right = 1850.0
+offset_bottom = 1060.0
+theme = ExtResource("17_oh6jq")
+theme_override_font_sizes/font_size = 32
+text = "Quitter"
+
+[connection signal="pause" from="CanvasLayer/Pause" to="." method="on_PausePlay_pressed"]

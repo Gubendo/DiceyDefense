@@ -50,7 +50,7 @@ var bard_stats: Dictionary = {
 var mage_stats: Dictionary = {
 	1: {
 		"damage": 20,
-		"cooldown": 0.1,
+		"cooldown": 1,
 		"range": 3,
 	},
 	2: {

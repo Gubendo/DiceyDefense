@@ -32,7 +32,6 @@ var buff_as: float = 1
 var buff_dmg: float = 1
 var last_attack_time: float = 2
 
-var nbAttack = 0
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
@@ -47,7 +46,7 @@ func _process(delta: float) -> void:
 	if activated and enemies_in_range.size() != 0:
 		select_enemy()
 		show_target("")
-		turn((target.position - position).x)
+		turn(target.global_position.x - global_position.x)
 		if atkReady:
 			attack()
 	else:
@@ -114,6 +113,7 @@ func show_target(unit: String) -> void:
 				enemy.sprite.modulate = Color(1, 1, 1)
 
 func turn(direction: float) -> void:
+	print(direction)
 	if direction < 0:
 		unit.scale = Vector2(-1, 1)
 	else:

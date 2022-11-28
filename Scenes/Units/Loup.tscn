@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cur0ovc2dvg2t"]
+[gd_scene load_steps=13 format=3 uid="uid://cur0ovc2dvg2t"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Paladin.gd" id="1_y5caj"]
 [ext_resource type="Texture2D" uid="uid://c4gip2x6pltvd" path="res://Sprites/Units/loup.png" id="2_c4jtl"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
-[ext_resource type="Texture2D" uid="uid://cfjardngm13w4" path="res://Animations/Loup/loup-hover-idle.png" id="3_r8uf4"]
-[ext_resource type="Texture2D" uid="uid://c7b7vogqh4r45" path="res://Animations/Loup/loup-idle.png" id="4_vq0cg"]
+[ext_resource type="Texture2D" uid="uid://dx0afepdildn4" path="res://Animations/Loup/loup-hover-full.png" id="3_jv4cc"]
+[ext_resource type="Texture2D" uid="uid://bc5o83nruh2v0" path="res://Animations/Loup/loup-full.png" id="4_5d4nj"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
@@ -70,9 +70,52 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_va7ut"]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Hover:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"special"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ou866"]
 _data = {
 "RESET": SubResource("Animation_qy21s"),
+"attack": SubResource("Animation_va7ut"),
 "idle": SubResource("Animation_jp67q")
 }
 
@@ -96,13 +139,17 @@ grow_vertical = 2
 texture_normal = ExtResource("2_c4jtl")
 
 [node name="Hover" type="Sprite2D" parent="Unit"]
-texture = ExtResource("3_r8uf4")
+position = Vector2(1, 0)
+texture = ExtResource("3_jv4cc")
 hframes = 9
+vframes = 2
 
 [node name="Sprite" type="Sprite2D" parent="Unit"]
 visible = false
-texture = ExtResource("4_vq0cg")
+position = Vector2(1, 0)
+texture = ExtResource("4_5d4nj")
 hframes = 9
+vframes = 2
 
 [node name="Range" type="Area2D" parent="."]
 
