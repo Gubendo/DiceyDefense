@@ -147,6 +147,10 @@ var charlatan_stats: Dictionary = {
 	3: {
 		"bonus_roll": 2,
 		"range": -1
+	},
+	4: {
+		"bonus_roll": 10,
+		"range": -1
 	}
 }
 

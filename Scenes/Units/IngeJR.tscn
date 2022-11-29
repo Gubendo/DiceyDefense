@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ii2mha02m7ce"]
+[gd_scene load_steps=15 format=3 uid="uid://ii2mha02m7ce"]
 
 [ext_resource type="Script" path="res://Scripts/Units/IngeJR.gd" id="1_4yu0w"]
 [ext_resource type="Texture2D" uid="uid://bdcpgtaiwadjy" path="res://Sprites/Units/ingeJR.png" id="2_ijvmy"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://brejhkg7bl3va" path="res://Sprites/Units/ingeJR-hover.png" id="3_miadf"]
 [ext_resource type="Texture2D" uid="uid://xe475w1t1wsn" path="res://Sprites/Buildings/catapulte.png" id="4_6aond"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
-[ext_resource type="Texture2D" uid="uid://43ti1eemn524" path="res://Animations/Catapulte/catapulte-hover-idle.png" id="5_ylmfk"]
-[ext_resource type="Texture2D" uid="uid://cu2cqkkkaibrv" path="res://Animations/Catapulte/catapulte-idle.png" id="6_lgnuw"]
+[ext_resource type="Texture2D" uid="uid://27ec10r3c3ua" path="res://Animations/Catapulte/catapulte-hover-full.png" id="5_emr4d"]
+[ext_resource type="Texture2D" uid="uid://bre6lh1f0a518" path="res://Animations/Catapulte/catapulte-full.png" id="6_k7gu7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -43,6 +43,48 @@ tracks/1/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_758ka"]
+resource_name = "attack"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Catapulte/Hover:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Catapulte/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 13]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"special"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_uibfa"]
 resource_name = "idle"
 length = 3.0
@@ -75,6 +117,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v024n"]
 _data = {
 "RESET": SubResource("Animation_cecbf"),
+"attack": SubResource("Animation_758ka"),
 "idle": SubResource("Animation_uibfa")
 }
 
@@ -118,15 +161,19 @@ grow_vertical = 2
 texture_normal = ExtResource("4_6aond")
 
 [node name="ShootPos" type="Node2D" parent="Catapulte"]
-position = Vector2(-2, -2)
+position = Vector2(9, -7)
 
 [node name="Hover" type="Sprite2D" parent="Catapulte"]
-texture = ExtResource("5_ylmfk")
+position = Vector2(0, -1)
+texture = ExtResource("5_emr4d")
 hframes = 7
+vframes = 2
 
 [node name="Sprite" type="Sprite2D" parent="Catapulte"]
-texture = ExtResource("6_lgnuw")
+position = Vector2(0, -1)
+texture = ExtResource("6_k7gu7")
 hframes = 7
+vframes = 2
 
 [node name="Range" type="Area2D" parent="."]
 

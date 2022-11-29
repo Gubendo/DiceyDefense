@@ -7,7 +7,8 @@ func _init() -> void:
 
 func special() -> void:
 	print("INGENIEUR JUNIOR : Ma catapulte tire")
-	shoot_caillou()
+	if target != null:
+		shoot_caillou()
 
 func update_level(value: int) -> void:
 	level = 1
@@ -33,11 +34,11 @@ func update_tooltip() -> void:
 
 func shoot_caillou() -> void:
 	var caillou = caillouTemp.instantiate()
-	caillou.position = position
-	caillou.start_pos = position
 	var start: Vector2 = get_node("Catapulte/ShootPos").global_position
-	caillou.middle_pos = Vector2(start.x + (target.position.x - start.x)/2, start.y - 50)
-	caillou.end_pos = target.position
+	caillou.position = start
+	caillou.start_pos = start
+	caillou.middle_pos = Vector2(start.x + (target.global_position.x - start.x)/2, start.y - 50)
+	caillou.end_pos = target.global_position
 	caillou.target = target
 	caillou.aoe_range = stats[level]["aoe"]
 	caillou.damage = stats[level]["damage"] * buff_dmg

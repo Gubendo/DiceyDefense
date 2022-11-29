@@ -22,12 +22,12 @@ func _process(delta: float) -> void:
 		damage_aoe()
 		queue_free()
 	if is_instance_valid(target):
-		end_pos = target.position
+		end_pos = target.global_position
 	position = quadratic_bezier(start_pos, middle_pos, end_pos, t)
 
 func damage_aoe() -> void:
 	for enemy in get_all_enemies():
-		if abs(position.distance_to(enemy.position)) < aoe_range:
+		if abs(global_position.distance_to(enemy.global_position)) < aoe_range:
 			enemy.take_dmg(damage)
 			
 func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float) -> Vector2:

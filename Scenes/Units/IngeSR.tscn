@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqqsvp61boxyi"]
+[gd_scene load_steps=15 format=3 uid="uid://bqqsvp61boxyi"]
 
 [ext_resource type="Script" path="res://Scripts/Units/IngeSR.gd" id="1_eqhsb"]
 [ext_resource type="Texture2D" uid="uid://dynthxoe0d53o" path="res://Sprites/Units/ingeSR.png" id="2_yde24"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
 [ext_resource type="Texture2D" uid="uid://cnc2ci6fwchpb" path="res://Sprites/Buildings/trebuchet.png" id="4_7te4p"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
-[ext_resource type="Texture2D" uid="uid://ox0d4l1jn8j5" path="res://Animations/Trebuchet/trebuchet-hover-idle.png" id="5_0334s"]
-[ext_resource type="Texture2D" uid="uid://bwy5qasop2xkh" path="res://Animations/Trebuchet/trebuchet-idle.png" id="6_mw2w5"]
+[ext_resource type="Texture2D" uid="uid://dj2we3llp3lkh" path="res://Animations/Trebuchet/trebuchet-hover-full.png" id="5_ek48q"]
+[ext_resource type="Texture2D" uid="uid://dasruo0d6ae6o" path="res://Animations/Trebuchet/trebuchet-full.png" id="6_lkhc7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -72,9 +72,52 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
 
+[sub_resource type="Animation" id="Animation_3qoa7"]
+resource_name = "attack"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Trebuchet/Hover:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Trebuchet/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"special"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vh5h7"]
 _data = {
 "RESET": SubResource("Animation_1re3d"),
+"attack": SubResource("Animation_3qoa7"),
 "idle": SubResource("Animation_5x515")
 }
 
@@ -118,15 +161,19 @@ grow_vertical = 2
 texture_normal = ExtResource("4_7te4p")
 
 [node name="ShootPos" type="Node2D" parent="Trebuchet"]
-position = Vector2(-6, 7)
+position = Vector2(15, -24)
 
 [node name="Hover" type="Sprite2D" parent="Trebuchet"]
-texture = ExtResource("5_0334s")
-hframes = 7
+position = Vector2(-0.5, -8.5)
+texture = ExtResource("5_ek48q")
+hframes = 10
+vframes = 2
 
 [node name="Sprite" type="Sprite2D" parent="Trebuchet"]
-texture = ExtResource("6_mw2w5")
-hframes = 7
+position = Vector2(-0.5, -8.5)
+texture = ExtResource("6_lkhc7")
+hframes = 10
+vframes = 2
 
 [node name="Range" type="Area2D" parent="."]
 

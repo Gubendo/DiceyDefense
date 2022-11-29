@@ -113,7 +113,6 @@ func show_target(unit: String) -> void:
 				enemy.sprite.modulate = Color(1, 1, 1)
 
 func turn(direction: float) -> void:
-	print(direction)
 	if direction < 0:
 		unit.scale = Vector2(-1, 1)
 	else:
@@ -122,8 +121,7 @@ func turn(direction: float) -> void:
 func attack() -> void:
 	atkReady = false
 	#special()
-	
-	attack_anim()	
+	attack_anim()
 	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
 	atkReady = true
 
@@ -199,8 +197,10 @@ func unhighlight_dices() -> void:
 func attack_anim() -> void:
 	idling = false
 	lastAttack.start(last_attack_time)
+	
 	var anim: float = animation_player.get_animation("attack").length / animation_player.playback_speed
 	var attsp: float = stats[level]["cooldown"] / buff_as
+	#animation_player.playback_speed = 1 / (attsp / animation_player.get_animation("attack").length)
 	if anim > attsp:
 		animation_player.playback_speed = (anim / attsp)*1.1
 	animation_player.play("attack")
