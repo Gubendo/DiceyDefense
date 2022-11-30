@@ -19,6 +19,7 @@ var currentStats: Array = []
 
 var enemies_in_range: Array = []
 var target: Node
+var attack_target: Node
 
 var activated: bool = false
 var sleeping: bool = false
@@ -51,7 +52,7 @@ func _process(delta: float) -> void:
 			attack()
 	else:
 		target = null
-
+	
 	if activated and lastAttack.time_left <= 0 and !idling:
 		idle_anim()
 		
@@ -120,7 +121,6 @@ func turn(direction: float) -> void:
 
 func attack() -> void:
 	atkReady = false
-	#special()
 	attack_anim()
 	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
 	atkReady = true
@@ -197,6 +197,7 @@ func unhighlight_dices() -> void:
 func attack_anim() -> void:
 	idling = false
 	lastAttack.start(last_attack_time)
+	attack_target = target
 	
 	var anim: float = animation_player.get_animation("attack").length / animation_player.playback_speed
 	var attsp: float = stats[level]["cooldown"] / buff_as

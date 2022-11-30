@@ -1,8 +1,8 @@
+AnimationPlayer
 ColorRect
 Control
 Button
 Timer
-AnimationPlayer
 Sprite2D
 AnimatedSprite2D
 AnimationTree

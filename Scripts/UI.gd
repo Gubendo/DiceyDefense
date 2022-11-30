@@ -14,6 +14,9 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var remainingEnemies: Label = get_node("CanvasLayer/Vague/remaining")
 @onready var pauseMenu: Control = get_node("CanvasLayer/Pause")
 
+@onready var animation_player: AnimationPlayer = get_node("CanvasLayer/AnimationPlayer")
+var overlay_animations: Dictionary = {true: "show_overlay", false: "hide_overlay"}
+
 var unfrozenDices: Array = []
 var frozenDices: Array = []
 var unfrozen_dice_pos: Dictionary = {0: Vector2(195, 700), 1: Vector2(300, 670), \
@@ -126,8 +129,7 @@ func update_hand(hand: Array) -> void:
 		gobelet.get_node("Tooltip/nbLancers").text = str(coupsRestant) + " lancers restant"
 	
 func update_phase(waveStarted: bool, currentWave: int) -> void:
-	get_node("CanvasLayer/Overlay").visible = !waveStarted
-	gobelet.visible = !waveStarted
+	animation_player.play(overlay_animations[!waveStarted])
 	gobelet.get_node("Tooltip").visible = false
 	#get_node("CanvasLayer/Vague/Controls").visible = waveStarted
 	

@@ -7,8 +7,8 @@ func _init() -> void:
 
 func special() -> void:
 	print("Je tire une flèche")
-	if target != null:
-		target.take_dmg(stats[level]["damage"] * buff_dmg)
+	if attack_target != null:
+		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
 
 func update_level(value: int) -> void:
 	#level = value / 2

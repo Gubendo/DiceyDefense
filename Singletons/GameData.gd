@@ -86,10 +86,10 @@ var builder_stats: Dictionary = {
 
 var bourreau_stats: Dictionary = {
 	1: {
-		"damage": 10,
+		"damage": 15,
 		"cooldown": 0.5,
 		"exec": 50,
-		"range": 10
+		"range": 20
 	}
 }
 

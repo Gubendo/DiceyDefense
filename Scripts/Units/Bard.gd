@@ -35,9 +35,13 @@ func _process(delta: float) -> void:
 	if activated and root_node.get_node("Main").waveStarted:
 		if atkReady:
 			select_target()
-			attack()
+			if targets.size() != 0:
+				attack()
 	else:
 		target = null
+		
+	if activated and lastAttack.time_left <= 0 and !idling:
+		idle_anim()
 
 func select_target() -> void:
 	var trueR: float = range.get_node("CollisionShape2d").shape.radius * (stats[level]["range"] + 1) * scale.x

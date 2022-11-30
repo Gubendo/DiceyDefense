@@ -6,11 +6,12 @@ func _init() -> void:
 	unitName = "Paladin"
 
 func special() -> void:
-	print("PALADIN : Je donne un coup de marteau")
-	if target != null:
-		target.take_dmg(stats[level]["damage"] * buff_dmg)
+	
+	if attack_target != null:
+		print("PALADIN : Je donne un coup de marteau")
+		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
 		for enemy in get_all_enemies():
-			if abs(target.position.distance_to(enemy.position)) < stats[level]["aoe"] and target != enemy:
+			if abs(attack_target.position.distance_to(enemy.position)) < stats[level]["aoe"] and attack_target != enemy:
 				enemy.take_dmg(stats[level]["splash"] * buff_dmg)
 
 func update_level(value: int) -> void:

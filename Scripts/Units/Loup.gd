@@ -6,8 +6,9 @@ func _init() -> void:
 	unitName = "Loup"
 
 func special() -> void:
-	print("LOUP : Je graille un coup")
-	target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
+	if attack_target != null:
+		print("LOUP : Je graille un coup")
+		attack_target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0

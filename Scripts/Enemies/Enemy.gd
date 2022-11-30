@@ -11,6 +11,7 @@ var bleedFreq: float = 0
 var blocked: bool = false
 var blockedBy: Node
 var atkReady: bool = true
+var moving: bool = false
 
 var damage: float
 var cd: float
@@ -22,6 +23,8 @@ var cd: float
 @onready var slow_timer: Timer = get_node("SlowTimer")
 @onready var bleed_timer: Timer = get_node("BleedTimer")
 @onready var bleed_frequency: Timer = get_node("BleedFrequency")
+
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 signal death()
 # Called when the node enters the scene tree for the first time.
@@ -39,8 +42,13 @@ func _physics_process(delta: float) -> void:
 	if blocked:
 		if blockedBy.destroyed : blocked = false
 		else:
-			if atkReady: attack_struct()
+			moving = false
+			if atkReady: 
+				animation_player.play("attack")
 	else:
+		if !moving:
+			animation_player.play("run")
+		moving = true
 		move(delta)
 	
 	if impaired and slow_timer.time_left <= 0:
@@ -64,6 +72,7 @@ func move(delta: float) -> void:
 
 func take_dmg(amount: float) -> void:
 	var oldColor: Color = sprite.modulate
+	if oldColor == Color(1, 0, 0): oldColor = Color(1, 1, 1)
 	currentHP -= amount
 	health_bar.value = currentHP
 	if currentHP <= 0:
