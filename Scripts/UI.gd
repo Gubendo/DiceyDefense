@@ -58,6 +58,7 @@ func _process(delta: float) -> void:
 		var mousePos: Vector2 = get_viewport().get_mouse_position()
 		for node in dicesList:
 			if node.get_global_rect().has_point(mousePos):
+				node.highlight(false)
 				if node in frozenDices:
 					frozenDices.erase(node)
 					unfrozenDices.append(node)
@@ -185,12 +186,12 @@ func highlight_dices(value: String) -> void:
 		if i not in dices:
 			dicesList[i].modulate = Color(0.3, 0.3, 0.3)
 		else:
-			dicesList[i].get_node("Highlight").visible = true
+			dicesList[i].highlight(true)
 	
 func unhighlight_dices() -> void:
 	for dice in dicesList:
 		dice.modulate = Color(1, 1, 1)
-		dice.get_node("Highlight").visible = false
+		dice.highlight(false)
 		
 func quit() -> void:
 	get_tree().quit()

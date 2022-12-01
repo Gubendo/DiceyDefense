@@ -8,4 +8,7 @@ res://Scenes/Units/Bourreau.tscn
 res://Scenes/Units/Bard.tscn
 res://Scenes/Units/Charlatan.tscn
 res://Scenes/Enemies/Gobelin.tscn
-res://Scripts/Enemies/Enemy.gd
+res://Scenes/Enemies/Bobelin.tscn
+res://Scenes/dice.tscn
+res://Scripts/dice.gd
+res://Scripts/UI.gd

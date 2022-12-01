@@ -1,3 +1,5 @@
+res://Scripts
+res://Sprites
 res://
 res://Animations
 res://Scripts/Projectiles
@@ -11,5 +13,4 @@ res://Scripts/Units
 res://Scenes
 res://Fonts
 res://Themes
-res://Scripts
 res://Singletons
