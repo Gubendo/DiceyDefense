@@ -13,12 +13,12 @@ var archer_stats: Dictionary = {
 	1: {
 		"damage": 20,
 		"cooldown": 0.5,
-		"range": 3,
+		"range": 10,
 	},
 	2: {
 		"damage": 30,
 		"cooldown": 0.1,
-		"range": 4,
+		"range": 10,
 	},
 	3: {
 		"damage": 40,

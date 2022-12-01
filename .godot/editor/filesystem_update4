@@ -1,14 +1,12 @@
 res://Scenes/main.tscn
 res://UI.tres
-res://Scripts/Pause.gd
 res://Scenes/UI.tscn
 res://Scenes/Projectiles/caillou.tscn
 res://Scenes/Units/IngeSR.tscn
 res://Scenes/Units/Bourreau.tscn
 res://Scenes/Units/Bard.tscn
 res://Scenes/Units/Charlatan.tscn
-res://Scenes/Enemies/Gobelin.tscn
 res://Scenes/Enemies/Bobelin.tscn
+res://Scenes/Enemies/Gobelin.tscn
 res://Scenes/dice.tscn
-res://Scripts/dice.gd
-res://Scripts/UI.gd
+res://Singletons/GameData.gd
