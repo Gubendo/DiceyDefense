@@ -150,6 +150,9 @@ texture = ExtResource("4_hvx6a")
 hframes = 6
 vframes = 2
 
+[node name="ShootPos" type="Node2D" parent="Unit"]
+position = Vector2(5, 2)
+
 [node name="Range" type="Area2D" parent="."]
 
 [node name="RangeSprite" type="Sprite2D" parent="Range"]

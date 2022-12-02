@@ -1,5 +1,6 @@
 extends PathFollow2D
 
+var enemy_name: String
 var baseSpeed: float
 var currentSpeed: float
 var baseHP: float
@@ -26,10 +27,14 @@ var cd: float
 
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
-signal death()
+signal death(nexus_dmg)
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+	baseSpeed = GameData["enemies_stats"][enemy_name]["speed"]
+	baseHP = GameData["enemies_stats"][enemy_name]["health"]
+	damage = GameData["enemies_stats"][enemy_name]["damage"]
+	cd = GameData["enemies_stats"][enemy_name]["cd"]
 	currentSpeed = baseSpeed
 	currentHP = baseHP
 	health_bar.max_value = baseHP
@@ -38,7 +43,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if progress_ratio >= 1.0:
-		destroy()
+		destroy(false)
 	if blocked:
 		if blockedBy.destroyed : blocked = false
 		else:
@@ -76,7 +81,7 @@ func take_dmg(amount: float) -> void:
 	currentHP -= amount
 	health_bar.value = currentHP
 	if currentHP <= 0:
-		destroy()
+		destroy(true)
 	
 	sprite.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.05).timeout
@@ -101,6 +106,9 @@ func apply_bleed(value: float, duration: float, freq: float) -> void:
 	bleedFreq = freq
 	sprite.modulate = Color (1, 0.5, 0)
 
-func destroy() -> void:
-	emit_signal("death")
+func destroy(killed: bool) -> void:
+	if killed:
+		emit_signal("death", 0)
+	else:
+		emit_signal("death", GameData["enemies_stats"][enemy_name]["nexus_dmg"])
 	self.queue_free()

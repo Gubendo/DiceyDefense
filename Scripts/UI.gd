@@ -13,6 +13,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var waveNumber: Label = get_node("CanvasLayer/Vague/number")
 @onready var remainingEnemies: Label = get_node("CanvasLayer/Vague/remaining")
 @onready var pauseMenu: Control = get_node("CanvasLayer/Pause")
+@onready var healthValue: Label = get_node("CanvasLayer/Health/Value")
 
 @onready var animation_player: AnimationPlayer = get_node("CanvasLayer/AnimationPlayer")
 var overlay_animations: Dictionary = {true: "show_overlay", false: "hide_overlay"}
@@ -192,7 +193,10 @@ func unhighlight_dices() -> void:
 	for dice in dicesList:
 		dice.modulate = Color(1, 1, 1)
 		dice.highlight(false)
-		
+
+func update_health(health: float) -> void:
+	healthValue.text = str(health)
+	
 func quit() -> void:
 	get_tree().quit()
 	

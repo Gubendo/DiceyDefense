@@ -7,6 +7,8 @@ var current_wave: int = 0
 var enemies_in_wave: int = 0
 var waveStarted: bool = false
 
+var nexus_hp = 50
+
 func _ready() -> void:
 	rng.randomize()
 
@@ -77,5 +79,9 @@ func spawn_enemies(wave_data: Array) -> void:
 			await get_tree().create_timer(group[2]).timeout
 		await get_tree().create_timer(group[3]).timeout
 		
-func on_enemy_death() -> void:
+func on_enemy_death(nexus_dmg: float) -> void:
+	nexus_hp -= nexus_dmg
+	if nexus_dmg != 0:
+		# ptite animation
+		get_node("UI").update_health(nexus_hp)
 	enemies_in_wave -= 1

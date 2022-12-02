@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b5kwsmxglfbp6"]
+[gd_scene load_steps=26 format=3 uid="uid://b5kwsmxglfbp6"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_nkvbb"]
 [ext_resource type="Texture2D" uid="uid://cfcauj2hcs18i" path="res://Sprites/UI/dices/dice1-color.png" id="2_r6pxl"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://drsggjl0ha5n" path="res://Sprites/UI/speed-toggle.png" id="12_8umxh"]
 [ext_resource type="Theme" uid="uid://dcbgwqk4nede7" path="res://UI.tres" id="17_oh6jq"]
 [ext_resource type="Script" path="res://Scripts/Pause.gd" id="17_sfu0v"]
+[ext_resource type="Texture2D" uid="uid://c71t1jlase6ww" path="res://Sprites/UI/HP.png" id="17_wpnnu"]
+[ext_resource type="FontFile" uid="uid://ptfp88wcm6r" path="res://Fonts/Timmy-Regular.ttf" id="18_33mhw"]
 
 [sub_resource type="Texture2D" id="Texture2D_i8shy"]
 resource_local_to_scene = false
@@ -266,6 +268,29 @@ texture_normal = ExtResource("11_yd43j")
 texture_pressed = ExtResource("12_8umxh")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Health" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 100.0
+offset_right = 40.0
+offset_bottom = 100.0
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Health"]
+offset_left = 90.0
+offset_top = 30.0
+offset_right = 150.0
+offset_bottom = 90.0
+texture = ExtResource("17_wpnnu")
+
+[node name="Value" type="Label" parent="CanvasLayer/Health"]
+offset_left = 170.0
+offset_right = 220.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("18_33mhw")
+theme_override_font_sizes/font_size = 80
+text = "50"
 
 [node name="Pause" type="Control" parent="CanvasLayer"]
 process_mode = 3

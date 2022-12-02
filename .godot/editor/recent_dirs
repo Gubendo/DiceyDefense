@@ -1,8 +1,9 @@
+res://Fonts
+res://Scripts/Projectiles
 res://Scripts
 res://Sprites
 res://
 res://Animations
-res://Scripts/Projectiles
 res://Scenes/Projectiles
 res://Scripts/Decors
 res://Scenes/Decors
@@ -11,6 +12,5 @@ res://Sprites/Buildings
 res://Sprites/Units
 res://Scripts/Units
 res://Scenes
-res://Fonts
 res://Themes
 res://Singletons

@@ -51,12 +51,12 @@ var mage_stats: Dictionary = {
 	1: {
 		"damage": 20,
 		"cooldown": 1,
-		"range": 3,
+		"range": 10,
 	},
 	2: {
 		"damage": 30,
 		"cooldown": 0.1,
-		"range": 4,
+		"range": 10,
 	},
 	3: {
 		"damage": 40,
@@ -211,6 +211,28 @@ var unit_data: Dictionary = {
 	}
 	
 }
+
+var gobelin_stats: Dictionary = {
+	"speed": 20,
+	"health": 500,
+	"damage": 1,
+	"cd": 1,
+	"nexus_dmg": 1
+}
+
+var bobelin_stats: Dictionary = {
+	"speed": 100,
+	"health": 20,
+	"damage": 1,
+	"cd": 1,
+	"nexus_dmg": 2
+}
+
+var enemies_stats: Dictionary = {
+	"Gobelin": gobelin_stats,
+	"Bobelin": bobelin_stats
+}
+
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
 	0: [[1, "Gobelin", 0, 0]],

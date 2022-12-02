@@ -36,7 +36,8 @@ func shoot_caillou() -> void:
 	var start: Vector2 = get_node("Trebuchet/ShootPos").global_position
 	caillou.position = start
 	caillou.start_pos = start
-	caillou.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2, start.y - 600)
+	caillou.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2,\
+	(start.y + (attack_target.global_position.y - start.y)/2) - 600)
 	caillou.end_pos = attack_target.global_position
 	caillou.target = attack_target
 	caillou.aoe_range = stats[level]["aoe"]
