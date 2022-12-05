@@ -12,7 +12,7 @@ func special() -> void:
 		
 func execute() -> void:
 	if attack_target != null:
-		attack_target.destroy()
+		attack_target.destroy(true)
 		print("BOURREAU : J'execute")
 	
 func attack() -> void:

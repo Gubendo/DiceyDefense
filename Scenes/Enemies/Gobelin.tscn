@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cum55mtelbl40"]
+[gd_scene load_steps=15 format=3 uid="uid://cum55mtelbl40"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Gobelin.gd" id="1_j61eq"]
 [ext_resource type="Texture2D" uid="uid://c0hamr0quwr58" path="res://Animations/gobelin/gobelin-full.png" id="2_nonl5"]
+[ext_resource type="Texture2D" uid="uid://bqugmvufoqgmk" path="res://Animations/Status/bleed.png" id="3_5hlcs"]
+[ext_resource type="Texture2D" uid="uid://kvq8pdeiaqjd" path="res://Animations/Status/poof.png" id="4_ty6ao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4sa"]
 size = Vector2(8.66667, 11.3333)
@@ -78,6 +80,121 @@ _data = {
 "run": SubResource("Animation_mau7u")
 }
 
+[sub_resource type="Animation" id="Animation_61ta4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bleed:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bleed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Poof:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Poof:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v08ff"]
+resource_name = "bleed"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bleed:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bleed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0crqf"]
+resource_name = "death"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Poof:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Poof:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rx3es"]
+_data = {
+"RESET": SubResource("Animation_61ta4"),
+"bleed": SubResource("Animation_v08ff"),
+"death": SubResource("Animation_0crqf")
+}
+
 [node name="Gobelin" type="PathFollow2D"]
 rotates = false
 loop = false
@@ -98,25 +215,45 @@ vframes = 2
 position = Vector2(0.333333, 2.33333)
 shape = SubResource("RectangleShape2D_ix4sa")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -7.0
-offset_top = -17.0
-offset_right = 8.0
-offset_bottom = -12.0
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2d"]
+offset_left = -4.66667
+offset_top = -8.66667
+offset_right = 10.3333
+offset_bottom = -3.66667
+scale = Vector2(0.75, 0.75)
 theme_override_styles/fill = SubResource("StyleBoxFlat_lmkik")
 value = 50.0
 show_percentage = false
 
-[node name="SlowTimer" type="Timer" parent="."]
-one_shot = true
+[node name="Bleed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5hlcs")
+hframes = 5
 
-[node name="BleedTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="BleedFrequency" type="Timer" parent="."]
-one_shot = true
+[node name="Poof" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_ty6ao")
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_j2x6x")
 }
+
+[node name="StatusPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rx3es")
+}
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="SlowTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="BleedTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="BleedFrequency" type="Timer" parent="Timers"]
+one_shot = true

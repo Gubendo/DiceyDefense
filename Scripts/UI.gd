@@ -71,7 +71,8 @@ func _process(delta: float) -> void:
 	
 		
 	var enemies: float = get_tree().get_root().get_node("Main").enemies_in_wave
-	if enemies == 1: remainingEnemies.text = "1 ennemi restant"
+	if enemies == 0: remainingEnemies.text = "Ennemis vaincus !"
+	elif enemies == 1: remainingEnemies.text = "1 ennemi restant"
 	else: remainingEnemies.text = str(enemies) + " ennemis restant"
 				
 

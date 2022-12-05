@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0:
 		print("FIN DE VAGUE")
 		waveStarted = false
+		await get_tree().create_timer(1.5).timeout
 		update_phase()
 
 
@@ -57,7 +58,7 @@ func start_next_wave() -> void:
 		enemies_in_wave += group[0]
 	waveStarted = true
 	update_phase()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(1.5).timeout
 	spawn_enemies(wave_data)
 	
 	

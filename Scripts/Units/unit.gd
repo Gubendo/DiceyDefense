@@ -94,7 +94,8 @@ func activate() -> void:
 func select_enemy() -> void:
 	var progress_array: Array = []
 	for i in enemies_in_range:
-		progress_array.append(i.progress)
+		if not i.dead:
+			progress_array.append(i.progress)
 	var max_progress = progress_array.max()
 	var max_enemy = progress_array.find(max_progress)
 	target = enemies_in_range[max_enemy]

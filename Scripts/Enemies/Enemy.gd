@@ -13,19 +13,22 @@ var blocked: bool = false
 var blockedBy: Node
 var atkReady: bool = true
 var moving: bool = false
+var dead: bool = false
 
 var damage: float
-var cd: float
+var baseCD: float
+var currentCD: float
 
-@onready var health_bar: ProgressBar = get_node("HealthBar")
+@onready var health_bar: ProgressBar = get_node("CharacterBody2d/HealthBar")
 @onready var sprite: Sprite2D = get_node("CharacterBody2d/Sprite2d")
 @onready var hitbox: CollisionShape2D = get_node("CharacterBody2d/CollisionShape2d")
 
-@onready var slow_timer: Timer = get_node("SlowTimer")
-@onready var bleed_timer: Timer = get_node("BleedTimer")
-@onready var bleed_frequency: Timer = get_node("BleedFrequency")
+@onready var slow_timer: Timer = get_node("Timers/SlowTimer")
+@onready var bleed_timer: Timer = get_node("Timers/BleedTimer")
+@onready var bleed_frequency: Timer = get_node("Timers/BleedFrequency")
 
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+@onready var status_player: AnimationPlayer = get_node("StatusPlayer")
 
 signal death(nexus_dmg)
 # Called when the node enters the scene tree for the first time.
@@ -34,18 +37,22 @@ func _ready() -> void:
 	baseSpeed = GameData["enemies_stats"][enemy_name]["speed"]
 	baseHP = GameData["enemies_stats"][enemy_name]["health"]
 	damage = GameData["enemies_stats"][enemy_name]["damage"]
-	cd = GameData["enemies_stats"][enemy_name]["cd"]
+	baseCD = GameData["enemies_stats"][enemy_name]["cd"]
 	currentSpeed = baseSpeed
 	currentHP = baseHP
+	currentCD = baseCD
 	health_bar.max_value = baseHP
 	health_bar.value = currentHP
 	#health_bar.set_as_top_level(true)
 
 func _physics_process(delta: float) -> void:
-	if progress_ratio >= 1.0:
+	if progress_ratio >= 1.0 and not dead:
 		destroy(false)
-	if blocked:
-		if blockedBy.destroyed : blocked = false
+		
+	if dead:
+		pass
+	elif blocked:
+		if blockedBy != null and blockedBy.destroyed : blocked = false
 		else:
 			moving = false
 			if atkReady: 
@@ -59,14 +66,17 @@ func _physics_process(delta: float) -> void:
 	if impaired and slow_timer.time_left <= 0:
 		slow_timer.stop()
 		currentSpeed = baseSpeed
+		currentCD = baseCD
+		animation_player.playback_speed = 1
 		sprite.modulate = Color(1, 1, 1)
 		impaired = false
 	if bleedFreq != 0 and bleed != 0 and bleed_frequency.time_left == 0:
 		take_dmg(bleed)
 		if bleed_timer.time_left <= 0:
+			print("FIN DU BLEED")
 			bleedFreq = 0
 			bleed = 0
-			sprite.modulate = Color(1, 1, 1)
+			status_player.play("RESET")
 		else:
 			bleed_frequency.start(bleedFreq)
 		
@@ -91,24 +101,34 @@ func attack_struct() -> void:
 	atkReady = false
 	blockedBy.take_dmg(damage)
 	take_dmg(blockedBy.thorns)
-	await get_tree().create_timer(cd).timeout
+	await get_tree().create_timer(currentCD).timeout
 	atkReady = true
 
 func apply_slow(value: float, duration: float) -> void:
 	currentSpeed = baseSpeed * value
+	currentCD = baseCD * value
+	animation_player.playback_speed = value
 	slow_timer.start(duration)
 	impaired = true
-	sprite.modulate = Color (0, 0.5, 1)
+	sprite.modulate = Color (0.5, 1, 1)
 	
 func apply_bleed(value: float, duration: float, freq: float) -> void:
 	bleed_timer.start(duration)
 	bleed = value
 	bleedFreq = freq
-	sprite.modulate = Color (1, 0.5, 0)
+	status_player.play("bleed")
 
 func destroy(killed: bool) -> void:
-	if killed:
-		emit_signal("death", 0)
-	else:
-		emit_signal("death", GameData["enemies_stats"][enemy_name]["nexus_dmg"])
-	self.queue_free()
+	if not dead:
+		get_node("CharacterBody2d").visible = false
+		dead = true
+		
+		if killed:
+			emit_signal("death", 0)
+			status_player.play("death")
+			await status_player.animation_finished
+			self.queue_free()
+		else:
+			emit_signal("death", GameData["enemies_stats"][enemy_name]["nexus_dmg"])
+			self.queue_free()
+		
