@@ -4,9 +4,6 @@ extends "res://Scripts/Units/unit.gd"
 func _init() -> void:
 	unitName = "Soldier"
 	
-func _process(delta):
-	super._process(delta)
-	
 func special() -> void:
 	print("PAYSAN : Je donne un coup d'épée")
 	if attack_target != null: 

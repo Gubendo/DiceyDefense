@@ -13,6 +13,7 @@ extends Node2D
 @onready var yamsMgr: Node = get_tree().get_root().get_node("Main/YamsManager")
 
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+@onready var status_player: AnimationPlayer = get_node("StatusPlayer")
 @onready var unit_sprite: Sprite2D = get_node("Unit/Sprite")
 
 var currentStats: Array = []

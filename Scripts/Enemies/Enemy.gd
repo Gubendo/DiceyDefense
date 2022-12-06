@@ -121,6 +121,7 @@ func apply_bleed(value: float, duration: float, freq: float) -> void:
 func destroy(killed: bool) -> void:
 	if not dead:
 		get_node("CharacterBody2d").visible = false
+		get_node("Bleed").visible = false
 		dead = true
 		
 		if killed:

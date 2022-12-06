@@ -16,6 +16,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var healthValue: Label = get_node("CanvasLayer/Health/Value")
 
 @onready var animation_player: AnimationPlayer = get_node("CanvasLayer/AnimationPlayer")
+@onready var text_animation: AnimationPlayer = get_node("CanvasLayer/TextAnimation")
 var overlay_animations: Dictionary = {true: "show_overlay", false: "hide_overlay"}
 
 var unfrozenDices: Array = []
@@ -159,10 +160,12 @@ func on_PausePlay_pressed() -> void:
 		get_tree().paused = false
 		for node in pauseMenu.get_children():
 			node.visible = false
+		get_node("CanvasLayer/PauseOverlay").visible = false
 	else:
 		get_tree().paused = true
 		for node in pauseMenu.get_children():
 			node.visible = true
+		get_node("CanvasLayer/PauseOverlay").visible = true
 		
 func on_SpeedUp_pressed() -> void:
 	if Engine.get_time_scale() == 2.0:
@@ -203,4 +206,11 @@ func quit() -> void:
 	
 func options() -> void:
 	print("C'est les options !!")
+	
+func game_over() -> void:
+	#get_tree().paused = true
+	for node in get_node("CanvasLayer/Vague").get_children():
+		node.visible = false
+	get_node("CanvasLayer/PauseOverlay").visible = true
+	get_node("CanvasLayer/GameOver").visible = true
 

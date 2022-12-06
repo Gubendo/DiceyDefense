@@ -15,11 +15,11 @@ func special() -> void:
 	print("BARDE : Je joue de la musique sur " + str(targets))
 	for unit in targets:
 		unit.buff_as *= stats[level]["buff"]
-		unit.unit_sprite.modulate = Color(0.3, 0, 0.3)
+		unit.status_player.play("buff")
 	await get_tree().create_timer(stats[level]["duration"]).timeout
 	for unit in targets:
 		unit.buff_as /= stats[level]["buff"]
-		unit.unit_sprite.modulate = Color(1, 1, 1)
+		unit.status_player.play("RESET")
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0

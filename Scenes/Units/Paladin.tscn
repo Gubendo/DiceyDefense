@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmu6gp2op0k0a"]
+[gd_scene load_steps=18 format=3 uid="uid://cmu6gp2op0k0a"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Paladin.gd" id="1_y5caj"]
+[ext_resource type="Texture2D" uid="uid://bmi65f71etfy8" path="res://Animations/Status/buff-back.png" id="2_86iey"]
 [ext_resource type="Texture2D" uid="uid://due1dx8yxbyj" path="res://Sprites/Units/paladin.png" id="2_j8gwr"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
 [ext_resource type="Texture2D" uid="uid://cbkstjsjjdf8t" path="res://Animations/Paladin/paladin-hover-full.png" id="3_dom54"]
 [ext_resource type="Texture2D" uid="uid://wk72yblyvc71" path="res://Animations/Paladin/paladin-full.png" id="4_2wa60"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
+[ext_resource type="Texture2D" uid="uid://crpjmpeddxi38" path="res://Animations/Status/buff-front.png" id="6_5nirt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -119,10 +121,126 @@ _data = {
 "idle": SubResource("Animation_j6ep7")
 }
 
+[sub_resource type="Animation" id="Animation_aiq21"]
+resource_name = "buff"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/BuffBack:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/BuffBack:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit/BuffFront:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Unit/BuffFront:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ye1ew"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/BuffFront:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/BuffBack:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit/BuffBack:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Unit/BuffFront:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ywfna"]
+_data = {
+"RESET": SubResource("Animation_ye1ew"),
+"buff": SubResource("Animation_aiq21")
+}
+
 [node name="Paladin" type="Node2D"]
 script = ExtResource("1_y5caj")
 
 [node name="Unit" type="Node2D" parent="."]
+
+[node name="BuffBack" type="Sprite2D" parent="Unit"]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("2_86iey")
+hframes = 6
 
 [node name="Activate" type="TextureButton" parent="Unit"]
 anchors_preset = 8
@@ -148,6 +266,12 @@ visible = false
 texture = ExtResource("4_2wa60")
 hframes = 7
 vframes = 2
+
+[node name="BuffFront" type="Sprite2D" parent="Unit"]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("6_5nirt")
+hframes = 6
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -205,6 +329,11 @@ scroll_active = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_85wjy")
+}
+
+[node name="StatusPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ywfna")
 }
 
 [node name="LastAttack" type="Timer" parent="."]

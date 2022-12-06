@@ -7,17 +7,18 @@ var current_wave: int = 0
 var enemies_in_wave: int = 0
 var waveStarted: bool = false
 
-var nexus_hp = 50
+var nexus_hp = 1
 
 func _ready() -> void:
 	rng.randomize()
+	get_node("UI").update_health(nexus_hp)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0:
 		print("FIN DE VAGUE")
 		waveStarted = false
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(1).timeout
 		update_phase()
 
 
@@ -58,7 +59,9 @@ func start_next_wave() -> void:
 		enemies_in_wave += group[0]
 	waveStarted = true
 	update_phase()
-	await get_tree().create_timer(1.5).timeout
+	get_node("UI").text_animation.play("wavestart")
+	await get_tree().create_timer(2.4).timeout
+	get_node("UI").text_animation.play("RESET")
 	spawn_enemies(wave_data)
 	
 	
@@ -81,8 +84,21 @@ func spawn_enemies(wave_data: Array) -> void:
 		await get_tree().create_timer(group[3]).timeout
 		
 func on_enemy_death(nexus_dmg: float) -> void:
-	nexus_hp -= nexus_dmg
+	
 	if nexus_dmg != 0:
 		# ptite animation
+		nexus_hp -= nexus_dmg
+		if nexus_hp <= 0:
+			nexus_hp = 0
+			game_over()
 		get_node("UI").update_health(nexus_hp)
 	enemies_in_wave -= 1
+
+func game_over() -> void:
+	get_node("UI").game_over()
+	for enemy in get_node("KingsRoad").get_children(): # DANSE
+		enemy.dead = true
+	for unit in get_node("Units").get_children(): # CRI D'HORREUR
+		if unit.activated : unit.queue_free()
+	# TODO SPAWN DES FLAMMES DANS LA VILLE
+		

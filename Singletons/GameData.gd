@@ -40,10 +40,10 @@ var loup_stats: Dictionary = {
 var bard_stats: Dictionary = {
 	1: {
 		"target": 2,
-		"buff": 2,
-		"duration": 1,
-		"cooldown": 3,
-		"range": 5
+		"buff": 5,
+		"duration": 3,
+		"cooldown": 6,
+		"range": 8
 	}
 }
 
@@ -213,8 +213,8 @@ var unit_data: Dictionary = {
 }
 
 var gobelin_stats: Dictionary = {
-	"speed": 20,
-	"health": 500,
+	"speed": 10,
+	"health": 100,
 	"damage": 1,
 	"cd": 1,
 	"nexus_dmg": 1

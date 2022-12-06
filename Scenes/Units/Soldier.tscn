@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx1infx4o255x"]
+[gd_scene load_steps=18 format=3 uid="uid://dx1infx4o255x"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Soldier.gd" id="1_ua233"]
+[ext_resource type="Texture2D" uid="uid://bmi65f71etfy8" path="res://Animations/Status/buff-back.png" id="2_jxk8s"]
 [ext_resource type="Texture2D" uid="uid://dccfoc68ajb6a" path="res://Sprites/Units/soldier.png" id="2_yjfs8"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
 [ext_resource type="Texture2D" uid="uid://bje76xlu28h5y" path="res://Animations/Soldier/soldier-full.png" id="3_pkqul"]
 [ext_resource type="Texture2D" uid="uid://ccqk4cqyoncp" path="res://Animations/Soldier/soldier-hover-full.png" id="4_rx51p"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
+[ext_resource type="Texture2D" uid="uid://crpjmpeddxi38" path="res://Animations/Status/buff-front.png" id="8_o3bec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -119,10 +121,126 @@ _data = {
 "idle": SubResource("Animation_dvnxu")
 }
 
+[sub_resource type="Animation" id="Animation_istxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/BuffBack:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/BuffFront:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit/BuffBack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Unit/BuffFront:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7uf21"]
+resource_name = "buff"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/BuffBack:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Unit/BuffFront:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Unit/BuffBack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Unit/BuffFront:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25jpy"]
+_data = {
+"RESET": SubResource("Animation_istxv"),
+"buff": SubResource("Animation_7uf21")
+}
+
 [node name="Soldier" type="Node2D"]
 script = ExtResource("1_ua233")
 
 [node name="Unit" type="Node2D" parent="."]
+
+[node name="BuffBack" type="Sprite2D" parent="Unit"]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("2_jxk8s")
+hframes = 6
 
 [node name="Activate" type="TextureButton" parent="Unit"]
 anchors_preset = 8
@@ -151,6 +269,12 @@ position = Vector2(1.5, 0)
 texture = ExtResource("4_rx51p")
 hframes = 5
 vframes = 2
+
+[node name="BuffFront" type="Sprite2D" parent="Unit"]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("8_o3bec")
+hframes = 6
 
 [node name="Range" type="Area2D" parent="."]
 
@@ -209,6 +333,11 @@ scroll_active = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_hdyg7")
+}
+
+[node name="StatusPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_25jpy")
 }
 
 [node name="LastAttack" type="Timer" parent="."]
