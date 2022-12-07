@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cvgxsmo1glngs"]
+[gd_scene load_steps=16 format=3 uid="uid://cvgxsmo1glngs"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Bobelin.gd" id="1_8snl7"]
 [ext_resource type="Texture2D" uid="uid://oggoeij2m5e8" path="res://Animations/bobelin/bobelin-full.png" id="2_gjaqt"]
@@ -73,10 +73,27 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_myvin"]
+resource_name = "dance"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2d/Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mw4mf"]
 _data = {
 "RESET": SubResource("Animation_2o1i0"),
 "attack": SubResource("Animation_4ncwh"),
+"dance": SubResource("Animation_myvin"),
 "run": SubResource("Animation_us55h")
 }
 
@@ -209,7 +226,7 @@ collision_mask = 3
 position = Vector2(-1, 1.5)
 texture = ExtResource("2_gjaqt")
 hframes = 5
-vframes = 2
+vframes = 3
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
 position = Vector2(0.333333, 2.33333)

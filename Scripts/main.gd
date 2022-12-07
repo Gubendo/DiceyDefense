@@ -96,8 +96,10 @@ func on_enemy_death(nexus_dmg: float) -> void:
 
 func game_over() -> void:
 	get_node("UI").game_over()
+	get_node("Décor/Fire").visible = true
 	for enemy in get_node("KingsRoad").get_children(): # DANSE
 		enemy.dead = true
+		enemy.animation_player.play("dance")
 	for unit in get_node("Units").get_children(): # CRI D'HORREUR
 		if unit.activated : unit.queue_free()
 	# TODO SPAWN DES FLAMMES DANS LA VILLE

@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://4gnc4coty71j"]
+[gd_scene load_steps=27 format=3 uid="uid://4gnc4coty71j"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_f05js"]
 [ext_resource type="PackedScene" uid="uid://b5kwsmxglfbp6" path="res://Scenes/UI.tscn" id="2_sfx10"]
 [ext_resource type="Script" path="res://Scripts/YamsManager.gd" id="3_ounvy"]
 [ext_resource type="Texture2D" uid="uid://b5cwnsigjnr0o" path="res://tilesets/terrain.png" id="4_e4dkg"]
+[ext_resource type="PackedScene" uid="uid://d2nr00pp6mpou" path="res://Scenes/Decors/fire.tscn" id="5_nhojw"]
 [ext_resource type="PackedScene" uid="uid://dx1infx4o255x" path="res://Scenes/Units/Soldier.tscn" id="5_vqr24"]
 [ext_resource type="PackedScene" uid="uid://b5tp2dhwh1sjy" path="res://Scenes/Units/Archer.tscn" id="7_5k768"]
 [ext_resource type="PackedScene" uid="uid://drdr6dkao3hnd" path="res://Scenes/Units/Mage.tscn" id="7_e1n3n"]
@@ -172,6 +173,24 @@ zoom = Vector2(4, 4)
 [node name="Temporary" type="Node" parent="."]
 
 [node name="Décor" type="Node" parent="."]
+
+[node name="Fire" type="Node2D" parent="Décor"]
+visible = false
+
+[node name="Node2d" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+position = Vector2(-319, -247)
+
+[node name="Node2d2" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+position = Vector2(-431, -173)
+
+[node name="Node2d3" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+position = Vector2(-378, -88)
+
+[node name="Node2d4" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+position = Vector2(-253, -71)
+
+[node name="Node2d5" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+position = Vector2(-211, -154)
 
 [node name="Billot" type="Sprite2D" parent="Décor"]
 position = Vector2(-257, -162)

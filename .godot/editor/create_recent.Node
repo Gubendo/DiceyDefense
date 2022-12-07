@@ -1,12 +1,12 @@
+Node2D
+Node
+Sprite2D
 Control
 Label
 RichTextLabel
 TextureRect
 AnimationPlayer
 AnimationTree
-Sprite2D
-Node
-Node2D
 ColorRect
 Button
 Timer
