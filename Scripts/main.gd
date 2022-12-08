@@ -95,6 +95,7 @@ func on_enemy_death(nexus_dmg: float) -> void:
 	enemies_in_wave -= 1
 
 func game_over() -> void:
+	Engine.set_time_scale(1.0)
 	get_node("UI").game_over()
 	get_node("Décor/Fire").visible = true
 	for enemy in get_node("KingsRoad").get_children(): # DANSE
