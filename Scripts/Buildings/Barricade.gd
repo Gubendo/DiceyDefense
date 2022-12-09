@@ -5,8 +5,8 @@ var currentHP: float = 100
 var thorns: float
 var destroyed: bool = false
 
-@onready var health_bar: ProgressBar = get_node("HealthBar")
-@onready var sprite: Sprite2D = get_node("Sprite2d")
+@onready var health_bar: ProgressBar = $HealthBar
+@onready var sprite: Sprite2D = $Sprite2d
 
 # Called when the node enters the scene tree for the first time.
 func init() -> void:

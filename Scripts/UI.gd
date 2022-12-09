@@ -5,18 +5,20 @@ signal choix(coup)
 var diceHand: String = "CanvasLayer/Overlay/DiceHand/"
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var dicesList: Array = [get_node(diceHand + "Dice1"), get_node(diceHand + "Dice2"), get_node(diceHand + "Dice3"), get_node(diceHand + "Dice4"), get_node(diceHand + "Dice5")]
-@onready var gobelet: TextureButton = get_node("CanvasLayer/Overlay/Gobelet")
-@onready var pausePlay: TextureButton = get_node("CanvasLayer/Vague/Controls/PausePlay")
-@onready var speedUp: TextureButton = get_node("CanvasLayer/Vague/Controls/SpeedUp")
-@onready var optionsButton: Button = get_node("CanvasLayer/Pause/Options")
-@onready var quitButton: Button = get_node("CanvasLayer/Pause/Quitter")
-@onready var waveNumber: Label = get_node("CanvasLayer/Vague/number")
-@onready var remainingEnemies: Label = get_node("CanvasLayer/Vague/remaining")
-@onready var pauseMenu: Control = get_node("CanvasLayer/Pause")
-@onready var healthValue: Label = get_node("CanvasLayer/Health/Value")
+@onready var gobelet: TextureButton = $CanvasLayer/Overlay/Gobelet
+@onready var pausePlay: TextureButton = $CanvasLayer/Vague/Controls/PausePlay
+@onready var speedUp: TextureButton = $CanvasLayer/Vague/Controls/SpeedUp
+@onready var optionsButton: Button = $CanvasLayer/Pause/Options
+@onready var quitButton: Button = $CanvasLayer/Pause/Quitter
+@onready var restartButton: Button = $CanvasLayer/Pause/Recommencer
+@onready var waveNumber: Label = $CanvasLayer/Vague/number
+@onready var remainingEnemies: Label = $CanvasLayer/Vague/remaining
+@onready var pauseMenu: Control = $CanvasLayer/Pause
+@onready var healthValue: Label = $CanvasLayer/Health/Value
 
-@onready var animation_player: AnimationPlayer = get_node("CanvasLayer/AnimationPlayer")
-@onready var text_animation: AnimationPlayer = get_node("CanvasLayer/TextAnimation")
+@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
+@onready var text_animation: AnimationPlayer = $CanvasLayer/TextAnimation
+
 var overlay_animations: Dictionary = {true: "show_overlay", false: "hide_overlay"}
 
 var unfrozenDices: Array = []
@@ -30,6 +32,8 @@ var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
 @export var nbRolls: int = 50
 
 var coupsRestant: int
+
+var save_system = SaveSystem
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_process_input(true)
@@ -40,6 +44,7 @@ func _ready() -> void:
 	connect_signals()
 	update_dice_pos()
 	nouveau_coup()
+	animation_player.play("fade_overlay")
 	
 
 func connect_signals() -> void:
@@ -52,6 +57,7 @@ func connect_signals() -> void:
 	
 	quitButton.pressed.connect(quit)
 	optionsButton.pressed.connect(options)
+	restartButton.pressed.connect(restart)
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -123,7 +129,7 @@ func press_roll() -> void:
 func update_hand(hand: Array) -> void:
 	for i in range(5):
 		dicesList[i].texture = dicesSprites[hand[i] - 1]
-	get_node("CanvasLayer/ValeurMain").text = "Main réelle : " + str(hand)
+	$CanvasLayer/ValeurMain.text = "Main réelle : " + str(hand)
 	coupsRestant -= 1
 	if coupsRestant == 0:
 		gobelet.visible = false
@@ -135,7 +141,7 @@ func update_hand(hand: Array) -> void:
 func update_phase(waveStarted: bool, currentWave: int) -> void:
 	animation_player.play(overlay_animations[!waveStarted])
 	gobelet.get_node("Tooltip").visible = false
-	#get_node("CanvasLayer/Vague/Controls").visible = waveStarted
+	#$CanvasLayer/Vague/Controls.visible = waveStarted
 	
 	if !waveStarted: nouveau_coup()
 	
@@ -148,7 +154,7 @@ func update_phase(waveStarted: bool, currentWave: int) -> void:
 		
 
 func update_grille(grille: Dictionary) -> void:
-	get_node("CanvasLayer/Grille").text = "Grille (DEV)\n\nTotal des 1 : {0}\nTotal des 2 : {1}\nTotal des 3 : {2}
+	$CanvasLayer/Grille.text = "Grille (DEV)\n\nTotal des 1 : {0}\nTotal des 2 : {1}\nTotal des 3 : {2}
 	Total des 4 : {3}\nTotal des 5 : {4}\nTotal des 6 : {5}\nBrelan : {6}\nCarré : {7}\nFull : {8}
 	Petite suite : {9}\nGrande suite : {10}\nChance : {11}\nYam's : {12}".format([
 	grille["total1"], grille["total2"], grille["total3"], grille["total4"], grille["total5"],
@@ -160,12 +166,13 @@ func on_PausePlay_pressed() -> void:
 		get_tree().paused = false
 		for node in pauseMenu.get_children():
 			node.visible = false
-		get_node("CanvasLayer/PauseOverlay").visible = false
+		$CanvasLayer/PauseOverlay.visible = false
 	else:
 		get_tree().paused = true
 		for node in pauseMenu.get_children():
 			node.visible = true
-		get_node("CanvasLayer/PauseOverlay").visible = true
+		pauseMenu.get_node("Stats").visible = false
+		$CanvasLayer/PauseOverlay.visible = true
 		
 func on_SpeedUp_pressed() -> void:
 	if Engine.get_time_scale() == 2.0:
@@ -206,11 +213,21 @@ func quit() -> void:
 	
 func options() -> void:
 	print("C'est les options !!")
+
+func restart() -> void:
+	save_system.reset_save()
+	get_tree().reload_current_scene()
+	get_tree().paused = false
 	
 func game_over() -> void:
 	#get_tree().paused = true
-	for node in get_node("CanvasLayer/Vague").get_children():
+	for node in $CanvasLayer/Vague.get_children():
 		node.visible = false
-	get_node("CanvasLayer/PauseOverlay").visible = true
-	get_node("CanvasLayer/GameOver").visible = true
+		
+	for node in pauseMenu.get_children():
+			node.visible = true
+	pauseMenu.get_node("Options").visible = false
+	
+	$CanvasLayer/PauseOverlay.visible = true
+	$CanvasLayer/GameOver.visible = true
 

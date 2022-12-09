@@ -11,8 +11,8 @@ func special() -> void:
 		shoot_arrow()
 
 func update_level(value: int) -> void:
-	#level = value / 2
-	level = 1
+	level = value / 2
+	#level = 1
 	
 func update_tooltip() -> void:
 	update_stats()
@@ -21,7 +21,7 @@ dégâts toutes les {1} secondes".format([currentStats[0], currentStats[1]])
 
 func shoot_arrow() -> void:
 	var arrow = arrowTemp.instantiate()
-	var start: Vector2 = get_node("Unit/ShootPos").global_position
+	var start: Vector2 = $Unit/ShootPos.global_position
 	arrow.position = start
 	arrow.start_pos = start
 	arrow.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2,\

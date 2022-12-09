@@ -172,46 +172,46 @@ zoom = Vector2(4, 4)
 
 [node name="Temporary" type="Node" parent="."]
 
-[node name="Décor" type="Node" parent="."]
+[node name="Decor" type="Node" parent="."]
 
-[node name="Fire" type="Node2D" parent="Décor"]
+[node name="Fire" type="Node2D" parent="Decor"]
 visible = false
 
-[node name="Node2d" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+[node name="Node2d" parent="Decor/Fire" instance=ExtResource("5_nhojw")]
 position = Vector2(-319, -247)
 scale = Vector2(1.5, 1.5)
 
-[node name="Node2d2" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+[node name="Node2d2" parent="Decor/Fire" instance=ExtResource("5_nhojw")]
 position = Vector2(-431, -173)
 scale = Vector2(1.5, 1.5)
 
-[node name="Node2d3" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+[node name="Node2d3" parent="Decor/Fire" instance=ExtResource("5_nhojw")]
 position = Vector2(-378, -88)
 scale = Vector2(1.5, 1.5)
 
-[node name="Node2d4" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+[node name="Node2d4" parent="Decor/Fire" instance=ExtResource("5_nhojw")]
 position = Vector2(-253, -71)
 scale = Vector2(1.5, 1.5)
 
-[node name="Node2d5" parent="Décor/Fire" instance=ExtResource("5_nhojw")]
+[node name="Node2d5" parent="Decor/Fire" instance=ExtResource("5_nhojw")]
 position = Vector2(-213, -156)
 scale = Vector2(1.5, 1.5)
 
-[node name="Billot" type="Sprite2D" parent="Décor"]
+[node name="Billot" type="Sprite2D" parent="Decor"]
 position = Vector2(-257, -162)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("20_cg4cb")
 
-[node name="Panneau" parent="Décor" instance=ExtResource("20_abjxm")]
+[node name="Panneau" parent="Decor" instance=ExtResource("20_abjxm")]
 position = Vector2(-274, -210)
 scale = Vector2(0.75, 0.75)
 
-[node name="Stand" type="Sprite2D" parent="Décor"]
+[node name="Stand" type="Sprite2D" parent="Decor"]
 position = Vector2(-311, -219)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("7_wmtw3")
 
-[node name="Stand2" type="Sprite2D" parent="Décor"]
+[node name="Stand2" type="Sprite2D" parent="Decor"]
 position = Vector2(-264, -125)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_iem1l")

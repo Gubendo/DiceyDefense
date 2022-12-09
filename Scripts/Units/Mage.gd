@@ -20,7 +20,7 @@ dégâts et réduit la vitesse de déplacement toutes les {1} secondes".format([
 
 func shoot_frostbolt() -> void:
 	var bolt = boltTemp.instantiate()
-	var start: Vector2 = get_node("Unit/ShootPos").global_position
+	var start: Vector2 = $Unit/ShootPos.global_position
 	bolt.position = start
 	bolt.start_pos = start
 	bolt.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2,\

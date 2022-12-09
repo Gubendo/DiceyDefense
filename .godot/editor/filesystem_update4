@@ -1,9 +1,10 @@
-res://Scenes/Decors/fire.tscn
+res://Scenes/Units/Builder.tscn
 res://UI.tres
 res://Scripts/Pause.gd
+res://Scripts/main.gd
+res://Scripts/Units/unit.gd
 res://Scenes/main.tscn
 res://Scenes/UI.tscn
-res://Scripts/main.gd
 res://Scenes/dice.tscn
 res://Scenes/Units/Paladin.tscn
 res://Scenes/Units/Soldier.tscn
@@ -11,3 +12,6 @@ res://Scenes/Units/Loup.tscn
 res://Scenes/Units/Archer.tscn
 res://Scenes/Enemies/Bobelin.tscn
 res://Scenes/Enemies/Gobelin.tscn
+res://Scenes/Decors/fire.tscn
+res://Scripts/SaveSystem.gd
+res://Scripts/Units/Archer.gd

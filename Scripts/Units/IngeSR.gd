@@ -17,10 +17,10 @@ func activate() -> void:
 	unit.visible = false
 	disable_tooltip()
 	
-	unit = get_node("Trebuchet")
-	unit_sprite = get_node("Trebuchet/Sprite")
-	button = get_node("Trebuchet/Activate")
-	unitHover= get_node("Trebuchet/Hover")
+	unit = $Trebuchet
+	unit_sprite = $Trebuchet/Sprite
+	button = $Trebuchet/Activate
+	unitHover= $Trebuchet/Hover
 	unit.visible = true
 	connect_signals()
 	
@@ -33,7 +33,7 @@ func update_tooltip() -> void:
 
 func shoot_caillou() -> void:
 	var caillou = caillouTemp.instantiate()
-	var start: Vector2 = get_node("Trebuchet/ShootPos").global_position
+	var start: Vector2 = $Trebuchet/ShootPos.global_position
 	caillou.position = start
 	caillou.start_pos = start
 	caillou.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2,\

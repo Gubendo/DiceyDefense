@@ -30,4 +30,4 @@ animations = [{
 
 [node name="Sprite2d" type="AnimatedSprite2D" parent="."]
 frames = SubResource("SpriteFrames_iwkd7")
-playing = true
+frame = 1

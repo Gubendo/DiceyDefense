@@ -9,15 +9,22 @@ var waveStarted: bool = false
 
 var nexus_hp = 1
 
+var save_system = SaveSystem
+
 func _ready() -> void:
 	rng.randomize()
-	get_node("UI").update_health(nexus_hp)
+	save_system.load_game()
+	load_save()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0:
 		print("FIN DE VAGUE")
 		waveStarted = false
+		save_system.game_data["nexus_hp"] = nexus_hp
+		save_system.game_data["current_wave"] = current_wave
+		save_system.save_game()
 		await get_tree().create_timer(1).timeout
 		update_phase()
 
@@ -29,16 +36,16 @@ func _on_ui_roll(unfrozen: Array) -> void:
 	for i in range(5):
 		if i in unfrozen_id:
 			hand[i] = rng.randi_range(1, 6)
-	get_node("YamsManager").calcul_hand(hand)
-	get_node("UI").update_hand(hand)
+	$YamsManager.calcul_hand(hand)
+	$UI.update_hand(hand)
 	
-	for unit in get_node("Units").get_children():
+	for unit in $Units.get_children():
 		if !unit.activated : 
-			unit.update_level(get_node("YamsManager").combinaisons[GameData.unit_data[unit.name]["value"]][0])
+			unit.update_level($YamsManager.combinaisons[GameData.unit_data[unit.name]["value"]][0])
 
 func update_phase() -> void:
-	get_node("UI").update_phase(waveStarted, current_wave)
-	for unit in get_node("Units").get_children():
+	$UI.update_phase(waveStarted, current_wave)
+	for unit in $Units.get_children():
 		if !unit.activated : 
 			unit.visible = !waveStarted
 			unit.button.disabled = waveStarted
@@ -47,7 +54,7 @@ func update_phase() -> void:
 			unit.turn(1)
 			unit.start_wave()
 			
-	for temp in get_node("Temporary").get_children():
+	for temp in $Temporary.get_children():
 		temp.queue_free()
 	
 ### Gestion de vagues
@@ -59,9 +66,9 @@ func start_next_wave() -> void:
 		enemies_in_wave += group[0]
 	waveStarted = true
 	update_phase()
-	get_node("UI").text_animation.play("wavestart")
+	$UI.text_animation.play("wavestart")
 	await get_tree().create_timer(2.4).timeout
-	get_node("UI").text_animation.play("RESET")
+	$UI.text_animation.play("RESET")
 	spawn_enemies(wave_data)
 	
 	
@@ -79,7 +86,7 @@ func spawn_enemies(wave_data: Array) -> void:
 		for i in range(group[0]):
 			var new_enemy = load("res://Scenes/Enemies/" + group[1] + ".tscn").instantiate()
 			new_enemy.death.connect(on_enemy_death)
-			get_node("KingsRoad").add_child(new_enemy, true)
+			$KingsRoad.add_child(new_enemy, true)
 			await get_tree().create_timer(group[2]).timeout
 		await get_tree().create_timer(group[3]).timeout
 		
@@ -91,17 +98,45 @@ func on_enemy_death(nexus_dmg: float) -> void:
 		if nexus_hp <= 0:
 			nexus_hp = 0
 			game_over()
-		get_node("UI").update_health(nexus_hp)
+		$UI.update_health(nexus_hp)
 	enemies_in_wave -= 1
 
 func game_over() -> void:
 	Engine.set_time_scale(1.0)
-	get_node("UI").game_over()
-	get_node("Décor/Fire").visible = true
-	for enemy in get_node("KingsRoad").get_children(): # DANSE
+	$UI.game_over()
+	$Decor/Fire.visible = true
+	for fire in $Decor/Fire.get_children():
+		fire.get_node("Sprite2d").frame = rng.randi_range(0, 6)
+		fire.get_node("Sprite2d").playing = true
+	for enemy in $KingsRoad.get_children(): # DANSE
 		enemy.dead = true
 		enemy.animation_player.play("dance")
-	for unit in get_node("Units").get_children(): # CRI D'HORREUR
+	for unit in $Units.get_children(): # CRI D'HORREUR
 		if unit.activated : unit.queue_free()
 	# TODO SPAWN DES FLAMMES DANS LA VILLE
 		
+
+func load_save() -> void:
+	nexus_hp = save_system.game_data["nexus_hp"]
+	current_wave = save_system.game_data["current_wave"]
+	
+	$UI.update_health(nexus_hp)
+	$UI.waveNumber.text = "Prochaine vague : " + str(current_wave + 1) + "/13"
+	
+	for unit in $Units.get_children():
+		print(save_system.game_data[unit.unitName])
+		var unit_data: Dictionary = save_system.game_data[unit.unitName]
+		if unit_data["level"] == 0:
+			unit.queue_free()
+		elif unit_data["level"] > 0:
+			unit.button.modulate = Color(1, 1, 1)
+			unit.button.disabled = true
+			unit.activated = true
+			unit.rangeSprite.modulate.a = 0
+			unit.level = unit_data["level"]
+			unit.update_tooltip()
+			
+			unit.unit_sprite.visible = true
+			unit.button.modulate.a = 0
+			unit.idle_anim()
+			unit.disable_tooltip()

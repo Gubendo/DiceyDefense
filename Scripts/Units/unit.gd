@@ -1,20 +1,20 @@
 extends Node2D
 
-@onready var unit: Node2D = get_node("Unit")
-@onready var button: TextureButton = get_node("Unit/Activate")
-@onready var unitHover: Sprite2D = get_node("Unit/Hover")
-@onready var range: Area2D = get_node("Range")
-@onready var tooltip: Control = get_node("CanvasLayer/Tooltip")
-@onready var tooltipText: RichTextLabel = get_node("CanvasLayer/Tooltip/Description")
-@onready var rangeSprite: Sprite2D = get_node("Range/RangeSprite")
-@onready var lastAttack: Timer = get_node("LastAttack")
+@onready var unit: Node2D = $Unit
+@onready var button: TextureButton = $Unit/Activate
+@onready var unitHover: Sprite2D = $Unit/Hover
+@onready var range: Area2D = $Range
+@onready var tooltip: Control = $CanvasLayer/Tooltip
+@onready var tooltipText: RichTextLabel = $CanvasLayer/Tooltip/Description
+@onready var rangeSprite: Sprite2D = $Range/RangeSprite
+@onready var lastAttack: Timer = $LastAttack
 
 @onready var stats: Dictionary = GameData.unit_data[unitName]["stats"]
 @onready var yamsMgr: Node = get_tree().get_root().get_node("Main/YamsManager")
 
-@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
-@onready var status_player: AnimationPlayer = get_node("StatusPlayer")
-@onready var unit_sprite: Sprite2D = get_node("Unit/Sprite")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var status_player: AnimationPlayer = $StatusPlayer
+@onready var unit_sprite: Sprite2D = $Unit/Sprite
 
 var currentStats: Array = []
 
@@ -33,7 +33,9 @@ var level: int = 0
 var buff_as: float = 1
 var buff_dmg: float = 1
 var last_attack_time: float = 2
+var damage_dealt: float = 0
 
+var save_system = SaveSystem
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
@@ -75,6 +77,7 @@ func connect_signals() -> void:
 	
 func activate() -> void:
 	if level == 0:
+		save_system.game_data[unitName]["level"] = 0
 		queue_free()
 	else:
 		button.modulate = Color(1, 1, 1)
@@ -82,6 +85,7 @@ func activate() -> void:
 		activated = true
 		rangeSprite.modulate.a = 0
 		update_tooltip()
+		save_system.game_data[unitName]["level"] = level
 		
 		unit_sprite.visible = true
 		button.modulate.a = 0
@@ -180,7 +184,7 @@ func enable_tooltip() -> void:
 		tooltip.visible = true
 		unitHover.visible = true
 		rangeSprite.modulate.a = 0.3
-		highlight_dices()
+		if(!activated): highlight_dices()
 
 func disable_tooltip() -> void:
 	tooltip.visible = false
@@ -220,3 +224,5 @@ func _on_range_body_entered(body: CharacterBody2D) -> void:
 
 func _on_range_body_exited(body: CharacterBody2D) -> void:
 	enemies_in_range.erase(body.get_parent())
+	
+

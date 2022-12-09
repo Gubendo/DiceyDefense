@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var button: TextureButton = get_node("TextureButton")
-@onready var sign: Control = get_node("CanvasLayer/Tooltip")
+@onready var button: TextureButton = $TextureButton
+@onready var sign: Control = $CanvasLayer/Tooltip
 
 func _ready() -> void:
 	button.mouse_entered.connect(show_sign)

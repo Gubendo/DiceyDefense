@@ -35,7 +35,7 @@ var combinaisons: Dictionary = {
 var nodeUI: Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	nodeUI = get_node("/root/Main/UI")
+	nodeUI = $/root/Main/UI
 	nodeUI.update_grille(grille)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -133,4 +133,4 @@ func calcul_hand(hand) -> void:
 func on_unit_choice(coup) -> void:
 	grille[coup] = combinaisons[coup][0]
 	nodeUI.update_grille(grille)
-	get_node("/root/Main").start_next_wave()
+	$/root/Main.start_next_wave()

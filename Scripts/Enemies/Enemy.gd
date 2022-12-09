@@ -19,16 +19,16 @@ var damage: float
 var baseCD: float
 var currentCD: float
 
-@onready var health_bar: ProgressBar = get_node("CharacterBody2d/HealthBar")
-@onready var sprite: Sprite2D = get_node("CharacterBody2d/Sprite2d")
-@onready var hitbox: CollisionShape2D = get_node("CharacterBody2d/CollisionShape2d")
+@onready var health_bar: ProgressBar = $CharacterBody2d/HealthBar
+@onready var sprite: Sprite2D = $CharacterBody2d/Sprite2d
+@onready var hitbox: CollisionShape2D = $CharacterBody2d/CollisionShape2d
 
-@onready var slow_timer: Timer = get_node("Timers/SlowTimer")
-@onready var bleed_timer: Timer = get_node("Timers/BleedTimer")
-@onready var bleed_frequency: Timer = get_node("Timers/BleedFrequency")
+@onready var slow_timer: Timer = $Timers/SlowTimer
+@onready var bleed_timer: Timer = $Timers/BleedTimer
+@onready var bleed_frequency: Timer = $Timers/BleedFrequency
 
-@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
-@onready var status_player: AnimationPlayer = get_node("StatusPlayer")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var status_player: AnimationPlayer = $StatusPlayer
 
 signal death(nexus_dmg)
 # Called when the node enters the scene tree for the first time.
@@ -120,8 +120,8 @@ func apply_bleed(value: float, duration: float, freq: float) -> void:
 
 func destroy(killed: bool) -> void:
 	if not dead:
-		get_node("CharacterBody2d").visible = false
-		get_node("Bleed").visible = false
+		$CharacterBody2d.visible = false
+		$Bleed.visible = false
 		dead = true
 		
 		if killed:
