@@ -13,18 +13,14 @@ var save_system = SaveSystem
 
 func _ready() -> void:
 	rng.randomize()
-	save_system.load_game()
-	load_save()
-	
+	load_gamestate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0:
 		print("FIN DE VAGUE")
 		waveStarted = false
-		save_system.game_data["nexus_hp"] = nexus_hp
-		save_system.game_data["current_wave"] = current_wave
-		save_system.save_game()
+		save_gamestate()
 		await get_tree().create_timer(1).timeout
 		update_phase()
 
@@ -116,7 +112,9 @@ func game_over() -> void:
 	# TODO SPAWN DES FLAMMES DANS LA VILLE
 		
 
-func load_save() -> void:
+func load_gamestate() -> void:
+	save_system.load_game()
+	
 	nexus_hp = save_system.game_data["nexus_hp"]
 	current_wave = save_system.game_data["current_wave"]
 	
@@ -134,9 +132,19 @@ func load_save() -> void:
 			unit.activated = true
 			unit.rangeSprite.modulate.a = 0
 			unit.level = unit_data["level"]
+			unit.damage_dealt = unit_data["damage"]
 			unit.update_tooltip()
 			
 			unit.unit_sprite.visible = true
 			unit.button.modulate.a = 0
 			unit.idle_anim()
 			unit.disable_tooltip()
+			
+func save_gamestate() -> void:
+	save_system.game_data["nexus_hp"] = nexus_hp
+	save_system.game_data["current_wave"] = current_wave
+	for unit in $Units.get_children():
+		if unit.activated : 
+			save_system.game_data[unit.unitName]["damage"] = unit.damage_dealt
+	save_system.save_game()
+	

@@ -8,6 +8,7 @@ func special() -> void:
 	print("PAYSAN : Je donne un coup d'épée")
 	if attack_target != null: 
 		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
+		damage_dealt += stats[level]["damage"] * buff_dmg
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0
