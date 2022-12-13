@@ -9,8 +9,7 @@ func _init() -> void:
 func special() -> void:
 	pass
 
-func activate() -> void:
-	super.activate()
+func on_activate() -> void:
 	print("BUILDER : Je construis des barricades")
 	if stats[level]["nb"] == 1: build_barricade(Vector2(-162, -150))
 	if stats[level]["nb"] == 2: 

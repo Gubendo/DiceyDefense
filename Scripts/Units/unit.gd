@@ -80,6 +80,8 @@ func activate() -> void:
 		save_system.game_data[unitName]["level"] = 0
 		queue_free()
 	else:
+		on_activate()
+		
 		button.modulate = Color(1, 1, 1)
 		button.disabled = true
 		activated = true
@@ -89,10 +91,13 @@ func activate() -> void:
 		
 		unit_sprite.visible = true
 		button.modulate.a = 0
+		
 		idle_anim()
 	
 	emit_signal("choix", GameData.unit_data[unitName]["value"])
 	
+func on_activate() -> void:
+	pass
 
 ### ACTION TARGET ###
 

@@ -19,7 +19,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var text_animation: AnimationPlayer = $CanvasLayer/TextAnimation
 
-var overlay_animations: Dictionary = {true: "show_overlay", false: "hide_overlay"}
+var overlay_animations: Dictionary = {true: "hide_overlay", false: "show_overlay"}
 
 var unfrozenDices: Array = []
 var frozenDices: Array = []
@@ -29,7 +29,7 @@ var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
 2: Vector2(880, 900), 3: Vector2(750, 820), 4: Vector2(830, 820)}
 
 @export var dicesSprites: Array[Texture2D]
-@export var nbRolls: int = 50
+@export var nbRolls: int = 30
 
 var coupsRestant: int
 
@@ -139,7 +139,7 @@ func update_hand(hand: Array) -> void:
 		gobelet.get_node("Tooltip/nbLancers").text = str(coupsRestant) + " lancers restant"
 	
 func update_phase(waveStarted: bool, currentWave: int) -> void:
-	animation_player.play(overlay_animations[!waveStarted])
+	animation_player.play(overlay_animations[waveStarted])
 	gobelet.get_node("Tooltip").visible = false
 	#$CanvasLayer/Vague/Controls.visible = waveStarted
 	

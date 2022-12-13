@@ -8,8 +8,7 @@ func _init() -> void:
 func special() -> void:
 	pass
 
-func activate() -> void:
-	super.activate()
+func on_activate() -> void:
 	var ui = get_tree().get_root().get_node("Main/UI")
 	ui.nbRolls += stats[level]["bonus_roll"]
 

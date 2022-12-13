@@ -11,9 +11,17 @@ var nexus_hp = 1
 
 var save_system = SaveSystem
 
+@onready var king_anim = $King/KingAnimation
+
 func _ready() -> void:
 	rng.randomize()
+	connect_signals()
 	load_gamestate()
+	
+func connect_signals() -> void:
+	$King/Button.pressed.connect(on_king_pressed)
+	$King/Button.mouse_entered.connect(enable_tooltip)
+	$King/Button.mouse_exited.connect(disable_tooltip)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,11 +29,13 @@ func _process(delta: float) -> void:
 		print("FIN DE VAGUE")
 		waveStarted = false
 		save_gamestate()
-		await get_tree().create_timer(1).timeout
+		king_anim.play("join_city")
+		await king_anim.animation_finished
 		update_phase()
 
 
 func _on_ui_roll(unfrozen: Array) -> void:
+	
 	var unfrozen_id: Array = []
 	for i in range(len(unfrozen)):
 		unfrozen_id.append((str(unfrozen[i].name).right(1)).to_int() - 1)
@@ -34,12 +44,15 @@ func _on_ui_roll(unfrozen: Array) -> void:
 			hand[i] = rng.randi_range(1, 6)
 	$YamsManager.calcul_hand(hand)
 	$UI.update_hand(hand)
+	if king_anim != null and not king_anim.is_playing():
+		king_anim.play("roll_dice")
 	
 	for unit in $Units.get_children():
 		if !unit.activated : 
 			unit.update_level($YamsManager.combinaisons[GameData.unit_data[unit.name]["value"]][0])
 
 func update_phase() -> void:
+	if(waveStarted): king_anim.play("leave_city")
 	$UI.update_phase(waveStarted, current_wave)
 	for unit in $Units.get_children():
 		if !unit.activated : 
@@ -107,6 +120,7 @@ func game_over() -> void:
 	for enemy in $KingsRoad.get_children(): # DANSE
 		enemy.dead = true
 		enemy.animation_player.play("dance")
+		enemy.health_bar.visible = false
 	for unit in $Units.get_children(): # CRI D'HORREUR
 		if unit.activated : unit.queue_free()
 	# TODO SPAWN DES FLAMMES DANS LA VILLE
@@ -127,6 +141,7 @@ func load_gamestate() -> void:
 		if unit_data["level"] == 0:
 			unit.queue_free()
 		elif unit_data["level"] > 0:
+			unit.on_activate()
 			unit.button.modulate = Color(1, 1, 1)
 			unit.button.disabled = true
 			unit.activated = true
@@ -148,3 +163,30 @@ func save_gamestate() -> void:
 			save_system.game_data[unit.unitName]["damage"] = unit.damage_dealt
 	save_system.save_game()
 	
+
+func on_king_pressed() -> void:
+	if $UI.coupsRestant > 0:
+		$UI.press_roll()
+	enable_tooltip()
+
+func enable_tooltip() -> void:
+	if not $King/Button.is_disabled():
+		$King/CanvasLayer/Tooltip.visible = true
+		$King/Hover.visible = true
+		var coups: int = $UI.coupsRestant
+		if coups == 0:
+			$King/CanvasLayer/Tooltip/Description.text = "Il protège avec intêret son royaume en \
+utilisant le pouvoir des reliques sacrées\n
+[color=c8c8c8](Aucun lancer restant)"
+		elif coups == 1:
+			$King/CanvasLayer/Tooltip/Description.text = "Il protège avec intêret son royaume en \
+utilisant le pouvoir des reliques sacrées\n
+[color=c8c8c8](1 lancer restant)"
+		else:
+			$King/CanvasLayer/Tooltip/Description.text = "Il protège avec intêret son royaume en \
+utilisant le pouvoir des reliques sacrées\n
+[color=c8c8c8]({0} lancers restant)".format([$UI.coupsRestant])
+
+func disable_tooltip() -> void:
+	$King/CanvasLayer/Tooltip.visible = false
+	$King/Hover.visible = false

@@ -13,7 +13,7 @@ func special() -> void:
 func update_level(value: int) -> void:
 	level = 1
 
-func activate() -> void:
+func on_activate() -> void:
 	unit.visible = false
 	disable_tooltip()
 	
@@ -23,8 +23,7 @@ func activate() -> void:
 	unitHover= $Trebuchet/Hover
 	unit.visible = true
 	connect_signals()
-	
-	super.activate()
+
 
 func update_tooltip() -> void:
 	update_stats()

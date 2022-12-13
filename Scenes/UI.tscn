@@ -312,10 +312,10 @@ text = "3 lancers restant"
 [node name="Health" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 40.0
-offset_top = 100.0
-offset_right = 40.0
-offset_bottom = 100.0
+offset_left = 372.0
+offset_top = -10.0
+offset_right = 372.0
+offset_bottom = -10.0
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/Health"]
 offset_left = 90.0
