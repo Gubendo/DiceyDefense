@@ -81,7 +81,7 @@ func load_game() -> void:
 		save_game.close()
 	
 	# HARDCODE ICI POUR CHEAT 
-	game_data["nexus_hp"] = 1
+	game_data["nexus_hp"] = 20
 		
 func reset_save() -> void:
 	game_data = base_data
