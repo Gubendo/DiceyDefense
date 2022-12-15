@@ -209,7 +209,7 @@ func update_health(health: float) -> void:
 	healthValue.text = str(health)
 	
 func quit() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 func options() -> void:
 	print("C'est les options !!")

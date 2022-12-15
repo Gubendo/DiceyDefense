@@ -123,7 +123,6 @@ func game_over() -> void:
 		enemy.health_bar.visible = false
 	for unit in $Units.get_children(): # CRI D'HORREUR
 		if unit.activated : unit.queue_free()
-	# TODO SPAWN DES FLAMMES DANS LA VILLE
 		
 
 func load_gamestate() -> void:
@@ -136,7 +135,6 @@ func load_gamestate() -> void:
 	$UI.waveNumber.text = "Prochaine vague : " + str(current_wave + 1) + "/13"
 	
 	for unit in $Units.get_children():
-		print(save_system.game_data[unit.unitName])
 		var unit_data: Dictionary = save_system.game_data[unit.unitName]
 		if unit_data["level"] == 0:
 			unit.queue_free()

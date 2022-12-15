@@ -1,3 +1,5 @@
+Button
+VBoxContainer
 Sprite2D
 TextureButton
 AnimationPlayer
@@ -10,7 +12,6 @@ RichTextLabel
 TextureRect
 AnimationTree
 ColorRect
-Button
 Timer
 Panel
 HBoxContainer
