@@ -1,10 +1,9 @@
 res://Scenes/main.tscn
 res://UI.tres
-res://Scripts/Pause.gd
 res://MainMenu.tres
 res://Scenes/UI.tscn
 res://Scenes/dice.tscn
 res://Scenes/Decors/fire.tscn
 res://Scenes/Units/Builder.tscn
 res://Scenes/menu.tscn
-res://Scripts/menu.gd
+res://Scripts/SaveSystem.gd
