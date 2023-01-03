@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://4gnc4coty71j"]
+[gd_scene load_steps=40 format=3 uid="uid://4gnc4coty71j"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_f05js"]
 [ext_resource type="PackedScene" uid="uid://b5kwsmxglfbp6" path="res://Scenes/UI.tscn" id="2_sfx10"]
@@ -14,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://d3n7ohhq5ufa0" path="res://Scenes/Units/Bard.tscn" id="9_pydge"]
 [ext_resource type="PackedScene" uid="uid://cur0ovc2dvg2t" path="res://Scenes/Units/Loup.tscn" id="10_3u7ec"]
 [ext_resource type="Texture2D" uid="uid://dd4d8p35u6tex" path="res://Animations/King/king-full.png" id="10_jl6pf"]
+[ext_resource type="Texture2D" uid="uid://bglvnffqpoc7p" path="res://Sprites/Decors/banner.png" id="10_rpsyb"]
 [ext_resource type="Texture2D" uid="uid://duxi6wqf3pbyn" path="res://Animations/King/king-hover.png" id="11_6nojp"]
 [ext_resource type="Texture2D" uid="uid://c5p0n1itmigtc" path="res://Sprites/2D_board.png" id="11_sbmcr"]
+[ext_resource type="Texture2D" uid="uid://bhjtrotsfs23v" path="res://Sprites/Decors/banner_top.png" id="11_v7a2r"]
 [ext_resource type="Script" path="res://Scripts/Units/Loup.gd" id="11_w0phj"]
 [ext_resource type="PackedScene" uid="uid://bwyamuieukav7" path="res://Scenes/Units/Bourreau.tscn" id="12_6xr6h"]
 [ext_resource type="PackedScene" uid="uid://cxis57g4kqmlm" path="res://Scenes/Units/Builder.tscn" id="13_6k7hd"]
@@ -464,6 +466,22 @@ texture = ExtResource("7_wmtw3")
 position = Vector2(-264, -125)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("8_iem1l")
+
+[node name="Banner" type="Sprite2D" parent="Decor"]
+position = Vector2(-361, -265)
+texture = ExtResource("10_rpsyb")
+
+[node name="Banner2" type="Sprite2D" parent="Decor"]
+position = Vector2(-443, -265)
+texture = ExtResource("10_rpsyb")
+
+[node name="BannerTop" type="Sprite2D" parent="Decor"]
+position = Vector2(-144, -138)
+texture = ExtResource("11_v7a2r")
+
+[node name="BannerTop2" type="Sprite2D" parent="Decor"]
+position = Vector2(-144, -162)
+texture = ExtResource("11_v7a2r")
 
 [node name="King" type="Node" parent="."]
 

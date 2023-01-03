@@ -6,4 +6,3 @@ res://Scenes/dice.tscn
 res://Scenes/Decors/fire.tscn
 res://Scenes/Units/Builder.tscn
 res://Scenes/menu.tscn
-res://Scripts/SaveSystem.gd
