@@ -530,7 +530,6 @@ theme = ExtResource("13_fnn6j")
 
 [node name="bg" type="TextureRect" parent="King/CanvasLayer/Tooltip"]
 modulate = Color(0.0352941, 0.0117647, 0, 1)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -540,7 +539,6 @@ grow_vertical = 2
 texture = SubResource("Texture2D_awel8")
 
 [node name="Name" type="Label" parent="King/CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -548,7 +546,6 @@ offset_bottom = 9.0
 text = "Roi Mysa"
 
 [node name="Description" type="RichTextLabel" parent="King/CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0

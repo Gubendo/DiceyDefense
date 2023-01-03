@@ -8,6 +8,7 @@ extends Node2D
 @onready var tooltipText: RichTextLabel = $CanvasLayer/Tooltip/Description
 @onready var rangeSprite: Sprite2D = $Range/RangeSprite
 @onready var lastAttack: Timer = $LastAttack
+@onready var particles: CPUParticles2D = $Particles
 
 @onready var stats: Dictionary = GameData.unit_data[unitName]["stats"]
 @onready var yamsMgr: Node = get_tree().get_root().get_node("Main/YamsManager")
@@ -80,6 +81,7 @@ func activate() -> void:
 		save_system.game_data[unitName]["level"] = 0
 		queue_free()
 	else:
+		particles.restart()
 		on_activate()
 		
 		button.modulate = Color(1, 1, 1)

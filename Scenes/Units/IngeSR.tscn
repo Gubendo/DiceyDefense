@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqqsvp61boxyi"]
+[gd_scene load_steps=16 format=3 uid="uid://bqqsvp61boxyi"]
 
 [ext_resource type="Script" path="res://Scripts/Units/IngeSR.gd" id="1_eqhsb"]
 [ext_resource type="Texture2D" uid="uid://dynthxoe0d53o" path="res://Sprites/Units/ingeSR.png" id="2_yde24"]
@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 [ext_resource type="Texture2D" uid="uid://dj2we3llp3lkh" path="res://Animations/Trebuchet/trebuchet-hover-full.png" id="5_ek48q"]
 [ext_resource type="Texture2D" uid="uid://dasruo0d6ae6o" path="res://Animations/Trebuchet/trebuchet-full.png" id="6_lkhc7"]
+[ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="9_ll23c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -236,3 +237,19 @@ libraries = {
 
 [node name="LastAttack" type="Timer" parent="."]
 one_shot = true
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.28
+texture = ExtResource("9_ll23c")
+direction = Vector2(0, -1)
+spread = 130.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+angle_max = 360.0
+scale_amount_min = 0.3
+scale_amount_max = 0.4
