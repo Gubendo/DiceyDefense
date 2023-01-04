@@ -217,7 +217,8 @@ var gobelin_stats: Dictionary = {
 	"health": 100,
 	"damage": 1,
 	"cd": 1,
-	"nexus_dmg": 1
+	"nexus_dmg": 1,
+	"flying": false
 }
 
 var bobelin_stats: Dictionary = {
@@ -225,17 +226,48 @@ var bobelin_stats: Dictionary = {
 	"health": 20,
 	"damage": 1,
 	"cd": 1,
-	"nexus_dmg": 2
+	"nexus_dmg": 2,
+	"flying": false
+}
+
+var banner_stats: Dictionary = {
+	"speed": 10,
+	"health": 20,
+	"damage": 1,
+	"cd": 1,
+	"nexus_dmg": 1,
+	"flying": false
+}
+
+var undead_stats: Dictionary = {
+	"speed": 10,
+	"health": 20,
+	"damage": 1,
+	"cd": 1,
+	"nexus_dmg": 1,
+	"flying": false
+}
+
+var wisp_stats: Dictionary = {
+	"speed": 30,
+	"health": 20,
+	"damage": 1,
+	"cd": 1,
+	"nexus_dmg": 1,
+	"flying": true
 }
 
 var enemies_stats: Dictionary = {
 	"Gobelin": gobelin_stats,
-	"Bobelin": bobelin_stats
+	"Bobelin": bobelin_stats,
+	"Banner": banner_stats,
+	"Undead": undead_stats,
+	"Wisp": wisp_stats
 }
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
-	0: [[1, "Gobelin", 0, 0]],
+	0: [[1, "Wisp", 0, 0]],
 	1: [[4, "Gobelin", 1, 1], [5, "Bobelin", 0.4, 0]],
 	2: [[2, "Gobelin", 1, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 1, 0]]
 }

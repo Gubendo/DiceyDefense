@@ -42,6 +42,6 @@ func destroy() -> void:
 
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	if !destroyed:
+	if !destroyed and !body.owner.flying:
 		body.owner.blocked = true
 		body.owner.blockedBy = self

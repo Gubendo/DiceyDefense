@@ -18,6 +18,7 @@ var dead: bool = false
 var damage: float
 var baseCD: float
 var currentCD: float
+var flying: bool
 
 @onready var health_bar: ProgressBar = $CharacterBody2d/HealthBar
 @onready var sprite: Sprite2D = $CharacterBody2d/Sprite2d
@@ -38,6 +39,7 @@ func _ready() -> void:
 	baseHP = GameData["enemies_stats"][enemy_name]["health"]
 	damage = GameData["enemies_stats"][enemy_name]["damage"]
 	baseCD = GameData["enemies_stats"][enemy_name]["cd"]
+	flying = GameData["enemies_stats"][enemy_name]["flying"]
 	currentSpeed = baseSpeed
 	currentHP = baseHP
 	currentCD = baseCD

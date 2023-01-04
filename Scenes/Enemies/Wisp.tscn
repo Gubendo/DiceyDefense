@@ -1,0 +1,247 @@
+[gd_scene load_steps=15 format=3 uid="uid://cdi4od0svbbx5"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/Wisp.gd" id="1_qpcyv"]
+[ext_resource type="Texture2D" uid="uid://crsm06uf8e50i" path="res://Animations/Wisp/wisp-full.png" id="2_jr786"]
+[ext_resource type="Texture2D" uid="uid://bqugmvufoqgmk" path="res://Animations/Status/bleed.png" id="3_5hlcs"]
+[ext_resource type="Texture2D" uid="uid://kvq8pdeiaqjd" path="res://Animations/Status/poof.png" id="4_ty6ao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4sa"]
+size = Vector2(12.6667, 8.99998)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmkik"]
+bg_color = Color(0, 0.717647, 0.345098, 1)
+
+[sub_resource type="Animation" id="Animation_564hi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2d/Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1a34q"]
+resource_name = "dance"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2d/Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_mau7u"]
+resource_name = "run"
+length = 0.7
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2d/Sprite2d:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j2x6x"]
+_data = {
+"RESET": SubResource("Animation_564hi"),
+"dance": SubResource("Animation_1a34q"),
+"run": SubResource("Animation_mau7u")
+}
+
+[sub_resource type="Animation" id="Animation_61ta4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bleed:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bleed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Poof:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Poof:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v08ff"]
+resource_name = "bleed"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bleed:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bleed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0crqf"]
+resource_name = "death"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Poof:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Poof:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rx3es"]
+_data = {
+"RESET": SubResource("Animation_61ta4"),
+"bleed": SubResource("Animation_v08ff"),
+"death": SubResource("Animation_0crqf")
+}
+
+[node name="Wisp" type="PathFollow2D"]
+rotates = false
+loop = false
+script = ExtResource("1_qpcyv")
+
+[node name="CharacterBody2d" type="CharacterBody2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.5, 1.5)
+collision_mask = 3
+
+[node name="Sprite2d" type="Sprite2D" parent="CharacterBody2d"]
+texture = ExtResource("2_jr786")
+hframes = 9
+vframes = 2
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
+position = Vector2(0.3, -2.5)
+shape = SubResource("RectangleShape2D_ix4sa")
+
+[node name="HealthBar" type="ProgressBar" parent="CharacterBody2d"]
+offset_left = -4.66667
+offset_top = -12.0
+offset_right = 10.3333
+offset_bottom = -7.0
+scale = Vector2(0.75, 0.75)
+theme_override_styles/fill = SubResource("StyleBoxFlat_lmkik")
+value = 50.0
+show_percentage = false
+
+[node name="Bleed" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -6)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5hlcs")
+hframes = 5
+
+[node name="Poof" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -6)
+texture = ExtResource("4_ty6ao")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j2x6x")
+}
+
+[node name="StatusPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rx3es")
+}
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="SlowTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="BleedTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="BleedFrequency" type="Timer" parent="Timers"]
+one_shot = true
