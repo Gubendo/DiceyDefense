@@ -28,6 +28,7 @@ var sleeping: bool = false
 var atkReady: bool = true
 var debug: bool = false
 var idling: bool = false
+var ranged: bool = false
 
 var unitName: String = ""
 var level: int = 0
@@ -51,9 +52,10 @@ func _process(delta: float) -> void:
 	if activated and enemies_in_range.size() != 0:
 		select_enemy()
 		show_target("")
-		turn(target.global_position.x - global_position.x)
-		if atkReady:
-			attack()
+		if target != null:
+			turn(target.global_position.x - global_position.x)
+			if atkReady:
+				attack()
 	else:
 		target = null
 	
@@ -106,12 +108,15 @@ func on_activate() -> void:
 func select_enemy() -> void:
 	var progress_array: Array = []
 	for i in enemies_in_range:
-		if not i.dead:
+		if i != null and not i.dead:
 			progress_array.append(i.progress)
 	var max_progress = progress_array.max()
 	var max_enemy = progress_array.find(max_progress)
-	target = enemies_in_range[max_enemy]
-
+	if max_enemy != -1:
+		target = enemies_in_range[max_enemy]
+	else:
+		enemies_in_range = []
+		
 func get_all_enemies() -> Array:
 	return get_tree().get_root().get_node("Main/KingsRoad").get_children()
 
@@ -227,9 +232,11 @@ func idle_anim() -> void:
 ### ### ###
 
 func _on_range_body_entered(body: CharacterBody2D) -> void:
-	enemies_in_range.append(body.get_parent())
+	if not body.get_parent().flying or ranged:
+		enemies_in_range.append(body.get_parent())
 
 func _on_range_body_exited(body: CharacterBody2D) -> void:
-	enemies_in_range.erase(body.get_parent())
+	if not body.get_parent().flying or ranged:
+		enemies_in_range.append(body.get_parent())
 	
 

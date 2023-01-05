@@ -12,6 +12,7 @@ var nexus_hp = 1
 var save_system = SaveSystem
 
 @onready var king_anim = $King/KingAnimation
+var shield_upgrade: Resource = preload("res://Sprites/UI/shield-upgrade.png")
 
 func _ready() -> void:
 	rng.randomize()
@@ -173,18 +174,28 @@ func enable_tooltip() -> void:
 		$King/Hover.visible = true
 		var coups: int = $UI.coupsRestant
 		if coups == 0:
-			$King/CanvasLayer/Tooltip/Description.text = "Il protège avec intêret son royaume en \
+			$King/CanvasLayer/Tooltip/Description.text = "Souverain qui protège avec intêret son royaume en \
 utilisant le pouvoir des reliques sacrées\n
 [color=c8c8c8](Aucun lancer restant)"
 		elif coups == 1:
-			$King/CanvasLayer/Tooltip/Description.text = "Il protège avec intêret son royaume en \
+			$King/CanvasLayer/Tooltip/Description.text = "Souverain qui protège avec intêret son royaume en \
 utilisant le pouvoir des reliques sacrées\n
 [color=c8c8c8](1 lancer restant)"
 		else:
-			$King/CanvasLayer/Tooltip/Description.text = "Il protège avec intêret son royaume en \
+			$King/CanvasLayer/Tooltip/Description.text = "Souverain qui protège avec intêret son royaume en \
 utilisant le pouvoir des reliques sacrées\n
 [color=c8c8c8]({0} lancers restant)".format([$UI.coupsRestant])
 
 func disable_tooltip() -> void:
 	$King/CanvasLayer/Tooltip.visible = false
 	$King/Hover.visible = false
+	
+func buff_barracks() -> void:
+	nexus_hp += 30
+	$UI.update_health(nexus_hp)
+	
+	var shield_animation: AnimationPlayer = $UI.get_node("CanvasLayer/Health/AnimationPlayer")
+	shield_animation.play("upgrade_shield_no_glow")
+	await shield_animation.animation_finished
+	shield_animation.play("shield_sparkle")
+	

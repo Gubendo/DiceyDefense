@@ -33,6 +33,11 @@ var combinaisons: Dictionary = {
 }
 
 var nodeUI: Control
+
+var global_score: int = 0
+var barracks_score: int = 0
+var barracks_buff: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	nodeUI = $/root/Main/UI
@@ -129,8 +134,22 @@ func calcul_hand(hand) -> void:
 	combinaisons['chance'] = calcul_chance(hand)
 	combinaisons['yams'] = calcul_yams(hand)
 
-
+func compute_score() -> void:
+	global_score = 0
+	for score in grille: 
+		global_score = global_score + max(0, grille[score])
+		
+	barracks_score = max(0, grille["total1"]) + max(0, grille["total2"]) + \
+	max(0, grille["total3"]) + max(0, grille["total4"]) + \
+	max(0, grille["total5"]) + max(0, grille["total6"])
+	print("GLOBAL SCORE ", global_score)
+	print("BARRACKS SCORE ", barracks_score)
+	if barracks_score >= 1 and not barracks_buff:
+		barracks_buff = true
+		$/root/Main.buff_barracks()
+	
 func on_unit_choice(coup) -> void:
 	grille[coup] = combinaisons[coup][0]
 	nodeUI.update_grille(grille)
+	compute_score()
 	$/root/Main.start_next_wave()

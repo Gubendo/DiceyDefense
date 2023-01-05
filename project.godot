@@ -24,7 +24,7 @@ SaveSystem="*res://Scripts/SaveSystem.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-mouse_cursor/custom_image="res://Sprites/UI/cursor.png"
+mouse_cursor/custom_image="res://Sprites/UI/cursor2.png"
 window/stretch/mode="viewport"
 
 [input]

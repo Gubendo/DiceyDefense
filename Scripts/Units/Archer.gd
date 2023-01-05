@@ -4,6 +4,7 @@ extends "res://Scripts/Units/unit.gd"
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Archer"
+	ranged = true
 
 func special() -> void:
 	print("Je tire une flèche")

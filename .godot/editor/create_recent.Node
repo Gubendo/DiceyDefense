@@ -1,10 +1,10 @@
+Sprite2D
+AnimationPlayer
 CPUParticles2D
 TextureRect
-Sprite2D
 Button
 VBoxContainer
 TextureButton
-AnimationPlayer
 Node
 AnimatedSprite2D
 Node2D

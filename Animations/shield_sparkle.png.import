@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsuibg0unsnk7"
-path="res://.godot/imported/sparkle.png-1eb71ead2557baa96518e0977668291a.ctex"
+uid="uid://ua20o1gxscie"
+path="res://.godot/imported/shield_sparkle.png-dc36f04172a04078dd23049fef464d24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/sparkle.png"
-dest_files=["res://.godot/imported/sparkle.png-1eb71ead2557baa96518e0977668291a.ctex"]
+source_file="res://Animations/shield_sparkle.png"
+dest_files=["res://.godot/imported/shield_sparkle.png-dc36f04172a04078dd23049fef464d24.ctex"]
 
 [params]
 

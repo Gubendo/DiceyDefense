@@ -533,7 +533,7 @@ modulate = Color(0.0352941, 0.0117647, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -10.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("Texture2D_awel8")
@@ -554,7 +554,7 @@ theme_override_colors/default_color = Color(0.603922, 0.603922, 0.603922, 1)
 theme_override_constants/line_separation = -2
 theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
-text = "Il protège avec intêret son royaume en utilisant le pouvoir des reliques sacrées
+text = "Souverain qui protège avec intêret son royaume en utilisant le pouvoir des reliques sacrées
 
 [color=c8c8c8](5 lancers restant)"
 fit_content_height = true
