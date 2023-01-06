@@ -20,7 +20,7 @@ var baseCD: float
 var currentCD: float
 var flying: bool
 
-@onready var health_bar: ProgressBar = $CharacterBody2d/HealthBar
+@onready var health_bar: TextureProgressBar = $CharacterBody2d/HealthBar
 @onready var sprite: Sprite2D = $CharacterBody2d/Sprite2d
 @onready var hitbox: CollisionShape2D = $CharacterBody2d/CollisionShape2d
 

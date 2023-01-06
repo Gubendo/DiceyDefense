@@ -37,11 +37,13 @@ var nodeUI: Control
 var global_score: int = 0
 var barracks_score: int = 0
 var barracks_buff: bool = false
+var barracks_max: int = 62
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	nodeUI = $/root/Main/UI
 	nodeUI.update_grille(grille)
+	nodeUI.update_barracks(barracks_score, barracks_max)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -144,12 +146,13 @@ func compute_score() -> void:
 	max(0, grille["total5"]) + max(0, grille["total6"])
 	print("GLOBAL SCORE ", global_score)
 	print("BARRACKS SCORE ", barracks_score)
-	if barracks_score >= 1 and not barracks_buff:
+	if barracks_score >= barracks_max and not barracks_buff:
 		barracks_buff = true
 		$/root/Main.buff_barracks()
 	
 func on_unit_choice(coup) -> void:
 	grille[coup] = combinaisons[coup][0]
-	nodeUI.update_grille(grille)
 	compute_score()
+	nodeUI.update_grille(grille)
+	nodeUI.update_barracks(barracks_score, barracks_max)
 	$/root/Main.start_next_wave()

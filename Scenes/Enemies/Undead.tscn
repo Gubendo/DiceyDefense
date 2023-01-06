@@ -1,15 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cf25u4koos8cl"]
+[gd_scene load_steps=17 format=3 uid="uid://cf25u4koos8cl"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Undead.gd" id="1_w4lki"]
 [ext_resource type="Texture2D" uid="uid://qaot5nmqr3yb" path="res://Animations/undead/undead-full.png" id="2_ef281"]
 [ext_resource type="Texture2D" uid="uid://bqugmvufoqgmk" path="res://Animations/Status/bleed.png" id="3_5hlcs"]
+[ext_resource type="Texture2D" uid="uid://c654yhdeg6js4" path="res://Sprites/Enemies/health_bar.png" id="3_lf632"]
+[ext_resource type="Texture2D" uid="uid://0ci7cgy31lmm" path="res://Sprites/Enemies/health_bar_fill.png" id="4_lts6x"]
 [ext_resource type="Texture2D" uid="uid://kvq8pdeiaqjd" path="res://Animations/Status/poof.png" id="4_ty6ao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4sa"]
 size = Vector2(8.66667, 11.3333)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmkik"]
-bg_color = Color(0, 0.717647, 0.345098, 1)
 
 [sub_resource type="Animation" id="Animation_564hi"]
 length = 0.001
@@ -232,15 +231,15 @@ vframes = 3
 position = Vector2(0.333333, 2.33333)
 shape = SubResource("RectangleShape2D_ix4sa")
 
-[node name="HealthBar" type="ProgressBar" parent="CharacterBody2d"]
-offset_left = -4.66667
-offset_top = -8.66667
-offset_right = 10.3333
-offset_bottom = -3.66667
+[node name="HealthBar" type="TextureProgressBar" parent="CharacterBody2d"]
+offset_left = -6.0
+offset_top = -11.3333
+offset_right = 10.0
+offset_bottom = 4.66667
 scale = Vector2(0.75, 0.75)
-theme_override_styles/fill = SubResource("StyleBoxFlat_lmkik")
 value = 50.0
-show_percentage = false
+texture_under = ExtResource("3_lf632")
+texture_progress = ExtResource("4_lts6x")
 
 [node name="Bleed" type="Sprite2D" parent="."]
 visible = false

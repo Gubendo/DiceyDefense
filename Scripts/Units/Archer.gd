@@ -12,8 +12,8 @@ func special() -> void:
 		shoot_arrow()
 
 func update_level(value: int) -> void:
-	level = value / 2
-	#level = 1
+	#level = value / 2
+	level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

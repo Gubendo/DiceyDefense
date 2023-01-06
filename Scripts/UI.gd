@@ -208,6 +208,11 @@ func unhighlight_dices() -> void:
 func update_health(health: float) -> void:
 	healthValue.text = str(health)
 	
+func update_barracks(barracks_score: int, barracks_max: int) -> void:
+	$CanvasLayer/Health/Progress.value = barracks_score
+	$CanvasLayer/Health/Progress.max_value = barracks_max
+	$CanvasLayer/Health/ProgressValue.text = str(min(barracks_score, barracks_max)) + "/" + str(barracks_max)
+	
 func quit() -> void:
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	

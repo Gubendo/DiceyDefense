@@ -11,7 +11,7 @@ func special() -> void:
 		shoot_frostbolt()
 
 func update_level(value: int) -> void:
-	level = value / 5
+	level = 1#value / 5
 	
 func update_tooltip() -> void:
 	update_stats()

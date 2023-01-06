@@ -7,7 +7,7 @@ var current_wave: int = 0
 var enemies_in_wave: int = 0
 var waveStarted: bool = false
 
-var nexus_hp = 1
+var nexus_hp = 50
 
 var save_system = SaveSystem
 
@@ -103,7 +103,7 @@ func spawn_enemies(wave_data: Array) -> void:
 func on_enemy_death(nexus_dmg: float) -> void:
 	
 	if nexus_dmg != 0:
-		# ptite animation
+		$Camera2d.trigger_shake()
 		nexus_hp -= nexus_dmg
 		if nexus_hp <= 0:
 			nexus_hp = 0
