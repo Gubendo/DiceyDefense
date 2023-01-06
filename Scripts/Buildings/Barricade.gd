@@ -5,7 +5,7 @@ var currentHP: float = 100
 var thorns: float
 var destroyed: bool = false
 
-@onready var health_bar: ProgressBar = $HealthBar
+@onready var health_bar: TextureProgressBar = $HealthBar
 @onready var sprite: Sprite2D = $Sprite2d
 
 # Called when the node enters the scene tree for the first time.
@@ -30,7 +30,7 @@ func take_dmg(damage: float) -> void:
 	
 	sprite.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.05).timeout
-	sprite.modulate = oldColor
+	sprite.modulate = Color(1, 1, 1)
 	
 func _process(delta: float) -> void:
 	pass

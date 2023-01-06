@@ -12,7 +12,7 @@ func special() -> void:
 
 func update_level(value: int) -> void:
 	if value == 0: level = 0
-	else: level = 1
+	else: level = 3
 	
 func update_tooltip() -> void:
 	update_stats()

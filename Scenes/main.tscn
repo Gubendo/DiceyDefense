@@ -494,14 +494,6 @@ text = "Souverain qui protège avec intêret son royaume en utilisant le pouvoir
 fit_content_height = true
 scroll_active = false
 
-[node name="Camera2d" type="Camera2D" parent="."]
-position = Vector2(-247, -140)
-current = true
-zoom = Vector2(4, 4)
-script = ExtResource("10_f8dp1")
-
-[node name="Temporary" type="Node" parent="."]
-
 [node name="Decor" type="Node" parent="."]
 
 [node name="Fire" type="Node2D" parent="Decor"]
@@ -562,6 +554,14 @@ texture = ExtResource("11_v7a2r")
 position = Vector2(-144, -162)
 texture = ExtResource("11_v7a2r")
 
+[node name="Camera2d" type="Camera2D" parent="."]
+position = Vector2(-247, -140)
+current = true
+zoom = Vector2(4, 4)
+script = ExtResource("10_f8dp1")
+
+[node name="Temporary" type="Node" parent="."]
+
 [node name="Units" type="Node" parent="."]
 
 [node name="Loup" parent="Units" instance=ExtResource("10_3u7ec")]
@@ -575,7 +575,7 @@ position = Vector2(-141, -198)
 position = Vector2(-101, -199)
 
 [node name="Mage" parent="Units" instance=ExtResource("7_e1n3n")]
-position = Vector2(-161, -142)
+position = Vector2(-160, -133)
 
 [node name="Soldier" parent="Units" instance=ExtResource("5_vqr24")]
 position = Vector2(-78, -227)

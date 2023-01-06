@@ -54,11 +54,13 @@ func _physics_process(delta: float) -> void:
 	if dead:
 		pass
 	elif blocked:
-		if blockedBy != null and blockedBy.destroyed : blocked = false
+		if blockedBy != null and blockedBy.destroyed and !animation_player.is_playing(): blocked = false
 		else:
 			moving = false
 			if atkReady: 
 				animation_player.play("attack")
+			elif animation_player.current_animation == "run":
+				animation_player.play("RESET")
 	else:
 		if !moving:
 			animation_player.play("run")

@@ -26,7 +26,6 @@ var attack_target: Node
 var activated: bool = false
 var sleeping: bool = false
 var atkReady: bool = true
-var debug: bool = false
 var idling: bool = false
 var ranged: bool = false
 
@@ -38,6 +37,8 @@ var last_attack_time: float = 2
 var damage_dealt: float = 0
 
 var save_system = SaveSystem
+
+var debug: bool = true
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
@@ -237,6 +238,6 @@ func _on_range_body_entered(body: CharacterBody2D) -> void:
 
 func _on_range_body_exited(body: CharacterBody2D) -> void:
 	if not body.get_parent().flying or ranged:
-		enemies_in_range.append(body.get_parent())
+		enemies_in_range.erase(body.get_parent())
 	
 

@@ -5,6 +5,16 @@ var soldier_stats: Dictionary = {
 	1: {
 		"damage": 20,
 		"cooldown": 1,
+		"range": 3.5,
+	},
+	2: {
+		"damage": 20,
+		"cooldown": 1,
+		"range": 3,
+	},
+	3: {
+		"damage": 10,
+		"cooldown": 1,
 		"range": 3,
 	}
 }
@@ -77,9 +87,9 @@ var paladin_stats: Dictionary = {
 
 var builder_stats: Dictionary = {
 	1: {
-		"health": 5,
+		"health": 20,
 		"damage": 5,
-		"nb": 1,
+		"nb": 2,
 		"range": -1
 	}
 }
@@ -213,8 +223,8 @@ var unit_data: Dictionary = {
 }
 
 var gobelin_stats: Dictionary = {
-	"speed": 10,
-	"health": 100,
+	"speed": 20,
+	"health": 35,
 	"damage": 1,
 	"cd": 1,
 	"nexus_dmg": 1,
@@ -222,8 +232,8 @@ var gobelin_stats: Dictionary = {
 }
 
 var bobelin_stats: Dictionary = {
-	"speed": 100,
-	"health": 20,
+	"speed": 60,
+	"health": 15,
 	"damage": 1,
 	"cd": 1,
 	"nexus_dmg": 2,
@@ -231,8 +241,8 @@ var bobelin_stats: Dictionary = {
 }
 
 var banner_stats: Dictionary = {
-	"speed": 10,
-	"health": 20,
+	"speed": 12,
+	"health": 30,
 	"damage": 1,
 	"cd": 1,
 	"nexus_dmg": 1,
@@ -240,8 +250,8 @@ var banner_stats: Dictionary = {
 }
 
 var undead_stats: Dictionary = {
-	"speed": 10,
-	"health": 20,
+	"speed": 15,
+	"health": 40,
 	"damage": 1,
 	"cd": 1,
 	"nexus_dmg": 1,
@@ -249,12 +259,21 @@ var undead_stats: Dictionary = {
 }
 
 var wisp_stats: Dictionary = {
-	"speed": 30,
+	"speed": 25,
 	"health": 20,
-	"damage": 1,
-	"cd": 1,
+	"damage": 0,
+	"cd": 0,
 	"nexus_dmg": 1,
 	"flying": true
+}
+
+var beefy_stats: Dictionary = {
+	"speed": 10,
+	"health": 500,
+	"damage": 20,
+	"cd": 5,
+	"nexus_dmg": 1,
+	"flying": false
 }
 
 var enemies_stats: Dictionary = {
@@ -262,12 +281,13 @@ var enemies_stats: Dictionary = {
 	"Bobelin": bobelin_stats,
 	"Banner": banner_stats,
 	"Undead": undead_stats,
-	"Wisp": wisp_stats
+	"Wisp": wisp_stats,
+	"Beefy": beefy_stats
 }
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
-	0: [[3, "Gobelin", 1.5, 0.5], [3, "Bobelin", 3, 0]],
+	0: [[1, "Beefy", 0, 0.5], [5, "Undead", 1, 0]],
 	#1: [[4, "Gobelin", 1, 1], [5, "Bobelin", 0.4, 0]],
 	#2: [[2, "Gobelin", 1, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 1, 0]]
 }
