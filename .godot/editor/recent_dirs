@@ -1,9 +1,9 @@
-res://Sprites/UI
-res://Scenes
+res://Scripts
 res://
+res://Scenes
+res://Sprites/UI
 res://Fonts
 res://Themes
-res://Scripts
 res://Animations/Decors
 res://Scenes/Decors
 res://Scripts/Projectiles

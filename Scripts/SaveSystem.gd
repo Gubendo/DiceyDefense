@@ -1,9 +1,36 @@
 extends Node
 
+var grille: Dictionary = {
+	"total1": -1,
+	"total2": -1,
+	"total3": -1,
+	"total4": -1,
+	"total5": -1,
+	"total6": -1,
+	"brelan": -1,
+	"carre": -1,
+	"full": -1,
+	"p_suite": -1,
+	"g_suite": -1,
+	"chance": -1,
+	"yams": -1
+}
+
+var settings: Dictionary = {
+	"fullscreen_on": false,
+	"vsync_on": false,
+	"brightness": 1,
+	"master_vol": -10,
+	"music_vol": -10,
+	"sfx_vol": -10, 
+}
+
 const SAVE_FILE = "user://save_file.save"
 var base_data: Dictionary = {
 	"current_wave": 0,
 	"nexus_hp": 50,
+	"grille": grille,
+	"settings": settings,
 	"Soldier": {
 		"level": -1,
 		"damage": 0
@@ -81,7 +108,7 @@ func load_game() -> void:
 		save_game.close()
 	
 	# HARDCODE ICI POUR CHEAT 
-	game_data["nexus_hp"] = 50
+	#game_data["nexus_hp"] = 50
 		
 func reset_save() -> void:
 	game_data = base_data

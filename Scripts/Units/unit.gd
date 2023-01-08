@@ -35,10 +35,11 @@ var buff_as: float = 1
 var buff_dmg: float = 1
 var last_attack_time: float = 2
 var damage_dealt: float = 0
+var base_scale: Vector2
 
 var save_system = SaveSystem
 
-var debug: bool = true
+var debug: bool = false
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
@@ -69,6 +70,7 @@ func init_sprite() -> void:
 	button.modulate = Color(0.5, 0.5, 0.5)
 	rangeSprite.modulate.a = 0
 	unitHover.visible = false
+	base_scale = unit.scale
 
 func connect_signals() -> void:
 	button.pressed.connect(activate)
@@ -134,9 +136,9 @@ func show_target(unit: String) -> void:
 
 func turn(direction: float) -> void:
 	if direction < 0:
-		unit.scale = Vector2(-1, 1)
+		unit.scale = Vector2(-1*base_scale.x, 1*base_scale.y)
 	else:
-		unit.scale = Vector2(1, 1)
+		unit.scale = Vector2(1*base_scale.x, 1*base_scale.y)
 
 func attack() -> void:
 	atkReady = false

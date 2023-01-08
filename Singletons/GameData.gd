@@ -287,7 +287,8 @@ var enemies_stats: Dictionary = {
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
-	0: [[1, "Beefy", 0, 0.5], [5, "Undead", 1, 0]],
+	0: [[6, "Wisp", 0.5, 0]],
+	#0: [[1, "Beefy", 0, 0.5], [5, "Undead", 1, 0]],
 	#1: [[4, "Gobelin", 1, 1], [5, "Bobelin", 0.4, 0]],
 	#2: [[2, "Gobelin", 1, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 1, 0]]
 }

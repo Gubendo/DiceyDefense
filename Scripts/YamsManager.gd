@@ -149,10 +149,10 @@ func compute_score() -> void:
 	if barracks_score >= barracks_max and not barracks_buff:
 		barracks_buff = true
 		$/root/Main.buff_barracks()
+	nodeUI.update_grille(grille)
+	nodeUI.update_barracks(barracks_score, barracks_max)
 	
 func on_unit_choice(coup) -> void:
 	grille[coup] = combinaisons[coup][0]
 	compute_score()
-	nodeUI.update_grille(grille)
-	nodeUI.update_barracks(barracks_score, barracks_max)
 	$/root/Main.start_next_wave()

@@ -131,6 +131,9 @@ func load_gamestate() -> void:
 	
 	nexus_hp = save_system.game_data["nexus_hp"]
 	current_wave = save_system.game_data["current_wave"]
+	$YamsManager.grille = save_system.game_data["grille"]
+	
+	$YamsManager.compute_score()
 	
 	$UI.update_health(nexus_hp)
 	$UI.waveNumber.text = "Prochaine vague : " + str(current_wave + 1) + "/13"
@@ -157,6 +160,7 @@ func load_gamestate() -> void:
 func save_gamestate() -> void:
 	save_system.game_data["nexus_hp"] = nexus_hp
 	save_system.game_data["current_wave"] = current_wave
+	save_system.game_data["grille"] = $YamsManager.grille
 	for unit in $Units.get_children():
 		if unit.activated : 
 			save_system.game_data[unit.unitName]["damage"] = unit.damage_dealt
