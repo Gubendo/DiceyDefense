@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxek61vnj604o"]
+[gd_scene load_steps=7 format=3 uid="uid://tuv6g8vqlo0a"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_1y8am"]
 [ext_resource type="Texture2D" uid="uid://c8m24rn6yu8i6" path="res://meta/logo_concept.png" id="2_d8lej"]
-[ext_resource type="Theme" uid="uid://vx3npjiwp4mu" path="res://MainMenu.tres" id="2_nvto7"]
+[ext_resource type="Theme" uid="uid://vx3npjiwp4mu" path="res://Themes/MainMenu.tres" id="2_nvto7"]
 [ext_resource type="FontFile" uid="uid://cmgfklorvqr48" path="res://Fonts/Timmy-Regular.otf" id="3_syyht"]
+[ext_resource type="PackedScene" uid="uid://cm0etfm24sh53" path="res://Scenes/settings_menu.tscn" id="5_mibca"]
+
+[sub_resource type="Texture2D" id="Texture2D_3de12"]
+resource_local_to_scene = false
+resource_name = ""
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -12,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_nvto7")
 script = ExtResource("1_1y8am")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -37,7 +43,6 @@ offset_top = -471.0
 offset_right = 354.0
 offset_bottom = -89.0
 grow_vertical = 0
-theme = ExtResource("2_nvto7")
 theme_override_constants/separation = 20
 
 [node name="Continue" type="Button" parent="VBoxContainer"]
@@ -82,3 +87,16 @@ theme_override_fonts/font = ExtResource("3_syyht")
 theme_override_font_sizes/font_size = 60
 text = "Quitter"
 alignment = 0
+
+[node name="PauseOverlay" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0.603922, 0.603922, 0.603922, 0.0862745)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_3de12")
+
+[node name="Settings" parent="." instance=ExtResource("5_mibca")]
+visible = false

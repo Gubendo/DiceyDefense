@@ -9,6 +9,10 @@ func _ready() -> void:
 	connect_signals()
 	if not File.file_exists("user://save_file.save"):
 		disable_resume()
+	$Settings/Popup.settings_open.connect(lock_input)
+	$Settings/Popup.settings_close.connect(unlock_input)
+	unlock_input()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,7 +53,7 @@ func quit() -> void:
 	get_tree().quit()
 	
 func options() -> void:
-	print("C'est les options !!")
+	$Settings/Popup.open_window()
 	
 func disable_resume() -> void:
 	$VBoxContainer/NewGame.grab_focus()
@@ -58,7 +62,8 @@ func disable_resume() -> void:
 	$VBoxContainer/Quit.set_focus_neighbor(SIDE_BOTTOM, "/root/Menu/VBoxContainer/NewGame")
 	
 func focusButton(button: Button) -> void:
-	button.grab_focus()
+	if not button.disabled:
+		button.grab_focus()
 	
 	
 func focusIn(button: Button) -> void:
@@ -70,5 +75,11 @@ func focusOut(button: Button) -> void:
 	print("OUT" + str(button))
 	var tween: Tween = create_tween()
 	tween.tween_property(button, "scale", Vector2(1, 1), 0.1)
+	
+func lock_input() -> void:
+	$PauseOverlay.visible = true
+	
+func unlock_input() -> void:
+	$PauseOverlay.visible = false
 
 

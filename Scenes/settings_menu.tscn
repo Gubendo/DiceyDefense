@@ -1,24 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwmp2vqxtdemk"]
+[gd_scene load_steps=5 format=3 uid="uid://cm0etfm24sh53"]
 
-[ext_resource type="Theme" uid="uid://vx3npjiwp4mu" path="res://MainMenu.tres" id="1_akn3f"]
+[ext_resource type="Theme" uid="uid://bn3l22b0noeh0" path="res://Themes/Settings.tres" id="1_n0y2c"]
 [ext_resource type="Texture2D" uid="uid://b6xamhavthvbh" path="res://Sprites/UI/controls.png" id="1_s3hld"]
 [ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="2_sywk2"]
+[ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="4_h54jt"]
 
-[node name="Control" type="Control"]
+[node name="Settings" type="Control"]
+process_mode = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_akn3f")
+anchors_preset = 0
+offset_left = 457.0
+offset_top = 299.0
+offset_right = 457.0
+offset_bottom = 299.0
+theme = ExtResource("1_n0y2c")
 
 [node name="Popup" type="Container" parent="."]
+clip_contents = true
 layout_mode = 0
-offset_left = 88.0
-offset_top = 37.0
-offset_right = 88.0
-offset_bottom = 37.0
+offset_right = 1000.0
+offset_bottom = 500.0
 script = ExtResource("2_sywk2")
 
 [node name="TextureRect" type="TextureRect" parent="Popup"]
@@ -26,47 +27,52 @@ layout_mode = 2
 offset_right = 300.0
 offset_bottom = 200.0
 texture = ExtResource("1_s3hld")
+ignore_texture_size = true
+stretch_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="Popup"]
-custom_minimum_size = Vector2i(1280, 720)
+custom_minimum_size = Vector2i(1000, 500)
 layout_mode = 2
 offset_right = 300.0
 offset_bottom = 200.0
+size_flags_vertical = 3
 
-[node name="Video" type="TabBar" parent="Popup/TabContainer"]
+[node name="Video" type="Control" parent="Popup/TabContainer"]
 layout_mode = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 31.0
+offset_top = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup/TabContainer/Video"]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 119.0
-offset_right = 229.0
-offset_bottom = 159.0
+offset_left = 48.0
+offset_top = 92.0
+offset_right = 648.0
+offset_bottom = 342.0
+scale = Vector2(1.5, 1.5)
 
 [node name="GridContainer" type="GridContainer" parent="Popup/TabContainer/Video/MarginContainer"]
 layout_mode = 2
-offset_right = 321.0
-offset_bottom = 99.0
+offset_right = 600.0
+offset_bottom = 250.0
 columns = 2
 
 [node name="Affichage" type="Label" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_top = 6.0
-offset_right = 200.0
-offset_bottom = 32.0
+offset_right = 336.0
+offset_bottom = 54.0
 text = "Affichage"
+vertical_alignment = 1
 
 [node name="AffichageBtn" type="OptionButton" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_left = 204.0
-offset_right = 321.0
-offset_bottom = 39.0
+offset_left = 445.0
+offset_right = 600.0
+offset_bottom = 54.0
+size_flags_horizontal = 8
 item_count = 2
 selected = 0
 popup/item_0/text = "Fenétré"
@@ -76,33 +82,41 @@ popup/item_1/id = 1
 
 [node name="VSync" type="Label" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_top = 43.0
-offset_right = 200.0
-offset_bottom = 69.0
+offset_top = 58.0
+offset_right = 336.0
+offset_bottom = 112.0
+size_flags_vertical = 8
 text = "Synchronisation verticale "
+vertical_alignment = 2
 
 [node name="VSyncBtn" type="CheckButton" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_left = 204.0
-offset_top = 43.0
-offset_right = 321.0
-offset_bottom = 69.0
+offset_left = 568.0
+offset_top = 96.0
+offset_right = 600.0
+offset_bottom = 112.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
 
 [node name="Brightness" type="Label" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_top = 73.0
-offset_right = 200.0
-offset_bottom = 99.0
+offset_top = 116.0
+offset_right = 336.0
+offset_bottom = 170.0
 text = "Luminosité"
+vertical_alignment = 2
 
 [node name="BrightnessBtn" type="HSlider" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2i(200, 0)
 layout_mode = 2
-offset_left = 204.0
-offset_top = 73.0
-offset_right = 321.0
-offset_bottom = 89.0
+offset_left = 400.0
+offset_top = 154.0
+offset_right = 600.0
+offset_bottom = 170.0
+size_flags_horizontal = 10
+size_flags_vertical = 8
 
-[node name="Audio" type="TabBar" parent="Popup/TabContainer"]
+[node name="Audio" type="Control" parent="Popup/TabContainer"]
 visible = false
 layout_mode = 2
 anchors_preset = 15
@@ -114,57 +128,76 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup/TabContainer/Audio"]
 layout_mode = 1
-offset_left = 156.0
-offset_top = 119.0
-offset_right = 229.0
-offset_bottom = 159.0
+offset_left = 48.0
+offset_top = 92.0
+offset_right = 648.0
+offset_bottom = 342.0
+scale = Vector2(1.5, 1.5)
 
 [node name="GridContainer" type="GridContainer" parent="Popup/TabContainer/Audio/MarginContainer"]
 layout_mode = 2
-offset_right = 234.0
-offset_bottom = 86.0
+offset_right = 600.0
+offset_bottom = 250.0
 columns = 2
 
 [node name="MasterVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_right = 130.0
-offset_bottom = 26.0
+offset_right = 204.0
+offset_bottom = 54.0
 text = "Volume Master"
 
 [node name="MasterSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2i(200, 0)
 layout_mode = 2
-offset_left = 134.0
-offset_right = 234.0
-offset_bottom = 16.0
+offset_left = 400.0
+offset_top = 38.0
+offset_right = 600.0
+offset_bottom = 54.0
+size_flags_horizontal = 10
+size_flags_vertical = 8
 
 [node name="MusicVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_top = 30.0
-offset_right = 130.0
-offset_bottom = 56.0
+offset_top = 58.0
+offset_right = 204.0
+offset_bottom = 112.0
 text = "Volume Musique"
 
 [node name="MusicSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2i(200, 0)
 layout_mode = 2
-offset_left = 134.0
-offset_top = 30.0
-offset_right = 234.0
-offset_bottom = 46.0
+offset_left = 400.0
+offset_top = 96.0
+offset_right = 600.0
+offset_bottom = 112.0
+size_flags_horizontal = 10
+size_flags_vertical = 8
 
 [node name="SFXVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
 layout_mode = 2
-offset_top = 60.0
-offset_right = 130.0
-offset_bottom = 86.0
+offset_top = 116.0
+offset_right = 204.0
+offset_bottom = 170.0
 text = "Volume SFX"
 
 [node name="SFXSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2i(100, 0)
+custom_minimum_size = Vector2i(200, 0)
 layout_mode = 2
-offset_left = 134.0
-offset_top = 60.0
-offset_right = 234.0
-offset_bottom = 76.0
+offset_left = 400.0
+offset_top = 154.0
+offset_right = 600.0
+offset_bottom = 170.0
+size_flags_horizontal = 10
+size_flags_vertical = 8
+
+[node name="Close" type="TextureButton" parent="Popup"]
+layout_mode = 2
+offset_left = 962.0
+offset_top = -2.0
+offset_right = 1002.0
+offset_bottom = 38.0
+texture_normal = ExtResource("4_h54jt")
+stretch_mode = 0
 
 [connection signal="item_selected" from="Popup/TabContainer/Video/MarginContainer/GridContainer/AffichageBtn" to="Popup" method="display"]
 [connection signal="toggled" from="Popup/TabContainer/Video/MarginContainer/GridContainer/VSyncBtn" to="Popup" method="vsync"]
@@ -172,3 +205,4 @@ offset_bottom = 76.0
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/MasterSlider" to="Popup" method="master_volume"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/MusicSlider" to="Popup" method="music_volume"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/SFXSlider" to="Popup" method="sfx_volume"]
+[connection signal="pressed" from="Popup/Close" to="Popup" method="close_window"]

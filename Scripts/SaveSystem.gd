@@ -20,9 +20,9 @@ var settings: Dictionary = {
 	"fullscreen_on": false,
 	"vsync_on": false,
 	"brightness": 1,
-	"master_vol": -10,
-	"music_vol": -10,
-	"sfx_vol": -10, 
+	"master_vol": 100,
+	"music_vol": 100,
+	"sfx_vol": 100, 
 }
 
 const SAVE_FILE = "user://save_file.save"

@@ -1,3 +1,11 @@
-res://Scripts/settings_menu.gd
 res://Scenes/settings_menu.tscn
-res://MainMenu.tres
+res://Themes/Settings.tres
+res://Themes/MainMenu.tres
+res://Scripts/world_environment.gd
+res://Themes/UI.tres
+res://Scripts/Pause.gd
+res://Scenes/menu.tscn
+res://Scenes/world_environment.tscn
+res://Scenes/main.tscn
+res://Scenes/UI.tscn
+res://Scripts/settings_menu.gd

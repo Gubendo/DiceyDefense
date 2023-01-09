@@ -1,7 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://4gnc4coty71j"]
+[gd_scene load_steps=42 format=3 uid="uid://4gnc4coty71j"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_f05js"]
-[ext_resource type="PackedScene" uid="uid://b5kwsmxglfbp6" path="res://Scenes/UI.tscn" id="2_sfx10"]
+[ext_resource type="PackedScene" uid="uid://bggbl5165y8yd" path="res://Scenes/UI.tscn" id="2_sfx10"]
 [ext_resource type="Script" path="res://Scripts/YamsManager.gd" id="3_ounvy"]
 [ext_resource type="Texture2D" uid="uid://b5cwnsigjnr0o" path="res://tilesets/terrain.png" id="4_e4dkg"]
 [ext_resource type="PackedScene" uid="uid://d2nr00pp6mpou" path="res://Scenes/Decors/fire.tscn" id="5_nhojw"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bf7kg86uhym3h" path="res://Scenes/Decors/panneau.tscn" id="20_abjxm"]
 [ext_resource type="Texture2D" uid="uid://bsscl5l062gk0" path="res://Sprites/Decors/billot.png" id="20_cg4cb"]
 [ext_resource type="Texture2D" uid="uid://p522hf6xt2ih" path="res://Sprites/Units/king.png" id="24_tai2g"]
+[ext_resource type="PackedScene" uid="uid://cdf0esxvrorx1" path="res://Scenes/world_environment.tscn" id="32_sbbab"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8abaa"]
 texture = ExtResource("4_e4dkg")
@@ -464,7 +465,6 @@ theme = ExtResource("13_fnn6j")
 
 [node name="bg" type="TextureRect" parent="King/CanvasLayer/Tooltip"]
 modulate = Color(0.0352941, 0.0117647, 0, 1)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -474,7 +474,6 @@ grow_vertical = 2
 texture = SubResource("Texture2D_awel8")
 
 [node name="Name" type="Label" parent="King/CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -482,7 +481,6 @@ offset_bottom = 9.0
 text = "Roi Mysa"
 
 [node name="Description" type="RichTextLabel" parent="King/CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0
@@ -611,6 +609,8 @@ position = Vector2(-169, -93)
 position = Vector2(0, -14)
 scale = Vector2(0.75, 0.75)
 curve = SubResource("Curve2D_lxoc7")
+
+[node name="world_environment" parent="." instance=ExtResource("32_sbbab")]
 
 [connection signal="choix" from="UI" to="YamsManager" method="_on_ui_choix"]
 [connection signal="roll" from="UI" to="." method="_on_ui_roll"]

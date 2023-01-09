@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameData="*res://Singletons/GameData.gd"
 SaveSystem="*res://Scripts/SaveSystem.gd"
+GlobalSettings="*res://Scripts/global_settings.gd"
 
 [display]
 
@@ -26,6 +27,7 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 mouse_cursor/custom_image="res://Sprites/UI/cursor2.png"
 window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 
 [input]
 

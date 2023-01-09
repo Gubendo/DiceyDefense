@@ -33,6 +33,8 @@ var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
 
 var coupsRestant: int
 
+var locked: bool = false
+
 var save_system = SaveSystem
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,6 +47,10 @@ func _ready() -> void:
 	update_dice_pos()
 	nouveau_coup()
 	animation_player.play("fade_overlay")
+	
+	$CanvasLayer/Settings/Popup.settings_open.connect(lock_input)
+	$CanvasLayer/Settings/Popup.settings_close.connect(unlock_input)
+	unlock_input()
 	
 
 func connect_signals() -> void:
@@ -217,7 +223,7 @@ func quit() -> void:
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 func options() -> void:
-	print("C'est les options !!")
+	$CanvasLayer/Settings/Popup.open_window()
 
 func restart() -> void:
 	save_system.reset_save()
@@ -235,4 +241,14 @@ func game_over() -> void:
 	
 	$CanvasLayer/PauseOverlay.visible = true
 	$CanvasLayer/GameOver.visible = true
+	
+func lock_input() -> void:
+	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 6)
+	locked = true
+	print(locked)
+	
+func unlock_input() -> void:
+	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 4)
+	await get_tree().create_timer(0.01).timeout
+	locked = false
 

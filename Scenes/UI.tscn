@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b5kwsmxglfbp6"]
+[gd_scene load_steps=39 format=3 uid="uid://bggbl5165y8yd"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_nkvbb"]
 [ext_resource type="Texture2D" uid="uid://cfcauj2hcs18i" path="res://Sprites/UI/dices/dice1-color.png" id="2_r6pxl"]
@@ -19,8 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://cdetu2igyog72" path="res://Animations/shield-upgrade.png" id="13_kqgwy"]
 [ext_resource type="Texture2D" uid="uid://1ho1lprkdpem" path="res://Sprites/UI/progress_bar.png" id="15_g1tpk"]
 [ext_resource type="Texture2D" uid="uid://b55p2w18kx46h" path="res://Sprites/UI/progress_bar_fill.png" id="16_mkrr3"]
-[ext_resource type="Theme" uid="uid://dcbgwqk4nede7" path="res://UI.tres" id="17_oh6jq"]
+[ext_resource type="Theme" uid="uid://ijvymx3wfk2i" path="res://Themes/UI.tres" id="17_oh6jq"]
 [ext_resource type="Script" path="res://Scripts/Pause.gd" id="17_sfu0v"]
+[ext_resource type="PackedScene" uid="uid://cm0etfm24sh53" path="res://Scenes/settings_menu.tscn" id="17_v553p"]
 [ext_resource type="FontFile" uid="uid://cmgfklorvqr48" path="res://Fonts/Timmy-Regular.otf" id="21_r0fq3"]
 
 [sub_resource type="Texture2D" id="Texture2D_i8shy"]
@@ -279,6 +280,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("17_oh6jq")
 script = ExtResource("1_nkvbb")
 dicesSprites = [ExtResource("2_r6pxl"), ExtResource("3_p18bu"), ExtResource("4_rw82i"), ExtResource("5_w0egx"), ExtResource("6_umvos"), ExtResource("7_4b4iq")]
 
@@ -448,6 +450,47 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("Texture2D_v5van")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_dibtf")
+}
+
+[node name="TextAnimation" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_8bf7g")
+}
+
+[node name="StartWave" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -190.0
+offset_right = 500.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("21_r0fq3")
+theme_override_font_sizes/normal_font_size = 100
+text = "Troupes ennemies en approche "
+fit_content_height = true
+
+[node name="FadeOverlay" type="TextureRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_v5van")
+
 [node name="Vague" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
@@ -552,36 +595,8 @@ offset_bottom = 1060.0
 theme_override_font_sizes/font_size = 50
 text = "Quitter"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-libraries = {
-"": SubResource("AnimationLibrary_dibtf")
-}
-
-[node name="TextAnimation" type="AnimationPlayer" parent="CanvasLayer"]
-libraries = {
-"": SubResource("AnimationLibrary_8bf7g")
-}
-
-[node name="StartWave" type="RichTextLabel" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -190.0
-offset_right = 500.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("21_r0fq3")
-theme_override_font_sizes/normal_font_size = 100
-text = "Troupes ennemies en approche "
-fit_content_height = true
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("17_v553p")]
+visible = false
 
 [node name="GameOver" type="Control" parent="CanvasLayer"]
 visible = false
@@ -622,15 +637,5 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("21_r0fq3")
 theme_override_font_sizes/font_size = 60
 text = "Les ennemis ont pris possession de la cité"
-
-[node name="FadeOverlay" type="TextureRect" parent="CanvasLayer"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("Texture2D_v5van")
 
 [connection signal="pause" from="CanvasLayer/Pause" to="." method="on_PausePlay_pressed"]
