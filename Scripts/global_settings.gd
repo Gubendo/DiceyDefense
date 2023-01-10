@@ -1,6 +1,7 @@
 extends Node
 
 signal brightness_updated(value)
+signal glow_updated(value)
 
 func _ready():
 	pass
@@ -19,6 +20,11 @@ func toggle_vsync(value: bool) -> void:
 func toggle_brightness(value: float) -> void:
 	emit_signal("brightness_updated", value)
 	SaveSystem.game_data["settings"]["brightness"] = value
+	SaveSystem.save_game()
+	
+func toggle_glow(value: float) -> void:
+	emit_signal("glow_updated", value)
+	SaveSystem.game_data["settings"]["glow"] = value
 	SaveSystem.save_game()
 
 func update_master_vol(vol: float) -> void:

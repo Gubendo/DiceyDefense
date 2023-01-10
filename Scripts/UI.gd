@@ -220,6 +220,7 @@ func update_barracks(barracks_score: int, barracks_max: int) -> void:
 	$CanvasLayer/Health/ProgressValue.text = str(min(barracks_score, barracks_max)) + "/" + str(barracks_max)
 	
 func quit() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 func options() -> void:
@@ -243,7 +244,7 @@ func game_over() -> void:
 	$CanvasLayer/GameOver.visible = true
 	
 func lock_input() -> void:
-	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 6)
+	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 10)
 	locked = true
 	print(locked)
 	

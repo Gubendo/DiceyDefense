@@ -1,11 +1,11 @@
+Label
+HSlider
 Control
 TabBar
 Container
 TextureButton
 Window
 WorldEnvironment
-HSlider
-Label
 CheckButton
 OptionButton
 GridContainer

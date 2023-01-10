@@ -1,9 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdf0esxvrorx1"]
 
+[ext_resource type="Environment" uid="uid://l8653dqdn6a7" path="res://world_environment.tres" id="1_2vvih"]
 [ext_resource type="Script" path="res://Scripts/world_environment.gd" id="1_i2gju"]
 
-[sub_resource type="Environment" id="Environment_gm6eq"]
-
 [node name="world_environment" type="WorldEnvironment"]
-environment = SubResource("Environment_gm6eq")
+environment = ExtResource("1_2vvih")
 script = ExtResource("1_i2gju")

@@ -20,6 +20,7 @@ var settings: Dictionary = {
 	"fullscreen_on": false,
 	"vsync_on": false,
 	"brightness": 1,
+	"glow": 0.3,
 	"master_vol": 100,
 	"music_vol": 100,
 	"sfx_vol": 100, 
@@ -95,21 +96,19 @@ func _process(delta: float) -> void:
 	pass
  
 func save_game() -> void:
-	var save_game: File = File.new()
-	save_game.open(SAVE_FILE, File.WRITE)
+	var save_game: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	save_game.store_var(game_data)
-	save_game.close()
 	
 func load_game() -> void:
-	var save_game: File = File.new()
-	if save_game.file_exists(SAVE_FILE):
-		save_game.open(SAVE_FILE, File.READ)
+	if FileAccess.file_exists(SAVE_FILE):
+		var save_game: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.READ)
 		game_data = save_game.get_var()
-		save_game.close()
 	
 	# HARDCODE ICI POUR CHEAT 
 	#game_data["nexus_hp"] = 50
 		
 func reset_save() -> void:
+	var settings: Dictionary = game_data["settings"]
 	game_data = base_data
+	game_data["settings"] = settings
 	save_game()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm0etfm24sh53"]
+[gd_scene load_steps=6 format=3 uid="uid://clrt08c04b5ou"]
 
 [ext_resource type="Theme" uid="uid://bn3l22b0noeh0" path="res://Themes/Settings.tres" id="1_n0y2c"]
-[ext_resource type="Texture2D" uid="uid://b6xamhavthvbh" path="res://Sprites/UI/controls.png" id="1_s3hld"]
 [ext_resource type="Script" path="res://Scripts/settings_menu.gd" id="2_sywk2"]
-[ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="4_h54jt"]
+[ext_resource type="Texture2D" uid="uid://b6xamhavthvbh" path="res://Sprites/UI/menu/controls.png" id="3_fsocc"]
+[ext_resource type="Theme" uid="uid://c45scljvl24as" path="res://Themes/optionButton.tres" id="4_udi36"]
+[ext_resource type="Texture2D" uid="uid://dpgag5fa3dl0m" path="res://Sprites/UI/menu/menu-close.png" id="5_vhaqq"]
 
 [node name="Settings" type="Control"]
 process_mode = 3
@@ -17,62 +18,61 @@ theme = ExtResource("1_n0y2c")
 
 [node name="Popup" type="Container" parent="."]
 clip_contents = true
-layout_mode = 0
 offset_right = 1000.0
 offset_bottom = 500.0
 script = ExtResource("2_sywk2")
 
 [node name="TextureRect" type="TextureRect" parent="Popup"]
-layout_mode = 2
-offset_right = 300.0
-offset_bottom = 200.0
-texture = ExtResource("1_s3hld")
+texture = ExtResource("3_fsocc")
 ignore_texture_size = true
 stretch_mode = 2
 
 [node name="TabContainer" type="TabContainer" parent="Popup"]
-custom_minimum_size = Vector2i(1000, 500)
-layout_mode = 2
-offset_right = 300.0
-offset_bottom = 200.0
+custom_minimum_size = Vector2(1000, 500)
 size_flags_vertical = 3
 
-[node name="Video" type="Control" parent="Popup/TabContainer"]
-layout_mode = 2
+[node name="Vidéo" type="Control" parent="Popup/TabContainer"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 59.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Popup/TabContainer/Video"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 92.0
-offset_right = 648.0
-offset_bottom = 342.0
+[node name="Advice" type="Label" parent="Popup/TabContainer/Vidéo"]
+offset_left = 247.0
+offset_top = 77.0
+offset_right = 499.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0.690196, 0.690196, 0.690196, 1)
+theme_override_font_sizes/font_size = 32
+text = "(plein écran recommandé)"
+
+[node name="MarginContainer" type="MarginContainer" parent="Popup/TabContainer/Vidéo"]
+offset_left = 45.0
+offset_top = 45.0
+offset_right = 645.0
+offset_bottom = 295.0
 scale = Vector2(1.5, 1.5)
 
-[node name="GridContainer" type="GridContainer" parent="Popup/TabContainer/Video/MarginContainer"]
-layout_mode = 2
+[node name="GridContainer" type="GridContainer" parent="Popup/TabContainer/Vidéo/MarginContainer"]
 offset_right = 600.0
 offset_bottom = 250.0
 columns = 2
 
-[node name="Affichage" type="Label" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
-layout_mode = 2
+[node name="Affichage" type="Label" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
 offset_right = 336.0
 offset_bottom = 54.0
 text = "Affichage"
 vertical_alignment = 1
 
-[node name="AffichageBtn" type="OptionButton" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
-layout_mode = 2
-offset_left = 445.0
+[node name="AffichageBtn" type="OptionButton" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
+offset_left = 457.0
 offset_right = 600.0
 offset_bottom = 54.0
 size_flags_horizontal = 8
+theme = ExtResource("4_udi36")
+alignment = 1
+icon_alignment = 1
 item_count = 2
 selected = 0
 popup/item_0/text = "Fenétré"
@@ -80,8 +80,7 @@ popup/item_0/id = 0
 popup/item_1/text = "Plein écran"
 popup/item_1/id = 1
 
-[node name="VSync" type="Label" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
-layout_mode = 2
+[node name="VSync" type="Label" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
 offset_top = 58.0
 offset_right = 336.0
 offset_bottom = 112.0
@@ -89,8 +88,7 @@ size_flags_vertical = 8
 text = "Synchronisation verticale "
 vertical_alignment = 2
 
-[node name="VSyncBtn" type="CheckButton" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
-layout_mode = 2
+[node name="VSyncBtn" type="CheckButton" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
 offset_left = 568.0
 offset_top = 96.0
 offset_right = 600.0
@@ -98,111 +96,124 @@ offset_bottom = 112.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="Brightness" type="Label" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
-layout_mode = 2
+[node name="Brightness" type="Label" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
 offset_top = 116.0
 offset_right = 336.0
 offset_bottom = 170.0
 text = "Luminosité"
 vertical_alignment = 2
 
-[node name="BrightnessBtn" type="HSlider" parent="Popup/TabContainer/Video/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2i(200, 0)
-layout_mode = 2
+[node name="BrightnessBtn" type="HSlider" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
 offset_left = 400.0
 offset_top = 154.0
 offset_right = 600.0
 offset_bottom = 170.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
+min_value = 0.3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Glow" type="Label" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
+offset_top = 174.0
+offset_right = 336.0
+offset_bottom = 228.0
+text = "Eclat"
+
+[node name="GlowBtn" type="HSlider" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 400.0
+offset_top = 212.0
+offset_right = 600.0
+offset_bottom = 228.0
+size_flags_horizontal = 10
+size_flags_vertical = 8
+max_value = 0.6
+step = 0.01
+value = 0.3
 
 [node name="Audio" type="Control" parent="Popup/TabContainer"]
 visible = false
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 31.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 59.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup/TabContainer/Audio"]
-layout_mode = 1
-offset_left = 48.0
-offset_top = 92.0
-offset_right = 648.0
-offset_bottom = 342.0
+offset_left = 45.0
+offset_top = 60.0
+offset_right = 645.0
+offset_bottom = 310.0
 scale = Vector2(1.5, 1.5)
 
 [node name="GridContainer" type="GridContainer" parent="Popup/TabContainer/Audio/MarginContainer"]
-layout_mode = 2
 offset_right = 600.0
 offset_bottom = 250.0
 columns = 2
 
 [node name="MasterVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-layout_mode = 2
-offset_right = 204.0
+offset_right = 210.0
 offset_bottom = 54.0
-text = "Volume Master"
+text = "Volume Principal"
 
 [node name="MasterSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2i(200, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
 offset_left = 400.0
 offset_top = 38.0
 offset_right = 600.0
 offset_bottom = 54.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
+value = 100.0
 
 [node name="MusicVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-layout_mode = 2
 offset_top = 58.0
-offset_right = 204.0
+offset_right = 210.0
 offset_bottom = 112.0
 text = "Volume Musique"
 
 [node name="MusicSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2i(200, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
 offset_left = 400.0
 offset_top = 96.0
 offset_right = 600.0
 offset_bottom = 112.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
+value = 100.0
 
 [node name="SFXVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-layout_mode = 2
 offset_top = 116.0
-offset_right = 204.0
+offset_right = 210.0
 offset_bottom = 170.0
 text = "Volume SFX"
 
 [node name="SFXSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2i(200, 0)
-layout_mode = 2
+custom_minimum_size = Vector2(200, 0)
 offset_left = 400.0
 offset_top = 154.0
 offset_right = 600.0
 offset_bottom = 170.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
+value = 100.0
 
-[node name="Close" type="TextureButton" parent="Popup"]
-layout_mode = 2
-offset_left = 962.0
-offset_top = -2.0
-offset_right = 1002.0
-offset_bottom = 38.0
-texture_normal = ExtResource("4_h54jt")
+[node name="Close" type="TextureButton" parent="."]
+offset_left = 944.0
+offset_top = 8.0
+offset_right = 1008.0
+offset_bottom = 72.0
+texture_normal = ExtResource("5_vhaqq")
 stretch_mode = 0
 
-[connection signal="item_selected" from="Popup/TabContainer/Video/MarginContainer/GridContainer/AffichageBtn" to="Popup" method="display"]
-[connection signal="toggled" from="Popup/TabContainer/Video/MarginContainer/GridContainer/VSyncBtn" to="Popup" method="vsync"]
-[connection signal="value_changed" from="Popup/TabContainer/Video/MarginContainer/GridContainer/BrightnessBtn" to="Popup" method="brightness"]
+[connection signal="item_selected" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/AffichageBtn" to="Popup" method="display"]
+[connection signal="toggled" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/VSyncBtn" to="Popup" method="vsync"]
+[connection signal="value_changed" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/BrightnessBtn" to="Popup" method="brightness"]
+[connection signal="value_changed" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/GlowBtn" to="Popup" method="glow"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/MasterSlider" to="Popup" method="master_volume"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/MusicSlider" to="Popup" method="music_volume"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/SFXSlider" to="Popup" method="sfx_volume"]
-[connection signal="pressed" from="Popup/Close" to="Popup" method="close_window"]
+[connection signal="pressed" from="Close" to="Popup" method="close_window"]

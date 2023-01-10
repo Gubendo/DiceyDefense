@@ -11,8 +11,7 @@ func special() -> void:
 		damage_dealt += stats[level]["damage"] * buff_dmg
 
 func update_level(value: int) -> void:
-	if value == 0: level = 0
-	else: level = 3
+	level = value
 	
 func update_tooltip() -> void:
 	update_stats()

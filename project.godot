@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Dicey Defense"
 run/main_scene="res://Scenes/menu.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -45,4 +45,5 @@ echap={
 
 [rendering]
 
+environment/defaults/default_environment="res://world_environment.tres"
 textures/canvas_textures/default_texture_filter=3

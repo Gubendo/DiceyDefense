@@ -7,7 +7,7 @@ func _init() -> void:
 	ranged = true
 
 func special() -> void:
-	print("Je tire une flèche")
+	print("ARCHER : Je tire une flèche")
 	if attack_target != null:
 		shoot_arrow()
 

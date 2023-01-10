@@ -3,11 +3,10 @@ extends Control
 var save_system = SaveSystem
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Hello")
-	$VBoxContainer/Continue.grab_focus()
-	focusIn($VBoxContainer/Continue)
+	$MainMenu/VBoxContainer/Continue.grab_focus()
+	focusIn($MainMenu/VBoxContainer/Continue)
 	connect_signals()
-	if not File.file_exists("user://save_file.save"):
+	if not FileAccess.file_exists("user://save_file.save"):
 		disable_resume()
 	$Settings/Popup.settings_open.connect(lock_input)
 	$Settings/Popup.settings_close.connect(unlock_input)
@@ -19,26 +18,25 @@ func _process(delta: float) -> void:
 	pass
 	
 func connect_signals() -> void:
-	print("Je connecte les signaux")
-	$VBoxContainer/Continue.pressed.connect(continueGame)
-	$VBoxContainer/NewGame.pressed.connect(newGame)
-	$VBoxContainer/Options.pressed.connect(options)
-	$VBoxContainer/Quit.pressed.connect(quit)
+	$MainMenu/VBoxContainer/Continue.pressed.connect(continueGame)
+	$MainMenu/VBoxContainer/NewGame.pressed.connect(newGame)
+	$MainMenu/VBoxContainer/Options.pressed.connect(options)
+	$MainMenu/VBoxContainer/Quit.pressed.connect(quit)
 	
-	$VBoxContainer/Continue.mouse_entered.connect(focusButton.bind($VBoxContainer/Continue))
-	$VBoxContainer/NewGame.mouse_entered.connect(focusButton.bind($VBoxContainer/NewGame))
-	$VBoxContainer/Options.mouse_entered.connect(focusButton.bind($VBoxContainer/Options))
-	$VBoxContainer/Quit.mouse_entered.connect(focusButton.bind($VBoxContainer/Quit))
+	$MainMenu/VBoxContainer/Continue.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/Continue))
+	$MainMenu/VBoxContainer/NewGame.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/NewGame))
+	$MainMenu/VBoxContainer/Options.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/Options))
+	$MainMenu/VBoxContainer/Quit.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/Quit))
 	
-	$VBoxContainer/Continue.focus_entered.connect(focusIn.bind($VBoxContainer/Continue))
-	$VBoxContainer/NewGame.focus_entered.connect(focusIn.bind($VBoxContainer/NewGame))
-	$VBoxContainer/Options.focus_entered.connect(focusIn.bind($VBoxContainer/Options))
-	$VBoxContainer/Quit.focus_entered.connect(focusIn.bind($VBoxContainer/Quit))
+	$MainMenu/VBoxContainer/Continue.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Continue))
+	$MainMenu/VBoxContainer/NewGame.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/NewGame))
+	$MainMenu/VBoxContainer/Options.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Options))
+	$MainMenu/VBoxContainer/Quit.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Quit))
 	
-	$VBoxContainer/Continue.focus_exited.connect(focusOut.bind($VBoxContainer/Continue))
-	$VBoxContainer/NewGame.focus_exited.connect(focusOut.bind($VBoxContainer/NewGame))
-	$VBoxContainer/Options.focus_exited.connect(focusOut.bind($VBoxContainer/Options))
-	$VBoxContainer/Quit.focus_exited.connect(focusOut.bind($VBoxContainer/Quit))
+	$MainMenu/VBoxContainer/Continue.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Continue))
+	$MainMenu/VBoxContainer/NewGame.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/NewGame))
+	$MainMenu/VBoxContainer/Options.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Options))
+	$MainMenu/VBoxContainer/Quit.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Quit))
 
 	
 func continueGame() -> void:
@@ -56,10 +54,10 @@ func options() -> void:
 	$Settings/Popup.open_window()
 	
 func disable_resume() -> void:
-	$VBoxContainer/NewGame.grab_focus()
-	$VBoxContainer/Continue.disabled = true
-	$VBoxContainer/NewGame.set_focus_neighbor(SIDE_TOP, "/root/Menu/VBoxContainer/Quit")
-	$VBoxContainer/Quit.set_focus_neighbor(SIDE_BOTTOM, "/root/Menu/VBoxContainer/NewGame")
+	$MainMenu/VBoxContainer/NewGame.grab_focus()
+	$MainMenu/VBoxContainer/Continue.disabled = true
+	$MainMenu/VBoxContainer/NewGame.set_focus_neighbor(SIDE_TOP, "/root/Menu/MainMenu/VBoxContainer/Quit")
+	$MainMenu/VBoxContainer/Quit.set_focus_neighbor(SIDE_BOTTOM, "/root/Menu/MainMenu/VBoxContainer/NewGame")
 	
 func focusButton(button: Button) -> void:
 	if not button.disabled:
@@ -67,19 +65,17 @@ func focusButton(button: Button) -> void:
 	
 	
 func focusIn(button: Button) -> void:
-	print("IN" + str(button))
 	var tween: Tween = create_tween()
 	tween.tween_property(button, "scale", Vector2(1.2, 1.2), 0.1)
 	
 func focusOut(button: Button) -> void:
-	print("OUT" + str(button))
 	var tween: Tween = create_tween()
 	tween.tween_property(button, "scale", Vector2(1, 1), 0.1)
 	
 func lock_input() -> void:
-	$PauseOverlay.visible = true
+	$MainMenu/PauseOverlay.visible = true
 	
 func unlock_input() -> void:
-	$PauseOverlay.visible = false
+	$MainMenu/PauseOverlay.visible = false
 
 

@@ -3,37 +3,57 @@ extends Node
 
 var soldier_stats: Dictionary = {
 	1: {
-		"damage": 20,
-		"cooldown": 1,
-		"range": 3.5,
+		"damage": 8,
+		"cooldown": 1.5,
+		"range": 3,
 	},
 	2: {
-		"damage": 20,
+		"damage": 8,
 		"cooldown": 1,
 		"range": 3,
 	},
 	3: {
 		"damage": 10,
 		"cooldown": 1,
-		"range": 3,
+		"range": 3.5,
+	},
+	4: {
+		"damage": 12,
+		"cooldown": 1,
+		"range": 4,
+	},
+	5: {
+		"damage": 15,
+		"cooldown": 0.75,
+		"range": 4,
 	}
 }
 
 var archer_stats: Dictionary = {
 	1: {
-		"damage": 20,
-		"cooldown": 0.5,
-		"range": 10,
+		"damage": 8,
+		"cooldown": 1.5,
+		"range": 8,
 	},
 	2: {
-		"damage": 30,
-		"cooldown": 0.1,
-		"range": 10,
+		"damage": 10,
+		"cooldown": 1.5,
+		"range": 8,
 	},
 	3: {
-		"damage": 40,
-		"cooldown": 0,
+		"damage": 10,
+		"cooldown": 1.25,
 		"range": 10,
+	},
+	4: {
+		"damage": 15,
+		"cooldown": 1.25,
+		"range": 10,
+	},
+	5: {
+		"damage": 18,
+		"cooldown": 1,
+		"range": 14,
 	}
 }
 
@@ -49,11 +69,39 @@ var loup_stats: Dictionary = {
 
 var bard_stats: Dictionary = {
 	1: {
+		"target": 1,
+		"buff": 1.3,
+		"duration": 2.5,
+		"cooldown": 5,
+		"range": 5
+	},
+	2: {
+		"target": 1,
+		"buff": 1.8,
+		"duration": 3,
+		"cooldown": 5,
+		"range": 5
+	},
+	3: {
 		"target": 2,
-		"buff": 5,
+		"buff": 2,
 		"duration": 3,
 		"cooldown": 6,
 		"range": 8
+	},
+	4: {
+		"target": 2,
+		"buff": 2,
+		"duration": 4,
+		"cooldown": 7,
+		"range": 8
+	},
+	5: {
+		"target": 3,
+		"buff": 2.5,
+		"duration": 5,
+		"cooldown": 8,
+		"range": 13.5
 	}
 }
 
@@ -159,7 +207,7 @@ var charlatan_stats: Dictionary = {
 		"range": -1
 	},
 	4: {
-		"bonus_roll": 10,
+		"bonus_roll": 3,
 		"range": -1
 	}
 }
@@ -287,7 +335,7 @@ var enemies_stats: Dictionary = {
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
-	0: [[6, "Wisp", 0.5, 0]],
+	0: [[6, "Undead", 0.5, 0]],
 	#0: [[1, "Beefy", 0, 0.5], [5, "Undead", 1, 0]],
 	#1: [[4, "Gobelin", 1, 1], [5, "Bobelin", 0.4, 0]],
 	#2: [[2, "Gobelin", 1, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 1, 0]]
