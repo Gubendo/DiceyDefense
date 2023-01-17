@@ -10,9 +10,6 @@ func special() -> void:
 		print("LOUP : Je graille un coup")
 		attack_target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
 
-func update_level(value: int) -> void:
-	if value == 0: level = 0
-	else: level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

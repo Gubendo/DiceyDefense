@@ -10,8 +10,6 @@ func special() -> void:
 	for enemy in get_all_enemies():
 		enemy.take_dmg(stats[level]["damage"] * buff_dmg)
 
-func update_level(value: int) -> void:
-	level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

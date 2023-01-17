@@ -10,9 +10,7 @@ func special() -> void:
 		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
 		damage_dealt += stats[level]["damage"] * buff_dmg
 
-func update_level(value: int) -> void:
-	level = value
-	
+
 func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité d'attaque au corps à corps qui inflige {0} points de \

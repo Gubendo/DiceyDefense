@@ -50,7 +50,7 @@ func _on_ui_roll(unfrozen: Array) -> void:
 	
 	for unit in $Units.get_children():
 		if !unit.activated : 
-			unit.update_level($YamsManager.combinaisons[GameData.unit_data[unit.name]["value"]][0])
+			unit.level = $YamsManager.combinaisons[GameData.unit_data[unit.name]["value"]][2]
 
 func update_phase() -> void:
 	if(waveStarted): king_anim.play("leave_city")

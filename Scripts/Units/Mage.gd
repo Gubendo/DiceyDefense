@@ -10,13 +10,12 @@ func special() -> void:
 		print("MAGE : Je tire une boule de givre")
 		shoot_frostbolt()
 
-func update_level(value: int) -> void:
-	level = 1#value / 5
 	
 func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité d'attaque à distance qui inflige {0} points de \
-dégâts et réduit la vitesse de déplacement toutes les {1} secondes".format([currentStats[0], currentStats[1]])
+dégâts et réduit la vitesse de déplacement de moitié pendant {1} secondes \
+toutes les {2} secondes".format([currentStats[0], currentStats[1], currentStats[2]])
 
 func shoot_frostbolt() -> void:
 	var bolt = boltTemp.instantiate()
@@ -29,6 +28,6 @@ func shoot_frostbolt() -> void:
 	bolt.target = attack_target
 	bolt.damage = stats[level]["damage"] * buff_dmg
 	bolt.slow_value = 0.5
-	bolt.slow_duration = 2
+	bolt.slow_duration = stats[level]["duration"]
 	bolt.speed_factor = 4
 	get_tree().get_root().get_node("Main/Temporary").add_child(bolt)

@@ -10,9 +10,6 @@ func special() -> void:
 	if attack_target != null:
 		shoot_caillou()
 
-func update_level(value: int) -> void:
-	level = 1
-
 func on_activate() -> void:
 	unit.visible = false
 	disable_tooltip()

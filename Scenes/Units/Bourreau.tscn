@@ -208,7 +208,6 @@ shape = SubResource("CircleShape2D_qj271")
 z_index = 10
 
 [node name="Tooltip" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 12.0
@@ -223,7 +222,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -3.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("Texture2D_ko2dj")

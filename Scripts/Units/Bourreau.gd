@@ -24,8 +24,6 @@ func attack() -> void:
 	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
 	atkReady = true
 	
-func update_level(value: int) -> void:
-	level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

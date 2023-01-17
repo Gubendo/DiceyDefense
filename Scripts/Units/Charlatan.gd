@@ -12,12 +12,6 @@ func on_activate() -> void:
 	var ui = get_tree().get_root().get_node("Main/UI")
 	ui.nbRolls += stats[level]["bonus_roll"]
 
-func update_level(value: int) -> void:
-	if value < 10: level = 1
-	elif value < 20: level = 2
-	else: level = 3
-	
-	if value == 19: level = 4
 	
 func update_tooltip() -> void:
 	update_stats()

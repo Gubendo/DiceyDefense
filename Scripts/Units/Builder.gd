@@ -15,9 +15,6 @@ func on_activate() -> void:
 	if stats[level]["nb"] == 2: 
 		build_barricade(Vector2(-174, -150))
 		build_barricade(Vector2(-150, -150))
-
-func update_level(value: int) -> void:
-	level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

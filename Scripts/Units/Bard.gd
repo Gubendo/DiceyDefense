@@ -20,10 +20,6 @@ func special() -> void:
 	for unit in targets:
 		unit.buff_as /= stats[level]["buff"]
 		unit.status_player.play("RESET")
-
-func update_level(value: int) -> void:
-	if value == 0: level = 0
-	else: level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

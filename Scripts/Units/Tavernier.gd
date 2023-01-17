@@ -12,9 +12,6 @@ func on_activate() -> void:
 	for unit in get_all_allies():
 		unit.buff_dmg *= stats[level]["buff_dmg"]
 
-func update_level(value: int) -> void:
-	level = 1
-	
 func _process(delta: float) -> void:
 	pass
 	

@@ -153,9 +153,6 @@ func start_wave() -> void: # Dépend de chaque unité
 	atkReady = true
 
 ### GESTION LVL & STATS ###
-
-func update_level(value: int) -> void:
-	pass
 	
 func update_stats() -> void:
 	currentStats = []

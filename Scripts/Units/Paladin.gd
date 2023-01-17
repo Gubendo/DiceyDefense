@@ -14,9 +14,6 @@ func special() -> void:
 			if abs(attack_target.position.distance_to(enemy.position)) < stats[level]["aoe"] and attack_target != enemy:
 				enemy.take_dmg(stats[level]["splash"] * buff_dmg)
 
-func update_level(value: int) -> void:
-	if value == 0: level = 0
-	else: level = 1
 	
 func update_tooltip() -> void:
 	update_stats()

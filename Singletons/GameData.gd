@@ -107,19 +107,34 @@ var bard_stats: Dictionary = {
 
 var mage_stats: Dictionary = {
 	1: {
-		"damage": 20,
-		"cooldown": 1,
-		"range": 10,
+		"damage": 2,
+		"duration": 2,
+		"cooldown": 1.5,
+		"range": 8,
 	},
 	2: {
-		"damage": 30,
-		"cooldown": 0.1,
+		"damage": 3,
+		"duration": 3,
+		"cooldown": 1.5,
 		"range": 10,
 	},
 	3: {
-		"damage": 40,
-		"cooldown": 0.1,
+		"damage": 5,
+		"duration": 3,
+		"cooldown": 1,
 		"range": 10,
+	},
+	4: {
+		"damage": 7,
+		"duration": 3,
+		"cooldown": 0.9,
+		"range": 12,
+	},
+	5: {
+		"damage": 8,
+		"duration": 4,
+		"cooldown": 0.75,
+		"range": 14,
 	}
 }
 
@@ -137,31 +152,95 @@ var builder_stats: Dictionary = {
 	1: {
 		"health": 20,
 		"damage": 5,
+		"nb": 1,
+		"range": -1
+	},
+	2: {
+		"health": 20,
+		"damage": 5,
 		"nb": 2,
 		"range": -1
-	}
+	},
+	3: {
+		"health": 20,
+		"damage": 10,
+		"nb": 1,
+		"range": -1
+	},
+	4: {
+		"health": 20,
+		"damage": 10,
+		"nb": 2,
+		"range": -1
+	},
+	5: {
+		"health": 50,
+		"damage": 10,
+		"nb": 1,
+		"range": -1
+	},
+	6: {
+		"health": 50,
+		"damage": 10,
+		"nb": 2,
+		"range": -1
+	},
 }
 
 var bourreau_stats: Dictionary = {
 	1: {
-		"damage": 15,
-		"cooldown": 0.5,
+		"damage": 3,
+		"cooldown": 1.5,
+		"exec": 30,
+		"range": 8
+	},
+	2: {
+		"damage": 5,
+		"cooldown": 1.5,
+		"exec": 30,
+		"range": 8
+	},
+	3: {
+		"damage": 5,
+		"cooldown": 1.2,
+		"exec": 35,
+		"range": 8
+	},
+	4: {
+		"damage": 5,
+		"cooldown": 1,
+		"exec": 40,
+		"range": 9
+	},
+	5: {
+		"damage": 7,
+		"cooldown": 1,
+		"exec": 45,
+		"range": 9
+	},
+	6: {
+		"damage": 10,
+		"cooldown": 0.8,
 		"exec": 50,
-		"range": 20
-	}
+		"range": 10
+	},
 }
 
 var tavernier_stats: Dictionary = {
 	1: {
-		"buff_dmg": 2,
+		"buff_dmg": 1.25,
 		"range": -1
 	},
 	2: {
-		"buff_dmg": 2.5,
+		"buff_dmg": 1.5,
 		"range": -1
 	},
 	3: {
-		"buff_dmg": 3,
+		"buff_dmg": 1.75,
+		"range": -1
+	},
+	4: {
+		"buff_dmg": 2,
 		"range": -1
 	}
 	
@@ -169,18 +248,36 @@ var tavernier_stats: Dictionary = {
 
 var catapulte_stats: Dictionary = {
 	1: {
-		"damage": 10,
-		"cooldown": 1,
-		"aoe": 40,
-		"range": 10
+		"damage": 15,
+		"cooldown": 3,
+		"aoe": 15,
+		"range": 15
+	},
+	2: {
+		"damage": 16,
+		"cooldown": 2.75,
+		"aoe": 15,
+		"range": 16
+	},
+	3: {
+		"damage": 17,
+		"cooldown": 2.5,
+		"aoe": 15,
+		"range": 17
 	}
 }
 
 var trebuchet_stats: Dictionary = {
 	1: {
-		"damage": 40,
-		"cooldown": 3,
-		"aoe": 40,
+		"damage": 25,
+		"cooldown": 6,
+		"aoe": 30,
+		"range": 25
+	},
+	2: {
+		"damage": 30,
+		"cooldown": 5,
+		"aoe": 30,
 		"range": 25
 	}
 }
@@ -188,7 +285,17 @@ var trebuchet_stats: Dictionary = {
 var colosse_stats: Dictionary = {
 	1: {
 		"damage": 40,
-		"cooldown": 3,
+		"cooldown": 20,
+		"range": 50
+	},
+	2: {
+		"damage": 40,
+		"cooldown": 15,
+		"range": 50
+	},
+	3: {
+		"damage": 50,
+		"cooldown": 15,
 		"range": 50
 	}
 }
@@ -275,23 +382,23 @@ var gobelin_stats: Dictionary = {
 	"health": 35,
 	"damage": 1,
 	"cd": 1,
-	"nexus_dmg": 1,
+	"nexus_dmg": 2,
 	"flying": false
 }
 
 var bobelin_stats: Dictionary = {
 	"speed": 60,
 	"health": 15,
-	"damage": 1,
-	"cd": 1,
-	"nexus_dmg": 2,
+	"damage": 0.5,
+	"cd": 0.5,
+	"nexus_dmg": 1,
 	"flying": false
 }
 
 var banner_stats: Dictionary = {
 	"speed": 12,
 	"health": 30,
-	"damage": 1,
+	"damage": 0.5,
 	"cd": 1,
 	"nexus_dmg": 1,
 	"flying": false
@@ -335,7 +442,7 @@ var enemies_stats: Dictionary = {
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
-	0: [[6, "Undead", 0.5, 0]],
+	0: [[30, "Undead", 0.5, 0]],
 	#0: [[1, "Beefy", 0, 0.5], [5, "Undead", 1, 0]],
 	#1: [[4, "Gobelin", 1, 1], [5, "Bobelin", 0.4, 0]],
 	#2: [[2, "Gobelin", 1, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 1, 0]]

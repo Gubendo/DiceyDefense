@@ -31,6 +31,8 @@ var flying: bool
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var status_player: AnimationPlayer = $StatusPlayer
 
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+
 signal death(nexus_dmg)
 # Called when the node enters the scene tree for the first time.
 
@@ -45,6 +47,7 @@ func _ready() -> void:
 	currentCD = baseCD
 	health_bar.max_value = baseHP
 	health_bar.value = currentHP
+	rng.randomize()
 	#health_bar.set_as_top_level(true)
 
 func _physics_process(delta: float) -> void:
@@ -64,6 +67,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		if !moving:
 			animation_player.play("run")
+			animation_player.seek(rng.randf_range(0, animation_player.get_animation("run").length))
 		moving = true
 		move(delta)
 	
@@ -109,10 +113,11 @@ func attack_struct() -> void:
 	atkReady = true
 
 func apply_slow(value: float, duration: float) -> void:
+	print()
 	currentSpeed = baseSpeed * value
 	currentCD = baseCD * value
 	animation_player.playback_speed = value
-	slow_timer.start(duration)
+	slow_timer.start(slow_timer.time_left + duration)
 	impaired = true
 	sprite.modulate = Color (0.5, 1, 1)
 	

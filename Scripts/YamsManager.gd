@@ -16,6 +16,7 @@ var grille: Dictionary = {
 	"yams": -1
 }
 
+
 var combinaisons: Dictionary = {
 	"total1": -1,
 	"total2": -1,
@@ -56,7 +57,7 @@ func calcul_total_x(hand: Array, x: int) -> Array:
 			total += x
 			dices.append(i)
 		
-	return [total, dices]
+	return [total, dices, total/x]
 
 func calcul_brelan(hand: Array) -> Array:
 	var dices: Array = []
@@ -65,8 +66,8 @@ func calcul_brelan(hand: Array) -> Array:
 			for j in range(5):
 				if hand[j] == i:
 					dices.append(j)
-			return [hand_sum(hand), dices.slice(0, 3)]
-	return [0, dices]
+			return [hand_sum(hand), dices.slice(0, 3), i]
+	return [0, dices, 0]
 	
 func calcul_carre(hand: Array) -> Array:
 	var dices: Array = []
@@ -75,8 +76,8 @@ func calcul_carre(hand: Array) -> Array:
 			for j in range(5):
 				if hand[j] == i:
 					dices.append(j)
-			return [hand_sum(hand), dices.slice(0, 4)]
-	return [0, dices]
+			return [hand_sum(hand), dices.slice(0, 4), i]
+	return [0, dices, 0]
 	
 func calcul_full(hand: Array) -> Array:
 	var dices: Array = []
@@ -89,30 +90,42 @@ func calcul_full(hand: Array) -> Array:
 					for k in range(5):
 						if hand[k] == i or hand[k] == j:
 							dices.append(k)
-					return [25, dices]
-	return [0, dices]
+					
+					var level: int
+					if hand_sum(hand) <= 14: level = 1
+					elif hand_sum(hand) <= 21: level = 2
+					else: level = 3
+					if hand_sum(hand) == 19: level = 4
+					
+					return [25, dices, level]
+	return [0, dices, 0]
 	
 func calcul_p_suite(hand: Array) -> Array:
 	var dices: Array = []
-	if 1 in hand and 2 in hand and 3 in hand and 4 in hand: return [30, [hand.find(1), hand.find(2), hand.find(3), hand.find(4)]]
-	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand: return [30, [hand.find(2), hand.find(3), hand.find(4), hand.find(5)]]
-	elif 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [30, [hand.find(3), hand.find(4), hand.find(5), hand.find(6)]]
-	else: return [0, dices]
+	if 1 in hand and 2 in hand and 3 in hand and 4 in hand: return [30, [hand.find(1), hand.find(2), hand.find(3), hand.find(4)], 1]
+	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand: return [30, [hand.find(2), hand.find(3), hand.find(4), hand.find(5)], 2]
+	elif 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [30, [hand.find(3), hand.find(4), hand.find(5), hand.find(6)], 3]
+	else: return [0, dices, 0]
 	
 func calcul_g_suite(hand: Array) -> Array:
 	var dices: Array = []
-	if 1 in hand and 2 in hand and 3 in hand and 4 in hand and 5 in hand: return [40, [0, 1, 2, 3, 4]]
-	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [40, [0, 1, 2, 3, 4]]
-	else: return [0, dices]
+	if 1 in hand and 2 in hand and 3 in hand and 4 in hand and 5 in hand: return [40, [0, 1, 2, 3, 4], 1]
+	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [40, [0, 1, 2, 3, 4], 2]
+	else: return [0, dices, 0]
 	
 func calcul_chance(hand: Array) -> Array:
-	return [hand_sum(hand), [0, 1, 2, 3, 4]]
+	var level: int
+	if hand_sum(hand) <= 13: level = 1
+	elif hand_sum(hand) <= 22: level = 2
+	else: level = 3
+	if hand_sum(hand) == 24: level = 4
+	return [hand_sum(hand), [0, 1, 2, 3, 4], level]
 	
 func calcul_yams(hand: Array) -> Array:
 	var dices: Array = []
 	for i in range(1,7):
-		if hand.count(i) == 5: return [50, [0, 1, 2, 3, 4]]
-	return [0, dices]
+		if hand.count(i) == 5: return [50, [0, 1, 2, 3, 4], (i+1)/2]
+	return [0, dices, 0]
 
 func hand_sum(hand: Array) -> int:
 	var total: int = 0

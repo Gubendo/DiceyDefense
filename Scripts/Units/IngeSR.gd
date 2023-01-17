@@ -10,8 +10,6 @@ func special() -> void:
 		print("INGENIEUR SENIOR : Mon trébuchet tire")
 		shoot_caillou()
 
-func update_level(value: int) -> void:
-	level = 1
 
 func on_activate() -> void:
 	unit.visible = false
