@@ -80,13 +80,13 @@ func _physics_process(delta: float) -> void:
 		impaired = false
 	if bleedFreq != 0 and bleed != 0 and bleed_frequency.time_left == 0:
 		take_dmg(bleed)
-		if bleed_timer.time_left <= 0:
-			print("FIN DU BLEED")
-			bleedFreq = 0
-			bleed = 0
-			status_player.play("RESET")
-		else:
-			bleed_frequency.start(bleedFreq)
+		if not dead:
+			if bleed_timer.time_left <= 0:
+				bleedFreq = 0
+				bleed = 0
+				status_player.play("RESET")
+			else:
+				bleed_frequency.start(bleedFreq)
 		
 	
 func move(delta: float) -> void:
@@ -113,7 +113,6 @@ func attack_struct() -> void:
 	atkReady = true
 
 func apply_slow(value: float, duration: float) -> void:
-	print()
 	currentSpeed = baseSpeed * value
 	currentCD = baseCD * value
 	animation_player.playback_speed = value
@@ -122,10 +121,11 @@ func apply_slow(value: float, duration: float) -> void:
 	sprite.modulate = Color (0.5, 1, 1)
 	
 func apply_bleed(value: float, duration: float, freq: float) -> void:
-	bleed_timer.start(duration)
-	bleed = value
-	bleedFreq = freq
-	status_player.play("bleed")
+	if not dead:
+		bleed_timer.start(duration)
+		bleed = bleed + value
+		bleedFreq = freq
+		status_player.play("bleed")
 
 func destroy(killed: bool) -> void:
 	if not dead:

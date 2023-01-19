@@ -7,13 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bkol1fbq4h7fn" path="res://Animations/Bard/bard-full.png" id="4_pfgi8"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="7_7m3ar"]
+[ext_resource type="Texture2D" uid="uid://r7mpo1e0dt6t" path="res://Sprites/UI/tooltips/tooltip-40px.png" id="7_wxnxr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
-
-[sub_resource type="Texture2D" id="Texture2D_ko2dj"]
-resource_local_to_scene = false
-resource_name = ""
 
 [sub_resource type="Animation" id="Animation_umou1"]
 length = 0.001
@@ -172,15 +169,14 @@ offset_bottom = 43.0
 theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
-modulate = Color(0.0352941, 0.0117647, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1.0
-offset_bottom = -7.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Texture2D_ko2dj")
+texture = ExtResource("7_wxnxr")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
 offset_left = 2.0

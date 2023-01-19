@@ -15,3 +15,6 @@ func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité d'attaque au corps à corps qui inflige {0} points de \
 dégâts toutes les {1} secondes".format([currentStats[0], currentStats[1]])
+
+func on_activate() -> void:
+	update_tooltip_size(30)

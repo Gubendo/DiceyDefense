@@ -15,6 +15,7 @@ func on_activate() -> void:
 	if stats[level]["nb"] == 2: 
 		build_barricade(Vector2(-174, -150))
 		build_barricade(Vector2(-150, -150))
+	update_tooltip_size(35)
 	
 func update_tooltip() -> void:
 	update_stats()
@@ -44,3 +45,5 @@ func build_barricade(b_position: Vector2) -> void:
 	barricade.thorns = stats[level]["damage"]
 	barricade.init()
 	barricades.append(barricade)
+
+	

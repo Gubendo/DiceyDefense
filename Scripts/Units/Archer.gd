@@ -29,4 +29,8 @@ func shoot_arrow() -> void:
 	arrow.damage = stats[level]["damage"] * buff_dmg
 	arrow.speed_factor = 4
 	get_tree().get_root().get_node("Main/Temporary").add_child(arrow)
+	
+
+func on_activate() -> void:
+	update_tooltip_size(30)
 

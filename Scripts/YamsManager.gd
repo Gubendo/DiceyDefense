@@ -157,8 +157,6 @@ func compute_score() -> void:
 	barracks_score = max(0, grille["total1"]) + max(0, grille["total2"]) + \
 	max(0, grille["total3"]) + max(0, grille["total4"]) + \
 	max(0, grille["total5"]) + max(0, grille["total6"])
-	print("GLOBAL SCORE ", global_score)
-	print("BARRACKS SCORE ", barracks_score)
 	if barracks_score >= barracks_max and not barracks_buff:
 		barracks_buff = true
 		$/root/Main.buff_barracks()

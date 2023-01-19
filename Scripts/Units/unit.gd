@@ -189,6 +189,11 @@ func stat_color(stat:float, focus: bool) -> String:
 func update_tooltip() -> void:
 	pass
 
+func update_tooltip_size(size_px: int) -> void:
+	var path: String = "res://Sprites/UI/tooltips/tooltip-" + str(size_px) + "px.png"
+	var tooltip: Texture2D = load(path)
+	$CanvasLayer/Tooltip/bg.texture = tooltip
+	$CanvasLayer/Tooltip/bg.size.y = 0
 	
 func enable_tooltip() -> void:
 	if(!sleeping):
@@ -238,5 +243,8 @@ func _on_range_body_entered(body: CharacterBody2D) -> void:
 func _on_range_body_exited(body: CharacterBody2D) -> void:
 	if not body.get_parent().flying or ranged:
 		enemies_in_range.erase(body.get_parent())
+	
+	
+### ### ###
 	
 

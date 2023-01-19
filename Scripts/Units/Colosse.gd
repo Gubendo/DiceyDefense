@@ -30,4 +30,6 @@ func update_stats() -> void:
 func enable_tooltip() -> void:
 	super.enable_tooltip()
 	rangeSprite.modulate.a = 0
-
+	
+func on_activate() -> void:
+	update_tooltip_size(35)

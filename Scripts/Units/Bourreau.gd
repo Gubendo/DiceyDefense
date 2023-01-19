@@ -60,3 +60,6 @@ func exec_anim() -> void:
 	if anim > attsp:
 		animation_player.playback_speed = (anim / attsp)*1.1
 	animation_player.play("execute")
+	
+func on_activate() -> void:
+	update_tooltip_size(45)

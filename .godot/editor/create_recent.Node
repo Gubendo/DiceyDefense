@@ -1,3 +1,4 @@
+TextureRect
 Label
 HSlider
 Control
@@ -11,7 +12,6 @@ OptionButton
 GridContainer
 MarginContainer
 TabContainer
-TextureRect
 Popup
 Node2D
 TextureProgressBar

@@ -16,4 +16,8 @@ func update_tooltip() -> void:
 	tooltipText.text = "Animal qui mord un ennemi toutes les {0} secondes, provoquant \
 un saignement. 
 Le saignement inflige {1} points de dégâts toutes les {2} secondes \
-pendant {3} secondes".format([currentStats[3], currentStats[0], currentStats[1], currentStats[2]])
+pendant {3} secondes\n
+[color=dbdbdb]Les saignements successifs s'accumulent".format([currentStats[3], currentStats[0], currentStats[1], currentStats[2]])
+
+func on_activate() -> void:
+	update_tooltip_size(65)

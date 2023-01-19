@@ -180,15 +180,15 @@ func enable_tooltip() -> void:
 		if coups == 0:
 			$King/CanvasLayer/Tooltip/Description.text = "Souverain qui protège avec intêret son royaume en \
 utilisant le pouvoir des reliques sacrées\n
-[color=c8c8c8](Aucun lancer restant)"
+[color=e9994f](Aucun lancer restant)"
 		elif coups == 1:
 			$King/CanvasLayer/Tooltip/Description.text = "Souverain qui protège avec intêret son royaume en \
 utilisant le pouvoir des reliques sacrées\n
-[color=c8c8c8](1 lancer restant)"
+[color=e9994f](1 lancer restant)"
 		else:
 			$King/CanvasLayer/Tooltip/Description.text = "Souverain qui protège avec intêret son royaume en \
 utilisant le pouvoir des reliques sacrées\n
-[color=c8c8c8]({0} lancers restant)".format([$UI.coupsRestant])
+[color=e9994f]({0} lancers restant)".format([$UI.coupsRestant])
 
 func disable_tooltip() -> void:
 	$King/CanvasLayer/Tooltip.visible = false

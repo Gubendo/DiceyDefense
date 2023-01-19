@@ -9,13 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dpenoc1k1m2hh" path="res://Animations/Archer/archer-full.png" id="4_hvx6a"]
 [ext_resource type="Texture2D" uid="uid://crpjmpeddxi38" path="res://Animations/Status/buff-front.png" id="6_mk80s"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="9_6cyi7"]
+[ext_resource type="Texture2D" uid="uid://t8ra1jvi22v3" path="res://Sprites/UI/tooltips/tooltip-35px.png" id="9_yj3mc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwprr"]
 radius = 8.0
-
-[sub_resource type="Texture2D" id="Texture2D_p5hpw"]
-resource_local_to_scene = false
-resource_name = ""
 
 [sub_resource type="Animation" id="Animation_8l687"]
 length = 0.001
@@ -290,7 +287,6 @@ shape = SubResource("CircleShape2D_kwprr")
 z_index = 10
 
 [node name="Tooltip" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 12.0
@@ -300,18 +296,15 @@ offset_bottom = 43.0
 theme = ExtResource("4_0yqvr")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
-modulate = Color(0.0352941, 0.0117647, 0, 1)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Texture2D_p5hpw")
+texture = ExtResource("9_yj3mc")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -319,7 +312,6 @@ offset_bottom = 9.0
 text = "Archer / Total des 2"
 
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0

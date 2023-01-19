@@ -21,3 +21,7 @@ func update_tooltip() -> void:
 dégâts toutes les {1} secondes. 
 Les unités proches de la cible subissent {2} points de \
 dégâts".format([currentStats[0], currentStats[1], currentStats[3]])
+
+
+func on_activate() -> void:
+	update_tooltip_size(40)

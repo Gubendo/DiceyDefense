@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="10_f8dp1"]
 [ext_resource type="Texture2D" uid="uid://dd4d8p35u6tex" path="res://Animations/King/king-full.png" id="10_jl6pf"]
 [ext_resource type="Texture2D" uid="uid://bglvnffqpoc7p" path="res://Sprites/Decors/banner.png" id="10_rpsyb"]
+[ext_resource type="Texture2D" uid="uid://bq1do241bqxap" path="res://Sprites/UI/tooltips/tooltip-king.png" id="10_w244d"]
 [ext_resource type="Texture2D" uid="uid://duxi6wqf3pbyn" path="res://Animations/King/king-hover.png" id="11_6nojp"]
 [ext_resource type="Texture2D" uid="uid://c5p0n1itmigtc" path="res://Sprites/2D_board.png" id="11_sbmcr"]
 [ext_resource type="Texture2D" uid="uid://bhjtrotsfs23v" path="res://Sprites/Decors/banner_top.png" id="11_v7a2r"]
@@ -401,10 +402,6 @@ _data = {
 "roll_dice": SubResource("Animation_85bfo")
 }
 
-[sub_resource type="Texture2D" id="Texture2D_awel8"]
-resource_local_to_scene = false
-resource_name = ""
-
 [sub_resource type="Curve2D" id="Curve2D_lxoc7"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 0, -280, 7.96539, 0, -7.96539, 0, -128, -280, 0.0787451, -7.99262, -0.0787451, 7.99262, -136, -272, 0.00354102, -8.019, -0.00354102, 8.019, -136, -192, 7.99915, -0.0220971, -7.99915, 0.0220971, -144, -184, 0, 0, 0, 0, -185.507, -182.723, 8.0625, 0.0625, -8.0625, -0.0625, -528, -184, -0.0625, 7.8125, 0.0625, -7.8125, -536, -192, 0, 0, 0, 0, -536, -357.333)
@@ -471,34 +468,37 @@ offset_bottom = 43.0
 theme = ExtResource("13_fnn6j")
 
 [node name="bg" type="TextureRect" parent="King/CanvasLayer/Tooltip"]
-modulate = Color(0.0352941, 0.0117647, 0, 1)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Texture2D_awel8")
+texture = ExtResource("10_w244d")
 
 [node name="Name" type="Label" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
 offset_bottom = 9.0
+theme_override_colors/font_color = Color(0.988235, 0.768627, 0.341176, 1)
 text = "Roi Mysa"
 
 [node name="Description" type="RichTextLabel" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0
 offset_bottom = 46.0
-theme_override_colors/default_color = Color(0.603922, 0.603922, 0.603922, 1)
+theme_override_colors/default_color = Color(0.831373, 0.45098, 0.243137, 1)
 theme_override_constants/line_separation = -2
 theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
 text = "Souverain qui protège avec intêret son royaume en utilisant le pouvoir des reliques sacrées
 
-[color=c8c8c8](5 lancers restant)"
+[color=e9994f](5 lancers restant)"
 fit_content_height = true
 scroll_active = false
 
@@ -580,16 +580,16 @@ script = ExtResource("11_w0phj")
 position = Vector2(-141, -198)
 
 [node name="Paladin" parent="Units" instance=ExtResource("8_08tlg")]
-position = Vector2(-101, -199)
+position = Vector2(-101, -195)
 
 [node name="Mage" parent="Units" instance=ExtResource("7_e1n3n")]
 position = Vector2(-160, -133)
 
 [node name="Soldier" parent="Units" instance=ExtResource("5_vqr24")]
-position = Vector2(-78, -227)
+position = Vector2(-81, -227)
 
 [node name="Bard" parent="Units" instance=ExtResource("9_pydge")]
-position = Vector2(-77, -188)
+position = Vector2(-82, -179)
 
 [node name="Bourreau" parent="Units" instance=ExtResource("12_6xr6h")]
 position = Vector2(-270, -164)

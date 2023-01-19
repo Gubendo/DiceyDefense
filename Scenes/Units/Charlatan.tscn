@@ -6,14 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
 [ext_resource type="Texture2D" uid="uid://bjw6hs8mv4wic" path="res://Animations/Scientist/scientist-idle.png" id="4_ur0ua"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
+[ext_resource type="Texture2D" uid="uid://t8ra1jvi22v3" path="res://Sprites/UI/tooltips/tooltip-35px.png" id="7_18fg6"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="7_cefly"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
-
-[sub_resource type="Texture2D" id="Texture2D_ko2dj"]
-resource_local_to_scene = false
-resource_name = ""
 
 [sub_resource type="Animation" id="Animation_15afg"]
 length = 0.001
@@ -118,7 +115,6 @@ shape = SubResource("CircleShape2D_qj271")
 z_index = 10
 
 [node name="Tooltip" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 12.0
@@ -128,14 +124,16 @@ offset_bottom = 43.0
 theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
-modulate = Color(0.0352941, 0.0117647, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -15.0
+offset_left = -1.5
+offset_top = -2.0
+offset_right = 3.5
+offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Texture2D_ko2dj")
+texture = ExtResource("7_18fg6")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
 offset_left = 2.0

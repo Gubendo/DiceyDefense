@@ -59,12 +59,40 @@ var archer_stats: Dictionary = {
 
 var loup_stats: Dictionary = {
 	1: {
-		"bleed": 10,
+		"bleed": 2,
+		"freq": 1,
+		"duration": 2,
+		"cooldown": 1.5,
+		"range": 4
+	},
+	2: {
+		"bleed": 2,
 		"freq": 1,
 		"duration": 3,
-		"cooldown": 0.5,
+		"cooldown": 1.25,
+		"range": 4
+	},
+	3: {
+		"bleed": 3,
+		"freq": 0.75,
+		"duration": 3,
+		"cooldown": 1,
 		"range": 5
-	}
+	},
+	4: {
+		"bleed": 5,
+		"freq": 0.75,
+		"duration": 3,
+		"cooldown": 1,
+		"range": 5
+	},
+	5: {
+		"bleed": 5,
+		"freq": 0.5,
+		"duration": 4,
+		"cooldown": 0.75,
+		"range": 6
+	},
 }
 
 var bard_stats: Dictionary = {
@@ -143,8 +171,36 @@ var paladin_stats: Dictionary = {
 		"damage": 10,
 		"cooldown": 1,
 		"aoe": 40,
+		"splash": 1,
+		"range": 4
+	},
+	2: {
+		"damage": 10,
+		"cooldown": 1,
+		"aoe": 40,
+		"splash": 2,
+		"range": 5
+	},
+	3: {
+		"damage": 10,
+		"cooldown": 1,
+		"aoe": 40,
+		"splash": 2,
+		"range": 5
+	},
+	4: {
+		"damage": 12,
+		"cooldown": 1,
+		"aoe": 40,
 		"splash": 5,
 		"range": 5
+	},
+	5: {
+		"damage": 15,
+		"cooldown": 0.8,
+		"aoe": 40,
+		"splash": 10,
+		"range": 8
 	}
 }
 
@@ -442,7 +498,7 @@ var enemies_stats: Dictionary = {
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
-	0: [[30, "Undead", 0.5, 0]],
+	0: [[30, "Undead", 1.2, 0]],
 	#0: [[1, "Beefy", 0, 0.5], [5, "Undead", 1, 0]],
 	#1: [[4, "Gobelin", 1, 1], [5, "Bobelin", 0.4, 0]],
 	#2: [[2, "Gobelin", 1, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 1, 0]]

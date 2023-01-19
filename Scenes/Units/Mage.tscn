@@ -7,13 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://2tewi2aaasml" path="res://Animations/Mage/mage-full.png" id="4_is6j0"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="7_ye630"]
+[ext_resource type="Texture2D" uid="uid://btdy2m0srjan" path="res://Sprites/UI/tooltips/tooltip-45px.png" id="7_yu70c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
-
-[sub_resource type="Texture2D" id="Texture2D_ko2dj"]
-resource_local_to_scene = false
-resource_name = ""
 
 [sub_resource type="Animation" id="Animation_6r48v"]
 length = 0.001
@@ -175,17 +172,20 @@ offset_bottom = 43.0
 theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
-modulate = Color(0.0352941, 0.0117647, 0, 1)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1.0
-offset_bottom = -4.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Texture2D_ko2dj")
+texture = ExtResource("7_yu70c")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -193,6 +193,7 @@ offset_bottom = 9.0
 text = "Mage / Total des 5"
 
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 60.0
