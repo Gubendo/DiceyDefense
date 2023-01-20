@@ -1,0 +1,1015 @@
+[gd_scene load_steps=25 format=3 uid="uid://bwcochpom2701"]
+
+[ext_resource type="Theme" uid="uid://c1ti6brqucknh" path="res://Themes/Statistics.tres" id="1_1adu2"]
+[ext_resource type="Script" path="res://Scripts/UI/Statistics.gd" id="1_5haf2"]
+[ext_resource type="Texture2D" uid="uid://c26jgiqcdf4de" path="res://Sprites/UI/menu/statistics.png" id="3_n70x4"]
+[ext_resource type="Texture2D" uid="uid://p522hf6xt2ih" path="res://Sprites/Units/king.png" id="4_djdbp"]
+[ext_resource type="Texture2D" uid="uid://dccfoc68ajb6a" path="res://Sprites/Units/soldier.png" id="4_qci2x"]
+[ext_resource type="Texture2D" uid="uid://bw24p5hfsc5j4" path="res://Sprites/Units/archer.png" id="5_gdjc4"]
+[ext_resource type="Texture2D" uid="uid://ckmvqsaa135da" path="res://Sprites/Units/corgi.png" id="6_c0rv3"]
+[ext_resource type="Texture2D" uid="uid://bvvkfmt5si3kt" path="res://Sprites/Units/bard.png" id="7_j4uus"]
+[ext_resource type="Texture2D" uid="uid://dtom1n33r4ufi" path="res://Sprites/Units/mage.png" id="8_m3irg"]
+[ext_resource type="Texture2D" uid="uid://due1dx8yxbyj" path="res://Sprites/Units/paladin.png" id="9_lmmlc"]
+[ext_resource type="Texture2D" uid="uid://cc4w3ggjukxpt" path="res://Sprites/Units/builder.png" id="10_6y508"]
+[ext_resource type="Texture2D" uid="uid://cw1ywqgubabre" path="res://Sprites/Units/bourreau.png" id="11_8f0d4"]
+[ext_resource type="Texture2D" uid="uid://cj0ic6mgggg88" path="res://Sprites/Units/tavernier.png" id="13_x4qvr"]
+[ext_resource type="Texture2D" uid="uid://bfopw53ndx53" path="res://Sprites/Units/scientist.png" id="14_ujqai"]
+[ext_resource type="Texture2D" uid="uid://bdcpgtaiwadjy" path="res://Sprites/Units/ingeJR.png" id="14_w743u"]
+[ext_resource type="Texture2D" uid="uid://dynthxoe0d53o" path="res://Sprites/Units/ingeSR.png" id="15_spcbl"]
+[ext_resource type="Texture2D" uid="uid://guxmgpf3kjnl" path="res://Sprites/Units/colosse.png" id="16_18dqe"]
+[ext_resource type="Texture2D" uid="uid://euskiuanfoc1" path="res://Sprites/Enemies/gobelin.png" id="18_dhsvr"]
+[ext_resource type="Texture2D" uid="uid://kekmthdcbpkx" path="res://Sprites/Enemies/bobelin.png" id="19_skpct"]
+[ext_resource type="Texture2D" uid="uid://v5ljdrursxcl" path="res://Sprites/Enemies/banner.png" id="20_8rdyi"]
+[ext_resource type="Texture2D" uid="uid://dpi4lh23nk163" path="res://Sprites/Enemies/undead.png" id="21_t5vkt"]
+[ext_resource type="Texture2D" uid="uid://db16xvgwhxfw1" path="res://Sprites/Enemies/beefy.png" id="22_pvdfs"]
+[ext_resource type="Texture2D" uid="uid://hht6ty7veniu" path="res://Sprites/Enemies/wisp.png" id="23_4f6f8"]
+[ext_resource type="Texture2D" uid="uid://dpgag5fa3dl0m" path="res://Sprites/UI/menu/menu-close.png" id="24_otfxp"]
+
+[node name="Statistics" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1adu2")
+
+[node name="Container" type="Container" parent="."]
+offset_left = 252.0
+offset_top = 87.0
+offset_right = 1652.0
+offset_bottom = 987.0
+script = ExtResource("1_5haf2")
+
+[node name="TextureRect" type="TextureRect" parent="Container"]
+clip_contents = true
+custom_minimum_size = Vector2(1400, 900)
+texture = ExtResource("3_n70x4")
+ignore_texture_size = true
+
+[node name="HFlowContainer" type="VBoxContainer" parent="Container"]
+
+[node name="Title" type="Label" parent="Container/HFlowContainer"]
+offset_left = 467.0
+offset_right = 933.0
+offset_bottom = 80.0
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 64
+text = "Statistiques de la partie"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/HFlowContainer"]
+offset_top = 84.0
+offset_right = 1400.0
+offset_bottom = 138.0
+alignment = 1
+
+[node name="Data" type="Label" parent="Container/HFlowContainer/HBoxContainer"]
+offset_left = 266.0
+offset_right = 431.0
+offset_bottom = 54.0
+size_flags_horizontal = 6
+text = "Vague 10/13 "
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Container/HFlowContainer/HBoxContainer"]
+offset_left = 944.0
+offset_right = 1157.0
+offset_bottom = 54.0
+size_flags_horizontal = 6
+text = "Score global : 50"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/HFlowContainer"]
+offset_top = 142.0
+offset_right = 1400.0
+offset_bottom = 892.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TabContainer" type="TabContainer" parent="Container/HFlowContainer/MarginContainer"]
+custom_minimum_size = Vector2(1300, 650)
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1350.0
+offset_bottom = 700.0
+tab_alignment = 2
+
+[node name="Unités" type="ScrollContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 66.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités"]
+clip_contents = true
+offset_right = 1292.0
+offset_bottom = 1688.0
+size_flags_horizontal = 3
+
+[node name="King" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_right = 1292.0
+offset_bottom = 112.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("4_djdbp")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 215.0
+offset_bottom = 83.0
+text = "Roi Mysa"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King"]
+offset_left = 656.0
+offset_right = 854.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King/VBoxContainer"]
+offset_right = 198.0
+offset_bottom = 54.0
+text = "Dés lancés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King/VBoxContainer"]
+offset_top = 58.0
+offset_right = 198.0
+offset_bottom = 112.0
+text = "Dégâts subis : "
+
+[node name="HSeparator13" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 116.0
+offset_right = 1292.0
+offset_bottom = 120.0
+
+[node name="Soldier" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 124.0
+offset_right = 1292.0
+offset_bottom = 236.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("4_qci2x")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 182.0
+offset_bottom = 83.0
+text = "Soldat"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier"]
+offset_left = 628.0
+offset_right = 850.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Ennemi tués : "
+
+[node name="HSeparator" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 240.0
+offset_right = 1292.0
+offset_bottom = 244.0
+
+[node name="Archer" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 248.0
+offset_right = 1292.0
+offset_bottom = 360.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("5_gdjc4")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 191.0
+offset_bottom = 83.0
+text = "Archer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer"]
+offset_left = 632.0
+offset_right = 854.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Ennemi tués : "
+
+[node name="HSeparator2" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 364.0
+offset_right = 1292.0
+offset_bottom = 368.0
+
+[node name="Toffee" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 372.0
+offset_right = 1292.0
+offset_bottom = 484.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("6_c0rv3")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 191.0
+offset_bottom = 83.0
+text = "Toffee"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee"]
+offset_left = 632.0
+offset_right = 854.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Ennemi tués : "
+
+[node name="HSeparator3" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 488.0
+offset_right = 1292.0
+offset_bottom = 492.0
+
+[node name="Bard" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 496.0
+offset_right = 1292.0
+offset_bottom = 596.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("7_j4uus")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard"]
+offset_left = 104.0
+offset_top = 23.0
+offset_right = 179.0
+offset_bottom = 77.0
+text = "Barde"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard"]
+offset_left = 617.0
+offset_right = 857.0
+offset_bottom = 100.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard/VBoxContainer"]
+offset_top = 23.0
+offset_right = 240.0
+offset_bottom = 77.0
+text = "Unités boostées : "
+
+[node name="HSeparator4" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 600.0
+offset_right = 1292.0
+offset_bottom = 604.0
+
+[node name="Mage" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 608.0
+offset_right = 1292.0
+offset_bottom = 720.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("8_m3irg")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 182.0
+offset_bottom = 83.0
+text = "Soldat"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage"]
+offset_left = 628.0
+offset_right = 850.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Temps ralenti : "
+
+[node name="HSeparator5" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 724.0
+offset_right = 1292.0
+offset_bottom = 728.0
+
+[node name="Paladin" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 732.0
+offset_right = 1292.0
+offset_bottom = 844.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("9_lmmlc")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 191.0
+offset_bottom = 83.0
+text = "Paladin"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin"]
+offset_left = 632.0
+offset_right = 854.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Ennemi tués : "
+
+[node name="HSeparator6" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 848.0
+offset_right = 1292.0
+offset_bottom = 852.0
+
+[node name="Builder" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 856.0
+offset_right = 1292.0
+offset_bottom = 968.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("10_6y508")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 227.0
+offset_bottom = 83.0
+text = "Bâtisseur"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder"]
+offset_left = 650.0
+offset_right = 872.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Dégâts reçus : "
+
+[node name="HSeparator7" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 972.0
+offset_right = 1292.0
+offset_bottom = 976.0
+
+[node name="Bourreau" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 980.0
+offset_right = 1292.0
+offset_bottom = 1092.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("11_8f0d4")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 221.0
+offset_bottom = 83.0
+text = "Bourreau"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau"]
+offset_left = 626.0
+offset_right = 890.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau/VBoxContainer"]
+offset_right = 264.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau/VBoxContainer"]
+offset_top = 58.0
+offset_right = 264.0
+offset_bottom = 112.0
+text = "Ennemis exécutés : "
+
+[node name="HSeparator8" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 1096.0
+offset_right = 1292.0
+offset_bottom = 1100.0
+
+[node name="Tavernier" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 1104.0
+offset_right = 1292.0
+offset_bottom = 1204.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("13_x4qvr")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier"]
+offset_left = 104.0
+offset_top = 23.0
+offset_right = 227.0
+offset_bottom = 77.0
+text = "Tavernier"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier"]
+offset_left = 640.0
+offset_right = 883.0
+offset_bottom = 100.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier/VBoxContainer"]
+offset_top = 23.0
+offset_right = 243.0
+offset_bottom = 77.0
+text = "Verres nettoyés : "
+
+[node name="HSeparator9" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 1208.0
+offset_right = 1292.0
+offset_bottom = 1212.0
+
+[node name="Charlatan" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 1216.0
+offset_right = 1292.0
+offset_bottom = 1316.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("14_ujqai")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan"]
+offset_left = 104.0
+offset_top = 23.0
+offset_right = 227.0
+offset_bottom = 77.0
+text = "Charlatan"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan"]
+offset_left = 622.0
+offset_right = 901.0
+offset_bottom = 100.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan/VBoxContainer"]
+offset_top = 23.0
+offset_right = 279.0
+offset_bottom = 77.0
+text = "Dés bonus obtenus : "
+
+[node name="HSeparator14" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 1320.0
+offset_right = 1292.0
+offset_bottom = 1324.0
+
+[node name="IngeJR" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 1328.0
+offset_right = 1292.0
+offset_bottom = 1440.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("14_w743u")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 260.0
+offset_bottom = 83.0
+text = "Ingénieur JR"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR"]
+offset_left = 667.0
+offset_right = 889.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Ennemis tués : "
+
+[node name="HSeparator10" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 1444.0
+offset_right = 1292.0
+offset_bottom = 1448.0
+
+[node name="IngeSR" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 1452.0
+offset_right = 1292.0
+offset_bottom = 1564.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("15_spcbl")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 260.0
+offset_bottom = 83.0
+text = "Ingénieur SR"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR"]
+offset_left = 667.0
+offset_right = 889.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Ennemis tués : "
+
+[node name="HSeparator11" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+offset_top = 1568.0
+offset_right = 1292.0
+offset_bottom = 1572.0
+
+[node name="Colosse" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 1576.0
+offset_right = 1292.0
+offset_bottom = 1688.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("16_18dqe")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 203.0
+offset_bottom = 83.0
+text = "Colosse"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse"]
+offset_left = 638.0
+offset_right = 860.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse/VBoxContainer"]
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Dégats infligés : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse/VBoxContainer"]
+offset_top = 58.0
+offset_right = 222.0
+offset_bottom = 112.0
+text = "Ennemis tués : "
+
+[node name="Ennemis" type="ScrollContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 66.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis"]
+clip_contents = true
+offset_right = 1300.0
+offset_bottom = 864.0
+size_flags_horizontal = 3
+
+[node name="Gobelin" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_right = 1292.0
+offset_bottom = 112.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("18_dhsvr")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 194.0
+offset_bottom = 83.0
+text = "Gobelin"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin"]
+offset_left = 641.0
+offset_right = 848.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin/VBoxContainer"]
+offset_right = 207.0
+offset_bottom = 54.0
+text = "Nombre tués : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin/VBoxContainer"]
+offset_top = 58.0
+offset_right = 207.0
+offset_bottom = 112.0
+text = "Dégats au roi : "
+
+[node name="HSeparator13" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+offset_top = 116.0
+offset_right = 1292.0
+offset_bottom = 120.0
+
+[node name="Bobelin" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 124.0
+offset_right = 1292.0
+offset_bottom = 236.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("19_skpct")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 194.0
+offset_bottom = 83.0
+text = "Bobelin"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin"]
+offset_left = 641.0
+offset_right = 848.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin/VBoxContainer"]
+offset_right = 207.0
+offset_bottom = 54.0
+text = "Nombre tués : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin/VBoxContainer"]
+offset_top = 58.0
+offset_right = 207.0
+offset_bottom = 112.0
+text = "Dégats au roi : "
+
+[node name="HSeparator" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+offset_top = 240.0
+offset_right = 1292.0
+offset_bottom = 244.0
+
+[node name="Banner" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 248.0
+offset_right = 1292.0
+offset_bottom = 360.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("20_8rdyi")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 341.0
+offset_bottom = 83.0
+text = "Bobelin à bannière"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner"]
+offset_left = 715.0
+offset_right = 922.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner/VBoxContainer"]
+offset_right = 207.0
+offset_bottom = 54.0
+text = "Nombre tués : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner/VBoxContainer"]
+offset_top = 58.0
+offset_right = 207.0
+offset_bottom = 112.0
+text = "Dégats au roi : "
+
+[node name="HSeparator2" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+offset_top = 364.0
+offset_right = 1292.0
+offset_bottom = 368.0
+
+[node name="Undead" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 372.0
+offset_right = 1292.0
+offset_bottom = 484.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("21_t5vkt")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 221.0
+offset_bottom = 83.0
+text = "Réprouvé"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead"]
+offset_left = 655.0
+offset_right = 862.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead/VBoxContainer"]
+offset_right = 207.0
+offset_bottom = 54.0
+text = "Nombre tués : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead/VBoxContainer"]
+offset_top = 58.0
+offset_right = 207.0
+offset_bottom = 112.0
+text = "Dégats au roi : "
+
+[node name="HSeparator3" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+offset_top = 488.0
+offset_right = 1292.0
+offset_bottom = 492.0
+
+[node name="Beefy" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 496.0
+offset_right = 1292.0
+offset_bottom = 608.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("22_pvdfs")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 179.0
+offset_bottom = 83.0
+text = "Beefy"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy"]
+offset_left = 634.0
+offset_right = 841.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy/VBoxContainer"]
+offset_right = 207.0
+offset_bottom = 54.0
+text = "Nombre tués : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy/VBoxContainer"]
+offset_top = 58.0
+offset_right = 207.0
+offset_bottom = 112.0
+text = "Dégats au roi : "
+
+[node name="HSeparator4" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+offset_top = 612.0
+offset_right = 1292.0
+offset_bottom = 616.0
+
+[node name="Wisp" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 620.0
+offset_right = 1292.0
+offset_bottom = 732.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("23_4f6f8")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 164.0
+offset_bottom = 83.0
+text = "Wisp"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp"]
+offset_left = 626.0
+offset_right = 833.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp/VBoxContainer"]
+offset_right = 207.0
+offset_bottom = 54.0
+text = "Nombre tués : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp/VBoxContainer"]
+offset_top = 58.0
+offset_right = 207.0
+offset_bottom = 112.0
+text = "Dégats au roi : "
+
+[node name="HSeparator5" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+offset_top = 736.0
+offset_right = 1292.0
+offset_bottom = 740.0
+
+[node name="Boss" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+custom_minimum_size = Vector2(1100, 0)
+offset_top = 744.0
+offset_right = 1292.0
+offset_bottom = 856.0
+
+[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 112.0
+texture = ExtResource("9_lmmlc")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss"]
+offset_left = 104.0
+offset_top = 29.0
+offset_right = 167.0
+offset_bottom = 83.0
+text = "Boss"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss"]
+offset_left = 628.0
+offset_right = 835.0
+offset_bottom = 112.0
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss/VBoxContainer"]
+offset_right = 207.0
+offset_bottom = 54.0
+text = "Nombre tués : "
+
+[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss/VBoxContainer"]
+offset_top = 58.0
+offset_right = 207.0
+offset_bottom = 112.0
+text = "Dégats au roi : "
+
+[node name="HSeparator6" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+offset_top = 860.0
+offset_right = 1292.0
+offset_bottom = 864.0
+
+[node name="Close" type="TextureButton" parent="."]
+offset_left = 1600.0
+offset_top = 91.0
+offset_right = 1664.0
+offset_bottom = 155.0
+texture_normal = ExtResource("24_otfxp")
+stretch_mode = 0
+
+[connection signal="pressed" from="Close" to="Container" method="close_window"]

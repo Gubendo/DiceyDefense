@@ -27,13 +27,13 @@ func _process(delta: float) -> void:
 
 func damage_aoe() -> void:
 	for enemy in get_all_enemies():
-		if abs(global_position.distance_to(enemy.global_position)) < aoe_range:
+		if abs(global_position.distance_to(enemy.global_position)) < aoe_range and not enemy.flying:
 			enemy.take_dmg(damage)
 			
-func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float) -> Vector2:
-	var q0: Vector2 = p0.lerp(p1, t)
-	var q1: Vector2 = p1.lerp(p2, t)
-	var r: Vector2 = q0.lerp(q1, t)
+func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, tau: float) -> Vector2:
+	var q0: Vector2 = p0.lerp(p1, tau)
+	var q1: Vector2 = p1.lerp(p2, tau)
+	var r: Vector2 = q0.lerp(q1, tau)
 	
 	return r
 	

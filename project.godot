@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Dicey Defense"
-run/main_scene="res://Scenes/menu.tscn"
+run/main_scene="res://Scenes/UI/menu.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameData="*res://Singletons/GameData.gd"
-SaveSystem="*res://Scripts/SaveSystem.gd"
-GlobalSettings="*res://Scripts/global_settings.gd"
+SaveSystem="*res://Scripts/GameManager/SaveSystem.gd"
+GlobalSettings="*res://Scripts/GameManager/global_settings.gd"
 
 [display]
 

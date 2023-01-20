@@ -31,10 +31,10 @@ func slow_unit() -> void:
 		target.apply_slow(slow_value, slow_duration)
 		target.take_dmg(damage)
 			
-func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float) -> Vector2:
-	var q0: Vector2 = p0.lerp(p1, t)
-	var q1: Vector2 = p1.lerp(p2, t)
-	var r: Vector2 = q0.lerp(q1, t)
+func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, tau: float) -> Vector2:
+	var q0: Vector2 = p0.lerp(p1, tau)
+	var q1: Vector2 = p1.lerp(p2, tau)
+	var r: Vector2 = q0.lerp(q1, tau)
 	
 	return r
 

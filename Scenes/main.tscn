@@ -1,8 +1,8 @@
-[gd_scene load_steps=42 format=3 uid="uid://4gnc4coty71j"]
+[gd_scene load_steps=42 format=3 uid="uid://cth8bms3qfisl"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_f05js"]
-[ext_resource type="PackedScene" uid="uid://qtjdanx52u8x" path="res://Scenes/UI.tscn" id="2_sfx10"]
-[ext_resource type="Script" path="res://Scripts/YamsManager.gd" id="3_ounvy"]
+[ext_resource type="Script" path="res://Scripts/GameManager/main.gd" id="1_a2r2q"]
+[ext_resource type="PackedScene" uid="uid://bun7i7uxqwed7" path="res://Scenes/UI/UI.tscn" id="2_sfx10"]
+[ext_resource type="Script" path="res://Scripts/GameManager/YamsManager.gd" id="3_h24s8"]
 [ext_resource type="Texture2D" uid="uid://b5cwnsigjnr0o" path="res://tilesets/terrain.png" id="4_e4dkg"]
 [ext_resource type="PackedScene" uid="uid://d2nr00pp6mpou" path="res://Scenes/Decors/fire.tscn" id="5_nhojw"]
 [ext_resource type="PackedScene" uid="uid://dx1infx4o255x" path="res://Scenes/Units/Soldier.tscn" id="5_vqr24"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bgexw1j00dy5y" path="res://Sprites/Decors/stand3.png" id="8_iem1l"]
 [ext_resource type="PackedScene" uid="uid://d3n7ohhq5ufa0" path="res://Scenes/Units/Bard.tscn" id="9_pydge"]
 [ext_resource type="PackedScene" uid="uid://cur0ovc2dvg2t" path="res://Scenes/Units/Loup.tscn" id="10_3u7ec"]
-[ext_resource type="Script" path="res://Scripts/Camera.gd" id="10_f8dp1"]
 [ext_resource type="Texture2D" uid="uid://dd4d8p35u6tex" path="res://Animations/King/king-full.png" id="10_jl6pf"]
 [ext_resource type="Texture2D" uid="uid://bglvnffqpoc7p" path="res://Sprites/Decors/banner.png" id="10_rpsyb"]
 [ext_resource type="Texture2D" uid="uid://bq1do241bqxap" path="res://Sprites/UI/tooltips/tooltip-king.png" id="10_w244d"]
@@ -28,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bex6dbhhtj4hu" path="res://Scenes/Units/Colosse.tscn" id="15_iyrnu"]
 [ext_resource type="PackedScene" uid="uid://iyu3xrydx143" path="res://Scenes/Units/Tavernier.tscn" id="16_o5jxl"]
 [ext_resource type="PackedScene" uid="uid://ii2mha02m7ce" path="res://Scenes/Units/IngeJR.tscn" id="17_kbue6"]
+[ext_resource type="Script" path="res://Scripts/GameManager/Camera.gd" id="18_43vdd"]
 [ext_resource type="PackedScene" uid="uid://bqqsvp61boxyi" path="res://Scenes/Units/IngeSR.tscn" id="18_r0j2n"]
 [ext_resource type="PackedScene" uid="uid://bf7kg86uhym3h" path="res://Scenes/Decors/panneau.tscn" id="20_abjxm"]
 [ext_resource type="Texture2D" uid="uid://bsscl5l062gk0" path="res://Sprites/Decors/billot.png" id="20_cg4cb"]
@@ -409,12 +409,12 @@ _data = {
 point_count = 9
 
 [node name="Main" type="Node"]
-script = ExtResource("1_f05js")
+script = ExtResource("1_a2r2q")
 
 [node name="UI" parent="." instance=ExtResource("2_sfx10")]
 
 [node name="YamsManager" type="Node" parent="."]
-script = ExtResource("3_ounvy")
+script = ExtResource("3_h24s8")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -566,7 +566,7 @@ texture = ExtResource("11_v7a2r")
 position = Vector2(-247, -140)
 current = true
 zoom = Vector2(4, 4)
-script = ExtResource("10_f8dp1")
+script = ExtResource("18_43vdd")
 
 [node name="Temporary" type="Node" parent="."]
 

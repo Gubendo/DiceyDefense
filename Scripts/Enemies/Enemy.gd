@@ -123,7 +123,10 @@ func apply_slow(value: float, duration: float) -> void:
 func apply_bleed(value: float, duration: float, freq: float) -> void:
 	if not dead:
 		bleed_timer.start(duration)
-		bleed = bleed + value
+		if bleed != 0:
+			bleed = bleed + 0.5*value
+		else:
+			bleed = value
 		bleedFreq = freq
 		status_player.play("bleed")
 

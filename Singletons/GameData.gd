@@ -327,13 +327,13 @@ var trebuchet_stats: Dictionary = {
 	1: {
 		"damage": 25,
 		"cooldown": 6,
-		"aoe": 30,
+		"aoe": 25,
 		"range": 25
 	},
 	2: {
 		"damage": 30,
 		"cooldown": 5,
-		"aoe": 30,
+		"aoe": 25,
 		"range": 25
 	}
 }
@@ -498,8 +498,24 @@ var enemies_stats: Dictionary = {
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
-	0: [[30, "Undead", 1.2, 0]],
-	#0: [[1, "Beefy", 0, 0.5], [5, "Undead", 1, 0]],
-	#1: [[4, "Gobelin", 1, 1], [5, "Bobelin", 0.4, 0]],
-	#2: [[2, "Gobelin", 1, 1], [1, "Bobelin", 0, 0.2], [4, "Gobelin", 1, 0]]
+	# TRIVIAL
+	0: [[1, "Banner", 0, 0]],
+	# EASY
+	1: [[5, "Undead", 0.5, 0]],
+	2: [[1, "Banner", 0, 0.2], [10, "Gobelin", 0.8, 0.5], [1, "Banner", 0, 0.2], [5, "Gobelin", 0.8, 0.5]],
+	3: [[15, "Undead", 0.5, 1.5], [5, "Bobelin", 1, 0.5], [10, "Gobelin", 0.5, 1.5]],
+	# MEDIUM
+	4: [[6, "Undead", 0.5, 1], [1, "Beefy", 0, 2], [6, "Undead", 0.5, 1]],
+	5: [[10, "Bobelin", 0.3, 1.5], [10, "Gobelin", 0.5, 0.1], [15, "Wisp", 0.3, 1], [5, "Gobelin", 0.5, 0.5]],
+	6: [[10, "Wisp", 0.5, 0.5], [30, "Gobelin", 0.3, 0.5], [10, "Wisp", 0.5, 0.5]],
+	7: [[20, "Undead", 0.5], [1, "Beefy", 0, 1], [10, "Undead", 0.5], [1, "Beefy", 0, 1]],
+	# HARD : BUFF HP ENNEMIS x 2 (?)
+	8: [],
+	9: [],
+	# REALLY HARD
+	10: [],
+	11: [],
+	# HARDCORE (NEED PERFECT COMP)
+	12: []
+	
 }
