@@ -213,6 +213,7 @@ _data = {
 }
 
 [node name="Gobelin" type="PathFollow2D"]
+position = Vector2(0, 1)
 rotates = false
 loop = false
 script = ExtResource("1_j61eq")
@@ -223,13 +224,13 @@ scale = Vector2(1.5, 1.5)
 collision_mask = 3
 
 [node name="Sprite2d" type="Sprite2D" parent="CharacterBody2d"]
-position = Vector2(-1, 1.5)
+position = Vector2(-1.33333, 2)
 texture = ExtResource("2_nonl5")
 hframes = 5
 vframes = 3
 
 [node name="CollisionShape2d" type="CollisionShape2D" parent="CharacterBody2d"]
-position = Vector2(0.333333, 2.33333)
+position = Vector2(-4.76837e-07, 2.83333)
 shape = SubResource("RectangleShape2D_ix4sa")
 
 [node name="HealthBar" type="TextureProgressBar" parent="CharacterBody2d"]

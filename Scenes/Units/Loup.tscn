@@ -238,7 +238,7 @@ scale = Vector2(0.6, 0.6)
 
 [node name="BuffBack" type="Sprite2D" parent="Unit"]
 visible = false
-position = Vector2(2, 0)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_yi14f")
 hframes = 6
 
@@ -269,7 +269,8 @@ vframes = 2
 
 [node name="BuffFront" type="Sprite2D" parent="Unit"]
 visible = false
-position = Vector2(2, 0)
+position = Vector2(9.53674e-07, -4.76837e-07)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_xhko6")
 hframes = 6
 

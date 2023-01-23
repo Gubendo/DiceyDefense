@@ -497,24 +497,24 @@ var enemies_stats: Dictionary = {
 }
 
 
-var wave_data: Dictionary = { # [Nb of units, Name of unit, Time between units, Time after group]
+var wave_data: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
 	# TRIVIAL
-	0: [[1, "Banner", 0, 0]],
+	0: [[1, "Banner1", 1, 0, 0]],
 	# EASY
-	1: [[5, "Undead", 0.5, 0]],
-	2: [[1, "Banner", 0, 0.2], [10, "Gobelin", 0.8, 0.5], [1, "Banner", 0, 0.2], [5, "Gobelin", 0.8, 0.5]],
-	3: [[15, "Undead", 0.5, 1.5], [5, "Bobelin", 1, 0.5], [10, "Gobelin", 0.5, 1.5]],
+	1: [[5, "Undead1", 0.5, 0]],
+	2: [[1, "Banner1", 0, 0.2], [10, "Gobelin1", 0.8, 0.5], [1, "Banner1", 0, 0.2], [5, "Gobelin1", 0.8, 0.5]],
+	3: [[15, "Undead1", 0.5, 1.5], [5, "Bobelin1", 1, 0.5], [10, "Gobelin1", 0.5, 1.5]],
 	# MEDIUM
-	4: [[6, "Undead", 0.5, 1], [1, "Beefy", 0, 2], [6, "Undead", 0.5, 1]],
-	5: [[10, "Bobelin", 0.3, 1.5], [10, "Gobelin", 0.5, 0.1], [15, "Wisp", 0.3, 1], [5, "Gobelin", 0.5, 0.5]],
-	6: [[10, "Wisp", 0.5, 0.5], [30, "Gobelin", 0.3, 0.5], [10, "Wisp", 0.5, 0.5]],
-	7: [[20, "Undead", 0.5], [1, "Beefy", 0, 1], [10, "Undead", 0.5], [1, "Beefy", 0, 1]],
-	# HARD : BUFF HP ENNEMIS x 2 (?)
-	8: [],
-	9: [],
+	4: [[6, "Undead1", 0.5, 1], [1, "Beefy1", 0, 2], [6, "Undead1", 0.5, 1]],
+	5: [[10, "Bobelin1", 0.3, 1.5], [10, "Gobelin1", 0.5, 0.1], [15, "Wisp1", 0.3, 1], [5, "Gobelin1", 0.5, 0.5]],
+	6: [[10, "Wisp1", 0.5, 0.5], [30, "Gobelin1", 0.3, 0.5], [10, "Wisp1", 0.5, 0.5]],
+	7: [[20, "Undead1", 0.5, 0.5], [1, "Beefy1", 0, 1], [10, "Undead1", 0.5, 0.5], [1, "Beefy1", 0, 1]],
+	# HARD : BUFF HP ENNEMIS x 2 
+	8: [[5, "Wisp2", 0.5, 5], [1, "Beefy1", 0, 1.5], [10, "Undead2", 0.8, 0]],
+	9: [[20, "Gobelin2", 0.3, 3], [6, "Bobelin2", 0.5, 1], [12, "Undead2", 0.8, 0.2], [5, "Wisp2", 0.5, 3], [6, "Bobelin2", 0.5, 1]],
 	# REALLY HARD
-	10: [],
-	11: [],
+	10: [[3, "Beefy2", 3, 0]],
+	11: [[50, "Undead2", 0.8, 1]],
 	# HARDCORE (NEED PERFECT COMP)
 	12: []
 	

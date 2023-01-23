@@ -37,6 +37,11 @@ signal death(nexus_dmg)
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
+	rng.randomize()
+	init_stats()
+	#health_bar.set_as_top_level(true)
+
+func init_stats() -> void:
 	baseSpeed = GameData["enemies_stats"][enemy_name]["speed"]
 	baseHP = GameData["enemies_stats"][enemy_name]["health"]
 	damage = GameData["enemies_stats"][enemy_name]["damage"]
@@ -47,9 +52,15 @@ func _ready() -> void:
 	currentCD = baseCD
 	health_bar.max_value = baseHP
 	health_bar.value = currentHP
-	rng.randomize()
-	#health_bar.set_as_top_level(true)
-
+	
+func update_stats() -> void:
+	currentSpeed = baseSpeed
+	currentHP = baseHP
+	currentCD = baseCD
+	health_bar.max_value = baseHP
+	health_bar.value = currentHP
+	
+	
 func _physics_process(delta: float) -> void:
 	if progress_ratio >= 1.0 and not dead:
 		destroy(false)

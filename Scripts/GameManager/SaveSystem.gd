@@ -105,7 +105,7 @@ func load_game() -> void:
 		game_data = save_game.get_var()
 	
 	# HARDCODE ICI POUR CHEAT 
-	game_data["nexus_hp"] = 5
+	game_data["nexus_hp"] = 20
 		
 func reset_save() -> void:
 	var settings: Dictionary = game_data["settings"]

@@ -95,7 +95,6 @@ func _process(delta: float) -> void:
 			if node.get_global_rect().has_point(mousePos):
 				var dice_id: int = str(node.name).right(1).to_int() - 1
 				var hand = get_tree().get_root().get_node("Main").hand
-				print(dice_id)
 				if hand[dice_id] == 6: hand[dice_id] = 1
 				else: hand[dice_id] = hand[dice_id] + 1
 				get_tree().get_root().get_node("Main/YamsManager").calcul_hand(hand)

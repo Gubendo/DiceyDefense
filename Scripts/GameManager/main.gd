@@ -95,9 +95,15 @@ func retrieve_wave_data() -> Array:
 func spawn_enemies(wave_data: Array) -> void:
 	for group in wave_data:
 		for i in range(group[0]):
-			var new_enemy = load("res://Scenes/Enemies/" + group[1] + ".tscn").instantiate()
+			var new_enemy = load("res://Scenes/Enemies/" + group[1].left(-1) + ".tscn").instantiate()
 			new_enemy.death.connect(on_enemy_death)
 			$KingsRoad.add_child(new_enemy, true)
+			
+			if group[1].right(1) == "2":
+				new_enemy.get_node("CharacterBody2d/Sprite2d").modulate = Color("db874b")
+				new_enemy.baseHP = new_enemy.baseHP * 2
+				new_enemy.update_stats()
+				
 			await get_tree().create_timer(group[2]).timeout
 		await get_tree().create_timer(group[3]).timeout
 		
