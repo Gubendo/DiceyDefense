@@ -296,7 +296,6 @@ offset_bottom = 43.0
 theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -307,7 +306,6 @@ grow_vertical = 2
 texture = ExtResource("9_fnc0n")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -315,7 +313,6 @@ offset_bottom = 9.0
 text = "Toffee / Total des 3"
 
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 60.0

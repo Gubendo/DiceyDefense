@@ -101,6 +101,7 @@ func spawn_enemies(wave_data: Array) -> void:
 			
 			if group[1].right(1) == "2":
 				new_enemy.get_node("CharacterBody2d/Sprite2d").modulate = Color("db874b")
+				new_enemy.baseColor = Color("db874b")
 				new_enemy.baseHP = new_enemy.baseHP * 2
 				new_enemy.update_stats()
 				
@@ -153,12 +154,12 @@ func load_gamestate() -> void:
 		if unit_data["level"] == 0:
 			unit.queue_free()
 		elif unit_data["level"] > 0:
+			unit.level = unit_data["level"]
 			unit.on_activate()
 			unit.button.modulate = Color(1, 1, 1)
 			unit.button.disabled = true
 			unit.activated = true
 			unit.rangeSprite.modulate.a = 0
-			unit.level = unit_data["level"]
 			unit.damage_dealt = unit_data["damage"]
 			unit.update_tooltip()
 			

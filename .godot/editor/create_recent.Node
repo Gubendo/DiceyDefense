@@ -1,8 +1,11 @@
+AnimationPlayer
+Button
+TextureButton
+TextureRect
 Label
 TabContainer
 HSeparator
 VBoxContainer
-TextureRect
 HBoxContainer
 HFlowContainer
 VFlowContainer
@@ -12,7 +15,6 @@ Container
 HSlider
 Control
 TabBar
-TextureButton
 Window
 WorldEnvironment
 CheckButton
@@ -24,9 +26,7 @@ TextureProgressBar
 CanvasLayer
 ProgressBar
 Sprite2D
-AnimationPlayer
 CPUParticles2D
-Button
 Node
 AnimatedSprite2D
 RichTextLabel

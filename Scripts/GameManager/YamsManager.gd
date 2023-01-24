@@ -102,15 +102,15 @@ func calcul_full(hand: Array) -> Array:
 	
 func calcul_p_suite(hand: Array) -> Array:
 	var dices: Array = []
-	if 1 in hand and 2 in hand and 3 in hand and 4 in hand: return [30, [hand.find(1), hand.find(2), hand.find(3), hand.find(4)], 1]
+	if 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [30, [hand.find(3), hand.find(4), hand.find(5), hand.find(6)], 3]
 	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand: return [30, [hand.find(2), hand.find(3), hand.find(4), hand.find(5)], 2]
-	elif 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [30, [hand.find(3), hand.find(4), hand.find(5), hand.find(6)], 3]
+	elif 1 in hand and 2 in hand and 3 in hand and 4 in hand: return [30, [hand.find(1), hand.find(2), hand.find(3), hand.find(4)], 1]
 	else: return [0, dices, 0]
 	
 func calcul_g_suite(hand: Array) -> Array:
 	var dices: Array = []
-	if 1 in hand and 2 in hand and 3 in hand and 4 in hand and 5 in hand: return [40, [0, 1, 2, 3, 4], 1]
-	elif 2 in hand and 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [40, [0, 1, 2, 3, 4], 2]
+	if 2 in hand and 3 in hand and 4 in hand and 5 in hand and 6 in hand: return [40, [0, 1, 2, 3, 4], 2]
+	elif 1 in hand and 2 in hand and 3 in hand and 4 in hand and 5 in hand: return [40, [0, 1, 2, 3, 4], 1]
 	else: return [0, dices, 0]
 	
 func calcul_chance(hand: Array) -> Array:

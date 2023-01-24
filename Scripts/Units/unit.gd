@@ -172,9 +172,11 @@ func update_stats() -> void:
 	if level != 0:
 		range.scale = Vector2(stats[level]["range"] + 1, stats[level]["range"] + 1)
 		rangeSprite.modulate = Color(1, 1, 1, 0.3)
+		unitHover.modulate = Color(1, 1, 1, 1)
 	else:
 		range.scale = Vector2(2, 2)
 		rangeSprite.modulate = Color(1, 0, 0, 0.3)
+		unitHover.modulate = Color(1, 0, 0, 0.5)
 	
 
 func stat_color(stat:float, focus: bool) -> String:

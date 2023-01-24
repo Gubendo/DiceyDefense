@@ -8,6 +8,7 @@ var currentHP: float
 var impaired: bool = false
 var bleed: float = 0
 var bleedFreq: float = 0
+var baseColor: Color = Color(1, 1, 1)
 
 var blocked: bool = false
 var blockedBy: Node
@@ -87,7 +88,7 @@ func _physics_process(delta: float) -> void:
 		currentSpeed = baseSpeed
 		currentCD = baseCD
 		animation_player.playback_speed = 1
-		sprite.modulate = Color(1, 1, 1)
+		sprite.modulate = baseColor
 		impaired = false
 	if bleedFreq != 0 and bleed != 0 and bleed_frequency.time_left == 0:
 		take_dmg(bleed)

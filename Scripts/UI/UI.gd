@@ -19,8 +19,9 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var pauseMenu: Control = $CanvasLayer/Pause
 @onready var healthValue: Label = $CanvasLayer/Health/Value
 
-@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
+@onready var overlay_animation: AnimationPlayer = $CanvasLayer/OverlayAnimation
 @onready var text_animation: AnimationPlayer = $CanvasLayer/TextAnimation
+@onready var help_animation: AnimationPlayer = $CanvasLayer/HelpAnimation
 
 var overlay_animations: Dictionary = {true: "hide_overlay", false: "show_overlay"}
 
@@ -37,6 +38,7 @@ var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
 var coupsRestant: int
 
 var locked: bool = false
+var helpOpen: bool = false
 
 var save_system = SaveSystem
 # Called when the node enters the scene tree for the first time.
@@ -49,7 +51,7 @@ func _ready() -> void:
 	connect_signals()
 	update_dice_pos()
 	nouveau_coup()
-	animation_player.play("fade_overlay")
+	overlay_animation.play("fade_overlay")
 	
 	$CanvasLayer/Settings/Popup.settings_open.connect(lock_input)
 	$CanvasLayer/Settings/Popup.settings_close.connect(unlock_input)
@@ -72,6 +74,14 @@ func connect_signals() -> void:
 	statsButton.pressed.connect(stats)
 	restartButton.pressed.connect(restart)
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("echap") and not locked and not event.is_echo():
+		get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed = !get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed
+		on_PausePlay_pressed()
+	elif Input.is_action_just_pressed("echap") and helpOpen and not event.is_echo():
+		trigger_help()
+	if Input.is_action_just_pressed("help") and not helpOpen and not locked and not event.is_echo():
+		trigger_help()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -167,7 +177,7 @@ func update_hand(hand: Array) -> void:
 		gobelet.get_node("Tooltip/nbLancers").text = str(coupsRestant) + " lancers restant"
 	
 func update_phase(waveStarted: bool, currentWave: int) -> void:
-	animation_player.play(overlay_animations[waveStarted])
+	overlay_animation.play(overlay_animations[waveStarted])
 	gobelet.get_node("Tooltip").visible = false
 	#$CanvasLayer/Vague/Controls.visible = waveStarted
 	
@@ -269,11 +279,25 @@ func game_over() -> void:
 	$CanvasLayer/GameOver.visible = true
 	
 func lock_input() -> void:
-	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 10)
+	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 11)
 	locked = true
 	
 func unlock_input() -> void:
 	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 4)
 	await get_tree().create_timer(0.01).timeout
 	locked = false
+	
+func trigger_help() -> void:
+	if helpOpen: 
+		help_animation.play("hide_help")
+		helpOpen = false
+		unlock_input()
+	else:
+		if !get_tree().is_paused():
+			get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed = !get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed
+			on_PausePlay_pressed()
+			
+		help_animation.play("show_help")
+		helpOpen = true
+		lock_input()
 

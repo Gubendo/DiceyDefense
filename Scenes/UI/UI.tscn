@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bun7i7uxqwed7"]
+[gd_scene load_steps=45 format=3 uid="uid://coovnmiomy3xa"]
 
 [ext_resource type="Texture2D" uid="uid://cfcauj2hcs18i" path="res://Sprites/UI/dices/dice1-color.png" id="2_r6pxl"]
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="2_re0bi"]
@@ -22,8 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://cp5d76wfeqgrx" path="res://Sprites/UI/HUD/speed.png" id="20_4t0kd"]
 [ext_resource type="Texture2D" uid="uid://drsggjl0ha5n" path="res://Sprites/UI/HUD/speed-toggle.png" id="21_jffsl"]
 [ext_resource type="FontFile" uid="uid://cmgfklorvqr48" path="res://Fonts/Timmy-Regular.otf" id="21_r0fq3"]
-[ext_resource type="Script" path="res://Scripts/UI/Pause.gd" id="22_wml14"]
+[ext_resource type="Texture2D" uid="uid://e4y15syreyon" path="res://Sprites/UI/HUD/helpButton.png" id="22_asojs"]
 [ext_resource type="PackedScene" uid="uid://bwcochpom2701" path="res://Scenes/UI/statistics.tscn" id="24_kkpkk"]
+[ext_resource type="Texture2D" uid="uid://bcwflblflx8cv" path="res://Sprites/UI/menu/help.png" id="25_5kw5x"]
 
 [sub_resource type="Texture2D" id="Texture2D_i8shy"]
 resource_local_to_scene = false
@@ -274,7 +275,62 @@ _data = {
 "wavestart": SubResource("Animation_h8df7")
 }
 
+[sub_resource type="Animation" id="Animation_jx8tk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HelpMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, 1250)]
+}
+
+[sub_resource type="Animation" id="Animation_3bbl5"]
+resource_name = "hide_help"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HelpMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(330, 150), Vector2(330, 1250)]
+}
+
+[sub_resource type="Animation" id="Animation_nu8vu"]
+resource_name = "show_help"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HelpMenu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(330, 1250), Vector2(330, 150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlamf"]
+_data = {
+"RESET": SubResource("Animation_jx8tk"),
+"hide_help": SubResource("Animation_3bbl5"),
+"show_help": SubResource("Animation_nu8vu")
+}
+
 [node name="UI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -449,7 +505,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("Texture2D_v5van")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+[node name="OverlayAnimation" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 "": SubResource("AnimationLibrary_dibtf")
 }
@@ -457,6 +513,11 @@ libraries = {
 [node name="TextAnimation" type="AnimationPlayer" parent="CanvasLayer"]
 libraries = {
 "": SubResource("AnimationLibrary_8bf7g")
+}
+
+[node name="HelpAnimation" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_rlamf")
 }
 
 [node name="StartWave" type="RichTextLabel" parent="CanvasLayer"]
@@ -479,16 +540,6 @@ theme_override_fonts/normal_font = ExtResource("21_r0fq3")
 theme_override_font_sizes/normal_font_size = 100
 text = "Troupes ennemies en approche "
 fit_content_height = true
-
-[node name="FadeOverlay" type="TextureRect" parent="CanvasLayer"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("Texture2D_v5van")
 
 [node name="Vague" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -531,8 +582,6 @@ offset_bottom = 77.0
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3
 custom_minimum_size = Vector2(100, 0)
-offset_right = 100.0
-offset_bottom = 80.0
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("18_50do2")
@@ -543,9 +592,6 @@ stretch_mode = 0
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 1
 custom_minimum_size = Vector2(100, 0)
-offset_left = 104.0
-offset_right = 204.0
-offset_bottom = 80.0
 toggle_mode = true
 texture_normal = ExtResource("20_4t0kd")
 texture_pressed = ExtResource("21_jffsl")
@@ -557,7 +603,6 @@ process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("17_oh6jq")
-script = ExtResource("22_wml14")
 
 [node name="Options" type="Button" parent="CanvasLayer/Pause"]
 process_mode = 3
@@ -599,12 +644,45 @@ offset_bottom = 1075.0
 theme_override_font_sizes/font_size = 50
 text = "Quitter"
 
+[node name="HelpButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 70.0
+offset_top = 923.0
+offset_right = 170.0
+offset_bottom = 1023.0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("22_asojs")
+
 [node name="Settings" parent="CanvasLayer" instance=ExtResource("17_v553p")]
 visible = false
 
 [node name="Statistics" parent="CanvasLayer" instance=ExtResource("24_kkpkk")]
 process_mode = 3
 visible = false
+
+[node name="HelpMenu" type="TextureRect" parent="CanvasLayer"]
+offset_left = 330.0
+offset_top = 1250.0
+offset_right = 842.0
+offset_bottom = 2066.0
+texture = ExtResource("25_5kw5x")
+
+[node name="Close" type="Button" parent="CanvasLayer/HelpMenu"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 423.0
+offset_top = 741.0
+offset_right = 523.0
+offset_bottom = 869.0
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeOverlay" type="TextureRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_v5van")
 
 [node name="GameOver" type="Control" parent="CanvasLayer"]
 visible = false
@@ -646,4 +724,5 @@ theme_override_fonts/font = ExtResource("21_r0fq3")
 theme_override_font_sizes/font_size = 60
 text = "Les ennemis ont pris possession de la cité"
 
-[connection signal="pause" from="CanvasLayer/Pause" to="." method="on_PausePlay_pressed"]
+[connection signal="pressed" from="CanvasLayer/HelpButton" to="." method="trigger_help"]
+[connection signal="pressed" from="CanvasLayer/HelpMenu/Close" to="." method="trigger_help"]

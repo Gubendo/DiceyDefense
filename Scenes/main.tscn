@@ -1,7 +1,7 @@
 [gd_scene load_steps=42 format=3 uid="uid://cth8bms3qfisl"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager/main.gd" id="1_a2r2q"]
-[ext_resource type="PackedScene" uid="uid://bun7i7uxqwed7" path="res://Scenes/UI/UI.tscn" id="2_sfx10"]
+[ext_resource type="PackedScene" uid="uid://coovnmiomy3xa" path="res://Scenes/UI/UI.tscn" id="2_sfx10"]
 [ext_resource type="Script" path="res://Scripts/GameManager/YamsManager.gd" id="3_h24s8"]
 [ext_resource type="Texture2D" uid="uid://b5cwnsigjnr0o" path="res://tilesets/terrain.png" id="4_e4dkg"]
 [ext_resource type="PackedScene" uid="uid://d2nr00pp6mpou" path="res://Scenes/Decors/fire.tscn" id="5_nhojw"]
