@@ -9,7 +9,7 @@ func special() -> void:
 	pass
 
 func on_activate() -> void:
-	var ui = get_tree().get_root().get_node("Main/UI")
+	var ui = $/root/Main/UI
 	ui.nbRolls += stats[level]["bonus_roll"]
 
 	

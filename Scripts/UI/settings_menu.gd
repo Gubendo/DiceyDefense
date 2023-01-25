@@ -2,10 +2,10 @@ extends Container
 
 
 # Video 
-@onready var display_btn: OptionButton = get_node("TabContainer/Vidéo/MarginContainer/GridContainer/AffichageBtn")
-@onready var vsync_btn: CheckButton = get_node("TabContainer/Vidéo/MarginContainer/GridContainer/VSyncBtn")
-@onready var brightness_slider: HSlider = get_node("TabContainer/Vidéo/MarginContainer/GridContainer/BrightnessBtn")
-@onready var glow_slider: HSlider = get_node("TabContainer/Vidéo/MarginContainer/GridContainer/GlowBtn")
+@onready var display_btn: OptionButton = $"TabContainer/Vidéo/MarginContainer/GridContainer/AffichageBtn"
+@onready var vsync_btn: CheckButton = $"TabContainer/Vidéo/MarginContainer/GridContainer/VSyncBtn"
+@onready var brightness_slider: HSlider = $"TabContainer/Vidéo/MarginContainer/GridContainer/BrightnessBtn"
+@onready var glow_slider: HSlider = $"TabContainer/Vidéo/MarginContainer/GridContainer/GlowBtn"
 # Audio
 @onready var master_slider: HSlider = $TabContainer/Audio/MarginContainer/GridContainer/MasterSlider
 @onready var music_slider: HSlider = $TabContainer/Audio/MarginContainer/GridContainer/MusicSlider

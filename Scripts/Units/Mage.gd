@@ -30,4 +30,4 @@ func shoot_frostbolt() -> void:
 	bolt.slow_value = 0.5
 	bolt.slow_duration = stats[level]["duration"]
 	bolt.speed_factor = 4
-	get_tree().get_root().get_node("Main/Temporary").add_child(bolt)
+	$/root/Main/Temporary.add_child(bolt)

@@ -38,8 +38,8 @@ func repair_barricade() -> void:
 
 func build_barricade(b_position: Vector2) -> void:
 	var barricade = barricadeTemp.instantiate()
-	get_tree().get_root().get_node("Main").add_child(barricade)
-	get_tree().get_root().get_node("Main").move_child(barricade, 7)
+	$/root/Main.add_child(barricade)
+	$/root/Main.move_child(barricade, 7)
 	barricade.position = b_position
 	barricade.baseHP = stats[level]["health"]
 	barricade.thorns = stats[level]["damage"]

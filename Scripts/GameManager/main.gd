@@ -209,7 +209,7 @@ func buff_barracks() -> void:
 	nexus_hp += 30
 	$UI.update_health(nexus_hp)
 	
-	var shield_animation: AnimationPlayer = $UI.get_node("CanvasLayer/Health/AnimationPlayer")
+	var shield_animation: AnimationPlayer = $UI/CanvasLayer/Health/AnimationPlayer
 	shield_animation.play("upgrade_shield_no_glow")
 	await shield_animation.animation_finished
 	shield_animation.play("shield_sparkle")

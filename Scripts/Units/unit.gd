@@ -11,7 +11,7 @@ extends Node2D
 @onready var particles: CPUParticles2D = $Particles
 
 @onready var stats: Dictionary = GameData.unit_data[unitName]["stats"]
-@onready var yamsMgr: Node = get_tree().get_root().get_node("Main/YamsManager")
+@onready var yamsMgr: Node = $/root/Main/YamsManager
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var status_player: AnimationPlayer = $StatusPlayer
@@ -121,14 +121,14 @@ func select_enemy() -> void:
 		enemies_in_range = []
 		
 func get_all_enemies() -> Array:
-	return get_tree().get_root().get_node("Main/KingsRoad").get_children()
+	return $/root/Main/KingsRoad.get_children()
 
 func get_all_allies() -> Array:
-	return get_tree().get_root().get_node("Main/Units").get_children()
+	return $/root/Main/Units.get_children()
 
 func show_target(unit: String) -> void:
 	if unitName == unit:
-		for enemy in get_tree().get_root().get_node("Main/KingsRoad").get_children():
+		for enemy in $/root/Main/KingsRoad.get_children():
 			if enemy == target:
 				enemy.sprite.modulate = Color(0, 0, 1)
 			else:
@@ -213,10 +213,10 @@ func disable_tooltip() -> void:
 	unhighlight_dices()
 
 func highlight_dices() -> void:
-	get_tree().get_root().get_node("Main/UI").highlight_dices(GameData.unit_data[unitName]["value"])
+	$/root/Main/UI.highlight_dices(GameData.unit_data[unitName]["value"])
 	
 func unhighlight_dices() -> void:
-	get_tree().get_root().get_node("Main/UI").unhighlight_dices()
+	$/root/Main/UI.unhighlight_dices()
 
 ### ANIMATIONS ###
 func attack_anim() -> void:

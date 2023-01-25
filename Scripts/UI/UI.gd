@@ -76,7 +76,7 @@ func connect_signals() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("echap") and not locked and not event.is_echo():
-		get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed = !get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed
+		$CanvasLayer/Vague/Controls/PausePlay.button_pressed = !$CanvasLayer/Vague/Controls/PausePlay.button_pressed
 		on_PausePlay_pressed()
 	elif Input.is_action_just_pressed("echap") and helpOpen and not event.is_echo():
 		trigger_help()
@@ -104,18 +104,18 @@ func _process(delta: float) -> void:
 		for node in dicesList:
 			if node.get_global_rect().has_point(mousePos):
 				var dice_id: int = str(node.name).right(1).to_int() - 1
-				var hand = get_tree().get_root().get_node("Main").hand
+				var hand = $/root/Main.hand
 				if hand[dice_id] == 6: hand[dice_id] = 1
 				else: hand[dice_id] = hand[dice_id] + 1
-				get_tree().get_root().get_node("Main/YamsManager").calcul_hand(hand)
+				$/root/Main/YamsManager.calcul_hand(hand)
 				update_hand(hand)
-				for unit in get_tree().get_root().get_node("Main/Units").get_children():
+				for unit in $/root/Main/Units.get_children():
 					if !unit.activated : 
-						unit.level = get_tree().get_root().get_node("Main/YamsManager").combinaisons[GameData.unit_data[unit.name]["value"]][2]
+						unit.level = $/root/Main/YamsManager.combinaisons[GameData.unit_data[unit.name]["value"]][2]
 				break
 	
 		
-	var enemies: float = get_tree().get_root().get_node("Main").enemies_in_wave
+	var enemies: float = $/root/Main.enemies_in_wave
 	if enemies == 0: remainingEnemies.text = "Ennemis vaincus !"
 	elif enemies == 1: remainingEnemies.text = "1 ennemi restant"
 	else: remainingEnemies.text = str(enemies) + " ennemis restant"
@@ -190,14 +190,6 @@ func update_phase(waveStarted: bool, currentWave: int) -> void:
 		waveNumber.text = "Prochaine vague : " + str(currentWave + 1) + "/13"
 		remainingEnemies.visible = false
 		
-
-func update_grille(grille: Dictionary) -> void:
-	$CanvasLayer/Grille.text = "Grille (DEV)\n\nTotal des 1 : {0}\nTotal des 2 : {1}\nTotal des 3 : {2}
-	Total des 4 : {3}\nTotal des 5 : {4}\nTotal des 6 : {5}\nBrelan : {6}\nCarré : {7}\nFull : {8}
-	Petite suite : {9}\nGrande suite : {10}\nChance : {11}\nYam's : {12}".format([
-	grille["total1"], grille["total2"], grille["total3"], grille["total4"], grille["total5"],
-	grille["total6"], grille["brelan"], grille["carre"], grille["full"], grille["p_suite"],
-	grille["g_suite"], grille["chance"], grille["yams"]])
 	
 func on_PausePlay_pressed() -> void:
 	if get_tree().is_paused():
@@ -231,7 +223,7 @@ func get_random_pos_in_circle (radius : float, centerX: float, centerY: float) -
 	return Vector2(centerX + r*cos(theta), centerY + r*sin(theta))
 
 func highlight_dices(value: String) -> void:
-	var dices: Array = get_tree().get_root().get_node("Main/YamsManager").combinaisons[value][1]
+	var dices: Array = $/root/Main/YamsManager.combinaisons[value][1]
 	for i in range(5):
 		if i not in dices:
 			dicesList[i].modulate = Color(0.3, 0.3, 0.3)
@@ -294,7 +286,7 @@ func trigger_help() -> void:
 		unlock_input()
 	else:
 		if !get_tree().is_paused():
-			get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed = !get_node("CanvasLayer/Vague/Controls/PausePlay").button_pressed
+			$CanvasLayer/Vague/Controls/PausePlay.button_pressed = !$CanvasLayer/Vague/Controls/PausePlay.button_pressed
 			on_PausePlay_pressed()
 			
 		help_animation.play("show_help")

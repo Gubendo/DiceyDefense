@@ -35,980 +35,693 @@ grow_vertical = 2
 theme = ExtResource("1_1adu2")
 
 [node name="Container" type="Container" parent="."]
+layout_mode = 0
 offset_left = 252.0
 offset_top = 87.0
 offset_right = 1652.0
 offset_bottom = 987.0
 script = ExtResource("1_5haf2")
 
-[node name="TextureRect" type="TextureRect" parent="Container"]
+[node name="Background" type="TextureRect" parent="Container"]
 clip_contents = true
 custom_minimum_size = Vector2(1400, 900)
+layout_mode = 2
 texture = ExtResource("3_n70x4")
 ignore_texture_size = true
 
-[node name="HFlowContainer" type="VBoxContainer" parent="Container"]
+[node name="Header" type="VBoxContainer" parent="Container"]
+layout_mode = 2
 
-[node name="Title" type="Label" parent="Container/HFlowContainer"]
-offset_left = 467.0
-offset_right = 933.0
-offset_bottom = 80.0
+[node name="Title" type="Label" parent="Container/Header"]
+layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 64
 text = "Statistiques de la partie"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Container/HFlowContainer"]
-offset_top = 84.0
-offset_right = 1400.0
-offset_bottom = 138.0
+[node name="Scores" type="HBoxContainer" parent="Container/Header"]
+layout_mode = 2
 alignment = 1
 
-[node name="Data" type="Label" parent="Container/HFlowContainer/HBoxContainer"]
-offset_left = 266.0
-offset_right = 431.0
-offset_bottom = 54.0
+[node name="Vague" type="Label" parent="Container/Header/Scores"]
+layout_mode = 2
 size_flags_horizontal = 6
 text = "Vague 10/13 "
 horizontal_alignment = 1
 
-[node name="Score" type="Label" parent="Container/HFlowContainer/HBoxContainer"]
-offset_left = 944.0
-offset_right = 1157.0
-offset_bottom = 54.0
+[node name="Score" type="Label" parent="Container/Header/Scores"]
+layout_mode = 2
 size_flags_horizontal = 6
 text = "Score global : 50"
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Container/HFlowContainer"]
-offset_top = 142.0
-offset_right = 1400.0
-offset_bottom = 892.0
+[node name="Window" type="MarginContainer" parent="Container/Header"]
+layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="TabContainer" type="TabContainer" parent="Container/HFlowContainer/MarginContainer"]
+[node name="Tabs" type="TabContainer" parent="Container/Header/Window"]
 custom_minimum_size = Vector2(1300, 650)
-offset_left = 50.0
-offset_top = 50.0
-offset_right = 1350.0
-offset_bottom = 700.0
+layout_mode = 2
 tab_alignment = 2
 
-[node name="Unités" type="ScrollContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 162.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Unités" type="ScrollContainer" parent="Container/Header/Window/Tabs"]
+layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités"]
+[node name="List" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités"]
 clip_contents = true
-offset_right = 1300.0
-offset_bottom = 1688.0
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="King" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="King" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_right = 1292.0
-offset_bottom = 112.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/King"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("4_djdbp")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 215.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/King"]
+layout_mode = 2
 text = "Roi Mysa"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King"]
-offset_left = 656.0
-offset_right = 854.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/King"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King/VBoxContainer"]
-offset_right = 198.0
-offset_bottom = 54.0
+[node name="Dices" type="Label" parent="Container/Header/Window/Tabs/Unités/List/King/Stats"]
+layout_mode = 2
 text = "Dés lancés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/King/VBoxContainer"]
-offset_top = 58.0
-offset_right = 198.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Unités/List/King/Stats"]
+layout_mode = 2
 text = "Dégâts subis : "
 
-[node name="HSeparator13" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 116.0
-offset_right = 1292.0
-offset_bottom = 120.0
+[node name="HSeparator13" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Soldier" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Soldier" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 124.0
-offset_right = 1292.0
-offset_bottom = 236.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Soldier"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("4_qci2x")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 182.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Soldier"]
+layout_mode = 2
 text = "Soldat"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier"]
-offset_left = 628.0
-offset_right = 850.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Soldier"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Soldier/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Soldier/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Soldier/Stats"]
+layout_mode = 2
 text = "Ennemi tués : "
 
-[node name="HSeparator" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 240.0
-offset_right = 1292.0
-offset_bottom = 244.0
+[node name="HSeparator" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Archer" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Archer" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 248.0
-offset_right = 1292.0
-offset_bottom = 360.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Archer"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("5_gdjc4")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 191.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Archer"]
+layout_mode = 2
 text = "Archer"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer"]
-offset_left = 632.0
-offset_right = 854.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Archer"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Archer/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Archer/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Archer/Stats"]
+layout_mode = 2
 text = "Ennemi tués : "
 
-[node name="HSeparator2" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 364.0
-offset_right = 1292.0
-offset_bottom = 368.0
+[node name="HSeparator2" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Toffee" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Toffee" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 372.0
-offset_right = 1292.0
-offset_bottom = 484.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Toffee"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("6_c0rv3")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 191.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Toffee"]
+layout_mode = 2
 text = "Toffee"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee"]
-offset_left = 632.0
-offset_right = 854.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Toffee"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Toffee/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Toffee/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Toffee/Stats"]
+layout_mode = 2
 text = "Ennemi tués : "
 
-[node name="HSeparator3" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 488.0
-offset_right = 1292.0
-offset_bottom = 492.0
+[node name="HSeparator3" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Bard" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Bard" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 496.0
-offset_right = 1292.0
-offset_bottom = 596.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Bard"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 100.0
+layout_mode = 2
 texture = ExtResource("7_j4uus")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard"]
-offset_left = 104.0
-offset_top = 23.0
-offset_right = 179.0
-offset_bottom = 77.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Bard"]
+layout_mode = 2
 text = "Barde"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard"]
-offset_left = 617.0
-offset_right = 857.0
-offset_bottom = 100.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Bard"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bard/VBoxContainer"]
-offset_top = 23.0
-offset_right = 240.0
-offset_bottom = 77.0
+[node name="Buff" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Bard/Stats"]
+layout_mode = 2
 text = "Unités boostées : "
 
-[node name="HSeparator4" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 600.0
-offset_right = 1292.0
-offset_bottom = 604.0
+[node name="HSeparator4" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Mage" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Mage" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 608.0
-offset_right = 1292.0
-offset_bottom = 720.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Mage"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("8_m3irg")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 182.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Mage"]
+layout_mode = 2
 text = "Soldat"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage"]
-offset_left = 628.0
-offset_right = 850.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Mage"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Mage/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Mage/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Slow" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Mage/Stats"]
+layout_mode = 2
 text = "Temps ralenti : "
 
-[node name="HSeparator5" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 724.0
-offset_right = 1292.0
-offset_bottom = 728.0
+[node name="HSeparator5" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Paladin" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Paladin" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 732.0
-offset_right = 1292.0
-offset_bottom = 844.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Paladin"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("9_lmmlc")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 191.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Paladin"]
+layout_mode = 2
 text = "Paladin"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin"]
-offset_left = 632.0
-offset_right = 854.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Paladin"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Paladin/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Paladin/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Paladin/Stats"]
+layout_mode = 2
 text = "Ennemi tués : "
 
-[node name="HSeparator6" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 848.0
-offset_right = 1292.0
-offset_bottom = 852.0
+[node name="HSeparator6" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Builder" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Builder" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 856.0
-offset_right = 1292.0
-offset_bottom = 968.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Builder"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("10_6y508")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 227.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Builder"]
+layout_mode = 2
 text = "Bâtisseur"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder"]
-offset_left = 650.0
-offset_right = 872.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Builder"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Builder/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Builder/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Builder/Stats"]
+layout_mode = 2
 text = "Dégâts reçus : "
 
-[node name="HSeparator7" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 972.0
-offset_right = 1292.0
-offset_bottom = 976.0
+[node name="HSeparator7" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Bourreau" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Bourreau" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 980.0
-offset_right = 1292.0
-offset_bottom = 1092.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Bourreau"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("11_8f0d4")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 221.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Bourreau"]
+layout_mode = 2
 text = "Bourreau"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau"]
-offset_left = 626.0
-offset_right = 890.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Bourreau"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau/VBoxContainer"]
-offset_right = 264.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Bourreau/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Bourreau/VBoxContainer"]
-offset_top = 58.0
-offset_right = 264.0
-offset_bottom = 112.0
+[node name="Exec" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Bourreau/Stats"]
+layout_mode = 2
 text = "Ennemis exécutés : "
 
-[node name="HSeparator8" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 1096.0
-offset_right = 1292.0
-offset_bottom = 1100.0
+[node name="HSeparator8" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Tavernier" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Tavernier" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 1104.0
-offset_right = 1292.0
-offset_bottom = 1204.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Tavernier"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 100.0
+layout_mode = 2
 texture = ExtResource("13_x4qvr")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier"]
-offset_left = 104.0
-offset_top = 23.0
-offset_right = 227.0
-offset_bottom = 77.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Tavernier"]
+layout_mode = 2
 text = "Tavernier"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier"]
-offset_left = 640.0
-offset_right = 883.0
-offset_bottom = 100.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Tavernier"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Tavernier/VBoxContainer"]
-offset_top = 23.0
-offset_right = 243.0
-offset_bottom = 77.0
+[node name="Glasses" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Tavernier/Stats"]
+layout_mode = 2
 text = "Verres nettoyés : "
 
-[node name="HSeparator9" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 1208.0
-offset_right = 1292.0
-offset_bottom = 1212.0
+[node name="HSeparator9" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Charlatan" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Charlatan" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 1216.0
-offset_right = 1292.0
-offset_bottom = 1316.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Charlatan"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 100.0
+layout_mode = 2
 texture = ExtResource("14_ujqai")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan"]
-offset_left = 104.0
-offset_top = 23.0
-offset_right = 227.0
-offset_bottom = 77.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Charlatan"]
+layout_mode = 2
 text = "Charlatan"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan"]
-offset_left = 622.0
-offset_right = 901.0
-offset_bottom = 100.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Charlatan"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Charlatan/VBoxContainer"]
-offset_top = 23.0
-offset_right = 279.0
-offset_bottom = 77.0
+[node name="Dices" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Charlatan/Stats"]
+layout_mode = 2
 text = "Dés bonus obtenus : "
 
-[node name="HSeparator14" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 1320.0
-offset_right = 1292.0
-offset_bottom = 1324.0
+[node name="HSeparator14" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="IngeJR" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="IngeJR" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 1328.0
-offset_right = 1292.0
-offset_bottom = 1440.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/IngeJR"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("14_w743u")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 260.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/IngeJR"]
+layout_mode = 2
 text = "Ingénieur JR"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR"]
-offset_left = 667.0
-offset_right = 889.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/IngeJR"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/IngeJR/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeJR/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Unités/List/IngeJR/Stats"]
+layout_mode = 2
 text = "Ennemis tués : "
 
-[node name="HSeparator10" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 1444.0
-offset_right = 1292.0
-offset_bottom = 1448.0
+[node name="HSeparator10" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="IngeSR" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="IngeSR" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 1452.0
-offset_right = 1292.0
-offset_bottom = 1564.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/IngeSR"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("15_spcbl")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 260.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/IngeSR"]
+layout_mode = 2
 text = "Ingénieur SR"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR"]
-offset_left = 667.0
-offset_right = 889.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/IngeSR"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/IngeSR/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/IngeSR/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Unités/List/IngeSR/Stats"]
+layout_mode = 2
 text = "Ennemis tués : "
 
-[node name="HSeparator11" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
-offset_top = 1568.0
-offset_right = 1292.0
-offset_bottom = 1572.0
+[node name="HSeparator11" type="HSeparator" parent="Container/Header/Window/Tabs/Unités/List"]
+layout_mode = 2
 
-[node name="Colosse" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer"]
+[node name="Colosse" type="HBoxContainer" parent="Container/Header/Window/Tabs/Unités/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 1576.0
-offset_right = 1292.0
-offset_bottom = 1688.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Unités/List/Colosse"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("16_18dqe")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 203.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Colosse"]
+layout_mode = 2
 text = "Colosse"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse"]
-offset_left = 638.0
-offset_right = 860.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Unités/List/Colosse"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse/VBoxContainer"]
-offset_right = 222.0
-offset_bottom = 54.0
+[node name="Damage" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Colosse/Stats"]
+layout_mode = 2
 text = "Dégats infligés : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Unités/VBoxContainer/Colosse/VBoxContainer"]
-offset_top = 58.0
-offset_right = 222.0
-offset_bottom = 112.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Unités/List/Colosse/Stats"]
+layout_mode = 2
 text = "Ennemis tués : "
 
-[node name="Ennemis" type="ScrollContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer"]
+[node name="Ennemis" type="ScrollContainer" parent="Container/Header/Window/Tabs"]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 66.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis"]
+[node name="List" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis"]
 clip_contents = true
-offset_right = 1300.0
-offset_bottom = 864.0
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Gobelin" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+[node name="Gobelin" type="HBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_right = 1292.0
-offset_bottom = 112.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Ennemis/List/Gobelin"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("18_dhsvr")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 194.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Gobelin"]
+layout_mode = 2
 text = "Gobelin"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin"]
-offset_left = 641.0
-offset_right = 848.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List/Gobelin"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin/VBoxContainer"]
-offset_right = 207.0
-offset_bottom = 54.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Gobelin/Stats"]
+layout_mode = 2
 text = "Nombre tués : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Gobelin/VBoxContainer"]
-offset_top = 58.0
-offset_right = 207.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Gobelin/Stats"]
+layout_mode = 2
 text = "Dégats au roi : "
 
-[node name="HSeparator13" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
-offset_top = 116.0
-offset_right = 1292.0
-offset_bottom = 120.0
+[node name="HSeparator13" type="HSeparator" parent="Container/Header/Window/Tabs/Ennemis/List"]
+layout_mode = 2
 
-[node name="Bobelin" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+[node name="Bobelin" type="HBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 124.0
-offset_right = 1292.0
-offset_bottom = 236.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Ennemis/List/Bobelin"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("19_skpct")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 194.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Bobelin"]
+layout_mode = 2
 text = "Bobelin"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin"]
-offset_left = 641.0
-offset_right = 848.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List/Bobelin"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin/VBoxContainer"]
-offset_right = 207.0
-offset_bottom = 54.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Bobelin/Stats"]
+layout_mode = 2
 text = "Nombre tués : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Bobelin/VBoxContainer"]
-offset_top = 58.0
-offset_right = 207.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Bobelin/Stats"]
+layout_mode = 2
 text = "Dégats au roi : "
 
-[node name="HSeparator" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
-offset_top = 240.0
-offset_right = 1292.0
-offset_bottom = 244.0
+[node name="HSeparator" type="HSeparator" parent="Container/Header/Window/Tabs/Ennemis/List"]
+layout_mode = 2
 
-[node name="Banner" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+[node name="Banner" type="HBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 248.0
-offset_right = 1292.0
-offset_bottom = 360.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Ennemis/List/Banner"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("20_8rdyi")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 341.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Banner"]
+layout_mode = 2
 text = "Bobelin à bannière"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner"]
-offset_left = 715.0
-offset_right = 922.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List/Banner"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner/VBoxContainer"]
-offset_right = 207.0
-offset_bottom = 54.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Banner/Stats"]
+layout_mode = 2
 text = "Nombre tués : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Banner/VBoxContainer"]
-offset_top = 58.0
-offset_right = 207.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Banner/Stats"]
+layout_mode = 2
 text = "Dégats au roi : "
 
-[node name="HSeparator2" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
-offset_top = 364.0
-offset_right = 1292.0
-offset_bottom = 368.0
+[node name="HSeparator2" type="HSeparator" parent="Container/Header/Window/Tabs/Ennemis/List"]
+layout_mode = 2
 
-[node name="Undead" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+[node name="Undead" type="HBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 372.0
-offset_right = 1292.0
-offset_bottom = 484.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Ennemis/List/Undead"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("21_t5vkt")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 221.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Undead"]
+layout_mode = 2
 text = "Réprouvé"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead"]
-offset_left = 655.0
-offset_right = 862.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List/Undead"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead/VBoxContainer"]
-offset_right = 207.0
-offset_bottom = 54.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Undead/Stats"]
+layout_mode = 2
 text = "Nombre tués : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Undead/VBoxContainer"]
-offset_top = 58.0
-offset_right = 207.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Undead/Stats"]
+layout_mode = 2
 text = "Dégats au roi : "
 
-[node name="HSeparator3" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
-offset_top = 488.0
-offset_right = 1292.0
-offset_bottom = 492.0
+[node name="HSeparator3" type="HSeparator" parent="Container/Header/Window/Tabs/Ennemis/List"]
+layout_mode = 2
 
-[node name="Beefy" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+[node name="Beefy" type="HBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 496.0
-offset_right = 1292.0
-offset_bottom = 608.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Ennemis/List/Beefy"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("22_pvdfs")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 179.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Beefy"]
+layout_mode = 2
 text = "Beefy"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy"]
-offset_left = 634.0
-offset_right = 841.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List/Beefy"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy/VBoxContainer"]
-offset_right = 207.0
-offset_bottom = 54.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Beefy/Stats"]
+layout_mode = 2
 text = "Nombre tués : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Beefy/VBoxContainer"]
-offset_top = 58.0
-offset_right = 207.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Beefy/Stats"]
+layout_mode = 2
 text = "Dégats au roi : "
 
-[node name="HSeparator4" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
-offset_top = 612.0
-offset_right = 1292.0
-offset_bottom = 616.0
+[node name="HSeparator4" type="HSeparator" parent="Container/Header/Window/Tabs/Ennemis/List"]
+layout_mode = 2
 
-[node name="Wisp" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+[node name="Wisp" type="HBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 620.0
-offset_right = 1292.0
-offset_bottom = 732.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Ennemis/List/Wisp"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("23_4f6f8")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 164.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Wisp"]
+layout_mode = 2
 text = "Wisp"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp"]
-offset_left = 626.0
-offset_right = 833.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List/Wisp"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp/VBoxContainer"]
-offset_right = 207.0
-offset_bottom = 54.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Wisp/Stats"]
+layout_mode = 2
 text = "Nombre tués : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Wisp/VBoxContainer"]
-offset_top = 58.0
-offset_right = 207.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Wisp/Stats"]
+layout_mode = 2
 text = "Dégats au roi : "
 
-[node name="HSeparator5" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
-offset_top = 736.0
-offset_right = 1292.0
-offset_bottom = 740.0
+[node name="HSeparator5" type="HSeparator" parent="Container/Header/Window/Tabs/Ennemis/List"]
+layout_mode = 2
 
-[node name="Boss" type="HBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
+[node name="Boss" type="HBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List"]
 custom_minimum_size = Vector2(1100, 0)
-offset_top = 744.0
-offset_right = 1292.0
-offset_bottom = 856.0
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss"]
+[node name="TextureRect" type="TextureRect" parent="Container/Header/Window/Tabs/Ennemis/List/Boss"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 100.0
-offset_bottom = 112.0
+layout_mode = 2
 texture = ExtResource("9_lmmlc")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss"]
-offset_left = 104.0
-offset_top = 29.0
-offset_right = 167.0
-offset_bottom = 83.0
+[node name="Name" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Boss"]
+layout_mode = 2
 text = "Boss"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss"]
-offset_left = 628.0
-offset_right = 835.0
-offset_bottom = 112.0
+[node name="Stats" type="VBoxContainer" parent="Container/Header/Window/Tabs/Ennemis/List/Boss"]
+layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss/VBoxContainer"]
-offset_right = 207.0
-offset_bottom = 54.0
+[node name="Kills" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Boss/Stats"]
+layout_mode = 2
 text = "Nombre tués : "
 
-[node name="Label2" type="Label" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer/Boss/VBoxContainer"]
-offset_top = 58.0
-offset_right = 207.0
-offset_bottom = 112.0
+[node name="Tank" type="Label" parent="Container/Header/Window/Tabs/Ennemis/List/Boss/Stats"]
+layout_mode = 2
 text = "Dégats au roi : "
 
-[node name="HSeparator6" type="HSeparator" parent="Container/HFlowContainer/MarginContainer/TabContainer/Ennemis/VBoxContainer"]
-offset_top = 860.0
-offset_right = 1292.0
-offset_bottom = 864.0
+[node name="HSeparator6" type="HSeparator" parent="Container/Header/Window/Tabs/Ennemis/List"]
+layout_mode = 2
 
 [node name="Close" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 1600.0
 offset_top = 91.0
 offset_right = 1664.0

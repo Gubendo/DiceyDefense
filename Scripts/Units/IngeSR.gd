@@ -40,5 +40,5 @@ func shoot_caillou() -> void:
 	caillou.aoe_range = stats[level]["aoe"]
 	caillou.damage = stats[level]["damage"] * buff_dmg
 	caillou.speed_factor = 0.7
-	get_tree().get_root().get_node("Main/Temporary").add_child(caillou)
+	$/root/Main/Temporary.add_child(caillou)
 

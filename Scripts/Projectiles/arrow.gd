@@ -37,4 +37,4 @@ func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, tau: float) -> Vect
 	return r
 	
 func get_all_enemies() -> Array:
-	return get_tree().get_root().get_node("Main/KingsRoad").get_children()
+	return $/root/Main/KingsRoad.get_children()

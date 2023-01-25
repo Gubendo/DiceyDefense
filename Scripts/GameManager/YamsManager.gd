@@ -43,7 +43,6 @@ var barracks_max: int = 62
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	nodeUI = $/root/Main/UI
-	nodeUI.update_grille(grille)
 	nodeUI.update_barracks(barracks_score, barracks_max)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -150,7 +149,7 @@ func calcul_hand(hand) -> void:
 	combinaisons['yams'] = calcul_yams(hand)
 
 func compute_score() -> void:
-	global_score = 0
+	global_score = $/root/Main.nexus_hp
 	for score in grille: 
 		global_score = global_score + max(0, grille[score])
 		
@@ -160,7 +159,6 @@ func compute_score() -> void:
 	if barracks_score >= barracks_max and not barracks_buff:
 		barracks_buff = true
 		$/root/Main.buff_barracks()
-	nodeUI.update_grille(grille)
 	nodeUI.update_barracks(barracks_score, barracks_max)
 	
 func on_unit_choice(coup) -> void:
