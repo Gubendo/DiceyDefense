@@ -1,6 +1,8 @@
 extends "res://Scripts/Units/unit.gd"
 
-@onready var arrowTemp = load("res://Scenes/Projectiles/arrow.tscn")
+@onready var arrowTemp: Resource = load("res://Scenes/Projectiles/arrow.tscn")
+var arrow: Variant
+var start: Vector2
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Archer"
@@ -18,8 +20,8 @@ func update_tooltip() -> void:
 dégâts toutes les {1} secondes".format([currentStats[0], currentStats[1]])
 
 func shoot_arrow() -> void:
-	var arrow = arrowTemp.instantiate()
-	var start: Vector2 = $Unit/ShootPos.global_position
+	arrow = arrowTemp.instantiate()
+	start = $Unit/ShootPos.global_position
 	arrow.position = start
 	arrow.start_pos = start
 	arrow.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2,\

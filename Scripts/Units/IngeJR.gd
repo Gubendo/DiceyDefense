@@ -1,6 +1,8 @@
 extends "res://Scripts/Units/unit.gd"
 
-@onready var caillouTemp = load("res://Scenes/Projectiles/caillou.tscn")
+@onready var caillouTemp: Resource = load("res://Scenes/Projectiles/caillou.tscn")
+var caillou: Variant
+var start: Vector2
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "IngeJR"
@@ -28,8 +30,8 @@ func update_tooltip() -> void:
 {0} points de dégâts en zone toutes les {1} secondes".format([currentStats[0], currentStats[1]])
 
 func shoot_caillou() -> void:
-	var caillou = caillouTemp.instantiate()
-	var start: Vector2 = $Catapulte/ShootPos.global_position
+	caillou = caillouTemp.instantiate()
+	start = $Catapulte/ShootPos.global_position
 	caillou.position = start
 	caillou.start_pos = start
 	caillou.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2,\

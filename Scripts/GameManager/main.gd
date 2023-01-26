@@ -67,6 +67,8 @@ func update_phase() -> void:
 			
 	for temp in $Temporary.get_children():
 		temp.queue_free()
+	for follow in $KingsRoad.get_children():
+		follow.queue_free()
 	
 ### Gestion de vagues
 

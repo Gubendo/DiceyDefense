@@ -1,14 +1,17 @@
 extends "res://Scripts/Units/unit.gd"
 
-
+@onready var shockwaveTemp: Resource = load("res://Scenes/Projectiles/shockwave.tscn")
+var shockwave_left: Variant
+var shockwave_right: Variant
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Colosse"
 
 func special() -> void:
 	print("COLOSSE : Je frappe tous les ennemis")
-	for enemy in get_all_enemies():
-		enemy.take_dmg(stats[level]["damage"] * buff_dmg)
+	start_shockwave()
+	#for enemy in get_all_enemies():
+	#	enemy.take_dmg(stats[level]["damage"] * buff_dmg)
 
 	
 func update_tooltip() -> void:
@@ -21,8 +24,6 @@ func start_wave() -> void:
 	await get_tree().create_timer(stats[level]["cooldown"]).timeout
 	atkReady = true
 
-# TROUVER UN MOYEN PLUS PROPRE DE DISABLE LA RANGE
-
 func update_stats() -> void:
 	super.update_stats()
 	rangeSprite.modulate.a = 0
@@ -30,6 +31,24 @@ func update_stats() -> void:
 func enable_tooltip() -> void:
 	super.enable_tooltip()
 	rangeSprite.modulate.a = 0
-	
+
 func on_activate() -> void:
 	update_tooltip_size(35)
+	
+func start_shockwave() -> void:
+	shockwave_left = shockwaveTemp.instantiate()
+	$/root/Main/KingsRoad.add_child(shockwave_left, true)
+	shockwave_left.progress = $/root/Main/KingsRoad.curve.get_closest_offset($/root/Main/KingsRoad.curve.get_point_position(6))
+	shockwave_left.damage = stats[level]["damage"] * buff_dmg
+	shockwave_left.speed = 100
+	shockwave_left.direction = 1
+	$/root/Main/Temporary.add_child(shockwave_left)
+	
+	shockwave_right = shockwaveTemp.instantiate()
+	$/root/Main/KingsRoad.add_child(shockwave_right, true)
+	shockwave_right.progress = $/root/Main/KingsRoad.curve.get_closest_offset($/root/Main/KingsRoad.curve.get_point_position(6))
+	shockwave_right.damage = stats[level]["damage"] * buff_dmg
+	shockwave_right.speed = 100
+	shockwave_right.direction = -1
+	$/root/Main/Temporary.add_child(shockwave_right)
+	shockwave_right.burst()

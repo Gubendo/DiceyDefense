@@ -341,7 +341,7 @@ var trebuchet_stats: Dictionary = {
 var colosse_stats: Dictionary = {
 	1: {
 		"damage": 40,
-		"cooldown": 20,
+		"cooldown": 3,
 		"range": 50
 	},
 	2: {

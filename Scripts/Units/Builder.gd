@@ -1,7 +1,8 @@
 extends "res://Scripts/Units/unit.gd"
 
-@onready var barricadeTemp = load("res://Scenes/Buildings/Barricade.tscn")
+@onready var barricadeTemp: Resource = load("res://Scenes/Buildings/Barricade.tscn")
 var barricades: Array = []
+var barricade: Variant
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Builder"
@@ -37,7 +38,7 @@ func repair_barricade() -> void:
 				barricade.repair()
 
 func build_barricade(b_position: Vector2) -> void:
-	var barricade = barricadeTemp.instantiate()
+	barricade = barricadeTemp.instantiate()
 	$/root/Main.add_child(barricade)
 	$/root/Main.move_child(barricade, 7)
 	barricade.position = b_position

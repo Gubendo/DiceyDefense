@@ -1,6 +1,8 @@
 extends "res://Scripts/Units/unit.gd"
 
-@onready var boltTemp = load("res://Scenes/Projectiles/frostbolt.tscn")
+@onready var boltTemp: Resource = load("res://Scenes/Projectiles/frostbolt.tscn")
+var bolt: Variant
+var start: Vector2
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Mage"
@@ -18,8 +20,8 @@ dégâts et réduit la vitesse de déplacement de moitié pendant {1} secondes \
 toutes les {2} secondes".format([currentStats[0], currentStats[1], currentStats[2]])
 
 func shoot_frostbolt() -> void:
-	var bolt = boltTemp.instantiate()
-	var start: Vector2 = $Unit/ShootPos.global_position
+	bolt = boltTemp.instantiate()
+	start = $Unit/ShootPos.global_position
 	bolt.position = start
 	bolt.start_pos = start
 	bolt.middle_pos = Vector2(start.x + (attack_target.global_position.x - start.x)/2,\
