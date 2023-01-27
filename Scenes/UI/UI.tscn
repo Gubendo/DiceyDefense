@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://coovnmiomy3xa"]
+[gd_scene load_steps=46 format=3 uid="uid://coovnmiomy3xa"]
 
 [ext_resource type="Texture2D" uid="uid://cfcauj2hcs18i" path="res://Sprites/UI/dices/dice1-color.png" id="2_r6pxl"]
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="2_re0bi"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://drsggjl0ha5n" path="res://Sprites/UI/HUD/speed-toggle.png" id="21_jffsl"]
 [ext_resource type="FontFile" uid="uid://cmgfklorvqr48" path="res://Fonts/Timmy-Regular.otf" id="21_r0fq3"]
 [ext_resource type="Texture2D" uid="uid://e4y15syreyon" path="res://Sprites/UI/HUD/helpButton.png" id="22_asojs"]
+[ext_resource type="PackedScene" uid="uid://sxho2s5b2oq" path="res://Scenes/UI/fireworks/fireworks.tscn" id="23_0j4rl"]
 [ext_resource type="PackedScene" uid="uid://bwcochpom2701" path="res://Scenes/UI/statistics.tscn" id="24_kkpkk"]
 [ext_resource type="Texture2D" uid="uid://bcwflblflx8cv" path="res://Sprites/UI/menu/help.png" id="25_5kw5x"]
 
@@ -582,6 +583,8 @@ offset_bottom = 77.0
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3
 custom_minimum_size = Vector2(100, 0)
+offset_right = 100.0
+offset_bottom = 80.0
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("18_50do2")
@@ -592,6 +595,9 @@ stretch_mode = 0
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 1
 custom_minimum_size = Vector2(100, 0)
+offset_left = 104.0
+offset_right = 204.0
+offset_bottom = 80.0
 toggle_mode = true
 texture_normal = ExtResource("20_4t0kd")
 texture_pressed = ExtResource("21_jffsl")
@@ -652,38 +658,6 @@ offset_bottom = 1023.0
 scale = Vector2(0.75, 0.75)
 texture_normal = ExtResource("22_asojs")
 
-[node name="Settings" parent="CanvasLayer" instance=ExtResource("17_v553p")]
-visible = false
-
-[node name="Statistics" parent="CanvasLayer" instance=ExtResource("24_kkpkk")]
-process_mode = 3
-visible = false
-
-[node name="HelpMenu" type="TextureRect" parent="CanvasLayer"]
-offset_left = 330.0
-offset_top = 1250.0
-offset_right = 842.0
-offset_bottom = 2066.0
-texture = ExtResource("25_5kw5x")
-
-[node name="Close" type="Button" parent="CanvasLayer/HelpMenu"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 423.0
-offset_top = 741.0
-offset_right = 523.0
-offset_bottom = 869.0
-scale = Vector2(0.5, 0.5)
-
-[node name="FadeOverlay" type="TextureRect" parent="CanvasLayer"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("Texture2D_v5van")
-
 [node name="GameOver" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
@@ -723,6 +697,80 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("21_r0fq3")
 theme_override_font_sizes/font_size = 60
 text = "Les ennemis ont pris possession de la cité"
+
+[node name="Victory" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Anim" type="RichTextLabel" parent="CanvasLayer/Victory"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 600.0
+offset_top = 250.0
+offset_right = -520.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("21_r0fq3")
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[wave amp=50 freq=10]VICTOIRE"
+fit_content_height = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Victory"]
+offset_left = 571.0
+offset_top = 465.0
+offset_right = 1371.0
+offset_bottom = 565.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("21_r0fq3")
+theme_override_font_sizes/font_size = 60
+text = "Les reliques ont été protégées !"
+
+[node name="Fireworks" parent="CanvasLayer/Victory" instance=ExtResource("23_0j4rl")]
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("17_v553p")]
+visible = false
+
+[node name="Statistics" parent="CanvasLayer" instance=ExtResource("24_kkpkk")]
+process_mode = 3
+visible = false
+
+[node name="HelpMenu" type="TextureRect" parent="CanvasLayer"]
+offset_left = 330.0
+offset_top = 1250.0
+offset_right = 842.0
+offset_bottom = 2066.0
+texture = ExtResource("25_5kw5x")
+
+[node name="Close" type="Button" parent="CanvasLayer/HelpMenu"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 423.0
+offset_top = 741.0
+offset_right = 523.0
+offset_bottom = 869.0
+scale = Vector2(0.5, 0.5)
+
+[node name="FadeOverlay" type="TextureRect" parent="CanvasLayer"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("Texture2D_v5van")
 
 [connection signal="pressed" from="CanvasLayer/HelpButton" to="." method="trigger_help"]
 [connection signal="pressed" from="CanvasLayer/HelpMenu/Close" to="." method="trigger_help"]

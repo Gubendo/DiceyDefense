@@ -265,10 +265,21 @@ func game_over() -> void:
 		
 	for node in pauseMenu.get_children():
 			node.visible = true
-	#pauseMenu.get_node("Options").visible = false
 	
 	$CanvasLayer/PauseOverlay.visible = true
 	$CanvasLayer/GameOver.visible = true
+	
+func victory() -> void:
+	for node in $CanvasLayer/Vague.get_children():
+		node.visible = false
+		
+	for node in pauseMenu.get_children():
+			node.visible = true
+	
+	$CanvasLayer/PauseOverlay.visible = true
+	$CanvasLayer/Victory.visible = true
+	$CanvasLayer/Victory/Fireworks/Timer.start()
+	
 	
 func lock_input() -> void:
 	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 11)

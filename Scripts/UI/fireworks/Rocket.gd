@@ -5,6 +5,7 @@ var explosion: Variant
 
 func _ready() -> void:
 	linear_velocity = linear_velocity.rotated(rotation)
+	$Tail.emitting = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

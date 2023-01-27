@@ -7,13 +7,14 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_tom4y"]
-offsets = PackedFloat32Array(0, 0.50431, 1)
+offsets = PackedFloat32Array(0, 0.573276, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.969828, 1, 1, 1, 0)
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_0h84a")
 
 [node name="Particles" type="CPUParticles2D" parent="."]
+emitting = false
 amount = 200
 explosiveness = 1.0
 lifetime_randomness = 1.0

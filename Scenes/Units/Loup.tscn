@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cur0ovc2dvg2t"]
+[gd_scene load_steps=20 format=3 uid="uid://cur0ovc2dvg2t"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Paladin.gd" id="1_y5caj"]
 [ext_resource type="Texture2D" uid="uid://bmi65f71etfy8" path="res://Animations/Status/buff-back.png" id="2_yi14f"]
@@ -112,10 +112,27 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]
 }
 
+[sub_resource type="Animation" id="Animation_gquu2"]
+resource_name = "celebrate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [22, 23, 24, 25, 26]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ou866"]
 _data = {
 "RESET": SubResource("Animation_qy21s"),
 "attack": SubResource("Animation_va7ut"),
+"celebrate": SubResource("Animation_gquu2"),
 "idle": SubResource("Animation_jp67q")
 }
 
@@ -265,7 +282,7 @@ vframes = 2
 visible = false
 texture = ExtResource("5_08avr")
 hframes = 11
-vframes = 2
+vframes = 3
 
 [node name="BuffFront" type="Sprite2D" parent="Unit"]
 visible = false
@@ -296,6 +313,7 @@ offset_bottom = 43.0
 theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -306,6 +324,7 @@ grow_vertical = 2
 texture = ExtResource("9_fnc0n")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -313,6 +332,7 @@ offset_bottom = 9.0
 text = "Toffee / Total des 3"
 
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 60.0

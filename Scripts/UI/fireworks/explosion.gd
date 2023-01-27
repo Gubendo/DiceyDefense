@@ -15,6 +15,7 @@ func _ready() -> void:
 	rng.randomize()
 	var color = colors[rng.randi() % colors.size()]
 	$Particles.one_shot = true
+	$Particles.emitting = true
 	print(color)
 	$Particles.modulate = color
 

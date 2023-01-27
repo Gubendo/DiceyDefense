@@ -1,12 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://8pbldg14h8vu"]
 
 [ext_resource type="Script" path="res://Scripts/UI/fireworks/Rocket.gd" id="1_jobft"]
-[ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="2_rs67s"]
+[ext_resource type="Texture2D" uid="uid://dgj3b8g7jg68l" path="res://Sprites/Projectiles/rocket.png" id="2_e8jgm"]
 
 [node name="Rocket" type="RigidBody2D"]
 script = ExtResource("1_jobft")
 
 [node name="Tail" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.5
+gravity = Vector2(0, 900)
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color = Color(0.196078, 0.2, 0.32549, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rs67s")
+texture = ExtResource("2_e8jgm")

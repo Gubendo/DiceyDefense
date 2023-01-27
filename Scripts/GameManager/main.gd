@@ -30,10 +30,16 @@ func _process(delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0 and playing:
 		print("FIN DE VAGUE")
 		waveStarted = false
-		save_gamestate()
-		king_anim.play("join_city")
-		await king_anim.animation_finished
-		update_phase()
+		if current_wave == 13:
+			victory()
+			king_anim.play("join_city")
+			await king_anim.animation_finished
+			#king_anim.play("dance")
+		else:
+			save_gamestate()
+			king_anim.play("join_city")
+			await king_anim.animation_finished
+			update_phase()
 
 
 func _on_ui_roll(unfrozen: Array) -> void:
@@ -139,6 +145,14 @@ func game_over() -> void:
 		if unit.activated : unit.queue_free()
 		
 
+func victory() -> void:
+	Engine.set_time_scale(1.0)
+	$UI.victory()
+	for temp in $Temporary.get_children():
+		temp.queue_free()
+	for follow in $KingsRoad.get_children():
+		follow.queue_free()
+	
 func load_gamestate() -> void:
 	save_system.load_game()
 	

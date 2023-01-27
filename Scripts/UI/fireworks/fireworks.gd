@@ -3,12 +3,11 @@ extends Node
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var rocketTemp: Resource = load("res://Scenes/UI/fireworks/rocket.tscn")
 var rocket: Variant
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	rng.randomize()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
