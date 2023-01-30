@@ -8,7 +8,7 @@ func _init() -> void:
 	unitName = "Colosse"
 
 func special() -> void:
-	print("COLOSSE : Je frappe tous les ennemis")
+	print("COLOSSE : J'envoie 2 shockwaves")
 	start_shockwave()
 	#for enemy in get_all_enemies():
 	#	enemy.take_dmg(stats[level]["damage"] * buff_dmg)
@@ -17,7 +17,7 @@ func special() -> void:
 func update_tooltip() -> void:
 	update_stats()
 	tooltipText.text = "Unité de défense ultime qui inflige {0} points de dégâts \
-à l'intégralité des ennemis toutes les {1} secondes".format([currentStats[0], currentStats[1]])
+à l'intégralité des ennemis terrestres toutes les {1} secondes".format([currentStats[0], currentStats[1]])
 
 func start_wave() -> void:
 	atkReady = false

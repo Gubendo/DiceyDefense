@@ -21,3 +21,5 @@ pendant {3} secondes\n
 
 func on_activate() -> void:
 	update_tooltip_size(65)
+	if level == 5:
+		$Unit/Sprite.texture = load("res://Animations/Loup/corgi-max.png")

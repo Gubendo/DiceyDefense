@@ -53,4 +53,8 @@ func select_target() -> void:
 		targets.append(potential_targets[rand_index])
 		potential_targets.erase(potential_targets[rand_index])
 		
+func on_activate() -> void:
+	if level == 5:
+		$Unit/Sprite.texture = load("res://Animations/Bard/bard-max.png")
+		
 

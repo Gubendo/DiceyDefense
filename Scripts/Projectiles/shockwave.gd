@@ -18,14 +18,15 @@ func _process(delta: float) -> void:
 	
 func burst() -> void:
 	shock = shockTemp.instantiate()
-	shock.position = global_position
+	shock.position = Vector2(global_position.x, global_position.y-1)
+	shock.damage = damage
 	$/root/Main/Temporary.add_child(shock)
 	
 func move(delta: float) -> void:
 	fake_progress += speed*delta
-	if fake_progress >= 30:
+	if fake_progress >= 40:
 		fake_progress = 0
-		progress += 30*direction
+		progress += 25*direction
 		burst()
 		
 	

@@ -129,7 +129,7 @@ var bard_stats: Dictionary = {
 		"buff": 2.5,
 		"duration": 5,
 		"cooldown": 8,
-		"range": 13.5
+		"range": 10
 	}
 }
 
@@ -341,7 +341,7 @@ var trebuchet_stats: Dictionary = {
 var colosse_stats: Dictionary = {
 	1: {
 		"damage": 40,
-		"cooldown": 3,
+		"cooldown": 20,
 		"range": 50
 	},
 	2: {
@@ -438,7 +438,7 @@ var gobelin_stats: Dictionary = {
 	"health": 35,
 	"damage": 1,
 	"cd": 1,
-	"nexus_dmg": 2,
+	"nexus_dmg": 1,
 	"flying": false
 }
 
@@ -487,19 +487,48 @@ var beefy_stats: Dictionary = {
 	"flying": false
 }
 
+var darkking_stats: Dictionary = {
+	"speed": 8,
+	"health": 500,
+	"damage": 20,
+	"cd": 5,
+	"nexus_dmg": 1,
+	"flying": false
+}
+
 var enemies_stats: Dictionary = {
 	"Gobelin": gobelin_stats,
 	"Bobelin": bobelin_stats,
 	"Banner": banner_stats,
 	"Undead": undead_stats,
 	"Wisp": wisp_stats,
-	"Beefy": beefy_stats
+	"Beefy": beefy_stats,
+	"DarkKing": darkking_stats
 }
 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
 	# TRIVIAL
-	0: [[30, "Undead1", 1, 0, ]],
+	0: [[1, "Banner1", 1, 0]],
+	1: [[1, "Banner1", 1, 0]],
+	2: [[1, "Banner1", 1, 0]],
+	3: [[1, "Banner1", 1, 0]],
+	4: [[1, "Banner1", 1, 0]],
+	5: [[1, "Banner1", 1, 0]],
+	6: [[1, "Banner1", 1, 0]],
+	7: [[1, "Banner1", 1, 0]],
+	8: [[1, "Banner1", 1, 0]],
+	9: [[1, "Banner1", 1, 0]],
+	10: [[1, "Banner1", 1, 0]],
+	11: [[1, "Banner1", 1, 0]],
+	12: [[1, "Banner1", 1, 0]]
+	
+
+}
+
+var wave_data2: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
+	# TRIVIAL
+	0: [[30, "Undead1", 1, 0]],
 	# EASY
 	1: [[5, "Undead1", 0.5, 0]],
 	2: [[1, "Banner1", 0, 0.2], [10, "Gobelin1", 0.8, 0.5], [1, "Banner1", 0, 0.2], [5, "Gobelin1", 0.8, 0.5]],
@@ -516,6 +545,8 @@ var wave_data: Dictionary = { # [Nb of units, Name of unit + lvl, Time between u
 	10: [[6, "Banner2", 1.2, 1], [4, "Beefy2", 3, 0], [6, "Banner2", 1.2, 1]],
 	11: [[50, "Undead2", 0.8, 1], [5, "Banner2", 1, 1], [1, "Beefy2", 0, 2], [5, "Banner2", 1, 1], [30, "Undead2", 0.8, 1], [25, "Gobelin2", 0.5, 1], [5, "Wisp2", 0.5, 1], [10, "Bobelin2", 1, 1], [25, "Gobelin2", 0.5, 1], [50, "Undead2", 0.8, 1]],
 	# HARDCORE (NEED PERFECT COMP)
-	12: [[1, "Boss", 0, 0]]
+	12: [[1, "DarkKing1", 0, 10], [2, "Beefy", 3, 3], [20, "Undead2", 0.8, 1], ["2", "Beefy", 3, 3], [40, "Gobelin1", 0.5, 1]]
 	
 }
+
+

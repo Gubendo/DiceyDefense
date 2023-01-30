@@ -1,3 +1,4 @@
+AnimationPlayer
 Sprite2D
 CPUParticles2D
 WorldEnvironment
@@ -7,7 +8,6 @@ Timer
 TextureRect
 CollisionShape2D
 Area2D
-AnimationPlayer
 PathFollow2D
 Button
 TextureButton

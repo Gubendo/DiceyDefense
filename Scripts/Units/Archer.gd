@@ -35,4 +35,6 @@ func shoot_arrow() -> void:
 
 func on_activate() -> void:
 	update_tooltip_size(30)
+	if level == 5:
+		$Unit/Sprite.texture = load("res://Animations/Archer/archer-max.png")
 

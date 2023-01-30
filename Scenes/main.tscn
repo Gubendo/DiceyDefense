@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cth8bms3qfisl"]
+[gd_scene load_steps=43 format=3 uid="uid://cth8bms3qfisl"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager/main.gd" id="1_a2r2q"]
 [ext_resource type="PackedScene" uid="uid://coovnmiomy3xa" path="res://Scenes/UI/UI.tscn" id="2_sfx10"]
@@ -401,9 +401,25 @@ tracks/1/keys = {
 "values": [1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_dj6cv"]
+resource_name = "celebrate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KingSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k5mix"]
 _data = {
 "RESET": SubResource("Animation_xi3uw"),
+"celebrate": SubResource("Animation_dj6cv"),
 "join_city": SubResource("Animation_s6rxq"),
 "leave_city": SubResource("Animation_0iqes"),
 "roll_dice": SubResource("Animation_85bfo")
@@ -411,7 +427,7 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_lxoc7"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -280, 7.96539, 0, -7.96539, 0, -128, -280, 0.0787451, -7.99262, -0.0787451, 7.99262, -136, -272, 0.00354102, -8.019, -0.00354102, 8.019, -136, -192, 7.99915, -0.0220971, -7.99915, 0.0220971, -144, -181.333, 0, 0, 0, 0, -185.507, -182.723, 41.877, 0.0625, -41.877, -0.0625, -506.667, -181.333, 0.672454, 11.6973, -0.672454, -11.6973, -536, -192, 0, 0, 0, 0, -536, -357.333)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -280, 7.96539, 0, -7.96539, 0, -126.667, -280, 0.0787451, -7.99262, -0.0787451, 7.99262, -136, -272, 0.300504, -7.23454, -0.300504, 7.23454, -136, -192, 7.99915, -0.0220971, -7.99915, 0.0220971, -144, -184, 0, 0, 0, 0, -181.333, -184, 41.877, 0.0625, -41.877, -0.0625, -506.667, -184, 0.142124, 11.5205, -0.142124, -11.5205, -536, -192, 0, 0, 0, 0, -536, -358.667)
 }
 point_count = 9
 
@@ -435,7 +451,7 @@ layer_0/tile_data = PackedInt32Array(-1507369, 65536, 1, -1441832, 65536, 2, -13
 position = Vector2(-375, -241)
 texture = ExtResource("10_jl6pf")
 hframes = 2
-vframes = 3
+vframes = 4
 
 [node name="Hover" type="Sprite2D" parent="King"]
 visible = false
@@ -475,6 +491,7 @@ offset_bottom = 43.0
 theme = ExtResource("13_fnn6j")
 
 [node name="bg" type="TextureRect" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -484,6 +501,7 @@ grow_vertical = 2
 texture = ExtResource("10_w244d")
 
 [node name="Name" type="Label" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -492,6 +510,7 @@ theme_override_colors/font_color = Color(0.988235, 0.768627, 0.341176, 1)
 text = "Roi Mysa"
 
 [node name="Description" type="RichTextLabel" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0
@@ -593,7 +612,7 @@ position = Vector2(-160, -133)
 position = Vector2(-81, -227)
 
 [node name="Bard" parent="Units" instance=ExtResource("9_pydge")]
-position = Vector2(-82, -179)
+position = Vector2(-82, -165)
 
 [node name="Bourreau" parent="Units" instance=ExtResource("12_6xr6h")]
 position = Vector2(-270, -164)

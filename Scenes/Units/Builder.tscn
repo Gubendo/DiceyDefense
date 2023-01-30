@@ -39,6 +39,23 @@ tracks/1/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_e8eqa"]
+resource_name = "celebrate"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 17, 16, 17, 16, 17, 15]
+}
+
 [sub_resource type="Animation" id="Animation_3fwug"]
 resource_name = "idle"
 length = 3.5
@@ -66,23 +83,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-}
-
-[sub_resource type="Animation" id="Animation_e8eqa"]
-resource_name = "celebrate"
-length = 1.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Unit/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [15, 16, 17, 16, 17, 16, 17, 15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n382a"]
@@ -143,7 +143,6 @@ offset_bottom = 48.0
 theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -156,7 +155,6 @@ grow_vertical = 2
 texture = ExtResource("7_0cyct")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -164,7 +162,6 @@ offset_bottom = 9.0
 text = "Bâtisseur / Brelan"
 
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0

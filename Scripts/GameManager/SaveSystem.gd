@@ -29,7 +29,7 @@ var settings: Dictionary = {
 const SAVE_FILE = "user://save_file.save"
 var base_data: Dictionary = {
 	"current_wave": 0,
-	"nexus_hp": 50,
+	"nexus_hp": 15,
 	"grille": grille,
 	"settings": settings,
 	"Soldier": {

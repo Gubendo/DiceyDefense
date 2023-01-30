@@ -25,3 +25,5 @@ dégâts".format([currentStats[0], currentStats[1], currentStats[3]])
 
 func on_activate() -> void:
 	update_tooltip_size(40)
+	if level == 5:
+		$Unit/Sprite.texture = load("res://Animations/Paladin/paladin-max.png")

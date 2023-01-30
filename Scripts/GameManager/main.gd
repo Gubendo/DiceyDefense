@@ -152,6 +152,11 @@ func victory() -> void:
 		temp.queue_free()
 	for follow in $KingsRoad.get_children():
 		follow.queue_free()
+	for unit in $Units.get_children(): 
+		if unit.activated : 
+			unit.activated = false
+			unit.animation_player.play("celebrate")
+	king_anim.play("celebrate")
 	
 func load_gamestate() -> void:
 	save_system.load_game()
@@ -222,7 +227,7 @@ func disable_tooltip() -> void:
 	$King/Hover.visible = false
 	
 func buff_barracks() -> void:
-	nexus_hp += 30
+	nexus_hp += 15
 	$UI.update_health(nexus_hp)
 	
 	var shield_animation: AnimationPlayer = $UI/CanvasLayer/Health/AnimationPlayer

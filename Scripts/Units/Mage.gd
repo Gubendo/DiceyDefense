@@ -33,3 +33,7 @@ func shoot_frostbolt() -> void:
 	bolt.slow_duration = stats[level]["duration"]
 	bolt.speed_factor = 4
 	$/root/Main/Temporary.add_child(bolt)
+
+func on_activate() -> void:
+	if level == 5:
+		$Unit/Sprite.texture = load("res://Animations/Mage/mage-max.png")
