@@ -67,6 +67,8 @@ func focusButton(button: Button) -> void:
 func focusIn(button: Button) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(button, "scale", Vector2(1.2, 1.2), 0.1)
+	#tween.tween_property(button, "position", )
+	#tween.interpolate_property(text, "rect/pos", text.get_pos(), text.get_pos()-text.get_size()*1.5, 2, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	
 func focusOut(button: Button) -> void:
 	var tween: Tween = create_tween()
