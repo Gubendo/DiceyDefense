@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b0ylnctdwoh6a"]
 
 [ext_resource type="Script" path="res://Scripts/UI/menu.gd" id="1_ui65l"]
+[ext_resource type="Texture2D" uid="uid://c8m24rn6yu8i6" path="res://meta/logo_concept.png" id="2_d8lej"]
 [ext_resource type="Theme" uid="uid://vx3npjiwp4mu" path="res://Themes/MainMenu.tres" id="2_nvto7"]
-[ext_resource type="Texture2D" uid="uid://csix2kcct2nsv" path="res://meta/mainmenu.jpg" id="3_eq3r1"]
 [ext_resource type="FontFile" uid="uid://cmgfklorvqr48" path="res://Fonts/Timmy-Regular.otf" id="3_syyht"]
 [ext_resource type="PackedScene" uid="uid://73ybu1u23xav" path="res://Scenes/UI/settings_menu.tscn" id="5_mibca"]
 
@@ -28,12 +28,19 @@ theme = ExtResource("2_nvto7")
 
 [node name="TextureRect" type="TextureRect" parent="MainMenu"]
 layout_mode = 0
-offset_left = -234.0
-offset_top = -45.0
-offset_right = 2033.0
-offset_bottom = 1095.0
-texture = ExtResource("3_eq3r1")
-stretch_mode = 5
+offset_top = -240.0
+offset_right = 1920.0
+offset_bottom = 720.0
+texture = ExtResource("2_d8lej")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu"]
+layout_mode = 0
+offset_top = 720.0
+offset_right = 1920.0
+offset_bottom = 1680.0
+texture = ExtResource("2_d8lej")
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 1
