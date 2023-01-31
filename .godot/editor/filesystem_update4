@@ -1,9 +1,11 @@
 res://world_environment.tres
-res://Scenes/main.tscn
+res://Scenes/UI/menu.tscn
 res://Scripts/world_environment.gd
 res://Themes/Settings.tres
 res://Themes/optionButton.tres
 res://Themes/Statistics.tres
+res://Themes/MainMenu.tres
+res://Scenes/main.tscn
 res://Scenes/Units/IngeJR.tscn
 res://Scenes/Units/Bard.tscn
 res://Scenes/Units/Bourreau.tscn
@@ -13,6 +15,3 @@ res://Scenes/Units/Colosse.tscn
 res://Scenes/Units/Tavernier.tscn
 res://Scenes/UI/UI.tscn
 res://Scenes/world_environment.tscn
-res://Scripts/Units/unit.gd
-res://Scenes/UI/menu.tscn
-res://Themes/MainMenu.tres

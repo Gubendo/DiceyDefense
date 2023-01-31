@@ -13,7 +13,11 @@ config_version=5
 config/name="Dicey Defense"
 run/main_scene="res://Scenes/UI/menu.tscn"
 config/features=PackedStringArray("4.0")
+boot_splash/image="res://meta/prod2.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color(0.282353, 0.290196, 0.466667, 1)
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 
