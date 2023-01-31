@@ -92,23 +92,23 @@ var game_data: Dictionary = {}
 func _ready() -> void:
 	game_data = base_data
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
  
 func save_game() -> void:
-	var save_game: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
-	save_game.store_var(game_data)
+	var save_file: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	save_file.store_var(game_data)
 	
 func load_game() -> void:
 	if FileAccess.file_exists(SAVE_FILE):
-		var save_game: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.READ)
-		game_data = save_game.get_var()
+		var save_file: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.READ)
+		game_data = save_file.get_var()
 	
 	# HARDCODE ICI POUR CHEAT 
 	game_data["nexus_hp"] = 20
 		
 func reset_save() -> void:
-	var settings: Dictionary = game_data["settings"]
+	var current_settings: Dictionary = game_data["settings"]
 	game_data = base_data
-	game_data["settings"] = settings
+	game_data["settings"] = current_settings
 	save_game()

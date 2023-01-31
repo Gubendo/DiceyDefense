@@ -10,8 +10,6 @@ func _init() -> void:
 func special() -> void:
 	print("COLOSSE : J'envoie 2 shockwaves")
 	start_shockwave()
-	#for enemy in get_all_enemies():
-	#	enemy.take_dmg(stats[level]["damage"] * buff_dmg)
 
 	
 func update_tooltip() -> void:
@@ -21,8 +19,10 @@ func update_tooltip() -> void:
 
 func start_wave() -> void:
 	atkReady = false
+	var wave: int = $/root/Main.current_wave
 	await get_tree().create_timer(stats[level]["cooldown"]).timeout
-	atkReady = true
+	if wave == $/root/Main.current_wave:
+		atkReady = true
 
 func update_stats() -> void:
 	super.update_stats()
@@ -42,7 +42,6 @@ func start_shockwave() -> void:
 	shockwave_left.damage = stats[level]["damage"] * buff_dmg
 	shockwave_left.speed = 100
 	shockwave_left.direction = 1
-	$/root/Main/Temporary.add_child(shockwave_left)
 	
 	shockwave_right = shockwaveTemp.instantiate()
 	$/root/Main/KingsRoad.add_child(shockwave_right, true)
@@ -50,5 +49,4 @@ func start_shockwave() -> void:
 	shockwave_right.damage = stats[level]["damage"] * buff_dmg
 	shockwave_right.speed = 100
 	shockwave_right.direction = -1
-	$/root/Main/Temporary.add_child(shockwave_right)
 	shockwave_right.burst()

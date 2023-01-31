@@ -84,7 +84,7 @@ func _input(event: InputEvent) -> void:
 		trigger_help()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("clic_gauche"):
 		var mousePos: Vector2 = get_viewport().get_mouse_position()
 		for node in dicesList:
@@ -138,7 +138,6 @@ func nouveau_coup() -> void:
 	press_roll()
 	
 func press_roll() -> void:
-	var rolled_dices: Array = []
 	for node in unfrozenDices:
 		var unfrozen_id: int = str(node.name).right(1).to_int() - 1
 		unfrozen_dice_pos[unfrozen_id] = Vector2(-100, -100)
@@ -148,18 +147,18 @@ func press_roll() -> void:
 
 	for node in unfrozenDices:
 		var alone: bool = false
-		var position: Vector2
+		var dice_position: Vector2
 		var unfrozen_id: int = str(node.name).right(1).to_int() - 1
 		while not alone:
-			position = get_random_pos_in_circle(125, 275, 770)
+			dice_position = get_random_pos_in_circle(125, 275, 770)
 			for node2 in unfrozenDices:
 				var unfrozen_id2: int = str(node2.name).right(1).to_int() - 1
-				if abs(position.distance_to(unfrozen_dice_pos[unfrozen_id2])) > 90:
+				if abs(dice_position.distance_to(unfrozen_dice_pos[unfrozen_id2])) > 90:
 					alone = true
 				else:
 					alone = false
 					break
-		unfrozen_dice_pos[unfrozen_id] = position
+		unfrozen_dice_pos[unfrozen_id] = dice_position
 	
 	update_dice_pos()
 	

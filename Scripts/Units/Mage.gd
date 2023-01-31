@@ -6,6 +6,7 @@ var start: Vector2
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Mage"
+	ranged = true
 
 func special() -> void:
 	if attack_target != null:

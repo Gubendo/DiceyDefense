@@ -26,7 +26,7 @@ func connect_signals() -> void:
 	$King/Button.mouse_exited.connect(disable_tooltip)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0 and playing:
 		print("FIN DE VAGUE")
 		waveStarted = false

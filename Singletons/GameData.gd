@@ -483,16 +483,16 @@ var beefy_stats: Dictionary = {
 	"health": 500,
 	"damage": 20,
 	"cd": 5,
-	"nexus_dmg": 1,
+	"nexus_dmg": 2,
 	"flying": false
 }
 
 var darkking_stats: Dictionary = {
-	"speed": 8,
-	"health": 500,
-	"damage": 20,
-	"cd": 5,
-	"nexus_dmg": 1,
+	"speed": 10,
+	"health": 2000,
+	"damage": 25,
+	"cd": 3,
+	"nexus_dmg": 100,
 	"flying": false
 }
 
@@ -507,7 +507,7 @@ var enemies_stats: Dictionary = {
 }
 
 
-var wave_data: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
+var wave_data2: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
 	# TRIVIAL
 	0: [[1, "Banner1", 1, 0]],
 	1: [[1, "Banner1", 1, 0]],
@@ -526,7 +526,7 @@ var wave_data: Dictionary = { # [Nb of units, Name of unit + lvl, Time between u
 
 }
 
-var wave_data2: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
+var wave_data: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
 	# TRIVIAL
 	0: [[30, "Undead1", 1, 0]],
 	# EASY
@@ -539,13 +539,13 @@ var wave_data2: Dictionary = { # [Nb of units, Name of unit + lvl, Time between 
 	6: [[6, "Wisp1", 0.5, 0.5], [30, "Gobelin1", 0.3, 0.5], [6, "Wisp1", 0.5, 0.5]],
 	7: [[20, "Undead1", 0.5, 0.5], [1, "Beefy1", 0, 1], [10, "Undead1", 0.5, 0.5], [1, "Beefy1", 0, 1]],
 	# HARD : BUFF HP ENNEMIS x 2 
-	8: [[5, "Wisp2", 0.5, 5], [2, "Banner2", 1, 1], [1, "Beefy1", 0, 1.5], [20, "Undead2", 0.8, 0], [1, "Beefy2", 0, 1.5], [10, "Gobelin2", 0.5, 0]],
-	9: [[30, "Gobelin2", 0.3, 3], [25, "Bobelin2", 0.5, 1], [12, "Undead2", 0.8, 0.2], [5, "Wisp2", 0.5, 3], [6, "Bobelin2", 0.5, 1]],
+	8: [[8, "Wisp2", 0.5, 5], [2, "Banner2", 1, 1], [1, "Beefy1", 0, 1.5], [20, "Undead2", 0.8, 0], [1, "Beefy2", 0, 1.5], [10, "Gobelin2", 0.5, 0]],
+	9: [[30, "Gobelin2", 0.3, 3], [25, "Bobelin2", 0.5, 1], [12, "Undead2", 0.8, 0.2], [10, "Wisp2", 0.5, 3], [6, "Bobelin2", 0.5, 1]],
 	# REALLY HARD
-	10: [[6, "Banner2", 1.2, 1], [4, "Beefy2", 3, 0], [6, "Banner2", 1.2, 1]],
-	11: [[50, "Undead2", 0.8, 1], [5, "Banner2", 1, 1], [1, "Beefy2", 0, 2], [5, "Banner2", 1, 1], [30, "Undead2", 0.8, 1], [25, "Gobelin2", 0.5, 1], [5, "Wisp2", 0.5, 1], [10, "Bobelin2", 1, 1], [25, "Gobelin2", 0.5, 1], [50, "Undead2", 0.8, 1]],
+	10: [[8, "Banner2", 1.2, 1], [4, "Beefy2", 3, 0], [6, "Banner2", 1.2, 1], [4, "Beefy2", 3, 0], [8, "Banner2", 1.2, 1]],
+	11: [[50, "Undead2", 0.8, 1], [5, "Banner2", 1, 1], [1, "Beefy2", 0, 2], [5, "Banner2", 1, 1], [30, "Undead2", 0.8, 1], [25, "Gobelin2", 0.5, 1], [10, "Wisp2", 0.5, 1], [10, "Bobelin2", 1, 1], [25, "Gobelin2", 0.5, 1], [50, "Undead2", 0.8, 1]],
 	# HARDCORE (NEED PERFECT COMP)
-	12: [[1, "DarkKing1", 0, 10], [2, "Beefy", 3, 3], [20, "Undead2", 0.8, 1], ["2", "Beefy", 3, 3], [40, "Gobelin1", 0.5, 1]]
+	12: [[1, "DarkKing1", 0, 10], [3, "Beefy2", 3, 3], [20, "Undead2", 0.8, 1], [3, "Beefy2", 3, 3], [40, "Gobelin1", 0.5, 1]]
 	
 }
 

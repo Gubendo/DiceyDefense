@@ -575,6 +575,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Controls" type="HBoxContainer" parent="CanvasLayer/Vague"]
+custom_minimum_size = Vector2(0, 80)
 offset_left = 1587.0
 offset_top = -3.0
 offset_right = 1791.0
@@ -583,8 +584,6 @@ offset_bottom = 77.0
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3
 custom_minimum_size = Vector2(100, 0)
-offset_right = 100.0
-offset_bottom = 80.0
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("18_50do2")
@@ -595,9 +594,6 @@ stretch_mode = 0
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 1
 custom_minimum_size = Vector2(100, 0)
-offset_left = 104.0
-offset_right = 204.0
-offset_bottom = 80.0
 toggle_mode = true
 texture_normal = ExtResource("20_4t0kd")
 texture_pressed = ExtResource("21_jffsl")

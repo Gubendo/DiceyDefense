@@ -22,7 +22,6 @@ func repair() -> void:
 	destroyed = false
 	
 func take_dmg(damage: float) -> void:
-	var oldColor: Color = sprite.modulate
 	currentHP -= damage
 	health_bar.value = currentHP
 	if currentHP <= 0:
@@ -32,7 +31,7 @@ func take_dmg(damage: float) -> void:
 	await get_tree().create_timer(0.05).timeout
 	sprite.modulate = Color(1, 1, 1)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 func destroy() -> void:

@@ -8,7 +8,6 @@ var currentHP: float
 var impaired: bool = false
 var bleed: float = 0
 var bleedFreq: float = 0
-var baseColor: Color = Color(1, 1, 1)
 
 var blocked: bool = false
 var blockedBy: Node
@@ -23,6 +22,7 @@ var flying: bool
 
 @onready var health_bar: TextureProgressBar = $CharacterBody2d/HealthBar
 @onready var sprite: Sprite2D = $CharacterBody2d/Sprite2d
+@onready var baseColor: Color = sprite.modulate
 @onready var hitbox: CollisionShape2D = $CharacterBody2d/CollisionShape2d
 
 @onready var slow_timer: Timer = $Timers/SlowTimer
@@ -107,15 +107,15 @@ func move(delta: float) -> void:
 
 func take_dmg(amount: float) -> void:
 	var oldColor: Color = sprite.modulate
-	if oldColor == Color(1, 0, 0): oldColor = Color(1, 1, 1)
+	if oldColor == Color(1, 0, 0): oldColor = baseColor
 	currentHP -= amount
 	health_bar.value = currentHP
 	if currentHP <= 0:
 		destroy(true)
-	
-	sprite.modulate = Color(1, 0, 0)
-	await get_tree().create_timer(0.05).timeout
-	sprite.modulate = oldColor
+	else:
+		sprite.modulate = Color(1, 0, 0)
+		await get_tree().create_timer(0.05).timeout
+		sprite.modulate = oldColor
 
 func attack_struct() -> void:
 	atkReady = false

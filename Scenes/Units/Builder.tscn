@@ -181,6 +181,8 @@ libraries = {
 "": SubResource("AnimationLibrary_n382a")
 }
 
+[node name="StatusPlayer" type="AnimationPlayer" parent="."]
+
 [node name="LastAttack" type="Timer" parent="."]
 one_shot = true
 

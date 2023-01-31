@@ -24,7 +24,7 @@ func update_tooltip() -> void:
 {1} points de vie et infligeant {2} points de dégâts aux unités qui \
 les attaquent".format([currentStats[2], currentStats[0], currentStats[1]])
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func start_wave() -> void:

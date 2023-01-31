@@ -3,7 +3,7 @@ extends Node2D
 @onready var unit: Node2D = $Unit
 @onready var button: TextureButton = $Unit/Activate
 @onready var unitHover: Sprite2D = $Unit/Hover
-@onready var range: Area2D = $Range
+@onready var range_area: Area2D = $Range
 @onready var tooltip: Control = $CanvasLayer/Tooltip
 @onready var tooltipText: RichTextLabel = $CanvasLayer/Tooltip/Description
 @onready var rangeSprite: Sprite2D = $Range/RangeSprite
@@ -50,7 +50,7 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if activated and enemies_in_range.size() != 0:
 		select_enemy()
 		show_target("")
@@ -74,8 +74,8 @@ func init_sprite() -> void:
 
 func connect_signals() -> void:
 	button.pressed.connect(activate)
-	range.body_entered.connect(_on_range_body_entered)
-	range.body_exited.connect(_on_range_body_exited)
+	range_area.body_entered.connect(_on_range_body_entered)
+	range_area.body_exited.connect(_on_range_body_exited)
 	button.mouse_entered.connect(enable_tooltip)
 	button.mouse_exited.connect(disable_tooltip)
 	choix.connect(Callable(yamsMgr, "on_unit_choice"))
@@ -143,9 +143,15 @@ func turn(direction: float) -> void:
 func attack() -> void:
 	atkReady = false
 	attack_anim()
-	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
-	atkReady = true
+	wave_cooldown()
+	
 
+func wave_cooldown() -> void:
+	var wave: int = $/root/Main.current_wave
+	await get_tree().create_timer(stats[level]["cooldown"] / buff_as).timeout
+	if wave == $/root/Main.current_wave:
+		atkReady = true
+	
 func special() -> void: #Dépend de chaque unité
 	pass
 
@@ -170,11 +176,14 @@ func update_stats() -> void:
 				statNb += 1
 	
 	if level != 0:
-		range.scale = Vector2(stats[level]["range"] + 1, stats[level]["range"] + 1)
+		range_area.scale = Vector2(stats[level]["range"] + 1, stats[level]["range"] + 1)
 		rangeSprite.modulate = Color(1, 1, 1, 0.3)
 		unitHover.modulate = Color(1, 1, 1, 1)
 	else:
-		range.scale = Vector2(2, 2)
+		if stats[1]["range"] == -1:
+			range_area.scale = Vector2(0, 0)
+		else:
+			range_area.scale = Vector2(2, 2)
 		rangeSprite.modulate = Color(1, 0, 0, 0.3)
 		unitHover.modulate = Color(1, 0, 0, 0.5)
 	
@@ -193,8 +202,8 @@ func update_tooltip() -> void:
 
 func update_tooltip_size(size_px: int) -> void:
 	var path: String = "res://Sprites/UI/tooltips/tooltip-" + str(size_px) + "px.png"
-	var tooltip: Texture2D = load(path)
-	$CanvasLayer/Tooltip/bg.texture = tooltip
+	var tooltip_text: Texture2D = load(path)
+	$CanvasLayer/Tooltip/bg.texture = tooltip_text
 	$CanvasLayer/Tooltip/bg.size.y = 0
 	
 func enable_tooltip() -> void:

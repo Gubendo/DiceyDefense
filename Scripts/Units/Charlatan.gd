@@ -18,5 +18,5 @@ func update_tooltip() -> void:
 	tooltipText.text = "Unité inactive pendant les vagues d'ennemis et qui permet \
 d'obtenir {0} lancers de dés supplémentaires".format([currentStats[0]])
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

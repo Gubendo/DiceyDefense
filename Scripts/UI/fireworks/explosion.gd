@@ -16,10 +16,9 @@ func _ready() -> void:
 	var color = colors[rng.randi() % colors.size()]
 	$Particles.one_shot = true
 	$Particles.emitting = true
-	print(color)
 	$Particles.modulate = color
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if not $Particles.is_emitting():
 		queue_free()

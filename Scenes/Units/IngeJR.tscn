@@ -159,6 +159,9 @@ texture_normal = ExtResource("2_ijvmy")
 [node name="Hover" type="Sprite2D" parent="Unit"]
 texture = ExtResource("3_miadf")
 
+[node name="Sprite" type="Sprite2D" parent="Unit"]
+visible = false
+
 [node name="Catapulte" type="Node2D" parent="."]
 visible = false
 
@@ -266,3 +269,5 @@ initial_velocity_max = 50.0
 angle_max = 360.0
 scale_amount_min = 0.3
 scale_amount_max = 0.4
+
+[node name="StatusPlayer" type="AnimationPlayer" parent="."]

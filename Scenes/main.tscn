@@ -269,6 +269,21 @@ tracks/4/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_dj6cv"]
+resource_name = "celebrate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KingSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
 [sub_resource type="Animation" id="Animation_s6rxq"]
 resource_name = "join_city"
 length = 2.5
@@ -401,21 +416,6 @@ tracks/1/keys = {
 "values": [1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_dj6cv"]
-resource_name = "celebrate"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("KingSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [6]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k5mix"]
 _data = {
 "RESET": SubResource("Animation_xi3uw"),
@@ -491,7 +491,6 @@ offset_bottom = 43.0
 theme = ExtResource("13_fnn6j")
 
 [node name="bg" type="TextureRect" parent="King/CanvasLayer/Tooltip"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -501,7 +500,6 @@ grow_vertical = 2
 texture = ExtResource("10_w244d")
 
 [node name="Name" type="Label" parent="King/CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -510,7 +508,6 @@ theme_override_colors/font_color = Color(0.988235, 0.768627, 0.341176, 1)
 text = "Roi Mysa"
 
 [node name="Description" type="RichTextLabel" parent="King/CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0

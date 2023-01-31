@@ -27,7 +27,7 @@ func update_tooltip() -> void:
 unités proches pendant {2} secondes toutes les {3} secondes\
 ".format([currentStats[0], currentStats[1], currentStats[2], currentStats[3]])
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if activated and root_node.get_node("Main").waveStarted:
 		if atkReady:
 			select_target()
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 		idle_anim()
 
 func select_target() -> void:
-	var trueR: float = range.get_node("CollisionShape2d").shape.radius * (stats[level]["range"] + 1) * scale.x
+	var trueR: float = range_area.get_node("CollisionShape2d").shape.radius * (stats[level]["range"] + 1) * scale.x
 	var potential_targets: Array = []
 	targets = []
 	for unit in get_all_allies():

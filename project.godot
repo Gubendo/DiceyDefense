@@ -21,6 +21,10 @@ GameData="*res://Singletons/GameData.gd"
 SaveSystem="*res://Scripts/GameManager/SaveSystem.gd"
 GlobalSettings="*res://Scripts/GameManager/global_settings.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/size/viewport_width=1920
