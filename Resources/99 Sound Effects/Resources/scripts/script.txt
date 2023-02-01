@@ -1,0 +1,158 @@
+on init
+
+make_perfview
+
+set_control_par($INST_ICON_ID,$CONTROL_PAR_HIDE,$HIDE_WHOLE_CONTROL)
+
+set_control_par_str($INST_WALLPAPER_ID,$CONTROL_PAR_PICTURE,"gui")
+
+set_ui_height_px(352)
+
+declare $last_id
+
+declare ui_slider $Attack(0,300000)
+set_control_par_str(get_ui_id($Attack),$CONTROL_PAR_PICTURE,"knob-a")
+set_control_par(get_ui_id($Attack),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Attack,30,34)
+make_persistent($Attack)
+
+declare ui_slider $Decay(400000,840000)
+set_control_par_str(get_ui_id($Decay),$CONTROL_PAR_PICTURE,"knob-a")
+set_control_par(get_ui_id($Decay),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Decay,30,122)
+make_persistent($Decay)
+
+declare ui_slider $Pitch(0,1000000)
+set_control_par_str(get_ui_id($Pitch),$CONTROL_PAR_PICTURE,"knob-b")
+set_control_par(get_ui_id($Pitch),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Pitch,110,34)
+make_persistent($Pitch)
+
+declare ui_slider $Env(80000,800000)
+set_control_par_str(get_ui_id($Env),$CONTROL_PAR_PICTURE,"knob-b")
+set_control_par(get_ui_id($Env),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Env,110,122)
+make_persistent($Env)
+
+declare ui_slider $Cutoff(50000,1000000)
+set_control_par_str(get_ui_id($Cutoff),$CONTROL_PAR_PICTURE,"knob-c")
+set_control_par(get_ui_id($Cutoff),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+set_control_par(get_ui_id($Cutoff),$CONTROL_PAR_DEFAULT_VALUE,1000000)
+move_control_px($Cutoff,238,34)
+make_persistent($Cutoff)
+
+declare ui_slider $LPReso(0,800000)
+set_control_par_str(get_ui_id($LPReso),$CONTROL_PAR_PICTURE,"knob-c")
+set_control_par(get_ui_id($LPReso),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($LPReso,238,122)
+make_persistent($LPReso)
+
+declare ui_slider $Hipass(0,600000)
+set_control_par_str(get_ui_id($Hipass),$CONTROL_PAR_PICTURE,"knob-d")
+set_control_par(get_ui_id($Hipass),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Hipass,318,34)
+make_persistent($Hipass)
+
+declare ui_slider $Reso(0,1000000)
+set_control_par_str(get_ui_id($Reso),$CONTROL_PAR_PICTURE,"knob-d")
+set_control_par(get_ui_id($Reso),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Reso,318,122)
+make_persistent($Reso)
+
+declare ui_slider $Bits(0,1000000)
+set_control_par_str(get_ui_id($Bits),$CONTROL_PAR_PICTURE,"knob-e")
+set_control_par(get_ui_id($Bits),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+set_control_par(get_ui_id($Bits),$CONTROL_PAR_DEFAULT_VALUE,1000000)
+move_control_px($Bits,53,237)
+make_persistent($Bits)
+
+declare ui_slider $Rate(0,1000000)
+set_control_par_str(get_ui_id($Rate),$CONTROL_PAR_PICTURE,"knob-e")
+set_control_par(get_ui_id($Rate),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+set_control_par(get_ui_id($Rate),$CONTROL_PAR_DEFAULT_VALUE,1000000)
+move_control_px($Rate,143,237)
+make_persistent($Rate)
+
+declare ui_slider $Dist(0,1000000)
+set_control_par_str(get_ui_id($Dist),$CONTROL_PAR_PICTURE,"knob-e")
+set_control_par(get_ui_id($Dist),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Dist,233,237)
+make_persistent($Dist)
+
+declare ui_slider $Drive (500000,1000000)
+set_control_par_str(get_ui_id($Drive),$CONTROL_PAR_PICTURE,"knob-e")
+set_control_par(get_ui_id($Drive),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+move_control_px($Drive,324,237)
+make_persistent($Drive)
+
+declare ui_slider $Reverb (0,100)
+set_control_par_str(get_ui_id($Reverb),$CONTROL_PAR_PICTURE,"knob-e")
+set_control_par(get_ui_id($Reverb),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+set_control_par(get_ui_id($Reverb),$CONTROL_PAR_DEFAULT_VALUE,400000)
+move_control_px ($Reverb,414,237)
+make_persistent($Reverb)
+
+declare ui_slider $Gain(0,400000)
+set_control_par_str(get_ui_id($Gain),$CONTROL_PAR_PICTURE,"knob-e")
+set_control_par(get_ui_id($Gain),$CONTROL_PAR_MOUSE_BEHAVIOUR,-300)
+set_control_par(get_ui_id($Gain),$CONTROL_PAR_DEFAULT_VALUE,400000)
+move_control_px($Gain,504,237)
+make_persistent($Gain)
+
+end on
+
+on ui_control ($Attack)
+	set_engine_par($ENGINE_PAR_ATTACK,$Attack,0,0,-1)
+end on
+
+on ui_control ($Decay)
+	set_engine_par($ENGINE_PAR_DECAY,$Decay,0,0,-1)
+end on
+
+on ui_control ($Pitch)
+	set_engine_par($ENGINE_PAR_MOD_TARGET_INTENSITY,$Pitch,0,find_mod(0,"ENV_PTCH"),find_target(0,find_mod(0,"ENV_PTCH"),"ENV_PTCH_AM"))
+end on
+
+on ui_control ($Env)
+	set_engine_par($ENGINE_PAR_DECAY,$Env,0,1,-1)
+end on
+
+on ui_control ($Cutoff)
+	set_engine_par($ENGINE_PAR_CUTOFF,$Cutoff, -1, 5, 1)
+end on
+
+on ui_control ($LPReso)
+	set_engine_par($ENGINE_PAR_RESONANCE, $LPReso, -1, 5, 1)
+end on
+
+on ui_control ($Hipass)
+	set_engine_par($ENGINE_PAR_CUTOFF, $Hipass, -1, 4, 1)
+end on
+
+on ui_control ($Reso)
+	set_engine_par($ENGINE_PAR_RESONANCE, $Reso, -1, 4, 1)
+end on
+
+on ui_control ($Bits)
+	set_engine_par($ENGINE_PAR_BITS, $Bits, -1, 2, 1)
+end on
+
+on ui_control ($Rate)
+	set_engine_par($ENGINE_PAR_FREQUENCY, $Rate, -1, 2, 1)
+end on
+
+on ui_control ($Dist)
+	set_engine_par($ENGINE_PAR_DRIVE, $Dist, -1, 3, 1)
+end on
+
+on ui_control ($Drive)
+	set_engine_par($ENGINE_PAR_SHAPE,$Drive,-1,0,1)
+end on
+
+on ui_control ($Reverb)  
+	_set_engine_par($ENGINE_PAR_SEND_EFFECT_OUTPUT_GAIN,$Reverb*5000,-1,1,0)   
+end on
+
+on ui_control ($Gain)
+	set_engine_par($ENGINE_PAR_GN_GAIN, $Gain, -1, 7, 1)
+end on
