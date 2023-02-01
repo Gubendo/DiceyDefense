@@ -69,7 +69,7 @@ func focusIn(button: Button) -> void:
 	var original_size: Vector2 = button.get_size()
 	tween.tween_property(button, "scale", Vector2(1.3, 1.3), 0.1)
 	tween.tween_property(button, "position:x", -42, 0.1)
-	#tween.interpolate_property(text, "rect/pos", text.get_pos(), text.get_pos()-text.get_size()*1.5, 2, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	#tween.tween_property(button, "position:y", -42, 0.1)
 	
 func focusOut(button: Button) -> void:
 	var tween: Tween = create_tween().set_parallel(true)
@@ -77,6 +77,7 @@ func focusOut(button: Button) -> void:
 	var original_size: Vector2 = button.get_size()
 	tween.tween_property(button, "scale", Vector2(1, 1), 0.1)
 	tween.tween_property(button, "position:x", 0, 0.1)
+	#tween.tween_property(button, "position:y", 0, 0.1)
 	
 func lock_input() -> void:
 	$MainMenu/PauseOverlay.visible = true

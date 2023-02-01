@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 			victory()
 			king_anim.play("join_city")
 			await king_anim.animation_finished
-			#king_anim.play("dance")
+			king_anim.play("celebrate")
 		else:
 			save_gamestate()
 			king_anim.play("join_city")

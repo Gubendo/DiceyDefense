@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dk3jg0f0ordhe" path="res://Sprites/UI/gobelet.png" id="10_c6ft7"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="11_7mjbh"]
 [ext_resource type="Texture2D" uid="uid://cdetu2igyog72" path="res://Animations/shield-upgrade.png" id="13_kqgwy"]
+[ext_resource type="Texture2D" uid="uid://c32w4yfhwcaep" path="res://Sprites/UI/tooltips/tooltip-dice.png" id="14_o0cic"]
 [ext_resource type="Texture2D" uid="uid://1ho1lprkdpem" path="res://Sprites/UI/HUD/progress_bar.png" id="16_xhnic"]
 [ext_resource type="Texture2D" uid="uid://b55p2w18kx46h" path="res://Sprites/UI/HUD/progress_bar_fill.png" id="17_015l5"]
 [ext_resource type="Theme" uid="uid://ijvymx3wfk2i" path="res://Themes/UI.tres" id="17_oh6jq"]
@@ -26,10 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://sxho2s5b2oq" path="res://Scenes/UI/fireworks/fireworks.tscn" id="23_0j4rl"]
 [ext_resource type="PackedScene" uid="uid://bwcochpom2701" path="res://Scenes/UI/statistics.tscn" id="24_kkpkk"]
 [ext_resource type="Texture2D" uid="uid://bcwflblflx8cv" path="res://Sprites/UI/menu/help.png" id="25_5kw5x"]
-
-[sub_resource type="Texture2D" id="Texture2D_i8shy"]
-resource_local_to_scene = false
-resource_name = ""
 
 [sub_resource type="Animation" id="Animation_a83cg"]
 length = 0.001
@@ -426,14 +423,13 @@ offset_bottom = 92.0
 theme = ExtResource("11_7mjbh")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Overlay/Gobelet/Tooltip"]
-modulate = Color(0.0352941, 0.0117647, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 160.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Texture2D_i8shy")
+texture = ExtResource("14_o0cic")
 
 [node name="nbLancers" type="Label" parent="CanvasLayer/Overlay/Gobelet/Tooltip"]
 offset_left = 10.0
@@ -584,6 +580,8 @@ offset_bottom = 77.0
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3
 custom_minimum_size = Vector2(100, 0)
+offset_right = 100.0
+offset_bottom = 80.0
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("18_50do2")
@@ -594,6 +592,9 @@ stretch_mode = 0
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 1
 custom_minimum_size = Vector2(100, 0)
+offset_left = 104.0
+offset_right = 204.0
+offset_bottom = 80.0
 toggle_mode = true
 texture_normal = ExtResource("20_4t0kd")
 texture_pressed = ExtResource("21_jffsl")
