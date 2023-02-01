@@ -1,11 +1,11 @@
+Node2D
+TextureRect
 Sprite2D
 AnimationPlayer
 CPUParticles2D
 WorldEnvironment
 RigidBody2D
-Node2D
 Timer
-TextureRect
 CollisionShape2D
 Area2D
 PathFollow2D

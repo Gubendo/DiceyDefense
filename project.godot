@@ -17,7 +17,7 @@ boot_splash/image="res://meta/prod2.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color(0.282353, 0.290196, 0.466667, 1)
 config/icon="res://icon.svg"
-boot_splash/minimum_display_time=3000
+boot_splash/minimum_display_time=500
 
 [autoload]
 
