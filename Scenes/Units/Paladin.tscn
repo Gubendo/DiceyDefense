@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cmu6gp2op0k0a"]
+[gd_scene load_steps=21 format=3 uid="uid://cmu6gp2op0k0a"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Paladin.gd" id="1_y5caj"]
 [ext_resource type="Texture2D" uid="uid://bmi65f71etfy8" path="res://Animations/Status/buff-back.png" id="2_86iey"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://crpjmpeddxi38" path="res://Animations/Status/buff-front.png" id="6_5nirt"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="9_76jxp"]
 [ext_resource type="Texture2D" uid="uid://q3iuel1bn4e0" path="res://Sprites/UI/tooltips/tooltip-60px.png" id="9_twhf1"]
+[ext_resource type="AudioStream" uid="uid://b37tcc14q8ua0" path="res://Sounds/Units/holy_fire.ogg" id="11_lka0j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -370,3 +371,8 @@ initial_velocity_max = 50.0
 angle_max = 360.0
 scale_amount_min = 0.3
 scale_amount_max = 0.4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_lka0j")
+volume_db = -10.0
+bus = &"SFX"

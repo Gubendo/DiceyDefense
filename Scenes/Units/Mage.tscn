@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://drdr6dkao3hnd"]
+[gd_scene load_steps=21 format=3 uid="uid://drdr6dkao3hnd"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Mage.gd" id="1_t5djv"]
 [ext_resource type="Texture2D" uid="uid://dtom1n33r4ufi" path="res://Sprites/Units/mage.png" id="2_4cg3e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://crpjmpeddxi38" path="res://Animations/Status/buff-front.png" id="6_vehyf"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="7_ye630"]
 [ext_resource type="Texture2D" uid="uid://btdy2m0srjan" path="res://Sprites/UI/tooltips/tooltip-45px.png" id="7_yu70c"]
+[ext_resource type="AudioStream" uid="uid://bigita5c0ehay" path="res://Sounds/Units/ice_spell.ogg" id="11_k5m6o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -350,3 +351,8 @@ initial_velocity_max = 50.0
 angle_max = 360.0
 scale_amount_min = 0.3
 scale_amount_max = 0.4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_k5m6o")
+volume_db = -10.0
+bus = &"SFX"

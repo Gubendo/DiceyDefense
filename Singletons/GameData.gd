@@ -528,7 +528,7 @@ var wave_data2: Dictionary = { # [Nb of units, Name of unit + lvl, Time between 
 
 var wave_data: Dictionary = { # [Nb of units, Name of unit + lvl, Time between units, Time after group]
 	# TRIVIAL
-	0: [[30, "Undead1", 1, 0]],
+	0: [[1, "Banner1", 1, 0]],
 	# EASY
 	1: [[5, "Undead1", 0.5, 0]],
 	2: [[1, "Banner1", 0, 0.2], [10, "Gobelin1", 0.8, 0.5], [1, "Banner1", 0, 0.2], [5, "Gobelin1", 0.8, 0.5]],

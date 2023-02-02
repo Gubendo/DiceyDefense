@@ -9,6 +9,7 @@ func special() -> void:
 	
 	if attack_target != null:
 		print("PALADIN : Je donne un coup de marteau")
+		$AudioStreamPlayer2D.play()
 		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
 		for enemy in get_all_enemies():
 			if abs(attack_target.position.distance_to(enemy.position)) < stats[level]["aoe"] and attack_target != enemy:

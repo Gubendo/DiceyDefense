@@ -12,6 +12,7 @@ func special() -> void:
 	print("ARCHER : Je tire une flèche")
 	if attack_target != null:
 		shoot_arrow()
+		$AudioStreamPlayer2D.play()
 
 	
 func update_tooltip() -> void:

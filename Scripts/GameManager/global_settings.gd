@@ -28,16 +28,16 @@ func toggle_glow(value: float) -> void:
 	SaveSystem.save_game()
 
 func update_master_vol(vol: float) -> void:
-	AudioServer.set_bus_volume_db(0, vol)
+	AudioServer.set_bus_volume_db(0, (vol-100)/5)
 	SaveSystem.game_data["settings"]["master_vol"] = vol
 	SaveSystem.save_game()
 	
 func update_music_vol(vol: float) -> void:
-	AudioServer.set_bus_volume_db(1, vol)
+	AudioServer.set_bus_volume_db(1, (vol-100)/5)
 	SaveSystem.game_data["settings"]["music_vol"] = vol
 	SaveSystem.save_game()
 	
 func update_sfx_vol(vol: float) -> void:
-	AudioServer.set_bus_volume_db(2, vol)
+	AudioServer.set_bus_volume_db(2, (vol-100)/10)
 	SaveSystem.game_data["settings"]["sfx_vol"] = vol
 	SaveSystem.save_game()

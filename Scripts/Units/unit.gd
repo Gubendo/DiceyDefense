@@ -83,9 +83,11 @@ func connect_signals() -> void:
 	
 func activate() -> void:
 	if level == 0:
+		Sfx.discard_unit()
 		save_system.game_data[unitName]["level"] = 0
 		queue_free()
 	else:
+		Sfx.recruit_unit()
 		particles.restart()
 		on_activate()
 		
@@ -208,6 +210,7 @@ func update_tooltip_size(size_px: int) -> void:
 	
 func enable_tooltip() -> void:
 	if(!sleeping):
+		Sfx.hover_sound()
 		update_tooltip()
 		tooltip.visible = true
 		unitHover.visible = true

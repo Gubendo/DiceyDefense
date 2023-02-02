@@ -1,10 +1,13 @@
+res://Sounds/Units
+res://Sounds
+res://Scripts/Units
+res://Scripts/UI
+res://Scenes/UI
 res://Themes
 res://meta
 res://Shaders
 res://Scripts/UI/fireworks
 res://Scenes/UI/fireworks
-res://Scripts/UI
-res://Scenes/UI
 res://
 res://Sprites/UI
 res://Fonts
@@ -17,6 +20,3 @@ res://Sprites
 res://Animations
 res://Scenes/Projectiles
 res://Scripts/Decors
-res://Scripts/Enemies
-res://Sprites/Buildings
-res://Sprites/Units

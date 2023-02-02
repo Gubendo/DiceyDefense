@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bwyamuieukav7"]
+[gd_scene load_steps=17 format=3 uid="uid://bwyamuieukav7"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Bourreau.gd" id="1_l28x6"]
 [ext_resource type="Texture2D" uid="uid://cw1ywqgubabre" path="res://Sprites/Units/bourreau.png" id="2_fj63e"]
@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 [ext_resource type="Texture2D" uid="uid://btdy2m0srjan" path="res://Sprites/UI/tooltips/tooltip-45px.png" id="7_66tj6"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="7_g78m3"]
+[ext_resource type="AudioStream" uid="uid://bkkvb5loc8wt8" path="res://Sounds/Units/stab.ogg" id="9_qlp2x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -290,3 +291,8 @@ initial_velocity_max = 50.0
 angle_max = 360.0
 scale_amount_min = 0.3
 scale_amount_max = 0.4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_qlp2x")
+volume_db = -10.0
+bus = &"SFX"

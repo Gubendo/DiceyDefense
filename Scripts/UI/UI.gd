@@ -90,6 +90,7 @@ func _process(_delta: float) -> void:
 		for node in dicesList:
 			if node.get_global_rect().has_point(mousePos):
 				node.highlight(false)
+				Sfx.shuffle_dice()
 				if node in frozenDices:
 					frozenDices.erase(node)
 					unfrozenDices.append(node)
@@ -138,6 +139,7 @@ func nouveau_coup() -> void:
 	press_roll()
 	
 func press_roll() -> void:
+	Sfx.roll_dice()
 	for node in unfrozenDices:
 		var unfrozen_id: int = str(node.name).right(1).to_int() - 1
 		unfrozen_dice_pos[unfrozen_id] = Vector2(-100, -100)
@@ -191,6 +193,7 @@ func update_phase(waveStarted: bool, currentWave: int) -> void:
 		
 	
 func on_PausePlay_pressed() -> void:
+	Sfx.click_button()
 	if get_tree().is_paused():
 		get_tree().paused = false
 		for node in pauseMenu.get_children():
@@ -204,6 +207,7 @@ func on_PausePlay_pressed() -> void:
 		$CanvasLayer/PauseOverlay.visible = true
 		
 func on_SpeedUp_pressed() -> void:
+	Sfx.click_button()
 	if Engine.get_time_scale() == 2.0:
 		Engine.set_time_scale(1.0)
 	else:
@@ -243,16 +247,20 @@ func update_barracks(barracks_score: int, barracks_max: int) -> void:
 	$CanvasLayer/Health/ProgressValue.text = str(min(barracks_score, barracks_max)) + "/" + str(barracks_max)
 	
 func quit() -> void:
+	Sfx.click_button()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/UI/menu.tscn")
 	
 func options() -> void:
+	Sfx.click_button()
 	$CanvasLayer/Settings/Popup.open_window()
 	
 func stats() -> void:
+	Sfx.click_button()
 	$CanvasLayer/Statistics/Container.open_window()
 
 func restart() -> void:
+	Sfx.click_button()
 	save_system.reset_save()
 	get_tree().reload_current_scene()
 	get_tree().paused = false
@@ -290,6 +298,7 @@ func unlock_input() -> void:
 	locked = false
 	
 func trigger_help() -> void:
+	Sfx.click_button()
 	if helpOpen: 
 		help_animation.play("hide_help")
 		helpOpen = false

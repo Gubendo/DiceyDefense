@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ii2mha02m7ce"]
+[gd_scene load_steps=18 format=3 uid="uid://ii2mha02m7ce"]
 
 [ext_resource type="Script" path="res://Scripts/Units/IngeJR.gd" id="1_4yu0w"]
 [ext_resource type="Texture2D" uid="uid://bdcpgtaiwadjy" path="res://Sprites/Units/ingeJR.png" id="2_ijvmy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bre6lh1f0a518" path="res://Animations/Catapulte/catapulte-full.png" id="6_k7gu7"]
 [ext_resource type="Texture2D" uid="uid://t8ra1jvi22v3" path="res://Sprites/UI/tooltips/tooltip-35px.png" id="9_7o4wy"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="9_jqpcg"]
+[ext_resource type="AudioStream" uid="uid://48y0wjylb2xm" path="res://Sounds/Units/catapult.ogg" id="11_sm5sk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -271,3 +272,8 @@ scale_amount_min = 0.3
 scale_amount_max = 0.4
 
 [node name="StatusPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_sm5sk")
+volume_db = -5.0
+bus = &"SFX"

@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://cur0ovc2dvg2t"]
+[gd_scene load_steps=21 format=3 uid="uid://cur0ovc2dvg2t"]
 
-[ext_resource type="Script" path="res://Scripts/Units/Paladin.gd" id="1_y5caj"]
+[ext_resource type="Script" path="res://Scripts/Units/Loup.gd" id="1_i00at"]
 [ext_resource type="Texture2D" uid="uid://bmi65f71etfy8" path="res://Animations/Status/buff-back.png" id="2_yi14f"]
 [ext_resource type="Texture2D" uid="uid://cfgqx5anoyy70" path="res://Sprites/range.png" id="3_8gm61"]
 [ext_resource type="Texture2D" uid="uid://ckmvqsaa135da" path="res://Sprites/Units/corgi.png" id="3_cxrqg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://crpjmpeddxi38" path="res://Animations/Status/buff-front.png" id="6_xhko6"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="9_6tajr"]
 [ext_resource type="Texture2D" uid="uid://wch6nf0eb4gg" path="res://Sprites/UI/tooltips/tooltip-80px.png" id="9_fnc0n"]
+[ext_resource type="AudioStream" uid="uid://2ifcbhqujs2b" path="res://Sounds/Units/chomp.wav" id="11_vnks2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -83,6 +84,22 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_gquu2"]
+resource_name = "celebrate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Unit/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [22, 23, 24, 25, 26]
+}
+
 [sub_resource type="Animation" id="Animation_jp67q"]
 resource_name = "idle"
 length = 6.2
@@ -110,22 +127,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]
-}
-
-[sub_resource type="Animation" id="Animation_gquu2"]
-resource_name = "celebrate"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Unit/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [22, 23, 24, 25, 26]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ou866"]
@@ -247,7 +248,7 @@ _data = {
 }
 
 [node name="Loup" type="Node2D"]
-script = ExtResource("1_y5caj")
+script = ExtResource("1_i00at")
 
 [node name="Unit" type="Node2D" parent="."]
 position = Vector2(0, -2)
@@ -313,7 +314,6 @@ offset_bottom = 43.0
 theme = ExtResource("4_xrb4r")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tooltip"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -324,7 +324,6 @@ grow_vertical = 2
 texture = ExtResource("9_fnc0n")
 
 [node name="Name" type="Label" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -332,7 +331,6 @@ offset_bottom = 9.0
 text = "Toffee / Total des 3"
 
 [node name="Description" type="RichTextLabel" parent="CanvasLayer/Tooltip"]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 60.0
@@ -373,3 +371,8 @@ initial_velocity_max = 50.0
 angle_max = 360.0
 scale_amount_min = 0.3
 scale_amount_max = 0.4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_vnks2")
+volume_db = -10.0
+bus = &"SFX"

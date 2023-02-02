@@ -60,6 +60,7 @@ func close_window() -> void:
 	
 func open_window() -> void:
 	get_parent().visible = true
+	load_settings()
 	open = true
 	emit_signal("settings_open")
 	
@@ -67,26 +68,27 @@ func load_settings() -> void:
 	if FileAccess.file_exists("user://save_file.save"):
 		SaveSystem.load_game()
 		
-		display_btn.select(1 if SaveSystem.game_data["settings"]["fullscreen_on"] else 0)
-		GlobalSettings.toggle_fullscreen(SaveSystem.game_data["settings"]["fullscreen_on"])
-		
-		vsync_btn.button_pressed = SaveSystem.game_data["settings"]["vsync_on"]
-		GlobalSettings.toggle_vsync(SaveSystem.game_data["settings"]["vsync_on"])
-		
-		brightness_slider.value = SaveSystem.game_data["settings"]["brightness"]
-		GlobalSettings.toggle_brightness(SaveSystem.game_data["settings"]["brightness"])
-		
-		glow_slider.value = SaveSystem.game_data["settings"]["glow"]
-		GlobalSettings.toggle_glow(SaveSystem.game_data["settings"]["glow"])
-		
-		master_slider.value = SaveSystem.game_data["settings"]["master_vol"]
-		GlobalSettings.update_master_vol(SaveSystem.game_data["settings"]["master_vol"])
-		
-		music_slider.value = SaveSystem.game_data["settings"]["music_vol"]
-		GlobalSettings.update_music_vol(SaveSystem.game_data["settings"]["music_vol"])
-		
-		sfx_slider.value = SaveSystem.game_data["settings"]["sfx_vol"]
-		GlobalSettings.update_sfx_vol(SaveSystem.game_data["settings"]["sfx_vol"])
+	display_btn.select(1 if SaveSystem.game_data["settings"]["fullscreen_on"] else 0)
+	GlobalSettings.toggle_fullscreen(SaveSystem.game_data["settings"]["fullscreen_on"])
+	
+	vsync_btn.button_pressed = SaveSystem.game_data["settings"]["vsync_on"]
+	GlobalSettings.toggle_vsync(SaveSystem.game_data["settings"]["vsync_on"])
+	
+	brightness_slider.value = SaveSystem.game_data["settings"]["brightness"]
+	GlobalSettings.toggle_brightness(SaveSystem.game_data["settings"]["brightness"])
+	
+	glow_slider.value = SaveSystem.game_data["settings"]["glow"]
+	GlobalSettings.toggle_glow(SaveSystem.game_data["settings"]["glow"])
+	
+	master_slider.value = SaveSystem.game_data["settings"]["master_vol"]
+	GlobalSettings.update_master_vol(SaveSystem.game_data["settings"]["master_vol"])
+	
+	music_slider.value = SaveSystem.game_data["settings"]["music_vol"]
+	GlobalSettings.update_music_vol(SaveSystem.game_data["settings"]["music_vol"])
+	
+	sfx_slider.value = SaveSystem.game_data["settings"]["sfx_vol"]
+	GlobalSettings.update_sfx_vol(SaveSystem.game_data["settings"]["sfx_vol"])
+	
 
 
 

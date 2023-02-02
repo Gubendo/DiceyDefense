@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bryb3fjngywov"]
+[gd_scene load_steps=18 format=3 uid="uid://bryb3fjngywov"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/Banner.gd" id="1_13hah"]
 [ext_resource type="Texture2D" uid="uid://dcxa0uayg1qcv" path="res://Animations/banner/banner-full.png" id="2_alpip"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bqugmvufoqgmk" path="res://Animations/Status/bleed.png" id="3_lm3re"]
 [ext_resource type="Texture2D" uid="uid://kvq8pdeiaqjd" path="res://Animations/Status/poof.png" id="4_d762c"]
 [ext_resource type="Texture2D" uid="uid://0ci7cgy31lmm" path="res://Sprites/Enemies/health_bar_fill.png" id="4_mqljr"]
+[ext_resource type="AudioStream" uid="uid://bahf58lsvemno" path="res://Sounds/poof.wav" id="7_dsypg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix4sa"]
 size = Vector2(8.66667, 11.3333)
@@ -273,3 +274,8 @@ one_shot = true
 
 [node name="BleedFrequency" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_dsypg")
+volume_db = -10.0
+bus = &"SFX"

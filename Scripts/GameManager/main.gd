@@ -15,6 +15,10 @@ var save_system = SaveSystem
 @onready var king_anim = $King/KingAnimation
 var shield_upgrade: Resource = preload("res://Sprites/UI/shield-upgrade.png")
 
+@onready var castle_music = load("res://Sounds/Loop.wav")
+@onready var transition_music = load("res://Sounds/Braam.wav")
+@onready var enemy_music = load("res://Sounds/Loop2.wav")
+
 func _ready() -> void:
 	rng.randomize()
 	connect_signals()
@@ -27,8 +31,13 @@ func connect_signals() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if !$Music.playing:
+		$Music.play()
 	if waveStarted and enemies_in_wave == 0 and playing:
 		print("FIN DE VAGUE")
+		$Music.stop()
+		$Music.set_stream(castle_music)
+		$Music.play()
 		waveStarted = false
 		if current_wave == 13:
 			victory()
@@ -86,8 +95,14 @@ func start_next_wave() -> void:
 	waveStarted = true
 	update_phase()
 	$UI.text_animation.play("wavestart")
+	$Music.stop()
+	$Music.set_stream(transition_music)
+	$Music.play()
 	await get_tree().create_timer(2.4).timeout
 	$UI.text_animation.play("RESET")
+	$Music.stop()
+	$Music.set_stream(enemy_music)
+	$Music.play()
 	spawn_enemies(wave_data)
 	
 	
@@ -120,6 +135,7 @@ func on_enemy_death(nexus_dmg: float) -> void:
 	
 	if nexus_dmg != 0:
 		$Camera2d.trigger_shake(3, 0.2, true)
+		Sfx.damage_sound()
 		nexus_hp -= nexus_dmg
 		if nexus_hp <= 0:
 			nexus_hp = 0
@@ -206,6 +222,7 @@ func on_king_pressed() -> void:
 
 func enable_tooltip() -> void:
 	if not $King/Button.is_disabled():
+		Sfx.hover_sound()
 		$King/CanvasLayer/Tooltip.visible = true
 		$King/Hover.visible = true
 		var coups: int = $UI.coupsRestant
@@ -228,6 +245,7 @@ func disable_tooltip() -> void:
 	
 func buff_barracks() -> void:
 	nexus_hp += 15
+	$AudioStreamPlayer.play()
 	$UI.update_health(nexus_hp)
 	
 	var shield_animation: AnimationPlayer = $UI/CanvasLayer/Health/AnimationPlayer

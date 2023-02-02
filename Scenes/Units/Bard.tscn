@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3n7ohhq5ufa0"]
+[gd_scene load_steps=16 format=3 uid="uid://d3n7ohhq5ufa0"]
 
 [ext_resource type="Script" path="res://Scripts/Units/Bard.gd" id="1_3tyjj"]
 [ext_resource type="Texture2D" uid="uid://bvvkfmt5si3kt" path="res://Sprites/Units/bard.png" id="2_mmyuk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="4_xrb4r"]
 [ext_resource type="Texture2D" uid="uid://bnp3fxtsdhaw" path="res://Sprites/sparkle2.png" id="7_7m3ar"]
 [ext_resource type="Texture2D" uid="uid://r7mpo1e0dt6t" path="res://Sprites/UI/tooltips/tooltip-40px.png" id="7_wxnxr"]
+[ext_resource type="AudioStream" uid="uid://rrw5jovgljsa" path="res://Sounds/Units/guitar_chord.ogg" id="9_k1oow"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qj271"]
 radius = 8.0
@@ -241,3 +242,8 @@ initial_velocity_max = 50.0
 angle_max = 360.0
 scale_amount_min = 0.3
 scale_amount_max = 0.4
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_k1oow")
+volume_db = -10.0
+bus = &"SFX"

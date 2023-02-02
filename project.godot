@@ -24,6 +24,7 @@ boot_splash/minimum_display_time=500
 GameData="*res://Singletons/GameData.gd"
 SaveSystem="*res://Scripts/GameManager/SaveSystem.gd"
 GlobalSettings="*res://Scripts/GameManager/global_settings.gd"
+Sfx="*res://Scenes/UI/sfx.tscn"
 
 [debug]
 

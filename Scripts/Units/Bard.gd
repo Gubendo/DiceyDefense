@@ -13,6 +13,7 @@ func _init() -> void:
 
 func special() -> void:
 	print("BARDE : Je joue de la musique sur " + str(targets))
+	$AudioStreamPlayer2D.play()
 	for unit in targets:
 		unit.buff_as *= stats[level]["buff"]
 		unit.status_player.play("buff")

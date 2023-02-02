@@ -11,6 +11,7 @@ func special() -> void:
 	print("INGENIEUR JUNIOR : Ma catapulte tire")
 	if attack_target != null:
 		shoot_caillou()
+		$AudioStreamPlayer2D.play()
 
 func on_activate() -> void:
 	unit.visible = false

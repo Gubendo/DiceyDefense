@@ -7,6 +7,7 @@ func _init() -> void:
 func special() -> void:
 	print("PAYSAN : Je donne un coup d'épée")
 	if attack_target != null: 
+		$AudioStreamPlayer2D.play()
 		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
 		damage_dealt += stats[level]["damage"] * buff_dmg
 

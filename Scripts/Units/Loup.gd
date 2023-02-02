@@ -8,6 +8,7 @@ func _init() -> void:
 func special() -> void:
 	if attack_target != null:
 		print("LOUP : Je graille un coup")
+		$AudioStreamPlayer2D.play()
 		attack_target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
 
 	

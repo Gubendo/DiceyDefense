@@ -3,6 +3,7 @@ extends Node2D
 var damage: float
 
 func _ready() -> void:
+	$AudioStreamPlayer2D.play()
 	$AnimationPlayer.play("burst")
 	await $AnimationPlayer.animation_finished
 	queue_free()

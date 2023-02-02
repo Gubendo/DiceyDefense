@@ -12,6 +12,7 @@ func special() -> void:
 	if attack_target != null:
 		print("MAGE : Je tire une boule de givre")
 		shoot_frostbolt()
+		$AudioStreamPlayer2D.play()
 
 	
 func update_tooltip() -> void:

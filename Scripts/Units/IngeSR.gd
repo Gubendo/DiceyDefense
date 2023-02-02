@@ -11,6 +11,7 @@ func special() -> void:
 	if attack_target != null:
 		print("INGENIEUR SENIOR : Mon trébuchet tire")
 		shoot_caillou()
+		$AudioStreamPlayer2D.play()
 
 
 func on_activate() -> void:

@@ -22,6 +22,7 @@ func repair() -> void:
 	destroyed = false
 	
 func take_dmg(damage: float) -> void:
+	$AudioStreamPlayer2D.play()
 	currentHP -= damage
 	health_bar.value = currentHP
 	if currentHP <= 0:

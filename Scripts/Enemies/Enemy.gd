@@ -32,6 +32,7 @@ var flying: bool
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var status_player: AnimationPlayer = $StatusPlayer
 
+
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 signal death(nexus_dmg)
@@ -149,6 +150,7 @@ func destroy(killed: bool) -> void:
 		dead = true
 		
 		if killed:
+			$AudioStreamPlayer.play()
 			emit_signal("death", 0)
 			status_player.play("death")
 			await status_player.animation_finished

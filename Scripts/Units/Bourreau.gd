@@ -1,17 +1,22 @@
 extends "res://Scripts/Units/unit.gd"
 
-
+@onready var execute_sound = load("res://Sounds/Units/execute.ogg")
+@onready var attack_sound = load("res://Sounds/Units/stab.ogg")
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
 	unitName = "Bourreau"
 
 func special() -> void:
 	if attack_target != null:
+		$AudioStreamPlayer2D.set_stream(attack_sound)
+		$AudioStreamPlayer2D.play()
 		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
 		print("BOURREAU : Je tranche")
 		
 func execute() -> void:
 	if attack_target != null:
+		$AudioStreamPlayer2D.set_stream(execute_sound)
+		$AudioStreamPlayer2D.play()
 		attack_target.destroy(true)
 		print("BOURREAU : J'execute")
 	

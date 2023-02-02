@@ -1,3 +1,6 @@
+AudioStreamPlayer
+AudioStreamPlayer2D
+Node
 Node2D
 TextureRect
 Sprite2D
@@ -27,6 +30,3 @@ TabBar
 Window
 CheckButton
 OptionButton
-GridContainer
-Popup
-TextureProgressBar

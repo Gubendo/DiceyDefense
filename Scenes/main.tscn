@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cth8bms3qfisl"]
+[gd_scene load_steps=44 format=3 uid="uid://tyjf4wmbd2gi"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager/main.gd" id="1_a2r2q"]
 [ext_resource type="PackedScene" uid="uid://coovnmiomy3xa" path="res://Scenes/UI/UI.tscn" id="2_sfx10"]
@@ -19,7 +19,6 @@
 [ext_resource type="Texture2D" uid="uid://duxi6wqf3pbyn" path="res://Animations/King/king-hover.png" id="11_6nojp"]
 [ext_resource type="Texture2D" uid="uid://c5p0n1itmigtc" path="res://Sprites/2D_board.png" id="11_sbmcr"]
 [ext_resource type="Texture2D" uid="uid://bhjtrotsfs23v" path="res://Sprites/Decors/banner_top.png" id="11_v7a2r"]
-[ext_resource type="Script" path="res://Scripts/Units/Loup.gd" id="11_w0phj"]
 [ext_resource type="PackedScene" uid="uid://bwyamuieukav7" path="res://Scenes/Units/Bourreau.tscn" id="12_6xr6h"]
 [ext_resource type="PackedScene" uid="uid://cxis57g4kqmlm" path="res://Scenes/Units/Builder.tscn" id="13_6k7hd"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="13_fnn6j"]
@@ -33,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://bsscl5l062gk0" path="res://Sprites/Decors/billot.png" id="20_cg4cb"]
 [ext_resource type="Texture2D" uid="uid://p522hf6xt2ih" path="res://Sprites/Units/king.png" id="24_tai2g"]
 [ext_resource type="PackedScene" uid="uid://cdf0esxvrorx1" path="res://Scenes/world_environment.tscn" id="32_sbbab"]
+[ext_resource type="AudioStream" uid="uid://dtwpdtuy0hcus" path="res://Sounds/shield_up.ogg" id="34_a4qmc"]
+[ext_resource type="AudioStream" uid="uid://dwrigyu7vqop3" path="res://Sounds/Loop.wav" id="34_suxmx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8abaa"]
 texture = ExtResource("4_e4dkg")
@@ -594,7 +595,6 @@ script = ExtResource("18_43vdd")
 
 [node name="Loup" parent="Units" instance=ExtResource("10_3u7ec")]
 position = Vector2(-122, -152)
-script = ExtResource("11_w0phj")
 
 [node name="Archer" parent="Units" instance=ExtResource("7_5k768")]
 position = Vector2(-141, -198)
@@ -638,6 +638,16 @@ scale = Vector2(0.75, 0.75)
 curve = SubResource("Curve2D_lxoc7")
 
 [node name="world_environment" parent="." instance=ExtResource("32_sbbab")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("34_suxmx")
+bus = &"Music"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_a4qmc")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="choix" from="UI" to="YamsManager" method="_on_ui_choix"]
 [connection signal="roll" from="UI" to="." method="_on_ui_roll"]
