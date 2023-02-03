@@ -33,7 +33,7 @@ var frozen_dice_pos: Dictionary = {0: Vector2(720, 900), 1: Vector2(800, 900), \
 2: Vector2(880, 900), 3: Vector2(750, 820), 4: Vector2(830, 820)}
 
 @export var dicesSprites: Array[Texture2D]
-@export var nbRolls: int = 30
+@export var nbRolls: int = 2
 
 var coupsRestant: int
 
@@ -209,8 +209,10 @@ func on_PausePlay_pressed() -> void:
 func on_SpeedUp_pressed() -> void:
 	Sfx.click_button()
 	if Engine.get_time_scale() == 2.0:
+		$/root/Main/Music.set_pitch_scale(1.0)
 		Engine.set_time_scale(1.0)
 	else:
+		$/root/Main/Music.set_pitch_scale(1.5)
 		Engine.set_time_scale(2.0)
 		
 func enable_tooltip_gobelet() -> void:

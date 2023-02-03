@@ -8,16 +8,17 @@ var enemies_in_wave: int = 0
 var waveStarted: bool = false
 var playing: bool = true
 
-var nexus_hp = 50
+var nexus_hp: int
 
 var save_system = SaveSystem
 
 @onready var king_anim = $King/KingAnimation
 var shield_upgrade: Resource = preload("res://Sprites/UI/shield-upgrade.png")
 
-@onready var castle_music = load("res://Sounds/Loop.wav")
-@onready var transition_music = load("res://Sounds/Braam.wav")
-@onready var enemy_music = load("res://Sounds/Loop2.wav")
+@onready var castle_music = load("res://Music/Castle.wav")
+@onready var transition_music = load("res://Music/Transition.wav")
+@onready var enemy_music = load("res://Music/Enemy.wav")
+@onready var victory_music = load("res://Music/Victory.wav")
 
 func _ready() -> void:
 	rng.randomize()
@@ -35,16 +36,14 @@ func _process(_delta: float) -> void:
 		$Music.play()
 	if waveStarted and enemies_in_wave == 0 and playing:
 		print("FIN DE VAGUE")
-		$Music.stop()
-		$Music.set_stream(castle_music)
-		$Music.play()
 		waveStarted = false
-		if current_wave == 13:
+		if current_wave == 1:
 			victory()
 			king_anim.play("join_city")
 			await king_anim.animation_finished
 			king_anim.play("celebrate")
 		else:
+			music_transition(false)
 			save_gamestate()
 			king_anim.play("join_city")
 			await king_anim.animation_finished
@@ -95,17 +94,30 @@ func start_next_wave() -> void:
 	waveStarted = true
 	update_phase()
 	$UI.text_animation.play("wavestart")
-	$Music.stop()
-	$Music.set_stream(transition_music)
-	$Music.play()
+	music_transition(true)
 	await get_tree().create_timer(2.4).timeout
 	$UI.text_animation.play("RESET")
-	$Music.stop()
-	$Music.set_stream(enemy_music)
-	$Music.play()
 	spawn_enemies(wave_data)
 	
+func music_transition(start: bool) -> void:
+	var tween: Tween = create_tween()
+	var baseDB: float = $Music.volume_db
+	if start:
+		$Music.set_stream(transition_music)
+		$Music.play()
+		tween.tween_property($Music, "volume_db", -30, 2.5)
+		await tween.finished
+		$Music.volume_db = baseDB
+		$Music.set_stream(enemy_music)
+		$Music.play()
+	else:
+		tween.tween_property($Music, "volume_db", -30, 2.5)
+		await tween.finished
+		$Music.volume_db = baseDB
+		$Music.set_stream(castle_music)
+		$Music.play()
 	
+
 func retrieve_wave_data() -> Array:
 	var wave_data: Array
 	if current_wave < GameData.wave_data.size() - 1:
@@ -147,8 +159,10 @@ func on_enemy_death(nexus_dmg: float) -> void:
 
 func game_over() -> void:
 	Engine.set_time_scale(1.0)
+	$Music.set_pitch_scale(0.75)
 	$UI.game_over()
 	$Decor/Fire.visible = true
+	$Decor/FireSound.play()
 	playing = false
 	for fire in $Decor/Fire.get_children():
 		fire.get_node("Sprite2d").frame = rng.randi_range(0, 6)
@@ -164,6 +178,8 @@ func game_over() -> void:
 func victory() -> void:
 	Engine.set_time_scale(1.0)
 	$UI.victory()
+	$Music.set_stream(victory_music)
+	$Music.play()
 	for temp in $Temporary.get_children():
 		temp.queue_free()
 	for follow in $KingsRoad.get_children():

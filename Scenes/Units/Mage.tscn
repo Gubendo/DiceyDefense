@@ -354,5 +354,4 @@ scale_amount_max = 0.4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_k5m6o")
-volume_db = -10.0
 bus = &"SFX"

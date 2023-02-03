@@ -17,6 +17,7 @@ func _ready() -> void:
 	$Particles.one_shot = true
 	$Particles.emitting = true
 	$Particles.modulate = color
+	$AudioStreamPlayer.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

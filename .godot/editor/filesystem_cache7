@@ -1,10 +1,10 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1675353188
+::res://::1675435352
 default_bus_layout.tres::AudioBusLayout::4273639990814803599::1673261460::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1668087081::0::1::::<><>::
 icon.svg::CompressedTexture2D::1175958913538634640::1665575462::1665575467::1::::<><>::
 README.md::TextFile::-1::1669045526::0::1::::<><>::
-world_environment.tres::Environment::842139022514975988::1675353656::0::1::::<><>::
+world_environment.tres::Environment::842139022514975988::1675435352::0::1::::<><>::
 ::res://Animations/::1675091555
 shield-upgrade.png::CompressedTexture2D::4992856178851331235::1672935207::1672935209::1::::<><>::
 shield_sparkle.png::CompressedTexture2D::1405461652208839772::1672935148::1672935209::1::::<><>::
@@ -158,950 +158,98 @@ mainmenu.png::CompressedTexture2D::9207968041414941800::1675261914::1675261914::
 map.png::CompressedTexture2D::2189294977387764251::1665481906::1665575554::1::::<><>::
 prod2.png::CompressedTexture2D::1668180832863633743::1675181324::1675181325::1::::<><>::
 prod.png::CompressedTexture2D::5154736546681963521::1675084504::1675087608::1::::<><>::
-::res://Resources/::1675324852
-::res://Resources/30_game_sounds/::1675324851
-::res://Resources/30_game_sounds/GameBurp FREE Game Sound FX Pack - OGG/::1675325876
-ALARM Alert Ringer Ascend 01.ogg::AudioStreamOggVorbis::4613365339620274002::1675324851::1675325876::1::::<><>::
-BONG Bell Timer Hit Deep 01.ogg::AudioStreamOggVorbis::9088347421384956464::1675324851::1675325876::1::::<><>::
-BOUNCE Twang Spring 13.ogg::AudioStreamOggVorbis::5331240749205440535::1675324851::1675325876::1::::<><>::
-COINS Collect Jackpot Win 03.ogg::AudioStreamOggVorbis::5316290596687219598::1675324851::1675325876::1::::<><>::
-ELECTRIC Shock Zap Short 03.ogg::AudioStreamOggVorbis::2231543652237490057::1675324851::1675325876::1::::<><>::
-ENGINE Motor Heavy Loop 08.ogg::AudioStreamOggVorbis::5767072295652925338::1675324851::1675325876::1::::<><>::
-EXPLOSION Bang 04.ogg::AudioStreamOggVorbis::8535993422847711727::1675324851::1675325876::1::::<><>::
-FOOTSTEPS (A) Walking Loop 01.ogg::AudioStreamOggVorbis::5669604248275197034::1675324851::1675325876::1::::<><>::
-IMPACT Metal Blade Clang 01.ogg::AudioStreamOggVorbis::866826991560040065::1675324851::1675325876::1::::<><>::
-MECH Servo Motor Movement Stomp Long 02.ogg::AudioStreamOggVorbis::1915533524283607000::1675324851::1675325876::1::::<><>::
-NEGATIVE Failure Descending Chime 05.ogg::AudioStreamOggVorbis::9031877886664731110::1675324851::1675325876::1::::<><>::
-POP Echo Bouncer 01.ogg::AudioStreamOggVorbis::2398996881135075911::1675324851::1675325876::1::::<><>::
-RETRO Jump Up Bounce Long 03.ogg::AudioStreamOggVorbis::8193238175146132648::1675324851::1675325876::1::::<><>::
-SHAKER Pieces Drop Roll 01.ogg::AudioStreamOggVorbis::1735940685818807101::1675324851::1675325876::1::::<><>::
-SLIDER Swipe Drag Movement Stone 08.ogg::AudioStreamOggVorbis::4353558703419366773::1675324851::1675325876::1::::<><>::
-SPLAT Crush 01.ogg::AudioStreamOggVorbis::3597104598755137423::1675324851::1675325876::1::::<><>::
-SQUEAK Stretch Tighten Long 01.ogg::AudioStreamOggVorbis::4827317328078774012::1675324851::1675325876::1::::<><>::
-SUCCESS BEEPS Multi Echo Short 02.ogg::AudioStreamOggVorbis::6120731352487607849::1675324851::1675325876::1::::<><>::
-SUCCESS CHEERS Win Cute Vocal Chime 03.ogg::AudioStreamOggVorbis::1497775503922551349::1675324851::1675325876::1::::<><>::
-SUCCESS CHIME Bells Sparkle Tune Completion 05.ogg::AudioStreamOggVorbis::8038233529640146335::1675324851::1675325876::1::::<><>::
-SUCCESS PICKUP Collect Chime 01.ogg::AudioStreamOggVorbis::6288382707075518613::1675324851::1675325876::1::::<><>::
-SWIPE Whoosh Double 01.ogg::AudioStreamOggVorbis::611612006605978809::1675324851::1675325876::1::::<><>::
-TECH CHARGER Power Up 06.ogg::AudioStreamOggVorbis::3379839401370271700::1675324851::1675325876::1::::<><>::
-TECH INTERFACE Computer Terminal Beeps Negative 03.ogg::AudioStreamOggVorbis::7824250942161603941::1675324851::1675325876::1::::<><>::
-TECH WEAPON Gun Shot Phaser Down 02.ogg::AudioStreamOggVorbis::1246410070921130164::1675324851::1675325876::1::::<><>::
-VOCAL CUTE Call Affection 03.ogg::AudioStreamOggVorbis::7189453709099296517::1675324851::1675325876::1::::<><>::
-VOCAL EVIL Impact Hit Slash 04.ogg::AudioStreamOggVorbis::2786807811974286544::1675324851::1675325876::1::::<><>::
-WATER Bubbles 02.ogg::AudioStreamOggVorbis::3406456842836088258::1675324851::1675325876::1::::<><>::
-WEAPON CLICK Reload Mechanism 01.ogg::AudioStreamOggVorbis::42815818313587171::1675324851::1675325876::1::::<><>::
-WEAPON GUNSHOT Rifle Swish 02.ogg::AudioStreamOggVorbis::8166550241303660369::1675324851::1675325876::1::::<><>::
-::res://Resources/30_game_sounds/GameBurp FREE Game Sound FX Pack - WAV/::1675325878
-ALARM Alert Ringer Ascend 01.wav::AudioStreamWAV::5995612437417424110::1675324851::1675325878::1::::<><>::
-BONG Bell Timer Hit Deep 01.wav::AudioStreamWAV::678628378938483325::1675324851::1675325878::1::::<><>::
-BOUNCE Twang Spring 13.wav::AudioStreamWAV::7952854362258092855::1675324851::1675325878::1::::<><>::
-COINS Collect Jackpot Win 03.wav::AudioStreamWAV::4833224722295278953::1675324851::1675325878::1::::<><>::
-ELECTRIC Shock Zap Short 03.wav::AudioStreamWAV::2031608595500295647::1675324851::1675325878::1::::<><>::
-ENGINE Motor Heavy Loop 08.wav::AudioStreamWAV::1053491169420510228::1675324851::1675325878::1::::<><>::
-EXPLOSION Bang 04.wav::AudioStreamWAV::6444021872754153071::1675324851::1675325878::1::::<><>::
-FOOTSTEPS (A) Walking Loop 01.wav::AudioStreamWAV::1651247367324111299::1675324851::1675325878::1::::<><>::
-IMPACT Metal Blade Clang 01.wav::AudioStreamWAV::5294688150997930008::1675324851::1675325878::1::::<><>::
-MECH Servo Motor Movement Stomp Long 02.wav::AudioStreamWAV::3019261204258611126::1675324851::1675325878::1::::<><>::
-NEGATIVE Failure Descending Chime 05.wav::AudioStreamWAV::5723173157055548620::1675324851::1675325878::1::::<><>::
-POP Echo Bouncer 01.wav::AudioStreamWAV::415429753311186823::1675324851::1675325878::1::::<><>::
-RETRO Jump Up Bounce Long 03.wav::AudioStreamWAV::6890411181023950147::1675324851::1675325878::1::::<><>::
-SHAKER Pieces Drop Roll 01.wav::AudioStreamWAV::4050207328996448744::1675324851::1675325878::1::::<><>::
-SLIDER Swipe Drag Movement Stone 08.wav::AudioStreamWAV::8078095493050257943::1675324851::1675325878::1::::<><>::
-SPLAT Crush 01.wav::AudioStreamWAV::9015431968073176432::1675324851::1675325878::1::::<><>::
-SQUEAK Stretch Tighten Long 01.wav::AudioStreamWAV::4288541535129677192::1675324851::1675325878::1::::<><>::
-SUCCESS BEEPS Multi Echo Short 02.wav::AudioStreamWAV::7853045119563918415::1675324851::1675325878::1::::<><>::
-SUCCESS CHEERS Win Cute Vocal Chime 03.wav::AudioStreamWAV::196997548609421083::1675324851::1675325878::1::::<><>::
-SUCCESS CHIME Bells Sparkle Tune Completion 05.wav::AudioStreamWAV::9016946067347608491::1675324851::1675325878::1::::<><>::
-SUCCESS PICKUP Collect Chime 01.wav::AudioStreamWAV::371389549908054440::1675324851::1675325878::1::::<><>::
-SWIPE Whoosh Double 01.wav::AudioStreamWAV::5603573633590087553::1675324851::1675325878::1::::<><>::
-TECH CHARGER Power Up 06.wav::AudioStreamWAV::7188585519435935222::1675324851::1675325878::1::::<><>::
-TECH INTERFACE Computer Terminal Beeps Negative 03.wav::AudioStreamWAV::418758447622719985::1675324851::1675325878::1::::<><>::
-TECH WEAPON Gun Shot Phaser Down 02.wav::AudioStreamWAV::3860424977828533204::1675324851::1675325878::1::::<><>::
-VOCAL CUTE Call Affection 03.wav::AudioStreamWAV::7466714699062694755::1675324851::1675325878::1::::<><>::
-VOCAL EVIL Impact Hit Slash 04.wav::AudioStreamWAV::5152467760977686746::1675324851::1675325878::1::::<><>::
-WATER Bubbles 02.wav::AudioStreamWAV::7350596819275131448::1675324851::1675325878::1::::<><>::
-WEAPON CLICK Reload Mechanism 01.wav::AudioStreamWAV::6485220846428563929::1675324851::1675325878::1::::<><>::
-WEAPON GUNSHOT Rifle Swish 02.wav::AudioStreamWAV::100582256709332693::1675324851::1675325878::1::::<><>::
-::res://Resources/54 interface sounds/::1675325879
-Junkomory Click 01.wav::AudioStreamWAV::442008954234759963::1675324851::1675325878::1::::<><>::
-Junkomory Click 02.wav::AudioStreamWAV::8918073622411057040::1675324851::1675325878::1::::<><>::
-Junkomory Click 03.wav::AudioStreamWAV::883988487391406126::1675324851::1675325878::1::::<><>::
-Junkomory Click 04.wav::AudioStreamWAV::8218100923635444888::1675324851::1675325878::1::::<><>::
-Junkomory Click 05.wav::AudioStreamWAV::8978221260090931877::1675324851::1675325878::1::::<><>::
-Junkomory Click 06.wav::AudioStreamWAV::8476144652787498660::1675324851::1675325878::1::::<><>::
-Junkomory Click 07.wav::AudioStreamWAV::1867867834998502193::1675324851::1675325878::1::::<><>::
-Junkomory Click 08.wav::AudioStreamWAV::1604191725202030355::1675324851::1675325878::1::::<><>::
-Junkomory Click 09.wav::AudioStreamWAV::6036182510646791411::1675324851::1675325878::1::::<><>::
-Junkomory Click 10.wav::AudioStreamWAV::7509985917982756523::1675324851::1675325878::1::::<><>::
-Junkomory Click 11.wav::AudioStreamWAV::3321550363427295524::1675324851::1675325878::1::::<><>::
-Junkomory Click 12.wav::AudioStreamWAV::7694029040659687896::1675324851::1675325878::1::::<><>::
-Junkomory Click 13.wav::AudioStreamWAV::7669915222586442922::1675324851::1675325878::1::::<><>::
-Junkomory Click 14.wav::AudioStreamWAV::5701026615542894810::1675324851::1675325878::1::::<><>::
-Junkomory Click 15.wav::AudioStreamWAV::8961090102465308141::1675324851::1675325878::1::::<><>::
-Junkomory Click 16.wav::AudioStreamWAV::7372353650140252003::1675324851::1675325878::1::::<><>::
-Junkomory Click 17.wav::AudioStreamWAV::4318440317731985268::1675324851::1675325878::1::::<><>::
-Junkomory Click 18.wav::AudioStreamWAV::4225313626649526883::1675324851::1675325878::1::::<><>::
-Junkomory Click 19.wav::AudioStreamWAV::987294231938999416::1675324851::1675325878::1::::<><>::
-Junkomory Click 20.wav::AudioStreamWAV::2240055540873667546::1675324851::1675325878::1::::<><>::
-Junkomory Click 21.wav::AudioStreamWAV::7475372110621339534::1675324851::1675325878::1::::<><>::
-Junkomory Click 22.wav::AudioStreamWAV::5909156720603758563::1675324851::1675325878::1::::<><>::
-Junkomory Click 23.wav::AudioStreamWAV::4376174288646068177::1675324851::1675325878::1::::<><>::
-Junkomory Click 24.wav::AudioStreamWAV::3393178491024375407::1675324851::1675325878::1::::<><>::
-Junkomory Click 25.wav::AudioStreamWAV::6731366211662956908::1675324851::1675325878::1::::<><>::
-Junkomory Click 26.wav::AudioStreamWAV::8830373679545148899::1675324851::1675325878::1::::<><>::
-Junkomory Click 27.wav::AudioStreamWAV::8596317964280388696::1675324851::1675325878::1::::<><>::
-Junkomory Click 28.wav::AudioStreamWAV::4209032492685129861::1675324851::1675325878::1::::<><>::
-Junkomory Click 29.wav::AudioStreamWAV::7716574826751951046::1675324851::1675325878::1::::<><>::
-Junkomory Click 30.wav::AudioStreamWAV::4779720097091796543::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 01.wav::AudioStreamWAV::7445496104579004273::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 02.wav::AudioStreamWAV::8720283648799081285::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 03.wav::AudioStreamWAV::5969407771111628414::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 04.wav::AudioStreamWAV::6714687055730880074::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 05.wav::AudioStreamWAV::2285028415290980861::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 06.wav::AudioStreamWAV::3818919574247189393::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 07.wav::AudioStreamWAV::7796867338522269049::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 08.wav::AudioStreamWAV::1931843433666513733::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 09.wav::AudioStreamWAV::7777168832195944784::1675324851::1675325878::1::::<><>::
-Junkomory Loading loop 10.wav::AudioStreamWAV::5425447141344410070::1675324851::1675325878::1::::<><>::
-Junkomory Transition 01.wav::AudioStreamWAV::3917609682435665282::1675324851::1675325878::1::::<><>::
-Junkomory Transition 02.wav::AudioStreamWAV::5226540708550304794::1675324851::1675325878::1::::<><>::
-Junkomory Transition 03.wav::AudioStreamWAV::665170429629805276::1675324851::1675325878::1::::<><>::
-Junkomory Transition 04.wav::AudioStreamWAV::2692983524085740206::1675324851::1675325878::1::::<><>::
-Junkomory Transition 05.wav::AudioStreamWAV::8665396490795765520::1675324851::1675325878::1::::<><>::
-Junkomory Transition 06.wav::AudioStreamWAV::6719308544871536475::1675324851::1675325879::1::::<><>::
-Junkomory Transition 07.wav::AudioStreamWAV::9195705082838741256::1675324851::1675325879::1::::<><>::
-Junkomory Transition 08.wav::AudioStreamWAV::1295130241039286953::1675324851::1675325879::1::::<><>::
-Junkomory Transition 09.wav::AudioStreamWAV::9211403973050266284::1675324851::1675325879::1::::<><>::
-Junkomory Transition 10.wav::AudioStreamWAV::3524391340049007163::1675324851::1675325879::1::::<><>::
-Junkomory Transition 11.wav::AudioStreamWAV::5428869530522944247::1675324851::1675325879::1::::<><>::
-Junkomory Transition 12.wav::AudioStreamWAV::3716459676207728583::1675324851::1675325879::1::::<><>::
-Junkomory Transition 13.wav::AudioStreamWAV::5666884818881397730::1675324851::1675325879::1::::<><>::
-Junkomory Transition 14.wav::AudioStreamWAV::5167923562762754612::1675324851::1675325879::1::::<><>::
-::res://Resources/99 Sound Effects/::1675325878
-99-sound-effects.png::CompressedTexture2D::4610643941727803695::1675324851::1675325878::1::::<><>::
-::res://Resources/99 Sound Effects/Kontakt 5/::1675324851
-::res://Resources/99 Sound Effects/Resources/::1675324851
-::res://Resources/99 Sound Effects/Resources/pictures/::1675325876
-gui.png::CompressedTexture2D::1187889274942722975::1675324851::1675325876::1::::<><>::
-gui.txt::TextFile::-1::1675324851::0::1::::<><>::
-knob-a.png::CompressedTexture2D::6907228672018369860::1675324851::1675325876::1::::<><>::
-knob-a.txt::TextFile::-1::1675324851::0::1::::<><>::
-knob-b.png::CompressedTexture2D::424836875062375282::1675324851::1675325876::1::::<><>::
-knob-b.txt::TextFile::-1::1675324851::0::1::::<><>::
-knob-c.png::CompressedTexture2D::2098272946399488239::1675324851::1675325876::1::::<><>::
-knob-c.txt::TextFile::-1::1675324851::0::1::::<><>::
-knob-d.png::CompressedTexture2D::6302235112973353338::1675324851::1675325876::1::::<><>::
-knob-d.txt::TextFile::-1::1675324851::0::1::::<><>::
-knob-e.png::CompressedTexture2D::5414140053828302194::1675324851::1675325876::1::::<><>::
-knob-e.txt::TextFile::-1::1675324851::0::1::::<><>::
-::res://Resources/99 Sound Effects/Resources/scripts/::1675324851
-script.txt::TextFile::-1::1675324851::0::1::::<><>::
-::res://Resources/99 Sound Effects/WAV/::1675325879
-Braam - Braamamma.wav::AudioStreamWAV::5720905856427775968::1675324851::1675325879::1::::<><>::
-Braam - Distorted Warps.wav::AudioStreamWAV::7859173279135099828::1675324851::1675325879::1::::<><>::
-Braam - Intensive Stare.wav::AudioStreamWAV::9078949447713397415::1675324851::1675325879::1::::<><>::
-Braam - Melting Pot.wav::AudioStreamWAV::4098049507452251859::1675324851::1675325879::1::::<><>::
-Braam - Retro Pulse.wav::AudioStreamWAV::1698653880712390099::1675324851::1675325879::1::::<><>::
-Braam - Show Title.wav::AudioStreamWAV::6872762469234122341::1675324851::1675325879::1::::<><>::
-Braam - Sneaky Cello.wav::AudioStreamWAV::7339002712334682668::1675324851::1675325879::1::::<><>::
-Braam - Zone End.wav::AudioStreamWAV::9054711987312471007::1675324851::1675325879::1::::<><>::
-Downer - Flying Menace.wav::AudioStreamWAV::7122559665762590892::1675324851::1675325879::1::::<><>::
-Downer - To The Chopper.wav::AudioStreamWAV::396686220892657305::1675324851::1675325879::1::::<><>::
-Drone - Alien VHS.wav::AudioStreamWAV::1545445079841805503::1675324851::1675325879::1::::<><>::
-Drone - Axe On Fire.wav::AudioStreamWAV::8139864178102468299::1675324851::1675325879::1::::<><>::
-Drone - Crystal Cave.wav::AudioStreamWAV::7267978873616174028::1675324851::1675325878::1::::<><>::
-Drone - Distant Orchestra.wav::AudioStreamWAV::1731056495631057355::1675324851::1675325878::1::::<><>::
-Drone - Foreign Signal.wav::AudioStreamWAV::638466611215911078::1675324851::1675325879::1::::<><>::
-Drone - Holy Megalony.wav::AudioStreamWAV::4381895775062965183::1675324851::1675325879::1::::<><>::
-Drone - Magic Pill.wav::AudioStreamWAV::7735938953554826050::1675324851::1675325878::1::::<><>::
-Drone - Ocean Cave.wav::AudioStreamWAV::5456671480501094760::1675324851::1675325879::1::::<><>::
-Impact - Cease Fire.wav::AudioStreamWAV::982586854338136971::1675324851::1675325879::1::::<><>::
-Impact - Cher Effect.wav::AudioStreamWAV::4666059499147990756::1675324851::1675325879::1::::<><>::
-Impact - Deep Down.wav::AudioStreamWAV::7287271477191355639::1675324851::1675325879::1::::<><>::
-Impact - Dubby Slam.wav::AudioStreamWAV::158732874588603155::1675324851::1675325879::1::::<><>::
-Impact - Jaw Breaker.wav::AudioStreamWAV::6325156547416621679::1675324851::1675325879::1::::<><>::
-Impact - Lightweight.wav::AudioStreamWAV::2029633141551105977::1675324851::1675325879::1::::<><>::
-Impact - Low Blow.wav::AudioStreamWAV::976528455934209210::1675324851::1675325879::1::::<><>::
-Impact - Million Merits.wav::AudioStreamWAV::3569270881005671908::1675324851::1675325879::1::::<><>::
-Impact - Nuclear Winter.wav::AudioStreamWAV::7251196375910270849::1675324851::1675325879::1::::<><>::
-Impact - Robot Punch.wav::AudioStreamWAV::4636403086597416614::1675324851::1675325879::1::::<><>::
-Impact - Stormy One.wav::AudioStreamWAV::5567725157117088303::1675324851::1675325879::1::::<><>::
-Impact - Super Fast.wav::AudioStreamWAV::6433717617017052562::1675324851::1675325879::1::::<><>::
-Impact - Thunder Dome.wav::AudioStreamWAV::3831371152738173601::1675324851::1675325879::1::::<><>::
-Impact - Wait For It.wav::AudioStreamWAV::5005290675678403649::1675324851::1675325879::1::::<><>::
-Metal - Big Bell.wav::AudioStreamWAV::5941672302774336758::1675324851::1675325879::1::::<><>::
-Metal - Jump Scare.wav::AudioStreamWAV::3327869343170067134::1675324851::1675325879::1::::<><>::
-Metal - King Gong.wav::AudioStreamWAV::2222246051537960626::1675324851::1675325879::1::::<><>::
-Metal - Kung Boo.wav::AudioStreamWAV::8806941379985034093::1675324851::1675325879::1::::<><>::
-Metal - Spooky Midnight.wav::AudioStreamWAV::3837002124542049517::1675324851::1675325879::1::::<><>::
-Noise - Crash Machine.wav::AudioStreamWAV::6696450173285535905::1675324851::1675325879::1::::<><>::
-Noise - Massive Passive.wav::AudioStreamWAV::6272681235518084001::1675324851::1675325879::1::::<><>::
-Noise - Swirly Spinner.wav::AudioStreamWAV::1305364484195256709::1675324851::1675325879::1::::<><>::
-Noise - Windy Cave.wav::AudioStreamWAV::7729881481007177689::1675324851::1675325879::1::::<><>::
-Punch - Pop.wav::AudioStreamWAV::9100772025516375412::1675324851::1675325879::1::::<><>::
-Punch - Splok.wav::AudioStreamWAV::1394175835322910421::1675324851::1675325879::1::::<><>::
-Punch - Sploop.wav::AudioStreamWAV::8343546553215322758::1675324851::1675325879::1::::<><>::
-Punch - Whack A Bot.wav::AudioStreamWAV::2948937987140030090::1675324851::1675325878::1::::<><>::
-Retro - Chip Power.wav::AudioStreamWAV::6724752385089229256::1675324851::1675325878::1::::<><>::
-Retro - Digital Eagle.wav::AudioStreamWAV::5791069062563424150::1675324851::1675325878::1::::<><>::
-Retro - Magic Respawn.wav::AudioStreamWAV::1182366574725322709::1675324851::1675325878::1::::<><>::
-Retro - Now You See It.wav::AudioStreamWAV::2092847073611552489::1675324851::1675325878::1::::<><>::
-Retro - Rezo Sweep.wav::AudioStreamWAV::4766914219925050445::1675324851::1675325878::1::::<><>::
-Retro - Shuriken Laser.wav::AudioStreamWAV::8590483785901900692::1675324851::1675325878::1::::<><>::
-Retro - Slow Down Bro.wav::AudioStreamWAV::401352070659892370::1675324851::1675325878::1::::<><>::
-Retro - Swirly Reso.wav::AudioStreamWAV::9208488530178997802::1675324851::1675325878::1::::<><>::
-Retro - Teleport Time.wav::AudioStreamWAV::5458613793930372921::1675324851::1675325878::1::::<><>::
-Riser - Abort Takeoff.wav::AudioStreamWAV::8829176940857720219::1675324851::1675325878::1::::<><>::
-Riser - Gathering Mana.wav::AudioStreamWAV::7236001758370222109::1675324851::1675325878::1::::<><>::
-Riser - Noisy UFO.wav::AudioStreamWAV::8781080723227406343::1675324851::1675325878::1::::<><>::
-Riser - Stormy Swarmy.wav::AudioStreamWAV::1391026893092181238::1675324851::1675325878::1::::<><>::
-Short - Bass Boy.wav::AudioStreamWAV::749512985744420050::1675324851::1675325878::1::::<><>::
-Short - Digital Crystal.wav::AudioStreamWAV::1384997662024298212::1675324851::1675325878::1::::<><>::
-Short - Digital Malfunction.wav::AudioStreamWAV::626081933252171876::1675324851::1675325878::1::::<><>::
-Short - Mini Popup.wav::AudioStreamWAV::4639411317326776258::1675324851::1675325878::1::::<><>::
-Short - Ploppy Plop.wav::AudioStreamWAV::5163186295597369548::1675324851::1675325878::1::::<><>::
-Short - Pneumatic Woodpecker.wav::AudioStreamWAV::1505035886747492091::1675324851::1675325878::1::::<><>::
-Short - Sad Little Sonar.wav::AudioStreamWAV::6398468661124309604::1675324851::1675325878::1::::<><>::
-Short - Springy Gun.wav::AudioStreamWAV::510835954496752878::1675324851::1675325878::1::::<><>::
-Short - Stutter 303.wav::AudioStreamWAV::872169783408323816::1675324851::1675325878::1::::<><>::
-Short - Swish.wav::AudioStreamWAV::8154136541855001202::1675324851::1675325878::1::::<><>::
-Short - Tape Confusion.wav::AudioStreamWAV::8143248693787032623::1675324851::1675325878::1::::<><>::
-Short - Uber Vacuum.wav::AudioStreamWAV::1652962929542397131::1675324851::1675325878::1::::<><>::
-Sub - Distant Stargate.wav::AudioStreamWAV::1881681784504529407::1675324851::1675325878::1::::<><>::
-Sub - Mini Impact.wav::AudioStreamWAV::5536102028270342104::1675324851::1675325878::1::::<><>::
-Sub - Sub Bees.wav::AudioStreamWAV::1688736409029658743::1675324851::1675325878::1::::<><>::
-Sub - Subtle Meanie.wav::AudioStreamWAV::4406214799259368137::1675324851::1675325878::1::::<><>::
-Swish - Call And Response.wav::AudioStreamWAV::5296209348478433721::1675324851::1675325878::1::::<><>::
-Swish - Flicker Shoosh.wav::AudioStreamWAV::8581782934422463147::1675324851::1675325878::1::::<><>::
-Swish - Gulpy Noise.wav::AudioStreamWAV::4678606445261673997::1675324851::1675325878::1::::<><>::
-Swish - Nano Chopper.wav::AudioStreamWAV::2043017241426923940::1675324851::1675325878::1::::<><>::
-Swish - Nice And Clean.wav::AudioStreamWAV::748747740929016808::1675324851::1675325878::1::::<><>::
-Swish - Noise And Creme.wav::AudioStreamWAV::3910236325868593309::1675324851::1675325878::1::::<><>::
-Swish - Pocket Waves.wav::AudioStreamWAV::1560141880924111170::1675324851::1675325878::1::::<><>::
-Swish - Roraring Skies.wav::AudioStreamWAV::8783747132245320655::1675324851::1675325878::1::::<><>::
-Swish - Shortnoise.wav::AudioStreamWAV::3101947326986355170::1675324851::1675325878::1::::<><>::
-Texture - Alien Facetime.wav::AudioStreamWAV::5184357093882635062::1675324851::1675325879::1::::<><>::
-Texture - Brain Worms.wav::AudioStreamWAV::160471756180700580::1675324851::1675325878::1::::<><>::
-Texture - Burning Data.wav::AudioStreamWAV::7124059981760827703::1675324852::1675325879::1::::<><>::
-Texture - Dark Side Of The Quark.wav::AudioStreamWAV::2703061321829877895::1675324852::1675325879::1::::<><>::
-Texture - Goblet Of Wisdom.wav::AudioStreamWAV::1464046952574860235::1675324852::1675325878::1::::<><>::
-Texture - Is There Anybody Out There.wav::AudioStreamWAV::8038271573974260948::1675324852::1675325878::1::::<><>::
-Texture - It Appears.wav::AudioStreamWAV::8860094561818038320::1675324852::1675325879::1::::<><>::
-Texture - See The Light.wav::AudioStreamWAV::6725155088149242685::1675324852::1675325879::1::::<><>::
-Texture - Solar Shower.wav::AudioStreamWAV::1736490807770838593::1675324852::1675325879::1::::<><>::
-Texture - What Damage.wav::AudioStreamWAV::3990247954443226325::1675324852::1675325878::1::::<><>::
-Whoosh - Land Speeder.wav::AudioStreamWAV::2074973972655977784::1675324852::1675325878::1::::<><>::
-Whoosh - Mini Jet.wav::AudioStreamWAV::7622619138313297083::1675324852::1675325878::1::::<><>::
-Whoosh - Nasty Transit.wav::AudioStreamWAV::1897090076446390217::1675324852::1675325878::1::::<><>::
-Whoosh - Rusty UFO.wav::AudioStreamWAV::7234657571065193564::1675324852::1675325878::1::::<><>::
-Whoosh - Trapped Firecracker.wav::AudioStreamWAV::7481365176806256130::1675324852::1675325878::1::::<><>::
-Whoosh - Triple Threat.wav::AudioStreamWAV::2612037803504935990::1675324852::1675325878::1::::<><>::
-::res://Resources/kenney_casino_audio/::1675325876
-cardFan1.ogg::AudioStreamOggVorbis::8630593375468627167::1675324852::1675325876::1::::<><>::
-cardFan2.ogg::AudioStreamOggVorbis::5681836327725614201::1675324852::1675325876::1::::<><>::
-cardOpenPackage1.ogg::AudioStreamOggVorbis::1876086934358138318::1675324852::1675325876::1::::<><>::
-cardOpenPackage2.ogg::AudioStreamOggVorbis::6499430222681457309::1675324852::1675325876::1::::<><>::
-cardPlace1.ogg::AudioStreamOggVorbis::5298797219798909308::1675324852::1675325876::1::::<><>::
-cardPlace2.ogg::AudioStreamOggVorbis::3991416189966021765::1675324852::1675325876::1::::<><>::
-cardPlace3.ogg::AudioStreamOggVorbis::5724628570975857068::1675324852::1675325876::1::::<><>::
-cardPlace4.ogg::AudioStreamOggVorbis::1265626632742958897::1675324852::1675325876::1::::<><>::
-cardShove1.ogg::AudioStreamOggVorbis::4482365295311775922::1675324852::1675325876::1::::<><>::
-cardShove2.ogg::AudioStreamOggVorbis::2700814706464415371::1675324852::1675325876::1::::<><>::
-cardShove3.ogg::AudioStreamOggVorbis::3219499739254409839::1675324852::1675325876::1::::<><>::
-cardShove4.ogg::AudioStreamOggVorbis::6259039850053163242::1675324852::1675325876::1::::<><>::
-cardShuffle.ogg::AudioStreamOggVorbis::5205281597859219502::1675324852::1675325876::1::::<><>::
-cardSlide1.ogg::AudioStreamOggVorbis::5468736562577034965::1675324852::1675325876::1::::<><>::
-cardSlide2.ogg::AudioStreamOggVorbis::2576873665458431244::1675324852::1675325876::1::::<><>::
-cardSlide3.ogg::AudioStreamOggVorbis::6095747148866662420::1675324852::1675325876::1::::<><>::
-cardSlide4.ogg::AudioStreamOggVorbis::8529251911477580253::1675324852::1675325876::1::::<><>::
-cardSlide5.ogg::AudioStreamOggVorbis::2057064529794745548::1675324852::1675325876::1::::<><>::
-cardSlide6.ogg::AudioStreamOggVorbis::5729414481766484292::1675324852::1675325876::1::::<><>::
-cardSlide7.ogg::AudioStreamOggVorbis::2290436737821032849::1675324852::1675325876::1::::<><>::
-cardSlide8.ogg::AudioStreamOggVorbis::6533340308085732495::1675324852::1675325876::1::::<><>::
-cardTakeOutPackage1.ogg::AudioStreamOggVorbis::4963700384124420642::1675324852::1675325876::1::::<><>::
-cardTakeOutPackage2.ogg::AudioStreamOggVorbis::8022896032053276151::1675324852::1675325876::1::::<><>::
-chipLay1.ogg::AudioStreamOggVorbis::3263959531291659623::1675324852::1675325876::1::::<><>::
-chipLay2.ogg::AudioStreamOggVorbis::9052280235558933269::1675324852::1675325876::1::::<><>::
-chipLay3.ogg::AudioStreamOggVorbis::7564645707982635339::1675324852::1675325876::1::::<><>::
-chipsCollide1.ogg::AudioStreamOggVorbis::91893729569801973::1675324852::1675325876::1::::<><>::
-chipsCollide2.ogg::AudioStreamOggVorbis::9180873991468236913::1675324852::1675325876::1::::<><>::
-chipsCollide3.ogg::AudioStreamOggVorbis::1296587927775723998::1675324852::1675325876::1::::<><>::
-chipsCollide4.ogg::AudioStreamOggVorbis::6827916796324019505::1675324852::1675325876::1::::<><>::
-chipsHandle1.ogg::AudioStreamOggVorbis::543196963199016041::1675324852::1675325876::1::::<><>::
-chipsHandle2.ogg::AudioStreamOggVorbis::8954710123837415495::1675324852::1675325876::1::::<><>::
-chipsHandle3.ogg::AudioStreamOggVorbis::3885043578023276440::1675324852::1675325876::1::::<><>::
-chipsHandle4.ogg::AudioStreamOggVorbis::7203317550971136921::1675324852::1675325876::1::::<><>::
-chipsHandle5.ogg::AudioStreamOggVorbis::883637144590404789::1675324852::1675325876::1::::<><>::
-chipsHandle6.ogg::AudioStreamOggVorbis::7169340852005076795::1675324852::1675325876::1::::<><>::
-chipsStack1.ogg::AudioStreamOggVorbis::2441769485722243502::1675324852::1675325876::1::::<><>::
-chipsStack2.ogg::AudioStreamOggVorbis::8691799440805654751::1675324852::1675325876::1::::<><>::
-chipsStack3.ogg::AudioStreamOggVorbis::7753200017319546658::1675324852::1675325876::1::::<><>::
-chipsStack4.ogg::AudioStreamOggVorbis::7510317030675535463::1675324852::1675325876::1::::<><>::
-chipsStack5.ogg::AudioStreamOggVorbis::7811483331731701054::1675324852::1675325876::1::::<><>::
-chipsStack6.ogg::AudioStreamOggVorbis::502614510952668754::1675324852::1675325876::1::::<><>::
-diceThrow1.ogg::AudioStreamOggVorbis::177195045415294032::1675324852::1675325876::1::::<><>::
-diceThrow2.ogg::AudioStreamOggVorbis::6725743986563937965::1675324852::1675325876::1::::<><>::
-diceThrow3.ogg::AudioStreamOggVorbis::4305207624639933197::1675324852::1675325876::1::::<><>::
-diceThrow4.ogg::AudioStreamOggVorbis::3977721233801068828::1675324852::1675325876::1::::<><>::
-dieGrab1.ogg::AudioStreamOggVorbis::7849100975168845920::1675324852::1675325876::1::::<><>::
-dieGrab2.ogg::AudioStreamOggVorbis::7107625230084670986::1675324852::1675325876::1::::<><>::
-dieShuffle1.ogg::AudioStreamOggVorbis::4290401290236735604::1675324852::1675325876::1::::<><>::
-dieShuffle2.ogg::AudioStreamOggVorbis::7314576086589672195::1675324852::1675325876::1::::<><>::
-dieShuffle3.ogg::AudioStreamOggVorbis::6765722939043770145::1675324852::1675325876::1::::<><>::
-dieThrow1.ogg::AudioStreamOggVorbis::7228645799526518318::1675324852::1675325876::1::::<><>::
-dieThrow2.ogg::AudioStreamOggVorbis::3333928600820317388::1675324852::1675325876::1::::<><>::
-dieThrow3.ogg::AudioStreamOggVorbis::617003594398348181::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_digital_audio/::1675325876
-highDown.ogg::AudioStreamOggVorbis::3927843776863576568::1675324852::1675325876::1::::<><>::
-highUp.ogg::AudioStreamOggVorbis::382591051528520493::1675324852::1675325876::1::::<><>::
-laser1.ogg::AudioStreamOggVorbis::2120039598186580916::1675324852::1675325876::1::::<><>::
-laser2.ogg::AudioStreamOggVorbis::3376951236982604657::1675324852::1675325876::1::::<><>::
-laser3.ogg::AudioStreamOggVorbis::6540591398975156303::1675324852::1675325876::1::::<><>::
-laser4.ogg::AudioStreamOggVorbis::2061610238336300489::1675324852::1675325876::1::::<><>::
-laser5.ogg::AudioStreamOggVorbis::3796871001697944927::1675324852::1675325876::1::::<><>::
-laser6.ogg::AudioStreamOggVorbis::2491358769825880896::1675324852::1675325876::1::::<><>::
-laser7.ogg::AudioStreamOggVorbis::2039353776087351989::1675324852::1675325876::1::::<><>::
-laser8.ogg::AudioStreamOggVorbis::1974383340983248530::1675324852::1675325876::1::::<><>::
-laser9.ogg::AudioStreamOggVorbis::8411177683458546487::1675324852::1675325876::1::::<><>::
-lowDown.ogg::AudioStreamOggVorbis::1063222624926332730::1675324852::1675325876::1::::<><>::
-lowRandom.ogg::AudioStreamOggVorbis::7128596962798400781::1675324852::1675325876::1::::<><>::
-lowThreeTone.ogg::AudioStreamOggVorbis::3066927708131155513::1675324852::1675325876::1::::<><>::
-pepSound1.ogg::AudioStreamOggVorbis::9094921622557568587::1675324852::1675325876::1::::<><>::
-pepSound2.ogg::AudioStreamOggVorbis::4839448164862860400::1675324852::1675325876::1::::<><>::
-pepSound3.ogg::AudioStreamOggVorbis::6301913334330088109::1675324852::1675325876::1::::<><>::
-pepSound4.ogg::AudioStreamOggVorbis::5269307232452382893::1675324852::1675325876::1::::<><>::
-pepSound5.ogg::AudioStreamOggVorbis::6735781470854951243::1675324852::1675325876::1::::<><>::
-phaseJump1.ogg::AudioStreamOggVorbis::19625524050788719::1675324852::1675325876::1::::<><>::
-phaseJump2.ogg::AudioStreamOggVorbis::8388662234040323608::1675324852::1675325876::1::::<><>::
-phaseJump3.ogg::AudioStreamOggVorbis::8301454696991546473::1675324852::1675325876::1::::<><>::
-phaseJump4.ogg::AudioStreamOggVorbis::5799532901407974381::1675324852::1675325876::1::::<><>::
-phaseJump5.ogg::AudioStreamOggVorbis::4403130598033550457::1675324852::1675325876::1::::<><>::
-phaserDown1.ogg::AudioStreamOggVorbis::618017368785988281::1675324852::1675325876::1::::<><>::
-phaserDown2.ogg::AudioStreamOggVorbis::7497287938791214345::1675324852::1675325876::1::::<><>::
-phaserDown3.ogg::AudioStreamOggVorbis::2007634514973951858::1675324852::1675325876::1::::<><>::
-phaserUp1.ogg::AudioStreamOggVorbis::1807880153396919660::1675324852::1675325876::1::::<><>::
-phaserUp2.ogg::AudioStreamOggVorbis::6139020784847928259::1675324852::1675325876::1::::<><>::
-phaserUp3.ogg::AudioStreamOggVorbis::4476728151638246477::1675324852::1675325876::1::::<><>::
-phaserUp4.ogg::AudioStreamOggVorbis::6219119511443833877::1675324852::1675325876::1::::<><>::
-phaserUp5.ogg::AudioStreamOggVorbis::2545367919738543001::1675324852::1675325876::1::::<><>::
-phaserUp6.ogg::AudioStreamOggVorbis::7703179788017201298::1675324852::1675325876::1::::<><>::
-phaserUp7.ogg::AudioStreamOggVorbis::1416051236542596486::1675324852::1675325876::1::::<><>::
-powerUp1.ogg::AudioStreamOggVorbis::4903316495109290114::1675324852::1675325876::1::::<><>::
-powerUp2.ogg::AudioStreamOggVorbis::8987235380020231511::1675324852::1675325876::1::::<><>::
-powerUp3.ogg::AudioStreamOggVorbis::7626543926366260773::1675324852::1675325876::1::::<><>::
-powerUp4.ogg::AudioStreamOggVorbis::5522504645964109637::1675324852::1675325876::1::::<><>::
-powerUp5.ogg::AudioStreamOggVorbis::1047007657654842579::1675324852::1675325876::1::::<><>::
-powerUp6.ogg::AudioStreamOggVorbis::1066246735414576657::1675324852::1675325876::1::::<><>::
-powerUp7.ogg::AudioStreamOggVorbis::6193252645427962065::1675324852::1675325876::1::::<><>::
-powerUp8.ogg::AudioStreamOggVorbis::7641009838670866367::1675324852::1675325876::1::::<><>::
-powerUp9.ogg::AudioStreamOggVorbis::6358100040837008846::1675324852::1675325876::1::::<><>::
-powerUp10.ogg::AudioStreamOggVorbis::403536674394463967::1675324852::1675325876::1::::<><>::
-powerUp11.ogg::AudioStreamOggVorbis::4803870288024298842::1675324852::1675325876::1::::<><>::
-powerUp12.ogg::AudioStreamOggVorbis::4351507809803428222::1675324852::1675325876::1::::<><>::
-spaceTrash1.ogg::AudioStreamOggVorbis::6673116990121867451::1675324852::1675325876::1::::<><>::
-spaceTrash2.ogg::AudioStreamOggVorbis::863418303080764541::1675324852::1675325876::1::::<><>::
-spaceTrash3.ogg::AudioStreamOggVorbis::413138885285761554::1675324852::1675325876::1::::<><>::
-spaceTrash4.ogg::AudioStreamOggVorbis::8977301077172837804::1675324852::1675325876::1::::<><>::
-spaceTrash5.ogg::AudioStreamOggVorbis::6157317360154382558::1675324852::1675325876::1::::<><>::
-threeTone1.ogg::AudioStreamOggVorbis::5076548898395418748::1675324852::1675325876::1::::<><>::
-threeTone2.ogg::AudioStreamOggVorbis::1720498397350913497::1675324852::1675325876::1::::<><>::
-tone1.ogg::AudioStreamOggVorbis::2543705579976429784::1675324852::1675325876::1::::<><>::
-twoTone1.ogg::AudioStreamOggVorbis::2406367923359816600::1675324852::1675325876::1::::<><>::
-twoTone2.ogg::AudioStreamOggVorbis::7899703034013636423::1675324852::1675325876::1::::<><>::
-zap1.ogg::AudioStreamOggVorbis::6375592998811379297::1675324852::1675325876::1::::<><>::
-zap2.ogg::AudioStreamOggVorbis::1631143310708649296::1675324852::1675325876::1::::<><>::
-zapThreeToneDown.ogg::AudioStreamOggVorbis::5591125257355575480::1675324852::1675325876::1::::<><>::
-zapThreeToneUp.ogg::AudioStreamOggVorbis::246198402877863765::1675324852::1675325876::1::::<><>::
-zapTwoTone2.ogg::AudioStreamOggVorbis::2677418415996793488::1675324852::1675325876::1::::<><>::
-zapTwoTone.ogg::AudioStreamOggVorbis::7435298088348973417::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_impact_sounds/::1675325876
-footstep_carpet_000.ogg::AudioStreamOggVorbis::460651995747003378::1675324852::1675325876::1::::<><>::
-footstep_carpet_001.ogg::AudioStreamOggVorbis::4197140506639147639::1675324852::1675325876::1::::<><>::
-footstep_carpet_002.ogg::AudioStreamOggVorbis::4730852552687270211::1675324852::1675325876::1::::<><>::
-footstep_carpet_003.ogg::AudioStreamOggVorbis::9196882836307086117::1675324852::1675325876::1::::<><>::
-footstep_carpet_004.ogg::AudioStreamOggVorbis::9111645122593981580::1675324852::1675325876::1::::<><>::
-footstep_concrete_000.ogg::AudioStreamOggVorbis::1303741860387313744::1675324852::1675325876::1::::<><>::
-footstep_concrete_001.ogg::AudioStreamOggVorbis::7861070451830470143::1675324852::1675325876::1::::<><>::
-footstep_concrete_002.ogg::AudioStreamOggVorbis::9122307622378572877::1675324852::1675325876::1::::<><>::
-footstep_concrete_003.ogg::AudioStreamOggVorbis::8665919797018062848::1675324852::1675325876::1::::<><>::
-footstep_concrete_004.ogg::AudioStreamOggVorbis::157804350847148197::1675324852::1675325876::1::::<><>::
-footstep_grass_000.ogg::AudioStreamOggVorbis::7276940869193819764::1675324852::1675325876::1::::<><>::
-footstep_grass_001.ogg::AudioStreamOggVorbis::7048201275884206186::1675324852::1675325876::1::::<><>::
-footstep_grass_002.ogg::AudioStreamOggVorbis::2622827756088221827::1675324852::1675325876::1::::<><>::
-footstep_grass_003.ogg::AudioStreamOggVorbis::2268564742837565808::1675324852::1675325876::1::::<><>::
-footstep_grass_004.ogg::AudioStreamOggVorbis::8262450900372071042::1675324852::1675325876::1::::<><>::
-footstep_snow_000.ogg::AudioStreamOggVorbis::3121037888808218813::1675324852::1675325876::1::::<><>::
-footstep_snow_001.ogg::AudioStreamOggVorbis::4749341464531494040::1675324852::1675325876::1::::<><>::
-footstep_snow_002.ogg::AudioStreamOggVorbis::1026069877676572073::1675324852::1675325876::1::::<><>::
-footstep_snow_003.ogg::AudioStreamOggVorbis::1982089870854120221::1675324852::1675325876::1::::<><>::
-footstep_snow_004.ogg::AudioStreamOggVorbis::6417287830636883704::1675324852::1675325876::1::::<><>::
-footstep_wood_000.ogg::AudioStreamOggVorbis::5300243899558136377::1675324852::1675325876::1::::<><>::
-footstep_wood_001.ogg::AudioStreamOggVorbis::8805662178632777287::1675324852::1675325876::1::::<><>::
-footstep_wood_002.ogg::AudioStreamOggVorbis::1710421018508783379::1675324852::1675325876::1::::<><>::
-footstep_wood_003.ogg::AudioStreamOggVorbis::9026136086733602596::1675324852::1675325876::1::::<><>::
-footstep_wood_004.ogg::AudioStreamOggVorbis::2541969681694748765::1675324852::1675325876::1::::<><>::
-impactBell_heavy_000.ogg::AudioStreamOggVorbis::8446964463819805589::1675324852::1675325876::1::::<><>::
-impactBell_heavy_001.ogg::AudioStreamOggVorbis::7336008205502802559::1675324852::1675325876::1::::<><>::
-impactBell_heavy_002.ogg::AudioStreamOggVorbis::5791381391552173174::1675324852::1675325876::1::::<><>::
-impactBell_heavy_003.ogg::AudioStreamOggVorbis::5988065521359394539::1675324852::1675325876::1::::<><>::
-impactBell_heavy_004.ogg::AudioStreamOggVorbis::5623623101459124592::1675324852::1675325876::1::::<><>::
-impactGeneric_light_000.ogg::AudioStreamOggVorbis::1043307476135975271::1675324852::1675325876::1::::<><>::
-impactGeneric_light_001.ogg::AudioStreamOggVorbis::1236239762821114734::1675324852::1675325876::1::::<><>::
-impactGeneric_light_002.ogg::AudioStreamOggVorbis::4081266401581839727::1675324852::1675325876::1::::<><>::
-impactGeneric_light_003.ogg::AudioStreamOggVorbis::2892574889030700645::1675324852::1675325876::1::::<><>::
-impactGeneric_light_004.ogg::AudioStreamOggVorbis::5263196241663869880::1675324852::1675325876::1::::<><>::
-impactGlass_heavy_000.ogg::AudioStreamOggVorbis::2966261865322084354::1675324852::1675325876::1::::<><>::
-impactGlass_heavy_001.ogg::AudioStreamOggVorbis::6676384681188141665::1675324852::1675325876::1::::<><>::
-impactGlass_heavy_002.ogg::AudioStreamOggVorbis::342801370850297083::1675324852::1675325876::1::::<><>::
-impactGlass_heavy_003.ogg::AudioStreamOggVorbis::3923376290819717708::1675324852::1675325876::1::::<><>::
-impactGlass_heavy_004.ogg::AudioStreamOggVorbis::1656737203783994296::1675324852::1675325876::1::::<><>::
-impactGlass_light_000.ogg::AudioStreamOggVorbis::3051004266548191934::1675324852::1675325876::1::::<><>::
-impactGlass_light_001.ogg::AudioStreamOggVorbis::7340897154873567461::1675324852::1675325876::1::::<><>::
-impactGlass_light_002.ogg::AudioStreamOggVorbis::1062167208958946443::1675324852::1675325876::1::::<><>::
-impactGlass_light_003.ogg::AudioStreamOggVorbis::2482745233482000585::1675324852::1675325876::1::::<><>::
-impactGlass_light_004.ogg::AudioStreamOggVorbis::2738606245306077620::1675324852::1675325876::1::::<><>::
-impactGlass_medium_000.ogg::AudioStreamOggVorbis::8132368003086951444::1675324852::1675325876::1::::<><>::
-impactGlass_medium_001.ogg::AudioStreamOggVorbis::2238065684110759974::1675324852::1675325876::1::::<><>::
-impactGlass_medium_002.ogg::AudioStreamOggVorbis::4318137365527239245::1675324852::1675325876::1::::<><>::
-impactGlass_medium_003.ogg::AudioStreamOggVorbis::8678102033526309722::1675324852::1675325876::1::::<><>::
-impactGlass_medium_004.ogg::AudioStreamOggVorbis::6126658269921424819::1675324852::1675325876::1::::<><>::
-impactMetal_heavy_000.ogg::AudioStreamOggVorbis::717004472410088912::1675324852::1675325876::1::::<><>::
-impactMetal_heavy_001.ogg::AudioStreamOggVorbis::1646776565606106243::1675324852::1675325876::1::::<><>::
-impactMetal_heavy_002.ogg::AudioStreamOggVorbis::5297284332733175262::1675324852::1675325876::1::::<><>::
-impactMetal_heavy_003.ogg::AudioStreamOggVorbis::4363446941679676848::1675324852::1675325876::1::::<><>::
-impactMetal_heavy_004.ogg::AudioStreamOggVorbis::3202716571731305967::1675324852::1675325876::1::::<><>::
-impactMetal_light_000.ogg::AudioStreamOggVorbis::5827218501849359861::1675324852::1675325876::1::::<><>::
-impactMetal_light_001.ogg::AudioStreamOggVorbis::6505391591282976097::1675324852::1675325876::1::::<><>::
-impactMetal_light_002.ogg::AudioStreamOggVorbis::5886924263757049229::1675324852::1675325876::1::::<><>::
-impactMetal_light_003.ogg::AudioStreamOggVorbis::2115620909491893317::1675324852::1675325876::1::::<><>::
-impactMetal_light_004.ogg::AudioStreamOggVorbis::5604448278418183955::1675324852::1675325876::1::::<><>::
-impactMetal_medium_000.ogg::AudioStreamOggVorbis::1223218191309391093::1675324852::1675325876::1::::<><>::
-impactMetal_medium_001.ogg::AudioStreamOggVorbis::873364618578218069::1675324852::1675325876::1::::<><>::
-impactMetal_medium_002.ogg::AudioStreamOggVorbis::2741205837747753960::1675324852::1675325876::1::::<><>::
-impactMetal_medium_003.ogg::AudioStreamOggVorbis::198225598268061813::1675324852::1675325876::1::::<><>::
-impactMetal_medium_004.ogg::AudioStreamOggVorbis::2475305497567673712::1675324852::1675325876::1::::<><>::
-impactMining_000.ogg::AudioStreamOggVorbis::3228447946680651573::1675324852::1675325876::1::::<><>::
-impactMining_001.ogg::AudioStreamOggVorbis::7445037368579332377::1675324852::1675325876::1::::<><>::
-impactMining_002.ogg::AudioStreamOggVorbis::6994124286307745129::1675324852::1675325876::1::::<><>::
-impactMining_003.ogg::AudioStreamOggVorbis::8620665103101484329::1675324852::1675325876::1::::<><>::
-impactMining_004.ogg::AudioStreamOggVorbis::2015111103650224017::1675324852::1675325876::1::::<><>::
-impactPlank_medium_000.ogg::AudioStreamOggVorbis::6299755391244797114::1675324852::1675325876::1::::<><>::
-impactPlank_medium_001.ogg::AudioStreamOggVorbis::3755299795671024115::1675324852::1675325876::1::::<><>::
-impactPlank_medium_002.ogg::AudioStreamOggVorbis::5280719070892737625::1675324852::1675325876::1::::<><>::
-impactPlank_medium_003.ogg::AudioStreamOggVorbis::728100622909095133::1675324852::1675325876::1::::<><>::
-impactPlank_medium_004.ogg::AudioStreamOggVorbis::272688854270583160::1675324852::1675325876::1::::<><>::
-impactPlate_heavy_000.ogg::AudioStreamOggVorbis::1202679808950085807::1675324852::1675325876::1::::<><>::
-impactPlate_heavy_001.ogg::AudioStreamOggVorbis::6940595359537698887::1675324852::1675325876::1::::<><>::
-impactPlate_heavy_002.ogg::AudioStreamOggVorbis::4263054566319843068::1675324852::1675325876::1::::<><>::
-impactPlate_heavy_003.ogg::AudioStreamOggVorbis::1545692557931610818::1675324852::1675325876::1::::<><>::
-impactPlate_heavy_004.ogg::AudioStreamOggVorbis::5738157832511779360::1675324852::1675325876::1::::<><>::
-impactPlate_light_000.ogg::AudioStreamOggVorbis::7961475324721931544::1675324852::1675325876::1::::<><>::
-impactPlate_light_001.ogg::AudioStreamOggVorbis::6527425251198357313::1675324852::1675325876::1::::<><>::
-impactPlate_light_002.ogg::AudioStreamOggVorbis::3375356588124669920::1675324852::1675325876::1::::<><>::
-impactPlate_light_003.ogg::AudioStreamOggVorbis::2080442142279703270::1675324852::1675325876::1::::<><>::
-impactPlate_light_004.ogg::AudioStreamOggVorbis::5673447222381136790::1675324852::1675325876::1::::<><>::
-impactPlate_medium_000.ogg::AudioStreamOggVorbis::1895900333623594704::1675324852::1675325876::1::::<><>::
-impactPlate_medium_001.ogg::AudioStreamOggVorbis::579640166902850492::1675324852::1675325876::1::::<><>::
-impactPlate_medium_002.ogg::AudioStreamOggVorbis::6518217054967558433::1675324852::1675325876::1::::<><>::
-impactPlate_medium_003.ogg::AudioStreamOggVorbis::1995782124576789874::1675324852::1675325876::1::::<><>::
-impactPlate_medium_004.ogg::AudioStreamOggVorbis::7833912800118630410::1675324852::1675325876::1::::<><>::
-impactPunch_heavy_000.ogg::AudioStreamOggVorbis::1444922964229985099::1675324852::1675325876::1::::<><>::
-impactPunch_heavy_001.ogg::AudioStreamOggVorbis::5081944488655628299::1675324852::1675325876::1::::<><>::
-impactPunch_heavy_002.ogg::AudioStreamOggVorbis::5992236435717605002::1675324852::1675325876::1::::<><>::
-impactPunch_heavy_003.ogg::AudioStreamOggVorbis::4321990531497408863::1675324852::1675325876::1::::<><>::
-impactPunch_heavy_004.ogg::AudioStreamOggVorbis::4612620179257133504::1675324852::1675325876::1::::<><>::
-impactPunch_medium_000.ogg::AudioStreamOggVorbis::1640406573024058995::1675324852::1675325876::1::::<><>::
-impactPunch_medium_001.ogg::AudioStreamOggVorbis::3664591798774380977::1675324852::1675325876::1::::<><>::
-impactPunch_medium_002.ogg::AudioStreamOggVorbis::4778417719239735000::1675324852::1675325876::1::::<><>::
-impactPunch_medium_003.ogg::AudioStreamOggVorbis::2435672047336040805::1675324852::1675325876::1::::<><>::
-impactPunch_medium_004.ogg::AudioStreamOggVorbis::3919369699351456198::1675324852::1675325876::1::::<><>::
-impactSoft_heavy_000.ogg::AudioStreamOggVorbis::3109930452004741819::1675324852::1675325876::1::::<><>::
-impactSoft_heavy_001.ogg::AudioStreamOggVorbis::7484441625697847869::1675324852::1675325876::1::::<><>::
-impactSoft_heavy_002.ogg::AudioStreamOggVorbis::2841219832975491382::1675324852::1675325876::1::::<><>::
-impactSoft_heavy_003.ogg::AudioStreamOggVorbis::1513207102683922849::1675324852::1675325876::1::::<><>::
-impactSoft_heavy_004.ogg::AudioStreamOggVorbis::766097835470264516::1675324852::1675325876::1::::<><>::
-impactSoft_medium_000.ogg::AudioStreamOggVorbis::8782529820127774401::1675324852::1675325876::1::::<><>::
-impactSoft_medium_001.ogg::AudioStreamOggVorbis::8211914871151236241::1675324852::1675325876::1::::<><>::
-impactSoft_medium_002.ogg::AudioStreamOggVorbis::87283262721953632::1675324852::1675325876::1::::<><>::
-impactSoft_medium_003.ogg::AudioStreamOggVorbis::7223857184078740342::1675324852::1675325876::1::::<><>::
-impactSoft_medium_004.ogg::AudioStreamOggVorbis::7674279082698506285::1675324852::1675325876::1::::<><>::
-impactTin_medium_000.ogg::AudioStreamOggVorbis::2707078228768168618::1675324852::1675325876::1::::<><>::
-impactTin_medium_001.ogg::AudioStreamOggVorbis::662096480187940056::1675324852::1675325876::1::::<><>::
-impactTin_medium_002.ogg::AudioStreamOggVorbis::8636631713164789000::1675324852::1675325876::1::::<><>::
-impactTin_medium_003.ogg::AudioStreamOggVorbis::2885906225786026823::1675324852::1675325876::1::::<><>::
-impactTin_medium_004.ogg::AudioStreamOggVorbis::5717156883823706133::1675324852::1675325876::1::::<><>::
-impactWood_heavy_000.ogg::AudioStreamOggVorbis::3315399600479845567::1675324852::1675325876::1::::<><>::
-impactWood_heavy_001.ogg::AudioStreamOggVorbis::6340687200600839971::1675324852::1675325876::1::::<><>::
-impactWood_heavy_002.ogg::AudioStreamOggVorbis::3555599916409139814::1675324852::1675325876::1::::<><>::
-impactWood_heavy_003.ogg::AudioStreamOggVorbis::5545451432632486307::1675324852::1675325876::1::::<><>::
-impactWood_heavy_004.ogg::AudioStreamOggVorbis::695727899540642982::1675324852::1675325876::1::::<><>::
-impactWood_light_000.ogg::AudioStreamOggVorbis::6539270865008531363::1675324852::1675325876::1::::<><>::
-impactWood_light_001.ogg::AudioStreamOggVorbis::23715457688011815::1675324852::1675325876::1::::<><>::
-impactWood_light_002.ogg::AudioStreamOggVorbis::6091837053556151874::1675324852::1675325876::1::::<><>::
-impactWood_light_003.ogg::AudioStreamOggVorbis::159713296763998453::1675324852::1675325876::1::::<><>::
-impactWood_light_004.ogg::AudioStreamOggVorbis::3943761404338200505::1675324852::1675325876::1::::<><>::
-impactWood_medium_000.ogg::AudioStreamOggVorbis::8390983178652791133::1675324852::1675325876::1::::<><>::
-impactWood_medium_001.ogg::AudioStreamOggVorbis::6163575406721609213::1675324852::1675325876::1::::<><>::
-impactWood_medium_002.ogg::AudioStreamOggVorbis::228056030756776833::1675324852::1675325876::1::::<><>::
-impactWood_medium_003.ogg::AudioStreamOggVorbis::8415713854029115939::1675324852::1675325876::1::::<><>::
-impactWood_medium_004.ogg::AudioStreamOggVorbis::3398893771811363328::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_interface_sounds/::1675325876
-back_001.ogg::AudioStreamOggVorbis::8564025401296312923::1675324852::1675325876::1::::<><>::
-back_002.ogg::AudioStreamOggVorbis::7761041946384352958::1675324852::1675325876::1::::<><>::
-back_003.ogg::AudioStreamOggVorbis::3235931739327837488::1675324852::1675325876::1::::<><>::
-back_004.ogg::AudioStreamOggVorbis::3753407429151247291::1675324852::1675325876::1::::<><>::
-bong_001.ogg::AudioStreamOggVorbis::3250621106757819124::1675324852::1675325876::1::::<><>::
-click_001.ogg::AudioStreamOggVorbis::6216705676658359866::1675324852::1675325876::1::::<><>::
-click_002.ogg::AudioStreamOggVorbis::6341020710491129791::1675324852::1675325876::1::::<><>::
-click_003.ogg::AudioStreamOggVorbis::4827176546748205850::1675324852::1675325876::1::::<><>::
-click_004.ogg::AudioStreamOggVorbis::2235940047108168703::1675324852::1675325876::1::::<><>::
-click_005.ogg::AudioStreamOggVorbis::741559622568737999::1675324852::1675325876::1::::<><>::
-close_001.ogg::AudioStreamOggVorbis::1263297468159661516::1675324852::1675325876::1::::<><>::
-close_002.ogg::AudioStreamOggVorbis::5763792846364849228::1675324852::1675325876::1::::<><>::
-close_003.ogg::AudioStreamOggVorbis::4179694858752191462::1675324852::1675325876::1::::<><>::
-close_004.ogg::AudioStreamOggVorbis::3779222792625469099::1675324852::1675325876::1::::<><>::
-confirmation_001.ogg::AudioStreamOggVorbis::4877263556896161350::1675324852::1675325876::1::::<><>::
-confirmation_002.ogg::AudioStreamOggVorbis::151729150893415913::1675324852::1675325876::1::::<><>::
-confirmation_003.ogg::AudioStreamOggVorbis::1199770598129114634::1675324852::1675325876::1::::<><>::
-confirmation_004.ogg::AudioStreamOggVorbis::6889349397428917246::1675324852::1675325876::1::::<><>::
-drop_001.ogg::AudioStreamOggVorbis::3318737800937822292::1675324852::1675325876::1::::<><>::
-drop_002.ogg::AudioStreamOggVorbis::1449441096605307341::1675324852::1675325876::1::::<><>::
-drop_003.ogg::AudioStreamOggVorbis::6010389402011556490::1675324852::1675325876::1::::<><>::
-drop_004.ogg::AudioStreamOggVorbis::2718442485395513668::1675324852::1675325876::1::::<><>::
-error_001.ogg::AudioStreamOggVorbis::8609400486582022033::1675324852::1675325876::1::::<><>::
-error_002.ogg::AudioStreamOggVorbis::2080954775834472344::1675324852::1675325876::1::::<><>::
-error_003.ogg::AudioStreamOggVorbis::109870662860661545::1675324852::1675325876::1::::<><>::
-error_004.ogg::AudioStreamOggVorbis::4622388670866731469::1675324852::1675325876::1::::<><>::
-error_005.ogg::AudioStreamOggVorbis::7280804966701989588::1675324852::1675325876::1::::<><>::
-error_006.ogg::AudioStreamOggVorbis::671229887804779891::1675324852::1675325876::1::::<><>::
-error_007.ogg::AudioStreamOggVorbis::4326904689719148051::1675324852::1675325876::1::::<><>::
-error_008.ogg::AudioStreamOggVorbis::5605550605043487128::1675324852::1675325876::1::::<><>::
-glass_001.ogg::AudioStreamOggVorbis::8446546393268415398::1675324852::1675325876::1::::<><>::
-glass_002.ogg::AudioStreamOggVorbis::2600916265793495332::1675324852::1675325876::1::::<><>::
-glass_003.ogg::AudioStreamOggVorbis::5174540486049702189::1675324852::1675325876::1::::<><>::
-glass_004.ogg::AudioStreamOggVorbis::4463734693614748624::1675324852::1675325876::1::::<><>::
-glass_005.ogg::AudioStreamOggVorbis::5150075022184775706::1675324852::1675325876::1::::<><>::
-glass_006.ogg::AudioStreamOggVorbis::8685956834427401579::1675324852::1675325876::1::::<><>::
-glitch_001.ogg::AudioStreamOggVorbis::4359979355294798468::1675324852::1675325876::1::::<><>::
-glitch_002.ogg::AudioStreamOggVorbis::5284231114326224281::1675324852::1675325876::1::::<><>::
-glitch_003.ogg::AudioStreamOggVorbis::893102168223449968::1675324852::1675325876::1::::<><>::
-glitch_004.ogg::AudioStreamOggVorbis::7867669981185195047::1675324852::1675325876::1::::<><>::
-maximize_001.ogg::AudioStreamOggVorbis::3872218461995720685::1675324852::1675325876::1::::<><>::
-maximize_002.ogg::AudioStreamOggVorbis::9071568167456586022::1675324852::1675325876::1::::<><>::
-maximize_003.ogg::AudioStreamOggVorbis::2406721067887446853::1675324852::1675325876::1::::<><>::
-maximize_004.ogg::AudioStreamOggVorbis::7602384752259361954::1675324852::1675325876::1::::<><>::
-maximize_005.ogg::AudioStreamOggVorbis::5712797016852113198::1675324852::1675325876::1::::<><>::
-maximize_006.ogg::AudioStreamOggVorbis::1736631742508418939::1675324852::1675325876::1::::<><>::
-maximize_007.ogg::AudioStreamOggVorbis::2823366038398296607::1675324852::1675325876::1::::<><>::
-maximize_008.ogg::AudioStreamOggVorbis::2337673602327323411::1675324852::1675325876::1::::<><>::
-maximize_009.ogg::AudioStreamOggVorbis::1960541185440985957::1675324852::1675325876::1::::<><>::
-minimize_001.ogg::AudioStreamOggVorbis::6259898295287114963::1675324852::1675325876::1::::<><>::
-minimize_002.ogg::AudioStreamOggVorbis::5267720526343014439::1675324852::1675325876::1::::<><>::
-minimize_003.ogg::AudioStreamOggVorbis::8117226182156327040::1675324852::1675325876::1::::<><>::
-minimize_004.ogg::AudioStreamOggVorbis::4906111213276978951::1675324852::1675325876::1::::<><>::
-minimize_005.ogg::AudioStreamOggVorbis::5041841577706292625::1675324852::1675325876::1::::<><>::
-minimize_006.ogg::AudioStreamOggVorbis::7947362227231133608::1675324852::1675325876::1::::<><>::
-minimize_007.ogg::AudioStreamOggVorbis::5110477707329564052::1675324852::1675325876::1::::<><>::
-minimize_008.ogg::AudioStreamOggVorbis::8772718085400703853::1675324852::1675325876::1::::<><>::
-minimize_009.ogg::AudioStreamOggVorbis::6167896837400959286::1675324852::1675325876::1::::<><>::
-open_001.ogg::AudioStreamOggVorbis::2919424866482015252::1675324852::1675325876::1::::<><>::
-open_002.ogg::AudioStreamOggVorbis::3192885092940413228::1675324852::1675325876::1::::<><>::
-open_003.ogg::AudioStreamOggVorbis::6120882451140272894::1675324852::1675325876::1::::<><>::
-open_004.ogg::AudioStreamOggVorbis::7695522671561070295::1675324852::1675325876::1::::<><>::
-pluck_001.ogg::AudioStreamOggVorbis::4249500055078968337::1675324852::1675325876::1::::<><>::
-pluck_002.ogg::AudioStreamOggVorbis::5557035404404391936::1675324852::1675325876::1::::<><>::
-question_001.ogg::AudioStreamOggVorbis::6230466985962601861::1675324852::1675325876::1::::<><>::
-question_002.ogg::AudioStreamOggVorbis::7908580523974240055::1675324852::1675325876::1::::<><>::
-question_003.ogg::AudioStreamOggVorbis::7114695985588651346::1675324852::1675325876::1::::<><>::
-question_004.ogg::AudioStreamOggVorbis::6202158301755338557::1675324852::1675325876::1::::<><>::
-scratch_001.ogg::AudioStreamOggVorbis::6222916305554024210::1675324852::1675325876::1::::<><>::
-scratch_002.ogg::AudioStreamOggVorbis::5912894339585413898::1675324852::1675325876::1::::<><>::
-scratch_003.ogg::AudioStreamOggVorbis::4144978691906427621::1675324852::1675325876::1::::<><>::
-scratch_004.ogg::AudioStreamOggVorbis::1101622445824453717::1675324852::1675325876::1::::<><>::
-scratch_005.ogg::AudioStreamOggVorbis::8061496423268763900::1675324852::1675325876::1::::<><>::
-scroll_001.ogg::AudioStreamOggVorbis::1872430590444516766::1675324852::1675325876::1::::<><>::
-scroll_002.ogg::AudioStreamOggVorbis::9119807795707456171::1675324852::1675325876::1::::<><>::
-scroll_003.ogg::AudioStreamOggVorbis::6815119566356529882::1675324852::1675325876::1::::<><>::
-scroll_004.ogg::AudioStreamOggVorbis::8662275788239101490::1675324852::1675325876::1::::<><>::
-scroll_005.ogg::AudioStreamOggVorbis::5310585310211833867::1675324852::1675325876::1::::<><>::
-select_001.ogg::AudioStreamOggVorbis::5342152982262648371::1675324852::1675325876::1::::<><>::
-select_002.ogg::AudioStreamOggVorbis::3504631726598026322::1675324852::1675325876::1::::<><>::
-select_003.ogg::AudioStreamOggVorbis::3343311331613764340::1675324852::1675325876::1::::<><>::
-select_004.ogg::AudioStreamOggVorbis::4724255646746829527::1675324852::1675325876::1::::<><>::
-select_005.ogg::AudioStreamOggVorbis::7707818116328860087::1675324852::1675325876::1::::<><>::
-select_006.ogg::AudioStreamOggVorbis::5979409764389686070::1675324852::1675325876::1::::<><>::
-select_007.ogg::AudioStreamOggVorbis::5516977663011922020::1675324852::1675325876::1::::<><>::
-select_008.ogg::AudioStreamOggVorbis::4568541903148601008::1675324852::1675325876::1::::<><>::
-switch_001.ogg::AudioStreamOggVorbis::1114062817280906193::1675324852::1675325876::1::::<><>::
-switch_002.ogg::AudioStreamOggVorbis::7577357614617718703::1675324852::1675325876::1::::<><>::
-switch_003.ogg::AudioStreamOggVorbis::5197790193828358374::1675324852::1675325876::1::::<><>::
-switch_004.ogg::AudioStreamOggVorbis::5039252670794405686::1675324852::1675325876::1::::<><>::
-switch_005.ogg::AudioStreamOggVorbis::7219644661237795510::1675324852::1675325876::1::::<><>::
-switch_006.ogg::AudioStreamOggVorbis::1798814305198605046::1675324852::1675325876::1::::<><>::
-switch_007.ogg::AudioStreamOggVorbis::3337835662854889987::1675324852::1675325876::1::::<><>::
-tick_001.ogg::AudioStreamOggVorbis::6499043018535619572::1675324852::1675325876::1::::<><>::
-tick_002.ogg::AudioStreamOggVorbis::4209929482441944613::1675324852::1675325876::1::::<><>::
-tick_004.ogg::AudioStreamOggVorbis::8001749472491454999::1675324852::1675325876::1::::<><>::
-toggle_001.ogg::AudioStreamOggVorbis::9116900896392377194::1675324852::1675325876::1::::<><>::
-toggle_002.ogg::AudioStreamOggVorbis::2661569745092491005::1675324852::1675325876::1::::<><>::
-toggle_003.ogg::AudioStreamOggVorbis::3916197070892208501::1675324852::1675325876::1::::<><>::
-toggle_004.ogg::AudioStreamOggVorbis::5212654389502402851::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_music_jingles/::1675324852
-::res://Resources/kenney_music_jingles/8-Bit jingles/::1675325876
-jingles_NES00.ogg::AudioStreamOggVorbis::8297512429515902890::1675324852::1675325876::1::::<><>::
-jingles_NES01.ogg::AudioStreamOggVorbis::6020912742929065587::1675324852::1675325876::1::::<><>::
-jingles_NES02.ogg::AudioStreamOggVorbis::4296118031769617464::1675324852::1675325876::1::::<><>::
-jingles_NES03.ogg::AudioStreamOggVorbis::8424766430505353394::1675324852::1675325876::1::::<><>::
-jingles_NES04.ogg::AudioStreamOggVorbis::8167232660548677722::1675324852::1675325876::1::::<><>::
-jingles_NES05.ogg::AudioStreamOggVorbis::6250378060657907695::1675324852::1675325876::1::::<><>::
-jingles_NES06.ogg::AudioStreamOggVorbis::8389114394820334236::1675324852::1675325876::1::::<><>::
-jingles_NES07.ogg::AudioStreamOggVorbis::1399822751797479074::1675324852::1675325876::1::::<><>::
-jingles_NES08.ogg::AudioStreamOggVorbis::3395132097389087767::1675324852::1675325876::1::::<><>::
-jingles_NES09.ogg::AudioStreamOggVorbis::4137034308795612874::1675324852::1675325876::1::::<><>::
-jingles_NES10.ogg::AudioStreamOggVorbis::1325725691251826758::1675324852::1675325876::1::::<><>::
-jingles_NES11.ogg::AudioStreamOggVorbis::3583368062725523053::1675324852::1675325876::1::::<><>::
-jingles_NES12.ogg::AudioStreamOggVorbis::1042719001376622334::1675324852::1675325876::1::::<><>::
-jingles_NES13.ogg::AudioStreamOggVorbis::4476873291096885396::1675324852::1675325876::1::::<><>::
-jingles_NES14.ogg::AudioStreamOggVorbis::1916006470005467039::1675324852::1675325876::1::::<><>::
-jingles_NES15.ogg::AudioStreamOggVorbis::7767781902998653002::1675324852::1675325876::1::::<><>::
-jingles_NES16.ogg::AudioStreamOggVorbis::5909832877677102253::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_music_jingles/Hit jingles/::1675325876
-jingles_HIT00.ogg::AudioStreamOggVorbis::3916286557998444425::1675324852::1675325876::1::::<><>::
-jingles_HIT01.ogg::AudioStreamOggVorbis::5684194382244808267::1675324852::1675325876::1::::<><>::
-jingles_HIT02.ogg::AudioStreamOggVorbis::9176933673150823959::1675324852::1675325876::1::::<><>::
-jingles_HIT03.ogg::AudioStreamOggVorbis::8277900254177953490::1675324852::1675325876::1::::<><>::
-jingles_HIT04.ogg::AudioStreamOggVorbis::4006088590466658356::1675324852::1675325876::1::::<><>::
-jingles_HIT05.ogg::AudioStreamOggVorbis::129069054586126948::1675324852::1675325876::1::::<><>::
-jingles_HIT06.ogg::AudioStreamOggVorbis::5298488930284325792::1675324852::1675325876::1::::<><>::
-jingles_HIT07.ogg::AudioStreamOggVorbis::7238053523276148044::1675324852::1675325876::1::::<><>::
-jingles_HIT08.ogg::AudioStreamOggVorbis::7866957986623864282::1675324852::1675325876::1::::<><>::
-jingles_HIT09.ogg::AudioStreamOggVorbis::4241968719272166127::1675324852::1675325876::1::::<><>::
-jingles_HIT10.ogg::AudioStreamOggVorbis::8203410324991313006::1675324852::1675325876::1::::<><>::
-jingles_HIT11.ogg::AudioStreamOggVorbis::6692577438216164693::1675324852::1675325876::1::::<><>::
-jingles_HIT12.ogg::AudioStreamOggVorbis::3321249929351379518::1675324852::1675325876::1::::<><>::
-jingles_HIT13.ogg::AudioStreamOggVorbis::816229994474141389::1675324852::1675325876::1::::<><>::
-jingles_HIT14.ogg::AudioStreamOggVorbis::2548011613179438627::1675324852::1675325876::1::::<><>::
-jingles_HIT15.ogg::AudioStreamOggVorbis::6648839554747346811::1675324852::1675325876::1::::<><>::
-jingles_HIT16.ogg::AudioStreamOggVorbis::342781875438235139::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_music_jingles/Pizzicato jingles/::1675325876
-jingles_PIZZI00.ogg::AudioStreamOggVorbis::2047219338420350619::1675324852::1675325876::1::::<><>::
-jingles_PIZZI01.ogg::AudioStreamOggVorbis::6486433659155169907::1675324852::1675325876::1::::<><>::
-jingles_PIZZI02.ogg::AudioStreamOggVorbis::8262026158262405031::1675324852::1675325876::1::::<><>::
-jingles_PIZZI03.ogg::AudioStreamOggVorbis::4753002313156845157::1675324852::1675325876::1::::<><>::
-jingles_PIZZI04.ogg::AudioStreamOggVorbis::4860274289895079170::1675324852::1675325876::1::::<><>::
-jingles_PIZZI05.ogg::AudioStreamOggVorbis::3514378619812818422::1675324852::1675325876::1::::<><>::
-jingles_PIZZI06.ogg::AudioStreamOggVorbis::3567122688003487425::1675324852::1675325876::1::::<><>::
-jingles_PIZZI07.ogg::AudioStreamOggVorbis::7248451550777910376::1675324852::1675325876::1::::<><>::
-jingles_PIZZI08.ogg::AudioStreamOggVorbis::7734814058830144170::1675324852::1675325876::1::::<><>::
-jingles_PIZZI09.ogg::AudioStreamOggVorbis::141278600137878956::1675324852::1675325876::1::::<><>::
-jingles_PIZZI10.ogg::AudioStreamOggVorbis::1400961266317700524::1675324852::1675325876::1::::<><>::
-jingles_PIZZI11.ogg::AudioStreamOggVorbis::8882478659453704684::1675324852::1675325876::1::::<><>::
-jingles_PIZZI12.ogg::AudioStreamOggVorbis::3447084913342296620::1675324852::1675325876::1::::<><>::
-jingles_PIZZI13.ogg::AudioStreamOggVorbis::7803918067733596171::1675324852::1675325876::1::::<><>::
-jingles_PIZZI14.ogg::AudioStreamOggVorbis::6915213979209278459::1675324852::1675325876::1::::<><>::
-jingles_PIZZI15.ogg::AudioStreamOggVorbis::5603863307736646620::1675324852::1675325876::1::::<><>::
-jingles_PIZZI16.ogg::AudioStreamOggVorbis::3219253279280403641::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_music_jingles/Sax jingles/::1675325876
-jingles_SAX00.ogg::AudioStreamOggVorbis::1777800585561897927::1675324852::1675325876::1::::<><>::
-jingles_SAX01.ogg::AudioStreamOggVorbis::5952673935648098838::1675324852::1675325876::1::::<><>::
-jingles_SAX02.ogg::AudioStreamOggVorbis::1362882430135556182::1675324852::1675325876::1::::<><>::
-jingles_SAX03.ogg::AudioStreamOggVorbis::5537348768825776607::1675324852::1675325876::1::::<><>::
-jingles_SAX04.ogg::AudioStreamOggVorbis::5265515331300535593::1675324852::1675325876::1::::<><>::
-jingles_SAX05.ogg::AudioStreamOggVorbis::3001104910170606604::1675324852::1675325876::1::::<><>::
-jingles_SAX06.ogg::AudioStreamOggVorbis::168476330981944690::1675324852::1675325876::1::::<><>::
-jingles_SAX07.ogg::AudioStreamOggVorbis::286939798547364590::1675324852::1675325876::1::::<><>::
-jingles_SAX08.ogg::AudioStreamOggVorbis::8601502126443350988::1675324852::1675325876::1::::<><>::
-jingles_SAX09.ogg::AudioStreamOggVorbis::7755599322438135569::1675324852::1675325876::1::::<><>::
-jingles_SAX10.ogg::AudioStreamOggVorbis::1885272114634387233::1675324852::1675325876::1::::<><>::
-jingles_SAX11.ogg::AudioStreamOggVorbis::6733817440195056985::1675324852::1675325876::1::::<><>::
-jingles_SAX12.ogg::AudioStreamOggVorbis::7860423594046499759::1675324852::1675325876::1::::<><>::
-jingles_SAX13.ogg::AudioStreamOggVorbis::5631690470239491460::1675324852::1675325876::1::::<><>::
-jingles_SAX14.ogg::AudioStreamOggVorbis::7301327925181367524::1675324852::1675325876::1::::<><>::
-jingles_SAX15.ogg::AudioStreamOggVorbis::5194097985282332376::1675324852::1675325876::1::::<><>::
-jingles_SAX16.ogg::AudioStreamOggVorbis::5202658914217432571::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_music_jingles/Steel jingles/::1675325876
-jingles_STEEL00.ogg::AudioStreamOggVorbis::1569589476484702779::1675324852::1675325876::1::::<><>::
-jingles_STEEL01.ogg::AudioStreamOggVorbis::2281277351411507595::1675324852::1675325876::1::::<><>::
-jingles_STEEL02.ogg::AudioStreamOggVorbis::4755835778014952587::1675324852::1675325876::1::::<><>::
-jingles_STEEL03.ogg::AudioStreamOggVorbis::2209239966632406519::1675324852::1675325876::1::::<><>::
-jingles_STEEL04.ogg::AudioStreamOggVorbis::4804849851843411340::1675324852::1675325876::1::::<><>::
-jingles_STEEL05.ogg::AudioStreamOggVorbis::2399977402152322574::1675324852::1675325876::1::::<><>::
-jingles_STEEL06.ogg::AudioStreamOggVorbis::3532449533581828362::1675324852::1675325876::1::::<><>::
-jingles_STEEL07.ogg::AudioStreamOggVorbis::1057379952259756983::1675324852::1675325876::1::::<><>::
-jingles_STEEL08.ogg::AudioStreamOggVorbis::7435460208177146597::1675324852::1675325876::1::::<><>::
-jingles_STEEL09.ogg::AudioStreamOggVorbis::4234672073083360528::1675324852::1675325876::1::::<><>::
-jingles_STEEL10.ogg::AudioStreamOggVorbis::7725431300219013989::1675324852::1675325876::1::::<><>::
-jingles_STEEL11.ogg::AudioStreamOggVorbis::7481745036333425318::1675324852::1675325876::1::::<><>::
-jingles_STEEL12.ogg::AudioStreamOggVorbis::1866283186478107787::1675324852::1675325876::1::::<><>::
-jingles_STEEL13.ogg::AudioStreamOggVorbis::8606564857428653111::1675324852::1675325876::1::::<><>::
-jingles_STEEL14.ogg::AudioStreamOggVorbis::7139598678138454638::1675324852::1675325876::1::::<><>::
-jingles_STEEL15.ogg::AudioStreamOggVorbis::6497017802229599944::1675324852::1675325876::1::::<><>::
-jingles_STEEL16.ogg::AudioStreamOggVorbis::1478071582969860162::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_rpg_audio/::1675325876
-beltHandle1.ogg::AudioStreamOggVorbis::3649304878705106405::1675324852::1675325876::1::::<><>::
-beltHandle2.ogg::AudioStreamOggVorbis::5888802709869697877::1675324852::1675325876::1::::<><>::
-bookClose.ogg::AudioStreamOggVorbis::4189648930944395321::1675324852::1675325876::1::::<><>::
-bookFlip1.ogg::AudioStreamOggVorbis::218312895476393826::1675324852::1675325876::1::::<><>::
-bookFlip2.ogg::AudioStreamOggVorbis::3871144585061074640::1675324852::1675325876::1::::<><>::
-bookFlip3.ogg::AudioStreamOggVorbis::6319427154964574921::1675324852::1675325876::1::::<><>::
-bookOpen.ogg::AudioStreamOggVorbis::2457746657939910389::1675324852::1675325876::1::::<><>::
-bookPlace1.ogg::AudioStreamOggVorbis::8834660468593970865::1675324852::1675325876::1::::<><>::
-bookPlace2.ogg::AudioStreamOggVorbis::7762105921884382357::1675324852::1675325876::1::::<><>::
-bookPlace3.ogg::AudioStreamOggVorbis::1144030609465289127::1675324852::1675325876::1::::<><>::
-chop.ogg::AudioStreamOggVorbis::8168739605836084497::1675324852::1675325876::1::::<><>::
-cloth1.ogg::AudioStreamOggVorbis::2942145421618361349::1675324852::1675325876::1::::<><>::
-cloth2.ogg::AudioStreamOggVorbis::2980062636580212902::1675324852::1675325876::1::::<><>::
-cloth3.ogg::AudioStreamOggVorbis::2588703551214397950::1675324852::1675325876::1::::<><>::
-cloth4.ogg::AudioStreamOggVorbis::7745384713042890513::1675324852::1675325876::1::::<><>::
-clothBelt2.ogg::AudioStreamOggVorbis::2010059949720144897::1675324852::1675325876::1::::<><>::
-clothBelt.ogg::AudioStreamOggVorbis::1932391699865622503::1675324852::1675325876::1::::<><>::
-creak1.ogg::AudioStreamOggVorbis::1275956721772310209::1675324852::1675325876::1::::<><>::
-creak2.ogg::AudioStreamOggVorbis::6839390125721119065::1675324852::1675325876::1::::<><>::
-creak3.ogg::AudioStreamOggVorbis::739022436285616316::1675324852::1675325876::1::::<><>::
-doorClose_1.ogg::AudioStreamOggVorbis::1683680322110900926::1675324852::1675325876::1::::<><>::
-doorClose_2.ogg::AudioStreamOggVorbis::4337317521904403168::1675324852::1675325876::1::::<><>::
-doorClose_3.ogg::AudioStreamOggVorbis::9008616221607818715::1675324852::1675325876::1::::<><>::
-doorClose_4.ogg::AudioStreamOggVorbis::4470289402358115369::1675324852::1675325876::1::::<><>::
-doorOpen_1.ogg::AudioStreamOggVorbis::6298185747509665917::1675324852::1675325876::1::::<><>::
-doorOpen_2.ogg::AudioStreamOggVorbis::4510967737414689055::1675324852::1675325876::1::::<><>::
-drawKnife1.ogg::AudioStreamOggVorbis::664379762801578484::1675324852::1675325876::1::::<><>::
-drawKnife2.ogg::AudioStreamOggVorbis::4146930750847686146::1675324852::1675325876::1::::<><>::
-drawKnife3.ogg::AudioStreamOggVorbis::8452032145802724351::1675324852::1675325876::1::::<><>::
-dropLeather.ogg::AudioStreamOggVorbis::2499996474812330450::1675324852::1675325876::1::::<><>::
-footstep00.ogg::AudioStreamOggVorbis::1572551276933522086::1675324852::1675325876::1::::<><>::
-footstep01.ogg::AudioStreamOggVorbis::1772306461994890102::1675324852::1675325876::1::::<><>::
-footstep02.ogg::AudioStreamOggVorbis::1871971890045392550::1675324852::1675325876::1::::<><>::
-footstep03.ogg::AudioStreamOggVorbis::8585540635388195424::1675324852::1675325876::1::::<><>::
-footstep04.ogg::AudioStreamOggVorbis::4548842665269977780::1675324852::1675325876::1::::<><>::
-footstep05.ogg::AudioStreamOggVorbis::155551816094258767::1675324852::1675325876::1::::<><>::
-footstep06.ogg::AudioStreamOggVorbis::3058849567882196043::1675324852::1675325876::1::::<><>::
-footstep07.ogg::AudioStreamOggVorbis::345332053158607319::1675324852::1675325876::1::::<><>::
-footstep08.ogg::AudioStreamOggVorbis::2332379524738226699::1675324852::1675325876::1::::<><>::
-footstep09.ogg::AudioStreamOggVorbis::73429819940578566::1675324852::1675325876::1::::<><>::
-handleCoins2.ogg::AudioStreamOggVorbis::3066646088631704009::1675324852::1675325876::1::::<><>::
-handleCoins.ogg::AudioStreamOggVorbis::2295118615556921802::1675324852::1675325876::1::::<><>::
-handleSmallLeather2.ogg::AudioStreamOggVorbis::4039990225839657918::1675324852::1675325876::1::::<><>::
-handleSmallLeather.ogg::AudioStreamOggVorbis::9198185699029964886::1675324852::1675325876::1::::<><>::
-knifeSlice2.ogg::AudioStreamOggVorbis::7961426848385097691::1675324852::1675325876::1::::<><>::
-knifeSlice.ogg::AudioStreamOggVorbis::6823233073747355894::1675324852::1675325876::1::::<><>::
-metalClick.ogg::AudioStreamOggVorbis::1953545633244902108::1675324852::1675325876::1::::<><>::
-metalLatch.ogg::AudioStreamOggVorbis::3238515984359813499::1675324852::1675325876::1::::<><>::
-metalPot1.ogg::AudioStreamOggVorbis::4164858430389556733::1675324852::1675325876::1::::<><>::
-metalPot2.ogg::AudioStreamOggVorbis::6701790094568729543::1675324852::1675325876::1::::<><>::
-metalPot3.ogg::AudioStreamOggVorbis::3335620497575369217::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_scifi_sounds/::1675325876
-computerNoise_000.ogg::AudioStreamOggVorbis::7729188818780568429::1675324852::1675325876::1::::<><>::
-computerNoise_001.ogg::AudioStreamOggVorbis::1269456160424313705::1675324852::1675325876::1::::<><>::
-computerNoise_002.ogg::AudioStreamOggVorbis::1250886813322862100::1675324852::1675325876::1::::<><>::
-computerNoise_003.ogg::AudioStreamOggVorbis::6370463848946411355::1675324852::1675325876::1::::<><>::
-desktop.ini::TextFile::-1::1675324852::0::1::::<><>::
-doorClose_000.ogg::AudioStreamOggVorbis::3683989239255548435::1675324852::1675325876::1::::<><>::
-doorClose_001.ogg::AudioStreamOggVorbis::4201103712713254961::1675324852::1675325876::1::::<><>::
-doorClose_002.ogg::AudioStreamOggVorbis::9038006016214341382::1675324852::1675325876::1::::<><>::
-doorOpen_000.ogg::AudioStreamOggVorbis::5422897916718183564::1675324852::1675325876::1::::<><>::
-doorOpen_001.ogg::AudioStreamOggVorbis::5325242320662279979::1675324852::1675325876::1::::<><>::
-doorOpen_002.ogg::AudioStreamOggVorbis::2842818380651406::1675324852::1675325876::1::::<><>::
-engineCircular_000.ogg::AudioStreamOggVorbis::5294794299223286263::1675324852::1675325876::1::::<><>::
-engineCircular_001.ogg::AudioStreamOggVorbis::6068562047826176999::1675324852::1675325876::1::::<><>::
-engineCircular_002.ogg::AudioStreamOggVorbis::6046322812988811867::1675324852::1675325876::1::::<><>::
-engineCircular_003.ogg::AudioStreamOggVorbis::2648169513314344587::1675324852::1675325876::1::::<><>::
-engineCircular_004.ogg::AudioStreamOggVorbis::3305521342246519280::1675324852::1675325876::1::::<><>::
-explosionCrunch_000.ogg::AudioStreamOggVorbis::4198168881804939442::1675324852::1675325876::1::::<><>::
-explosionCrunch_001.ogg::AudioStreamOggVorbis::2508934302345387310::1675324852::1675325876::1::::<><>::
-explosionCrunch_002.ogg::AudioStreamOggVorbis::4234003502695817196::1675324852::1675325876::1::::<><>::
-explosionCrunch_003.ogg::AudioStreamOggVorbis::8020001740761251033::1675324852::1675325876::1::::<><>::
-explosionCrunch_004.ogg::AudioStreamOggVorbis::2474725167749096590::1675324852::1675325876::1::::<><>::
-forceField_000.ogg::AudioStreamOggVorbis::5203194707631079961::1675324852::1675325876::1::::<><>::
-forceField_001.ogg::AudioStreamOggVorbis::7659567613226042047::1675324852::1675325876::1::::<><>::
-forceField_002.ogg::AudioStreamOggVorbis::4882487879826521766::1675324852::1675325876::1::::<><>::
-forceField_003.ogg::AudioStreamOggVorbis::539661266284959665::1675324852::1675325876::1::::<><>::
-forceField_004.ogg::AudioStreamOggVorbis::1210383232659263764::1675324852::1675325876::1::::<><>::
-impactMetal_000.ogg::AudioStreamOggVorbis::5096115481165602884::1675324852::1675325876::1::::<><>::
-impactMetal_001.ogg::AudioStreamOggVorbis::5581965223080554855::1675324852::1675325876::1::::<><>::
-impactMetal_002.ogg::AudioStreamOggVorbis::3820352486609712708::1675324852::1675325876::1::::<><>::
-impactMetal_003.ogg::AudioStreamOggVorbis::6735365433968319799::1675324852::1675325876::1::::<><>::
-impactMetal_004.ogg::AudioStreamOggVorbis::4037540701748147760::1675324852::1675325876::1::::<><>::
-laserLarge_000.ogg::AudioStreamOggVorbis::4033719336756054261::1675324852::1675325876::1::::<><>::
-laserLarge_001.ogg::AudioStreamOggVorbis::3601982652803667312::1675324852::1675325876::1::::<><>::
-laserLarge_002.ogg::AudioStreamOggVorbis::8839794053475133265::1675324852::1675325876::1::::<><>::
-laserLarge_003.ogg::AudioStreamOggVorbis::6385847650996847577::1675324852::1675325876::1::::<><>::
-laserLarge_004.ogg::AudioStreamOggVorbis::3807721972137143380::1675324852::1675325876::1::::<><>::
-laserRetro_000.ogg::AudioStreamOggVorbis::8777440988443561295::1675324852::1675325876::1::::<><>::
-laserRetro_001.ogg::AudioStreamOggVorbis::5556926275575879500::1675324852::1675325876::1::::<><>::
-laserRetro_002.ogg::AudioStreamOggVorbis::955234628339793707::1675324852::1675325876::1::::<><>::
-laserRetro_003.ogg::AudioStreamOggVorbis::1743137772494037812::1675324852::1675325876::1::::<><>::
-laserRetro_004.ogg::AudioStreamOggVorbis::2604499178959144217::1675324852::1675325876::1::::<><>::
-laserSmall_000.ogg::AudioStreamOggVorbis::896624883048450821::1675324852::1675325876::1::::<><>::
-laserSmall_001.ogg::AudioStreamOggVorbis::7594228713858010702::1675324852::1675325876::1::::<><>::
-laserSmall_002.ogg::AudioStreamOggVorbis::5596465281164717266::1675324852::1675325876::1::::<><>::
-laserSmall_003.ogg::AudioStreamOggVorbis::6693764722158289436::1675324852::1675325876::1::::<><>::
-laserSmall_004.ogg::AudioStreamOggVorbis::8378029813969835812::1675324852::1675325876::1::::<><>::
-lowFrequency_explosion_000.ogg::AudioStreamOggVorbis::4897750343061686126::1675324852::1675325876::1::::<><>::
-lowFrequency_explosion_001.ogg::AudioStreamOggVorbis::1207526322672518122::1675324852::1675325876::1::::<><>::
-slime_000.ogg::AudioStreamOggVorbis::1393494602965501528::1675324852::1675325876::1::::<><>::
-slime_001.ogg::AudioStreamOggVorbis::5397029546874559304::1675324852::1675325876::1::::<><>::
-spaceEngineLarge_000.ogg::AudioStreamOggVorbis::4328732557525321010::1675324852::1675325876::1::::<><>::
-spaceEngineLarge_001.ogg::AudioStreamOggVorbis::7979756108882578557::1675324852::1675325876::1::::<><>::
-spaceEngineLarge_002.ogg::AudioStreamOggVorbis::1128749217442716262::1675324852::1675325876::1::::<><>::
-spaceEngineLarge_003.ogg::AudioStreamOggVorbis::8506288318380663950::1675324852::1675325876::1::::<><>::
-spaceEngineLarge_004.ogg::AudioStreamOggVorbis::2371069299366847028::1675324852::1675325876::1::::<><>::
-spaceEngineLow_000.ogg::AudioStreamOggVorbis::7604810487209961903::1675324852::1675325876::1::::<><>::
-spaceEngineLow_001.ogg::AudioStreamOggVorbis::8277192114833887069::1675324852::1675325876::1::::<><>::
-spaceEngineLow_002.ogg::AudioStreamOggVorbis::421001708735048789::1675324852::1675325876::1::::<><>::
-spaceEngineLow_003.ogg::AudioStreamOggVorbis::182366831058013032::1675324852::1675325876::1::::<><>::
-spaceEngineLow_004.ogg::AudioStreamOggVorbis::1260529124749365992::1675324852::1675325876::1::::<><>::
-spaceEngineSmall_000.ogg::AudioStreamOggVorbis::1231337188978018781::1675324852::1675325876::1::::<><>::
-spaceEngineSmall_001.ogg::AudioStreamOggVorbis::8500419063034580647::1675324852::1675325876::1::::<><>::
-spaceEngineSmall_002.ogg::AudioStreamOggVorbis::4886101932610571265::1675324852::1675325876::1::::<><>::
-spaceEngineSmall_003.ogg::AudioStreamOggVorbis::2393912387404331523::1675324852::1675325876::1::::<><>::
-spaceEngineSmall_004.ogg::AudioStreamOggVorbis::6875344265912297380::1675324852::1675325876::1::::<><>::
-spaceEngine_000.ogg::AudioStreamOggVorbis::7597586509345583829::1675324852::1675325876::1::::<><>::
-spaceEngine_001.ogg::AudioStreamOggVorbis::1925479645279501012::1675324852::1675325876::1::::<><>::
-spaceEngine_002.ogg::AudioStreamOggVorbis::5114952301751993889::1675324852::1675325876::1::::<><>::
-spaceEngine_003.ogg::AudioStreamOggVorbis::995418071856090202::1675324852::1675325876::1::::<><>::
-thrusterFire_000.ogg::AudioStreamOggVorbis::5452203773058389476::1675324852::1675325876::1::::<><>::
-thrusterFire_001.ogg::AudioStreamOggVorbis::5824330381894579247::1675324852::1675325876::1::::<><>::
-thrusterFire_002.ogg::AudioStreamOggVorbis::1972414345511060346::1675324852::1675325876::1::::<><>::
-thrusterFire_003.ogg::AudioStreamOggVorbis::4268605139800283427::1675324852::1675325876::1::::<><>::
-thrusterFire_004.ogg::AudioStreamOggVorbis::8960806811420771161::1675324852::1675325876::1::::<><>::
-::res://Resources/kenney_ui_audio/::1675325876
-click1.ogg::AudioStreamOggVorbis::4287479483010496513::1675324852::1675325876::1::::<><>::
-click2.ogg::AudioStreamOggVorbis::2103210736610850181::1675324852::1675325876::1::::<><>::
-click3.ogg::AudioStreamOggVorbis::1059202152388335451::1675324852::1675325876::1::::<><>::
-click4.ogg::AudioStreamOggVorbis::1880688151841885550::1675324852::1675325876::1::::<><>::
-click5.ogg::AudioStreamOggVorbis::8761060809278695763::1675324852::1675325876::1::::<><>::
-mouseclick1.ogg::AudioStreamOggVorbis::4902015003208243225::1675324852::1675325876::1::::<><>::
-mouserelease1.ogg::AudioStreamOggVorbis::4106750362455242393::1675324852::1675325876::1::::<><>::
-rollover1.ogg::AudioStreamOggVorbis::697712809534475772::1675324852::1675325876::1::::<><>::
-rollover2.ogg::AudioStreamOggVorbis::8819554689540953033::1675324852::1675325876::1::::<><>::
-rollover3.ogg::AudioStreamOggVorbis::2818935964168995387::1675324852::1675325876::1::::<><>::
-rollover4.ogg::AudioStreamOggVorbis::5655017907538954252::1675324852::1675325876::1::::<><>::
-rollover5.ogg::AudioStreamOggVorbis::1469778540487368447::1675324852::1675325876::1::::<><>::
-rollover6.ogg::AudioStreamOggVorbis::964182290499984764::1675324852::1675325876::1::::<><>::
-switch1.ogg::AudioStreamOggVorbis::6814038295694151083::1675324852::1675325876::1::::<><>::
-switch2.ogg::AudioStreamOggVorbis::7969968114598029543::1675324852::1675325876::1::::<><>::
-switch3.ogg::AudioStreamOggVorbis::6083115891848196890::1675324852::1675325876::1::::<><>::
-switch4.ogg::AudioStreamOggVorbis::6360327212398941409::1675324852::1675325876::1::::<><>::
-switch5.ogg::AudioStreamOggVorbis::1015160156080331312::1675324852::1675325876::1::::<><>::
-switch6.ogg::AudioStreamOggVorbis::7746404114644735280::1675324852::1675325876::1::::<><>::
-switch7.ogg::AudioStreamOggVorbis::3841104657594142720::1675324852::1675325876::1::::<><>::
-switch8.ogg::AudioStreamOggVorbis::824953464233426849::1675324852::1675325876::1::::<><>::
-switch9.ogg::AudioStreamOggVorbis::4371684839130727004::1675324852::1675325876::1::::<><>::
-switch10.ogg::AudioStreamOggVorbis::2445678188040484052::1675324852::1675325876::1::::<><>::
-switch11.ogg::AudioStreamOggVorbis::4403275813400261626::1675324852::1675325876::1::::<><>::
-switch12.ogg::AudioStreamOggVorbis::1975783950412352647::1675324852::1675325876::1::::<><>::
-switch13.ogg::AudioStreamOggVorbis::2718437402042553332::1675324852::1675325876::1::::<><>::
-switch14.ogg::AudioStreamOggVorbis::6658240233348241937::1675324852::1675325876::1::::<><>::
-switch15.ogg::AudioStreamOggVorbis::8617134188013422838::1675324852::1675325876::1::::<><>::
-switch16.ogg::AudioStreamOggVorbis::8686078619037273283::1675324852::1675325876::1::::<><>::
-switch17.ogg::AudioStreamOggVorbis::4540774721022272462::1675324852::1675325876::1::::<><>::
-switch18.ogg::AudioStreamOggVorbis::594437041162517384::1675324852::1675325876::1::::<><>::
-switch19.ogg::AudioStreamOggVorbis::8090123103475867428::1675324852::1675325876::1::::<><>::
-switch20.ogg::AudioStreamOggVorbis::5882296199525328350::1675324852::1675325876::1::::<><>::
-switch21.ogg::AudioStreamOggVorbis::1997503122006330054::1675324852::1675325876::1::::<><>::
-switch22.ogg::AudioStreamOggVorbis::7663273622795721069::1675324852::1675325876::1::::<><>::
-switch23.ogg::AudioStreamOggVorbis::1587732776151355269::1675324852::1675325876::1::::<><>::
-switch24.ogg::AudioStreamOggVorbis::3467457460387628886::1675324852::1675325876::1::::<><>::
-switch25.ogg::AudioStreamOggVorbis::5591934518084010007::1675324852::1675325876::1::::<><>::
-switch26.ogg::AudioStreamOggVorbis::4062630417868700512::1675324852::1675325876::1::::<><>::
-switch27.ogg::AudioStreamOggVorbis::6895693665113765252::1675324852::1675325876::1::::<><>::
-switch28.ogg::AudioStreamOggVorbis::3927895699634934552::1675324852::1675325876::1::::<><>::
-switch29.ogg::AudioStreamOggVorbis::1667954154058547365::1675324852::1675325876::1::::<><>::
-switch30.ogg::AudioStreamOggVorbis::6582889247823497267::1675324852::1675325876::1::::<><>::
-switch31.ogg::AudioStreamOggVorbis::4909530364123447850::1675324852::1675325876::1::::<><>::
-switch32.ogg::AudioStreamOggVorbis::8029646645742597543::1675324852::1675325876::1::::<><>::
-switch33.ogg::AudioStreamOggVorbis::4277365650238373178::1675324852::1675325876::1::::<><>::
-switch34.ogg::AudioStreamOggVorbis::591873972663835169::1675324852::1675325876::1::::<><>::
-switch35.ogg::AudioStreamOggVorbis::6107137098545264362::1675324852::1675325876::1::::<><>::
-switch36.ogg::AudioStreamOggVorbis::7725284264104982737::1675324852::1675325876::1::::<><>::
-switch37.ogg::AudioStreamOggVorbis::8175711961458457682::1675324852::1675325876::1::::<><>::
-switch38.ogg::AudioStreamOggVorbis::7307966659110859957::1675324852::1675325876::1::::<><>::
-::res://Scenes/::1675353188
+::res://Music/::1675435592
+Castle.wav::AudioStreamWAV::3661564824054560619::1675421388::1675428412::1::::<><>::
+Enemy.wav::AudioStreamWAV::4494653831648389251::1675422490::1675428416::1::::<><>::
+Menu.wav::AudioStreamWAV::6112444553314835117::1675434477::1675434479::1::::<><>::
+Transition.wav::AudioStreamWAV::2360238753052325026::1675428784::1675428785::1::::<><>::
+Victory.wav::AudioStreamWAV::6499686298540241431::1675435593::1675435595::1::::<><>::
+::res://Scenes/::1675435352
 dice.tscn::PackedScene::1829431954467665029::1672761971::0::1::::<><>::uid://dvgu3wbolfxyj<>res://Scripts/dice.gd<>uid://b5flvwhscmfcw
-main.tscn::PackedScene::1383690034834034664::1675353187::0::1::::<><>::res://Scripts/GameManager/main.gd<>uid://coovnmiomy3xa<>res://Scripts/GameManager/YamsManager.gd<>uid://b5cwnsigjnr0o<>uid://d2nr00pp6mpou<>uid://dx1infx4o255x<>uid://b5tp2dhwh1sjy<>uid://drdr6dkao3hnd<>uid://cap8w17yaww0u<>uid://cmu6gp2op0k0a<>uid://bgexw1j00dy5y<>uid://d3n7ohhq5ufa0<>uid://cur0ovc2dvg2t<>uid://dd4d8p35u6tex<>uid://bglvnffqpoc7p<>uid://bq1do241bqxap<>uid://duxi6wqf3pbyn<>uid://c5p0n1itmigtc<>uid://bhjtrotsfs23v<>uid://bwyamuieukav7<>uid://cxis57g4kqmlm<>uid://dyx21ksbxmx85<>uid://dyhywb3qk2rl4<>uid://bex6dbhhtj4hu<>uid://iyu3xrydx143<>uid://ii2mha02m7ce<>res://Scripts/GameManager/Camera.gd<>uid://bqqsvp61boxyi<>uid://bf7kg86uhym3h<>uid://bsscl5l062gk0<>uid://p522hf6xt2ih<>uid://cdf0esxvrorx1<>uid://dwrigyu7vqop3
-world_environment.tscn::PackedScene::4995255836993615820::1675353188::0::1::::<><>::uid://l8653dqdn6a7<>res://Scripts/world_environment.gd
+main.tscn::PackedScene::1383690034834034664::1675435352::0::1::::<><>::res://Scripts/GameManager/main.gd<>uid://coovnmiomy3xa<>res://Scripts/GameManager/YamsManager.gd<>uid://b5cwnsigjnr0o<>uid://d2nr00pp6mpou<>uid://dx1infx4o255x<>uid://b5tp2dhwh1sjy<>uid://drdr6dkao3hnd<>uid://cap8w17yaww0u<>uid://cmu6gp2op0k0a<>uid://bgexw1j00dy5y<>uid://d3n7ohhq5ufa0<>uid://cur0ovc2dvg2t<>uid://dd4d8p35u6tex<>uid://bglvnffqpoc7p<>uid://bq1do241bqxap<>uid://duxi6wqf3pbyn<>uid://c5p0n1itmigtc<>uid://bhjtrotsfs23v<>uid://bwyamuieukav7<>uid://d3ilf81oe3mhr<>uid://cxis57g4kqmlm<>uid://dyx21ksbxmx85<>uid://dyhywb3qk2rl4<>uid://bex6dbhhtj4hu<>uid://iyu3xrydx143<>uid://ii2mha02m7ce<>res://Scripts/GameManager/Camera.gd<>uid://bqqsvp61boxyi<>uid://bf7kg86uhym3h<>uid://bsscl5l062gk0<>uid://p522hf6xt2ih<>uid://cdf0esxvrorx1<>uid://bsfxo48ab6wnr<>uid://dtwpdtuy0hcus
+world_environment.tscn::PackedScene::4995255836993615820::1675430173::0::1::::<><>::uid://l8653dqdn6a7<>res://Scripts/world_environment.gd
 ::res://Scenes/Buildings/::1675351187
 Barricade.tscn::PackedScene::4823495918697034278::1675351187::0::1::::<><>::uid://dpav0a5j5ddsy<>res://Scripts/Buildings/Barricade.gd<>uid://c3lq0gvi8lo4q<>uid://cjcdebyayptn<>uid://b7jcmnx6pasdo
 ::res://Scenes/Decors/::1675350797
 fire.tscn::PackedScene::9082275910812874012::1672761971::0::1::::<><>::uid://cttmij2ah4y6t
 panneau.tscn::PackedScene::2804044656782782431::1675350797::0::1::::<><>::uid://co0io3lyxckp2<>res://Scripts/Decors/Panneau.gd<>uid://dyx21ksbxmx85<>uid://bb4st5stfk4er
-::res://Scenes/Enemies/::1675353188
-Banner.tscn::PackedScene::3629287087978827977::1674662893::0::1::::<><>::res://Scripts/Enemies/Banner.gd<>uid://dcxa0uayg1qcv<>uid://c654yhdeg6js4<>uid://bqugmvufoqgmk<>uid://kvq8pdeiaqjd<>uid://0ci7cgy31lmm
-Beefy.tscn::PackedScene::5478335155896334001::1675092856::0::1::::<><>::res://Scripts/Enemies/Beefy.gd<>uid://cuvgr485moror<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd
-Bobelin.tscn::PackedScene::6260622638530407818::1674662893::0::1::::<><>::res://Scripts/Enemies/Bobelin.gd<>uid://oggoeij2m5e8<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://kvq8pdeiaqjd<>uid://0ci7cgy31lmm
-DarkKing.tscn::PackedScene::3157534075507801367::1675162478::0::1::::<><>::res://Scripts/Enemies/DarkKing.gd<>uid://dc62guwxchitb<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://bqugmvufoqgmk<>uid://kvq8pdeiaqjd
-Gobelin.tscn::PackedScene::6203266516623687959::1675162478::0::1::::<><>::res://Scripts/Enemies/Gobelin.gd<>uid://c0hamr0quwr58<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd
-Undead.tscn::PackedScene::5181382549877818499::1675353188::0::1::::<><>::res://Scripts/Enemies/Undead.gd<>uid://qaot5nmqr3yb<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd<>uid://bypbs0owvk0po
-Wisp.tscn::PackedScene::5001708911273776264::1674815344::0::1::::<><>::res://Scripts/Enemies/Wisp.gd<>uid://crsm06uf8e50i<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd
-::res://Scenes/Projectiles/::1675353188
+::res://Scenes/Enemies/::1675431904
+Banner.tscn::PackedScene::3629287087978827977::1675431904::0::1::::<><>::res://Scripts/Enemies/Banner.gd<>uid://dcxa0uayg1qcv<>uid://c654yhdeg6js4<>uid://bqugmvufoqgmk<>uid://kvq8pdeiaqjd<>uid://0ci7cgy31lmm<>uid://bahf58lsvemno
+Beefy.tscn::PackedScene::5478335155896334001::1675431904::0::1::::<><>::res://Scripts/Enemies/Beefy.gd<>uid://cuvgr485moror<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd<>uid://bahf58lsvemno
+Bobelin.tscn::PackedScene::6260622638530407818::1675431904::0::1::::<><>::res://Scripts/Enemies/Bobelin.gd<>uid://oggoeij2m5e8<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://kvq8pdeiaqjd<>uid://0ci7cgy31lmm<>uid://bypbs0owvk0po
+DarkKing.tscn::PackedScene::3157534075507801367::1675431904::0::1::::<><>::res://Scripts/Enemies/DarkKing.gd<>uid://dc62guwxchitb<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://bqugmvufoqgmk<>uid://kvq8pdeiaqjd<>uid://bahf58lsvemno
+Gobelin.tscn::PackedScene::6203266516623687959::1675431904::0::1::::<><>::res://Scripts/Enemies/Gobelin.gd<>uid://c0hamr0quwr58<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd<>uid://bahf58lsvemno
+Undead.tscn::PackedScene::5181382549877818499::1675431904::0::1::::<><>::res://Scripts/Enemies/Undead.gd<>uid://qaot5nmqr3yb<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd<>uid://bypbs0owvk0po
+Wisp.tscn::PackedScene::5001708911273776264::1675431904::0::1::::<><>::res://Scripts/Enemies/Wisp.gd<>uid://crsm06uf8e50i<>uid://bqugmvufoqgmk<>uid://c654yhdeg6js4<>uid://0ci7cgy31lmm<>uid://kvq8pdeiaqjd<>uid://bahf58lsvemno
+::res://Scenes/Projectiles/::1675431904
 arrow.tscn::PackedScene::9141781034947813327::1674815344::0::1::::<><>::res://Scripts/Projectiles/arrow.gd<>uid://3rs67gf2ex5q
 caillou.tscn::PackedScene::7057133409886960409::1674815344::0::1::::<><>::res://Scripts/Projectiles/caillou.gd<>uid://cx7ld0ac1spp7
 frostbolt.tscn::PackedScene::8795622836850985584::1670333096::0::1::::<><>::res://Scripts/Projectiles/frostbolt.gd<>uid://5lbvpgepg80j
-shock.tscn::PackedScene::5754733141584114868::1675353188::0::1::::<><>::res://Scripts/Projectiles/Shock.gd<>uid://bminpdun2a8p7<>uid://csftf8ndc78cj
-shockwave.tscn::PackedScene::4796683894977651805::1675092856::0::1::::<><>::res://Scripts/Projectiles/shockwave.gd<>uid://cfgqx5anoyy70
-::res://Scenes/UI/::1675353188
-menu.tscn::PackedScene::4191378077546789290::1675350797::0::1::::<><>::res://Scripts/UI/menu.gd<>uid://vx3npjiwp4mu<>uid://cnmh7g5bwpi17<>uid://cmgfklorvqr48<>uid://b2jm5uo1alpx<>uid://73ybu1u23xav<>uid://cd8dddiymo8qt
+shock.tscn::PackedScene::5754733141584114868::1675353968::0::1::::<><>::res://Scripts/Projectiles/Shock.gd<>uid://bminpdun2a8p7<>uid://csftf8ndc78cj
+shockwave.tscn::PackedScene::4796683894977651805::1675431904::0::1::::<><>::res://Scripts/Projectiles/shockwave.gd<>uid://cfgqx5anoyy70
+::res://Scenes/UI/::1675435352
+menu.tscn::PackedScene::4191378077546789290::1675435352::0::1::::<><>::res://Scripts/UI/menu.gd<>uid://vx3npjiwp4mu<>uid://cnmh7g5bwpi17<>uid://cmgfklorvqr48<>uid://b2jm5uo1alpx<>uid://73ybu1u23xav<>uid://cd8dddiymo8qt<>uid://ctc6clqkexb4x
 settings_menu.tscn::PackedScene::2305305658728844417::1675350797::0::1::::<><>::uid://bn3l22b0noeh0<>res://Scripts/UI/settings_menu.gd<>uid://b6xamhavthvbh<>uid://c45scljvl24as<>uid://dpgag5fa3dl0m
-sfx.tscn::PackedScene::8311037886606815020::1675353188::0::1::::<><>::res://Scripts/UI/UI_SFX.gd
+sfx.tscn::PackedScene::8311037886606815020::1675430173::0::1::::<><>::res://Scripts/UI/UI_SFX.gd
 statistics.tscn::PackedScene::3935558000213221636::1674815344::0::1::::<><>::uid://c1ti6brqucknh<>res://Scripts/UI/Statistics.gd<>uid://c26jgiqcdf4de<>uid://p522hf6xt2ih<>uid://dccfoc68ajb6a<>uid://bw24p5hfsc5j4<>uid://ckmvqsaa135da<>uid://bvvkfmt5si3kt<>uid://dtom1n33r4ufi<>uid://due1dx8yxbyj<>uid://cc4w3ggjukxpt<>uid://cw1ywqgubabre<>uid://cj0ic6mgggg88<>uid://bfopw53ndx53<>uid://bdcpgtaiwadjy<>uid://dynthxoe0d53o<>uid://guxmgpf3kjnl<>uid://euskiuanfoc1<>uid://kekmthdcbpkx<>uid://v5ljdrursxcl<>uid://dpi4lh23nk163<>uid://db16xvgwhxfw1<>uid://hht6ty7veniu<>uid://c7ih2i063ylmp<>uid://dpgag5fa3dl0m
-UI.tscn::PackedScene::5785685382336097214::1675353187::0::1::::<><>::uid://cfcauj2hcs18i<>res://Scripts/UI/UI.gd<>uid://df67evc00lqj5<>uid://c07ntpenu6nrq<>uid://7jr2jb08drs7<>uid://c2c43v1361tg4<>uid://7ht5hhio5oa6<>uid://1cgqhoji8gcb<>uid://bdj0okqe3e2x6<>uid://uwbxqkont7uu<>uid://dk3jg0f0ordhe<>uid://dyx21ksbxmx85<>uid://cdetu2igyog72<>uid://c32w4yfhwcaep<>uid://1ho1lprkdpem<>uid://b55p2w18kx46h<>uid://ijvymx3wfk2i<>uid://73ybu1u23xav<>uid://d02wiylsy1qku<>uid://dyswte0xgq8jp<>uid://cp5d76wfeqgrx<>uid://drsggjl0ha5n<>uid://cmgfklorvqr48<>uid://e4y15syreyon<>uid://sxho2s5b2oq<>uid://bwcochpom2701<>uid://bcwflblflx8cv
-::res://Scenes/UI/fireworks/::1674815344
-explosion.tscn::PackedScene::7741173376615972482::1674811805::0::1::::<><>::res://Scripts/UI/fireworks/explosion.gd
-fireworks.tscn::PackedScene::38568568858658880::1674815344::0::1::::<><>::res://Scripts/UI/fireworks/fireworks.gd<>uid://8pbldg14h8vu<>uid://dij482wl5te55
-rocket.tscn::PackedScene::2347278035150951338::1674815344::0::1::::<><>::res://Scripts/UI/fireworks/Rocket.gd<>uid://dgj3b8g7jg68l
-::res://Scenes/Units/::1675353188
-Archer.tscn::PackedScene::4532268310881795538::1675353188::0::1::::<><>::res://Scripts/Units/Archer.gd<>uid://bmi65f71etfy8<>uid://bw24p5hfsc5j4<>uid://bj25qqy8wgfma<>uid://cfgqx5anoyy70<>uid://dyx21ksbxmx85<>uid://dpenoc1k1m2hh<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://t8ra1jvi22v3<>uid://cmv3xhl8f7u7k
+UI.tscn::PackedScene::5785685382336097214::1675435352::0::1::::<><>::uid://cfcauj2hcs18i<>res://Scripts/UI/UI.gd<>uid://df67evc00lqj5<>uid://c07ntpenu6nrq<>uid://7jr2jb08drs7<>uid://c2c43v1361tg4<>uid://7ht5hhio5oa6<>uid://1cgqhoji8gcb<>uid://bdj0okqe3e2x6<>uid://uwbxqkont7uu<>uid://dk3jg0f0ordhe<>uid://dyx21ksbxmx85<>uid://cdetu2igyog72<>uid://c32w4yfhwcaep<>uid://1ho1lprkdpem<>uid://b55p2w18kx46h<>uid://ijvymx3wfk2i<>uid://73ybu1u23xav<>uid://d02wiylsy1qku<>uid://dyswte0xgq8jp<>uid://cp5d76wfeqgrx<>uid://drsggjl0ha5n<>uid://cmgfklorvqr48<>uid://e4y15syreyon<>uid://sxho2s5b2oq<>uid://bwcochpom2701<>uid://bcwflblflx8cv
+::res://Scenes/UI/fireworks/::1675435352
+explosion.tscn::PackedScene::7741173376615972482::1675435352::0::1::::<><>::res://Scripts/UI/fireworks/explosion.gd<>uid://6ymn7x1c7jm3
+fireworks.tscn::PackedScene::38568568858658880::1675435352::0::1::::<><>::res://Scripts/UI/fireworks/fireworks.gd
+rocket.tscn::PackedScene::2347278035150951338::1675435352::0::1::::<><>::res://Scripts/UI/fireworks/Rocket.gd<>uid://dgj3b8g7jg68l<>uid://be56xqckt6qbr
+::res://Scenes/Units/::1675431904
+Archer.tscn::PackedScene::4532268310881795538::1675431904::0::1::::<><>::res://Scripts/Units/Archer.gd<>uid://bmi65f71etfy8<>uid://bw24p5hfsc5j4<>uid://bj25qqy8wgfma<>uid://cfgqx5anoyy70<>uid://dyx21ksbxmx85<>uid://dpenoc1k1m2hh<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://t8ra1jvi22v3<>uid://cmv3xhl8f7u7k
 Bard.tscn::PackedScene::9153354907875113069::1675350798::0::1::::<><>::res://Scripts/Units/Bard.gd<>uid://bvvkfmt5si3kt<>uid://cfgqx5anoyy70<>uid://cgdcg6bkda224<>uid://bkol1fbq4h7fn<>uid://dyx21ksbxmx85<>uid://bnp3fxtsdhaw<>uid://r7mpo1e0dt6t<>uid://rrw5jovgljsa
-Bourreau.tscn::PackedScene::3980142802388407290::1675353657::0::1::::<><>::res://Scripts/Units/Bourreau.gd<>uid://cw1ywqgubabre<>uid://cfgqx5anoyy70<>uid://uxf3wyytgljt<>uid://bg0cw815fvqdn<>uid://dyx21ksbxmx85<>uid://btdy2m0srjan<>uid://bnp3fxtsdhaw<>uid://bkkvb5loc8wt8
+Bourreau.tscn::PackedScene::3980142802388407290::1675353968::0::1::::<><>::res://Scripts/Units/Bourreau.gd<>uid://cw1ywqgubabre<>uid://cfgqx5anoyy70<>uid://uxf3wyytgljt<>uid://bg0cw815fvqdn<>uid://dyx21ksbxmx85<>uid://btdy2m0srjan<>uid://bnp3fxtsdhaw<>uid://bkkvb5loc8wt8
 Builder.tscn::PackedScene::6404847964128033266::1675326208::0::1::::<><>::res://Scripts/Units/Builder.gd<>uid://cc4w3ggjukxpt<>uid://8vyyner05aq1<>uid://cfgqx5anoyy70<>uid://uhowvp2ngieu<>uid://dyx21ksbxmx85<>uid://btdy2m0srjan<>uid://bnp3fxtsdhaw
 Charlatan.tscn::PackedScene::8859741534482086863::1675326208::0::1::::<><>::res://Scripts/Units/Charlatan.gd<>uid://bfopw53ndx53<>uid://de8i7du2c5inm<>uid://cfgqx5anoyy70<>uid://bjw6hs8mv4wic<>uid://dyx21ksbxmx85<>uid://t8ra1jvi22v3<>uid://bnp3fxtsdhaw
 Colosse.tscn::PackedScene::2716544394426887438::1675326208::0::1::::<><>::res://Scripts/Units/Colosse.gd<>uid://guxmgpf3kjnl<>uid://cfgqx5anoyy70<>uid://34twfqt7vmby<>uid://dx6y7y07d7t7m<>uid://dyx21ksbxmx85<>uid://bnp3fxtsdhaw<>uid://r7mpo1e0dt6t
-IngeJR.tscn::PackedScene::579686928304216952::1675353188::0::1::::<><>::res://Scripts/Units/IngeJR.gd<>uid://bdcpgtaiwadjy<>uid://cfgqx5anoyy70<>uid://brejhkg7bl3va<>uid://xe475w1t1wsn<>uid://dyx21ksbxmx85<>uid://27ec10r3c3ua<>uid://bre6lh1f0a518<>uid://t8ra1jvi22v3<>uid://bnp3fxtsdhaw<>uid://48y0wjylb2xm
-IngeSR.tscn::PackedScene::3543603470430798868::1675353188::0::1::::<><>::res://Scripts/Units/IngeSR.gd<>uid://dynthxoe0d53o<>uid://ct281y4yy4pj8<>uid://cfgqx5anoyy70<>uid://cnc2ci6fwchpb<>uid://dyx21ksbxmx85<>uid://dj2we3llp3lkh<>uid://dasruo0d6ae6o<>uid://t8ra1jvi22v3<>uid://bnp3fxtsdhaw<>uid://48y0wjylb2xm
-Loup.tscn::PackedScene::6213256695211256697::1675353188::0::1::::<><>::res://Scripts/Units/Loup.gd<>uid://bmi65f71etfy8<>uid://cfgqx5anoyy70<>uid://ckmvqsaa135da<>uid://c6gj1ig7y1hlx<>uid://dyx21ksbxmx85<>uid://r8cmno5hsyl8<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://wch6nf0eb4gg<>uid://2ifcbhqujs2b
-Mage.tscn::PackedScene::8359753247714027033::1675350798::0::1::::<><>::res://Scripts/Units/Mage.gd<>uid://dtom1n33r4ufi<>uid://bmi65f71etfy8<>uid://cfgqx5anoyy70<>uid://doopv7psf4jj6<>uid://2tewi2aaasml<>uid://dyx21ksbxmx85<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://btdy2m0srjan<>uid://bigita5c0ehay
-Paladin.tscn::PackedScene::5658288817880083378::1675353188::0::1::::<><>::res://Scripts/Units/Paladin.gd<>uid://bmi65f71etfy8<>uid://due1dx8yxbyj<>uid://cfgqx5anoyy70<>uid://cbkstjsjjdf8t<>uid://wk72yblyvc71<>uid://dyx21ksbxmx85<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://q3iuel1bn4e0<>uid://b37tcc14q8ua0
-Soldier.tscn::PackedScene::8827788527107182755::1675353188::0::1::::<><>::res://Scripts/Units/Soldier.gd<>uid://bmi65f71etfy8<>uid://dccfoc68ajb6a<>uid://cfgqx5anoyy70<>uid://bje76xlu28h5y<>uid://ccqk4cqyoncp<>uid://dyx21ksbxmx85<>uid://crpjmpeddxi38<>uid://t8ra1jvi22v3<>uid://bnp3fxtsdhaw<>uid://78uy5te7532g
+IngeJR.tscn::PackedScene::579686928304216952::1675353968::0::1::::<><>::res://Scripts/Units/IngeJR.gd<>uid://bdcpgtaiwadjy<>uid://cfgqx5anoyy70<>uid://brejhkg7bl3va<>uid://xe475w1t1wsn<>uid://dyx21ksbxmx85<>uid://27ec10r3c3ua<>uid://bre6lh1f0a518<>uid://t8ra1jvi22v3<>uid://bnp3fxtsdhaw<>uid://48y0wjylb2xm
+IngeSR.tscn::PackedScene::3543603470430798868::1675353968::0::1::::<><>::res://Scripts/Units/IngeSR.gd<>uid://dynthxoe0d53o<>uid://ct281y4yy4pj8<>uid://cfgqx5anoyy70<>uid://cnc2ci6fwchpb<>uid://dyx21ksbxmx85<>uid://dj2we3llp3lkh<>uid://dasruo0d6ae6o<>uid://t8ra1jvi22v3<>uid://bnp3fxtsdhaw<>uid://48y0wjylb2xm
+Loup.tscn::PackedScene::6213256695211256697::1675353968::0::1::::<><>::res://Scripts/Units/Loup.gd<>uid://bmi65f71etfy8<>uid://cfgqx5anoyy70<>uid://ckmvqsaa135da<>uid://c6gj1ig7y1hlx<>uid://dyx21ksbxmx85<>uid://r8cmno5hsyl8<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://wch6nf0eb4gg<>uid://2ifcbhqujs2b
+Mage.tscn::PackedScene::8359753247714027033::1675431904::0::1::::<><>::res://Scripts/Units/Mage.gd<>uid://dtom1n33r4ufi<>uid://bmi65f71etfy8<>uid://cfgqx5anoyy70<>uid://doopv7psf4jj6<>uid://2tewi2aaasml<>uid://dyx21ksbxmx85<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://btdy2m0srjan<>uid://bigita5c0ehay
+Paladin.tscn::PackedScene::5658288817880083378::1675353968::0::1::::<><>::res://Scripts/Units/Paladin.gd<>uid://bmi65f71etfy8<>uid://due1dx8yxbyj<>uid://cfgqx5anoyy70<>uid://cbkstjsjjdf8t<>uid://wk72yblyvc71<>uid://dyx21ksbxmx85<>uid://crpjmpeddxi38<>uid://bnp3fxtsdhaw<>uid://q3iuel1bn4e0<>uid://b37tcc14q8ua0
+Soldier.tscn::PackedScene::8827788527107182755::1675431904::0::1::::<><>::res://Scripts/Units/Soldier.gd<>uid://bmi65f71etfy8<>uid://dccfoc68ajb6a<>uid://cfgqx5anoyy70<>uid://bje76xlu28h5y<>uid://ccqk4cqyoncp<>uid://dyx21ksbxmx85<>uid://crpjmpeddxi38<>uid://t8ra1jvi22v3<>uid://bnp3fxtsdhaw<>uid://bkkvb5loc8wt8
 Tavernier.tscn::PackedScene::612321392680482694::1675326208::0::1::::<><>::res://Scripts/Units/Tavernier.gd<>uid://cj0ic6mgggg88<>uid://cfgqx5anoyy70<>uid://dairpkjsfj118<>uid://c6w3i1h7alhk3<>uid://dyx21ksbxmx85<>uid://boug4ixhpdg0x<>uid://bnp3fxtsdhaw
-::res://Scripts/::1675345809
+::res://Scripts/::1675433925
 dice.gd::GDScript::-1::1670594922::0::1::::<>TextureRect<>::
-world_environment.gd::GDScript::-1::1675345809::0::1::::<>WorldEnvironment<>::
+world_environment.gd::GDScript::-1::1675433925::0::1::::<>WorldEnvironment<>::
 ::res://Scripts/Buildings/::1675350762
 Barricade.gd::GDScript::-1::1675350762::0::1::::<>Node2D<>::
 ::res://Scripts/Decors/::1675161932
 Panneau.gd::GDScript::-1::1675161932::0::1::::<>Node2D<>::
-::res://Scripts/Enemies/::1675347721
+::res://Scripts/Enemies/::1675354025
 Banner.gd::GDScript::-1::1672843015::0::1::::<>PathFollow2D<>::
 Beefy.gd::GDScript::-1::1673013846::0::1::::<>PathFollow2D<>::
 Bobelin.gd::GDScript::-1::1669974790::0::1::::<>PathFollow2D<>::
 DarkKing.gd::GDScript::-1::1675092708::0::1::::<>PathFollow2D<>::
-Enemy.gd::GDScript::-1::1675347721::0::1::::<>PathFollow2D<>::
+Enemy.gd::GDScript::-1::1675354025::0::1::::<>PathFollow2D<>::
 Gobelin.gd::GDScript::-1::1669974787::0::1::::<>PathFollow2D<>::
 Undead.gd::GDScript::-1::1672847687::0::1::::<>PathFollow2D<>::
 Wisp.gd::GDScript::-1::1672848692::0::1::::<>PathFollow2D<>::
-::res://Scripts/GameManager/::1675349508
+::res://Scripts/GameManager/::1675431793
 Camera.gd::GDScript::-1::1674205500::0::1::::<>Camera2D<>::
 global_settings.gd::GDScript::-1::1675331305::0::1::::<>Node<>::
-main.gd::GDScript::-1::1675349508::0::1::::<>Node<>::
-SaveSystem.gd::GDScript::-1::1675329487::0::1::::<>Node<>::
-YamsManager.gd::GDScript::-1::1675353657::0::1::::<>Node<>::
+main.gd::GDScript::-1::1675431793::0::1::::<>Node<>::
+SaveSystem.gd::GDScript::-1::1675431351::0::1::::<>Node<>::
+YamsManager.gd::GDScript::-1::1675353791::0::1::::<>Node<>::
 ::res://Scripts/Projectiles/::1675351656
 arrow.gd::GDScript::-1::1674662357::0::1::::<>Node2D<>::
 caillou.gd::GDScript::-1::1674662350::0::1::::<>Node2D<>::
 frostbolt.gd::GDScript::-1::1674226865::0::1::::<>Node2D<>::
 Shock.gd::GDScript::-1::1675351656::0::1::::<>Node2D<>::
 shockwave.gd::GDScript::-1::1675090179::0::1::::<>PathFollow2D<>::
-::res://Scripts/UI/::1675349465
+::res://Scripts/UI/::1675433925
 menu.gd::GDScript::-1::1675333358::0::1::::<>Control<>::
 settings_menu.gd::GDScript::-1::1675330461::0::1::::<>Container<>::
 Statistics.gd::GDScript::-1::1675161997::0::1::::<>Container<>::
-UI.gd::GDScript::-1::1675345809::0::1::::<>Control<>::
-UI_SFX.gd::GDScript::-1::1675349465::0::1::::<>AudioStreamPlayer<>::
-::res://Scripts/UI/fireworks/::1675162014
-explosion.gd::GDScript::-1::1675162002::0::1::::<>Node2D<>::
-fireworks.gd::GDScript::-1::1675162014::0::1::::<>Node<>::
-Rocket.gd::GDScript::-1::1675162006::0::1::::<>RigidBody2D<>::
-::res://Scripts/Units/::1675353186
+UI.gd::GDScript::-1::1675433925::0::1::::<>Control<>::
+UI_SFX.gd::GDScript::-1::1675431520::0::1::::<>AudioStreamPlayer<>::
+::res://Scripts/UI/fireworks/::1675434145
+explosion.gd::GDScript::-1::1675434008::0::1::::<>Node2D<>::
+fireworks.gd::GDScript::-1::1675434145::0::1::::<>Node<>::
+Rocket.gd::GDScript::-1::1675433966::0::1::::<>RigidBody2D<>::
+::res://Scripts/Units/::1675430925
 Archer.gd::GDScript::-1::1675345871::0::1::::<>Node2D<>::
 Bard.gd::GDScript::-1::1675350502::0::1::::<>Node2D<>::
 Bourreau.gd::GDScript::-1::1675353186::0::1::::<>Node2D<>::
@@ -1112,24 +260,25 @@ IngeJR.gd::GDScript::-1::1675349127::0::1::::<>Node2D<>::
 IngeSR.gd::GDScript::-1::1675349130::0::1::::<>Node2D<>::
 Loup.gd::GDScript::-1::1675349736::0::1::::<>Node2D<>::
 Mage.gd::GDScript::-1::1675350186::0::1::::<>Node2D<>::
-Paladin.gd::GDScript::-1::1675351168::0::1::::<>Node2D<>::
+Paladin.gd::GDScript::-1::1675430801::0::1::::<>Node2D<>::
 Soldier.gd::GDScript::-1::1675346550::0::1::::<>Node2D<>::
 Tavernier.gd::GDScript::-1::1675161935::0::1::::<>Node2D<>::
-unit.gd::GDScript::-1::1675349483::0::1::::<>Node2D<>::
+unit.gd::GDScript::-1::1675430925::0::1::::<>Node2D<>::
 ::res://Shaders/::1674813009
 fireworks.gdshader::Shader::-1::1674813009::0::1::::<><>::
-::res://Singletons/::1675350651
-GameData.gd::GDScript::-1::1675350651::0::1::::<>Node<>::
-::res://Sounds/::1675353628
+::res://Singletons/::1675431662
+GameData.gd::GDScript::-1::1675431662::0::1::::<>Node<>::
+::res://Sounds/::1675433899
 boom.wav::AudioStreamWAV::6617291206984269969::1675348699::1675348719::1::::<><>::
 Braam.wav::AudioStreamWAV::703326051181603679::1675324851::1675335196::1::::<><>::
 error_005.ogg::AudioStreamOggVorbis::8163251313622504890::1675333194::1675334328::1::::<><>::
+explosion.wav::AudioStreamWAV::2226152755573368184::1675433883::1675433899::1::::<><>::
+fire.wav::AudioStreamWAV::9141743284944669199::1675431477::1675431510::1::::<><>::
 footstep.ogg::AudioStreamOggVorbis::8130690291757339048::1675346451::1675346978::1::::<><>::
-Loop2.wav::AudioStreamWAV::4187525771028657758::1675335700::1675344457::1::::<><>::
-Loop.wav::AudioStreamWAV::8739008776579726882::1675324851::1675335200::1::::<><>::
 maximize_006.ogg::AudioStreamOggVorbis::3768078945447975084::1675334166::1675334330::1::::<><>::
 poof.ogg::AudioStreamOggVorbis::4102012794338909776::1675347684::1675347716::1::::<><>::
 poof.wav::AudioStreamWAV::2401230237861974248::1675346726::1675346796::1::::<><>::
+rocket.wav::AudioStreamWAV::2731031534846789595::1675433725::1675433899::1::::<><>::
 shield_up.ogg::AudioStreamOggVorbis::8539183533028322954::1675353628::1675353706::1::::<><>::
 ::res://Sounds/dices/::1675348712
 diceThrow1.ogg::AudioStreamOggVorbis::5090882790017023716::1675324852::1675347917::1::::<><>::
@@ -1228,14 +377,14 @@ progress_bar_fill.png::CompressedTexture2D::4554977493975083921::1672996880::167
 shield.png::CompressedTexture2D::6733393937927936994::1672932971::1673345453::1::::<><>::
 speed-toggle.png::CompressedTexture2D::246764902943153905::1675162814::1675162816::1::::<><>::
 speed.png::CompressedTexture2D::5887846313404447697::1675163203::1675163204::1::::<><>::
-::res://Sprites/UI/menu/::1675268144
+::res://Sprites/UI/menu/::1675435309
 controls.png::CompressedTexture2D::4609777322985623301::1674570982::1674571024::1::::<><>::
 help-close.png::CompressedTexture2D::3585995406859781279::1674571023::1674571024::1::::<><>::
 help.png::CompressedTexture2D::2572537980014284837::1674575242::1674575516::1::::<><>::
 logo2.png::CompressedTexture2D::5051720043579846887::1675268142::1675268144::1::::<><>::
 menu-arrow.png::CompressedTexture2D::963874740768398039::1673342547::1673345398::1::::<><>::
 menu-close.png::CompressedTexture2D::8224493270399652258::1673345291::1673345398::1::::<><>::
-menu-king.png::CompressedTexture2D::5710551393643330220::1675267578::1675267595::1::::<><>::
+menu-king.png::CompressedTexture2D::5710551393643330220::1675435308::1675435309::1::::<><>::
 radio_check.png::CompressedTexture2D::1347732299315545132::1673344723::1673345410::1::::<><>::
 radio_uncheck.png::CompressedTexture2D::1886841769331511909::1673344724::1673345410::1::::<><>::
 statistics.png::CompressedTexture2D::6732493468686038902::1674570977::1674571024::1::::<><>::
@@ -1285,11 +434,11 @@ tavernier-hover.png::CompressedTexture2D::8802792590631868324::1667394955::16673
 tavernier.png::CompressedTexture2D::5456641358552311403::1667394948::1667394957::1::::<><>::
 test1.png::CompressedTexture2D::6533182628144413410::1669192169::1669192173::1::::<><>::
 test2.png::CompressedTexture2D::1750195240106498649::1669192169::1669192173::1::::<><>::
-::res://Themes/::1675345809
-MainMenu.tres::Theme::1523170498007277752::1675345809::0::1::::<><>::uid://cmgfklorvqr48
-optionButton.tres::Theme::6871346235598570350::1675345809::0::1::::<><>::uid://cmgfklorvqr48<>uid://tg37o5rq88hs<>uid://15aajtbkql62
-Settings.tres::Theme::3357395752286130487::1675345809::0::1::::<><>::uid://cmgfklorvqr48
-Statistics.tres::Theme::6637515654394172665::1675345809::0::1::::<><>::uid://cmgfklorvqr48
+::res://Themes/::1675434438
+MainMenu.tres::Theme::1523170498007277752::1675434438::0::1::::<><>::uid://cmgfklorvqr48
+optionButton.tres::Theme::6871346235598570350::1675433925::0::1::::<><>::uid://cmgfklorvqr48<>uid://tg37o5rq88hs<>uid://15aajtbkql62
+Settings.tres::Theme::3357395752286130487::1675433925::0::1::::<><>::uid://cmgfklorvqr48
+Statistics.tres::Theme::6637515654394172665::1675433925::0::1::::<><>::uid://cmgfklorvqr48
 tooltips.tres::Theme::8892961329298328524::1666687387::0::1::::<><>::uid://ptfp88wcm6r
 UI.tres::Theme::581408731905113870::1673345913::0::1::::<><>::uid://cmgfklorvqr48
 ::res://tilesets/::1674812590

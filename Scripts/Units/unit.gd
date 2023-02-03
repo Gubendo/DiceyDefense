@@ -123,7 +123,10 @@ func select_enemy() -> void:
 		enemies_in_range = []
 		
 func get_all_enemies() -> Array:
-	return $/root/Main/KingsRoad.get_children()
+	var enemies: Array = []
+	for enemy in $/root/Main/KingsRoad.get_children():
+		if enemy.name.left(5) != "shock": enemies.append(enemy)
+	return enemies
 
 func get_all_allies() -> Array:
 	return $/root/Main/Units.get_children()

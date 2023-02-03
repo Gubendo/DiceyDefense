@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0ylnctdwoh6a"]
+[gd_scene load_steps=10 format=3 uid="uid://b0ylnctdwoh6a"]
 
 [ext_resource type="Script" path="res://Scripts/UI/menu.gd" id="1_ui65l"]
 [ext_resource type="Theme" uid="uid://vx3npjiwp4mu" path="res://Themes/MainMenu.tres" id="2_nvto7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2jm5uo1alpx" path="res://meta/logo-only.png" id="4_cnppy"]
 [ext_resource type="PackedScene" uid="uid://73ybu1u23xav" path="res://Scenes/UI/settings_menu.tscn" id="5_mibca"]
 [ext_resource type="Texture2D" uid="uid://cd8dddiymo8qt" path="res://Sprites/UI/menu/logo2.png" id="5_vntqv"]
+[ext_resource type="AudioStream" uid="uid://ctc6clqkexb4x" path="res://Music/Menu.wav" id="8_ycl5b"]
 
 [sub_resource type="Texture2D" id="Texture2D_3de12"]
 resource_local_to_scene = false
@@ -115,3 +116,8 @@ texture = SubResource("Texture2D_3de12")
 
 [node name="Settings" parent="." instance=ExtResource("5_mibca")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ycl5b")
+autoplay = true
+bus = &"Music"
