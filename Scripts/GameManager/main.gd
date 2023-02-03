@@ -27,7 +27,7 @@ func _ready() -> void:
 	
 func connect_signals() -> void:
 	$King/Button.pressed.connect(on_king_pressed)
-	$King/Button.mouse_entered.connect(enable_tooltip)
+	$King/Button.mouse_entered.connect(enable_tooltip.bind(true))
 	$King/Button.mouse_exited.connect(disable_tooltip)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0 and playing:
 		print("FIN DE VAGUE")
 		waveStarted = false
-		if current_wave == 1:
+		if current_wave == 13:
 			victory()
 			king_anim.play("join_city")
 			await king_anim.animation_finished
@@ -234,11 +234,12 @@ func save_gamestate() -> void:
 func on_king_pressed() -> void:
 	if $UI.coupsRestant > 0:
 		$UI.press_roll()
-	enable_tooltip()
+	enable_tooltip(false)
 
-func enable_tooltip() -> void:
+func enable_tooltip(sound: bool) -> void:
 	if not $King/Button.is_disabled():
-		Sfx.hover_sound()
+		if sound:
+			Sfx.hover_sound()
 		$King/CanvasLayer/Tooltip.visible = true
 		$King/Hover.visible = true
 		var coups: int = $UI.coupsRestant

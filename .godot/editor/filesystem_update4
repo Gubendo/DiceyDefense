@@ -1,7 +1,5 @@
 res://world_environment.tres
 res://Scenes/UI/menu.tscn
-res://Scripts/UI/UI.gd
-res://Scripts/world_environment.gd
 res://Themes/MainMenu.tres
 res://Themes/Settings.tres
 res://Themes/optionButton.tres
@@ -10,3 +8,7 @@ res://Scenes/UI/splash.tscn
 res://Scenes/main.tscn
 res://Scenes/UI/UI.tscn
 res://Scenes/UI/settings_menu.tscn
+res://Scripts/GameManager/main.gd
+res://Scripts/GameManager/SaveSystem.gd
+res://Scripts/UI/UI.gd
+res://Scripts/UI/UI_SFX.gd

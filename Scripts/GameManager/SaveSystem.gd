@@ -104,9 +104,7 @@ func load_game() -> void:
 		var save_file: FileAccess = FileAccess.open(SAVE_FILE, FileAccess.READ)
 		game_data = save_file.get_var()
 	
-	# HARDCODE ICI POUR CHEAT
-	
-	game_data["nexus_hp"] = 1 
+	# HARDCODE ICI POUR CHEAT 
 		
 func reset_save() -> void:
 	var current_settings: Dictionary = game_data["settings"]
