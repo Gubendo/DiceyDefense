@@ -1,10 +1,10 @@
 AudioStreamPlayer
+TextureRect
+Node2D
+AnimationPlayer
+Sprite2D
 AudioStreamPlayer2D
 Node
-Node2D
-TextureRect
-Sprite2D
-AnimationPlayer
 CPUParticles2D
 WorldEnvironment
 RigidBody2D

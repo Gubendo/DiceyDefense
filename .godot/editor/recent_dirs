@@ -1,8 +1,9 @@
+res://Scenes/UI
+res://Sprites/UI/tooltips
 res://Sounds/Units
 res://Sounds
 res://Scripts/Units
 res://Scripts/UI
-res://Scenes/UI
 res://Themes
 res://meta
 res://Shaders
@@ -19,4 +20,3 @@ res://Scripts/Projectiles
 res://Sprites
 res://Animations
 res://Scenes/Projectiles
-res://Scripts/Decors

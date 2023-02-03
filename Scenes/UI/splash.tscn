@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0snyykvedldf"]
+
+[ext_resource type="Script" path="res://Scripts/UI/splash.gd" id="1_45j5o"]
+[ext_resource type="Texture2D" uid="uid://14mj13m3cjnv" path="res://Sprites/UI/splash/splash-screen.png" id="1_rl16v"]
+[ext_resource type="Texture2D" uid="uid://q3iuel1bn4e0" path="res://Sprites/UI/tooltips/tooltip-60px.png" id="2_4st4l"]
+[ext_resource type="PackedScene" uid="uid://73ybu1u23xav" path="res://Scenes/UI/settings_menu.tscn" id="4_gvcng"]
+[ext_resource type="AudioStream" uid="uid://b5d8cm6ljvyx5" path="res://Sounds/defense_man.wav" id="5_ahepq"]
+
+[sub_resource type="Animation" id="Animation_rcwty"]
+resource_name = "shake"
+length = 2.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 2, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sound"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3fkv"]
+_data = {
+"shake": SubResource("Animation_rcwty")
+}
+
+[node name="SplashScreen" type="Node2D"]
+script = ExtResource("1_45j5o")
+
+[node name="Screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_rl16v")
+hframes = 5
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Screen")
+libraries = {
+"": SubResource("AnimationLibrary_n3fkv")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_4st4l")
+
+[node name="Settings" parent="." instance=ExtResource("4_gvcng")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ahepq")
