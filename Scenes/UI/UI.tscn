@@ -669,9 +669,9 @@ mouse_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 600.0
+offset_left = 700.0
 offset_top = 250.0
-offset_right = -520.0
+offset_right = -420.0
 offset_bottom = -530.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -684,9 +684,9 @@ text = "[wave amp=70 freq=5]GAME OVER"
 fit_content_height = true
 
 [node name="Label" type="Label" parent="CanvasLayer/GameOver"]
-offset_left = 550.0
+offset_left = 650.0
 offset_top = 455.0
-offset_right = 1350.0
+offset_right = 1450.0
 offset_bottom = 555.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -709,9 +709,9 @@ mouse_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 600.0
+offset_left = 750.0
 offset_top = 250.0
-offset_right = -520.0
+offset_right = -370.0
 offset_bottom = -530.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -724,9 +724,9 @@ text = "[wave amp=50 freq=10]VICTOIRE"
 fit_content_height = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Victory"]
-offset_left = 571.0
+offset_left = 710.0
 offset_top = 465.0
-offset_right = 1371.0
+offset_right = 1510.0
 offset_bottom = 565.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

@@ -15,7 +15,8 @@ run/main_scene="res://Scenes/UI/splash.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/fullsize=false
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://dice.ico"
+config/windows_native_icon="res://dice.ico"
 boot_splash/minimum_display_time=100
 
 [autoload]
@@ -33,6 +34,8 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
 mouse_cursor/custom_image="res://Sprites/UI/cursor2.png"
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"

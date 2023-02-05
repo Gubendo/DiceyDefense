@@ -37,6 +37,9 @@ func _process(_delta: float) -> void:
 	if waveStarted and enemies_in_wave == 0 and playing:
 		print("FIN DE VAGUE")
 		waveStarted = false
+		Engine.set_time_scale(1.0)
+		$Music.set_pitch_scale(1.0)
+		$UI/CanvasLayer/Vague/Controls/SpeedUp.button_pressed = false
 		if current_wave == 13:
 			victory()
 			king_anim.play("join_city")
@@ -176,7 +179,6 @@ func game_over() -> void:
 		
 
 func victory() -> void:
-	Engine.set_time_scale(1.0)
 	$UI.victory()
 	$Music.set_stream(victory_music)
 	$Music.play()

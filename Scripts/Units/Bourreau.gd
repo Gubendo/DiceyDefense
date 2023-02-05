@@ -32,7 +32,7 @@ func attack() -> void:
 	
 func update_tooltip() -> void:
 	update_stats()
-	tooltipText.text = "Unité d'attaque à distance qui inflige {0} points de \
+	tooltipText.text = "Unité d'attaque au corps à corps qui inflige {0} points de \
 dégâts toutes les {1} secondes. 
 Si la cible possède moins de {2} pcent de ses PV, \
 elle est executée".format([currentStats[0], currentStats[1], currentStats[2]])
@@ -67,4 +67,4 @@ func exec_anim() -> void:
 	animation_player.play("execute")
 	
 func on_activate() -> void:
-	update_tooltip_size(45)
+	update_tooltip_size(50)

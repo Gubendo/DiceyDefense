@@ -1,3 +1,6 @@
+C:/Users/admin/OneDrive/Bureau/Dev Perso/DD_Build
+C:/Users/admin/Downloads
+res://
 res://Scenes/UI
 res://Sprites/UI/tooltips
 res://Sounds/Units
@@ -9,7 +12,6 @@ res://meta
 res://Shaders
 res://Scripts/UI/fireworks
 res://Scenes/UI/fireworks
-res://
 res://Sprites/UI
 res://Fonts
 res://Scenes
@@ -19,4 +21,3 @@ res://Scenes/Decors
 res://Scripts/Projectiles
 res://Sprites
 res://Animations
-res://Scenes/Projectiles

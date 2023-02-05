@@ -37,8 +37,6 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 59.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Advice" type="Label" parent="Popup/TabContainer/Vidéo"]
 offset_left = 247.0
@@ -139,12 +137,7 @@ value = 0.3
 [node name="Audio" type="Control" parent="Popup/TabContainer"]
 visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 59.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup/TabContainer/Audio"]
 offset_left = 45.0
@@ -159,48 +152,28 @@ offset_bottom = 250.0
 columns = 2
 
 [node name="MasterVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-offset_right = 210.0
-offset_bottom = 54.0
 text = "Volume Principal"
 
 [node name="MasterSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(200, 0)
-offset_left = 400.0
-offset_top = 38.0
-offset_right = 600.0
-offset_bottom = 54.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
 value = 100.0
 
 [node name="MusicVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-offset_top = 58.0
-offset_right = 210.0
-offset_bottom = 112.0
 text = "Volume Musique"
 
 [node name="MusicSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(200, 0)
-offset_left = 400.0
-offset_top = 96.0
-offset_right = 600.0
-offset_bottom = 112.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
 value = 100.0
 
 [node name="SFXVol" type="Label" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
-offset_top = 116.0
-offset_right = 210.0
-offset_bottom = 170.0
 text = "Volume SFX"
 
 [node name="SFXSlider" type="HSlider" parent="Popup/TabContainer/Audio/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(200, 0)
-offset_left = 400.0
-offset_top = 154.0
-offset_right = 600.0
-offset_bottom = 170.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
 value = 100.0
