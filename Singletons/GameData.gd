@@ -489,7 +489,7 @@ var beefy_stats: Dictionary = {
 
 var darkking_stats: Dictionary = {
 	"speed": 10,
-	"health": 2000,
+	"health": 5000,
 	"damage": 25,
 	"cd": 3,
 	"nexus_dmg": 100,

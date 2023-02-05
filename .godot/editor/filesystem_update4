@@ -1,13 +1,7 @@
 res://world_environment.tres
-res://Scenes/UI/UI.tscn
+res://Scenes/Units/Bourreau.tscn
 res://Themes/MainMenu.tres
 res://Themes/Settings.tres
 res://Themes/optionButton.tres
 res://Themes/Statistics.tres
-res://Scripts/GameManager/main.gd
-res://Scenes/UI/menu.tscn
-res://Scenes/UI/splash.tscn
-res://Scenes/main.tscn
-res://Scenes/UI/settings_menu.tscn
-res://Scripts/Units/Bourreau.gd
-res://Scenes/Units/Bourreau.tscn
+res://Singletons/GameData.gd
