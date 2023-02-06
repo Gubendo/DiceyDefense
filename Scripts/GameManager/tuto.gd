@@ -12,6 +12,7 @@ var nexus_hp: int
 
 var save_system = SaveSystem
 var tuto_step: int
+var debug: bool = false
 
 @onready var king_anim = $King/KingAnimation
 var shield_upgrade: Resource = preload("res://Sprites/UI/shield-upgrade.png")
@@ -20,8 +21,6 @@ var shield_upgrade: Resource = preload("res://Sprites/UI/shield-upgrade.png")
 @onready var transition_music = load("res://Music/Transition.wav")
 @onready var enemy_music = load("res://Music/Enemy.wav")
 @onready var victory_music = load("res://Music/Victory.wav")
-
-var debug: bool = true
 
 func _ready() -> void:
 	tuto_step = 1
@@ -61,16 +60,11 @@ func _process(_delta: float) -> void:
 		Engine.set_time_scale(1.0)
 		$Music.set_pitch_scale(1.0)
 		$UI/CanvasLayer/Vague/Controls/SpeedUp.button_pressed = false
-		if current_wave == 1:
-			victory()
-			king_anim.play("join_city")
-			await king_anim.animation_finished
-			king_anim.play("celebrate")
-		else:
-			music_transition(false)
-			king_anim.play("join_city")
-			await king_anim.animation_finished
-			update_phase()
+		
+		victory()
+		king_anim.play("join_city")
+		await king_anim.animation_finished
+		king_anim.play("celebrate")
 
 
 func _on_ui_roll(unfrozen: Array) -> void:
@@ -78,11 +72,6 @@ func _on_ui_roll(unfrozen: Array) -> void:
 	var unfrozen_id: Array = []
 	if tuto_step == 7: hand = [5, 5, 1, 2, 5]
 	else: hand = [2, 5, 6, 3, 5]
-	"""for i in range(len(unfrozen)):
-		unfrozen_id.append((str(unfrozen[i].name).right(1)).to_int() - 1)
-	for i in range(5):
-		if i in unfrozen_id:
-			hand[i] = rng.randi_range(1, 6)"""
 	$YamsManager.calcul_hand(hand)
 	$UI.update_hand(hand)
 	if king_anim != null and not king_anim.is_playing():
@@ -98,12 +87,6 @@ func update_phase() -> void:
 	$Units/Builder.visible = true
 	$Units/Builder.turn(1)
 	$Units/Builder.start_wave()
-	
-			
-	for temp in $Temporary.get_children():
-		temp.queue_free()
-	for follow in $KingsRoad.get_children():
-		follow.queue_free()
 	
 ### Gestion de vagues
 
@@ -168,89 +151,16 @@ func spawn_enemies(wave_data: Array) -> void:
 		await get_tree().create_timer(group[3]).timeout
 		
 func on_enemy_death(nexus_dmg: float) -> void:
-	
-	if nexus_dmg != 0:
-		$Camera2d.trigger_shake(3, 0.2, true)
-		Sfx.damage_sound()
-		nexus_hp -= nexus_dmg
-		if nexus_hp <= 0:
-			nexus_hp = 0
-			game_over()
-		$UI.update_health(nexus_hp)
-	else:
-		pass#$Camera2d.trigger_shake(0.2, 0.1, false)
 	enemies_in_wave -= 1
-
-func game_over() -> void:
-	Engine.set_time_scale(1.0)
-	$Music.set_pitch_scale(0.75)
-	$UI.game_over()
-	$Decor/Fire.visible = true
-	$Decor/FireSound.play()
-	playing = false
-	for fire in $Decor/Fire.get_children():
-		fire.get_node("Sprite2d").frame = rng.randi_range(0, 6)
-		fire.get_node("Sprite2d").playing = true
-	for enemy in $KingsRoad.get_children(): # DANSE
-		enemy.dead = true
-		enemy.animation_player.play("dance")
-		enemy.health_bar.visible = false
-	for unit in $Units.get_children(): # CRI D'HORREUR
-		if unit.activated : unit.queue_free()
 		
 
 func victory() -> void:
 	$UI.victory()
 	$Music.set_stream(victory_music)
 	$Music.play()
-	for temp in $Temporary.get_children():
-		temp.queue_free()
-	for follow in $KingsRoad.get_children():
-		follow.queue_free()
 	$Units/Builder.activated = false
 	$Units/Builder.animation_player.play("celebrate")
 	king_anim.play("celebrate")
-	
-func load_gamestate() -> void:
-	save_system.load_game()
-	
-	nexus_hp = save_system.game_data["nexus_hp"]
-	current_wave = save_system.game_data["current_wave"]
-	$YamsManager.grille = save_system.game_data["grille"]
-	
-	$YamsManager.compute_score()
-	
-	$UI.update_health(nexus_hp)
-	$UI.waveNumber.text = "Prochaine vague : " + str(current_wave + 1) + "/13"
-	
-	for unit in $Units.get_children():
-		var unit_data: Dictionary = save_system.game_data[unit.unitName]
-		if unit_data["level"] == 0:
-			unit.queue_free()
-		elif unit_data["level"] > 0:
-			unit.level = unit_data["level"]
-			unit.on_activate()
-			unit.button.modulate = Color(1, 1, 1)
-			unit.button.disabled = true
-			unit.activated = true
-			unit.rangeSprite.modulate.a = 0
-			unit.damage_dealt = unit_data["damage"]
-			unit.update_tooltip()
-			
-			unit.unit_sprite.visible = true
-			unit.button.modulate.a = 0
-			unit.idle_anim()
-			unit.disable_tooltip()
-			
-func save_gamestate() -> void:
-	save_system.game_data["nexus_hp"] = nexus_hp
-	save_system.game_data["current_wave"] = current_wave
-	save_system.game_data["grille"] = $YamsManager.grille
-	for unit in $Units.get_children():
-		if unit.activated : 
-			save_system.game_data[unit.unitName]["damage"] = unit.damage_dealt
-	save_system.save_game()
-	
 
 func on_king_pressed() -> void:
 	if $UI.coupsRestant > 0:
@@ -281,15 +191,6 @@ func disable_tooltip() -> void:
 	$King/CanvasLayer/Tooltip.visible = false
 	$King/Hover.visible = false
 	
-func buff_barracks() -> void:
-	nexus_hp += 15
-	$AudioStreamPlayer.play()
-	$UI.update_health(nexus_hp)
-	
-	var shield_animation: AnimationPlayer = $UI/CanvasLayer/Health/AnimationPlayer
-	shield_animation.play("upgrade_shield_no_glow")
-	await shield_animation.animation_finished
-	shield_animation.play("shield_sparkle")
 	
 func next_step() -> void:
 	if tuto_step == 1:

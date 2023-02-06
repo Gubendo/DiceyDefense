@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ce4jbmhn27ucy"]
+[gd_scene load_steps=42 format=3 uid="uid://ce4jbmhn27ucy"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager/tuto.gd" id="1_svwwg"]
 [ext_resource type="Script" path="res://Scripts/GameManager/YamsManager.gd" id="3_dh40p"]
@@ -9,14 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://p522hf6xt2ih" path="res://Sprites/Units/king.png" id="8_8w6ss"]
 [ext_resource type="Theme" uid="uid://dyx21ksbxmx85" path="res://Themes/tooltips.tres" id="9_f35ll"]
 [ext_resource type="Texture2D" uid="uid://bq1do241bqxap" path="res://Sprites/UI/tooltips/tooltip-king.png" id="10_j4555"]
-[ext_resource type="PackedScene" uid="uid://d2nr00pp6mpou" path="res://Scenes/Decors/fire.tscn" id="11_ni1sx"]
 [ext_resource type="Texture2D" uid="uid://bsscl5l062gk0" path="res://Sprites/Decors/billot.png" id="12_hnuyp"]
 [ext_resource type="PackedScene" uid="uid://bf7kg86uhym3h" path="res://Scenes/Decors/panneau.tscn" id="13_wmwv3"]
 [ext_resource type="Texture2D" uid="uid://cap8w17yaww0u" path="res://Sprites/Decors/stand2.png" id="14_wqh8p"]
 [ext_resource type="Texture2D" uid="uid://bgexw1j00dy5y" path="res://Sprites/Decors/stand3.png" id="15_ve12f"]
 [ext_resource type="Texture2D" uid="uid://bglvnffqpoc7p" path="res://Sprites/Decors/banner.png" id="16_uc8i8"]
 [ext_resource type="Texture2D" uid="uid://bhjtrotsfs23v" path="res://Sprites/Decors/banner_top.png" id="17_f1vl2"]
-[ext_resource type="AudioStream" uid="uid://d3ilf81oe3mhr" path="res://Sounds/fire.wav" id="18_ftc4w"]
 [ext_resource type="Script" path="res://Scripts/GameManager/Camera.gd" id="19_2pyer"]
 [ext_resource type="PackedScene" uid="uid://cur0ovc2dvg2t" path="res://Scenes/Units/Loup.tscn" id="20_dxt70"]
 [ext_resource type="PackedScene" uid="uid://b5tp2dhwh1sjy" path="res://Scenes/Units/Archer.tscn" id="21_0751y"]
@@ -31,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://iyu3xrydx143" path="res://Scenes/Units/Tavernier.tscn" id="30_0oar5"]
 [ext_resource type="PackedScene" uid="uid://ii2mha02m7ce" path="res://Scenes/Units/IngeJR.tscn" id="31_7ww6f"]
 [ext_resource type="PackedScene" uid="uid://bqqsvp61boxyi" path="res://Scenes/Units/IngeSR.tscn" id="32_jqpn4"]
-[ext_resource type="PackedScene" uid="uid://cdf0esxvrorx1" path="res://Scenes/world_environment.tscn" id="33_57us1"]
 [ext_resource type="AudioStream" uid="uid://bsfxo48ab6wnr" path="res://Music/Castle.wav" id="34_nfn0o"]
 [ext_resource type="AudioStream" uid="uid://dtwpdtuy0hcus" path="res://Sounds/shield_up.ogg" id="35_bvkm2"]
 [ext_resource type="PackedScene" uid="uid://cehhwiygajnj4" path="res://Scenes/UI/UI_tuto.tscn" id="36_s64dy"]
@@ -493,6 +490,7 @@ offset_bottom = 43.0
 theme = ExtResource("9_f35ll")
 
 [node name="bg" type="TextureRect" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -502,6 +500,7 @@ grow_vertical = 2
 texture = ExtResource("10_j4555")
 
 [node name="Name" type="Label" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 42.0
@@ -510,6 +509,7 @@ theme_override_colors/font_color = Color(0.988235, 0.768627, 0.341176, 1)
 text = "Roi Mysa"
 
 [node name="Description" type="RichTextLabel" parent="King/CanvasLayer/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 6.0
 offset_right = 59.0
@@ -525,29 +525,6 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Decor" type="Node" parent="."]
-
-[node name="Fire" type="Node2D" parent="Decor"]
-visible = false
-
-[node name="Node2d" parent="Decor/Fire" instance=ExtResource("11_ni1sx")]
-position = Vector2(-319, -247)
-scale = Vector2(1.5, 1.5)
-
-[node name="Node2d2" parent="Decor/Fire" instance=ExtResource("11_ni1sx")]
-position = Vector2(-431, -173)
-scale = Vector2(1.5, 1.5)
-
-[node name="Node2d3" parent="Decor/Fire" instance=ExtResource("11_ni1sx")]
-position = Vector2(-378, -88)
-scale = Vector2(1.5, 1.5)
-
-[node name="Node2d4" parent="Decor/Fire" instance=ExtResource("11_ni1sx")]
-position = Vector2(-253, -71)
-scale = Vector2(1.5, 1.5)
-
-[node name="Node2d5" parent="Decor/Fire" instance=ExtResource("11_ni1sx")]
-position = Vector2(-213, -156)
-scale = Vector2(1.5, 1.5)
 
 [node name="Billot" type="Sprite2D" parent="Decor"]
 position = Vector2(-257, -162)
@@ -583,10 +560,6 @@ texture = ExtResource("17_f1vl2")
 [node name="BannerTop2" type="Sprite2D" parent="Decor"]
 position = Vector2(-144, -162)
 texture = ExtResource("17_f1vl2")
-
-[node name="FireSound" type="AudioStreamPlayer" parent="Decor"]
-stream = ExtResource("18_ftc4w")
-volume_db = -2.0
 
 [node name="Camera2d" type="Camera2D" parent="."]
 position = Vector2(-247, -140)
@@ -641,8 +614,6 @@ position = Vector2(-169, -93)
 position = Vector2(0, -14)
 scale = Vector2(0.75, 0.75)
 curve = SubResource("Curve2D_lxoc7")
-
-[node name="world_environment" parent="." instance=ExtResource("33_57us1")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3

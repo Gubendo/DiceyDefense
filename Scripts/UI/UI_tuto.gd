@@ -55,13 +55,7 @@ func _ready() -> void:
 	update_dice_pos()
 	nouveau_coup()
 	overlay_animation.play("fade_overlay")
-	
-	$CanvasLayer/Settings/Popup.settings_open.connect(lock_input)
-	$CanvasLayer/Settings/Popup.settings_close.connect(unlock_input)
-	
-	$CanvasLayer/Statistics/Container.stats_open.connect(lock_input)
-	$CanvasLayer/Statistics/Container.stats_close.connect(unlock_input)
-	unlock_input()
+
 	
 	$CanvasLayer/Overlay/DiceHand/Dice1.disconnect_signal()
 	$CanvasLayer/Overlay/DiceHand/Dice3.disconnect_signal()
@@ -72,21 +66,11 @@ func connect_signals() -> void:
 	gobelet.mouse_entered.connect(enable_tooltip_gobelet)
 	gobelet.mouse_exited.connect(disable_tooltip_gobelet)
 	gobelet.pressed.connect(press_roll)
-	
-	pausePlay.pressed.connect(on_PausePlay_pressed)
+
 	speedUp.pressed.connect(on_SpeedUp_pressed)
 	
 	quitButton.pressed.connect(quit)
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("echap") and not locked and not event.is_echo():
-		$CanvasLayer/Vague/Controls/PausePlay.button_pressed = !$CanvasLayer/Vague/Controls/PausePlay.button_pressed
-		on_PausePlay_pressed()
-	elif Input.is_action_just_pressed("echap") and helpOpen and not event.is_echo():
-		trigger_help()
-	if Input.is_action_just_pressed("help") and not helpOpen and not locked and not event.is_echo():
-		trigger_help()
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("clic_gauche"):
@@ -180,7 +164,6 @@ func update_hand(hand: Array) -> void:
 func update_phase(waveStarted: bool, currentWave: int) -> void:
 	overlay_animation.play(overlay_animations[waveStarted])
 	gobelet.get_node("Tooltip").visible = false
-	#$CanvasLayer/Vague/Controls.visible = waveStarted
 	
 	if !waveStarted: nouveau_coup()
 	
@@ -192,21 +175,6 @@ func update_phase(waveStarted: bool, currentWave: int) -> void:
 		remainingEnemies.visible = false
 		
 	
-func on_PausePlay_pressed() -> void:
-	pass
-	"""Sfx.click_button()
-	if get_tree().is_paused():
-		get_tree().paused = false
-		for node in pauseMenu.get_children():
-			node.visible = false
-		$CanvasLayer/PauseOverlay.visible = false
-	else:
-		get_tree().paused = true
-		for node in pauseMenu.get_children():
-			node.visible = true
-		#pauseMenu.get_node("Options").visible = false
-		$CanvasLayer/PauseOverlay.visible = true"""
-		
 func on_SpeedUp_pressed() -> void:
 	Sfx.click_button()
 	if Engine.get_time_scale() == 2.0:
@@ -241,43 +209,12 @@ func unhighlight_dices() -> void:
 		dice.modulate = Color(1, 1, 1)
 		dice.highlight(false)
 
-func update_health(health: float) -> void:
-	healthValue.text = str(health)
-	
-func update_barracks(barracks_score: int, barracks_max: int) -> void:
-	$CanvasLayer/Health/Progress.value = barracks_score
-	$CanvasLayer/Health/Progress.max_value = barracks_max
-	$CanvasLayer/Health/ProgressValue.text = str(min(barracks_score, barracks_max)) + "/" + str(barracks_max)
-	
+
 func quit() -> void:
 	Sfx.click_button()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/UI/menu.tscn")
 	
-func options() -> void:
-	Sfx.click_button()
-	$CanvasLayer/Settings/Popup.open_window()
-	
-func stats() -> void:
-	Sfx.click_button()
-	$CanvasLayer/Statistics/Container.open_window()
-
-func restart() -> void:
-	Sfx.click_button()
-	save_system.reset_save()
-	get_tree().reload_current_scene()
-	get_tree().paused = false
-	
-func game_over() -> void:
-	#get_tree().paused = true
-	for node in $CanvasLayer/Vague.get_children():
-		node.visible = false
-		
-	for node in pauseMenu.get_children():
-			node.visible = true
-	
-	$CanvasLayer/PauseOverlay.visible = true
-	$CanvasLayer/GameOver.visible = true
 	
 func victory() -> void:
 	for node in $CanvasLayer/Vague.get_children():
@@ -289,33 +226,7 @@ func victory() -> void:
 	$CanvasLayer/PauseOverlay.visible = true
 	$CanvasLayer/Victory.visible = true
 	$CanvasLayer/Victory/Fireworks/Timer.start()
-	
-	
-func lock_input() -> void:
-	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 12)
-	locked = true
-	
-func unlock_input() -> void:
-	$CanvasLayer.move_child($CanvasLayer/PauseOverlay, 4)
-	await get_tree().create_timer(0.01).timeout
-	locked = false
-	
-func trigger_help() -> void:
-	pass
-	"""Sfx.click_button()
-	if helpOpen: 
-		help_animation.play("hide_help")
-		helpOpen = false
-		unlock_input()
-	else:
-		if !get_tree().is_paused():
-			$CanvasLayer/Vague/Controls/PausePlay.button_pressed = !$CanvasLayer/Vague/Controls/PausePlay.button_pressed
-			on_PausePlay_pressed()
-			
-		help_animation.play("show_help")
-		helpOpen = true
-		lock_input()"""
-		
+
 		
 func update_tuto_text(text_pos: Vector2, text: String, size_px: int) -> void:
 	var path: String = "res://Sprites/UI/tooltips/tooltip-" + str(size_px) + "px.png"
@@ -327,7 +238,9 @@ func update_tuto_text(text_pos: Vector2, text: String, size_px: int) -> void:
 	
 func lock_player_tuto() -> void:
 	$CanvasLayer/TutoOverlay.visible = true
-	
+
+func update_barracks(score: int, max: int) -> void:
+	pass
 	
 func unlock_player_tuto(element: String) -> void:
 	if element == "Dices":

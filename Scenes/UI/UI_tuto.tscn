@@ -361,6 +361,7 @@ offset_bottom = 15.0
 scale = Vector2(0.8, 0.8)
 
 [node name="number" type="Label" parent="CanvasLayer/Vague"]
+layout_mode = 0
 offset_left = 1454.0
 offset_top = 35.0
 offset_right = 1924.0
@@ -373,6 +374,7 @@ vertical_alignment = 1
 
 [node name="remaining" type="Label" parent="CanvasLayer/Vague"]
 visible = false
+layout_mode = 0
 offset_left = 1454.0
 offset_top = 80.0
 offset_right = 1924.0
@@ -385,6 +387,7 @@ vertical_alignment = 1
 
 [node name="Controls" type="HBoxContainer" parent="CanvasLayer/Vague"]
 custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
 offset_left = 1587.0
 offset_top = -3.0
 offset_right = 1791.0
@@ -393,8 +396,7 @@ offset_bottom = 77.0
 [node name="PausePlay" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 3
 custom_minimum_size = Vector2(100, 0)
-offset_right = 100.0
-offset_bottom = 80.0
+layout_mode = 2
 toggle_mode = true
 button_pressed = true
 texture_normal = ExtResource("19_tjyvo")
@@ -405,9 +407,7 @@ stretch_mode = 0
 [node name="SpeedUp" type="TextureButton" parent="CanvasLayer/Vague/Controls"]
 process_mode = 1
 custom_minimum_size = Vector2(100, 0)
-offset_left = 104.0
-offset_right = 204.0
-offset_bottom = 80.0
+layout_mode = 2
 toggle_mode = true
 texture_normal = ExtResource("21_17wt8")
 texture_pressed = ExtResource("22_rwjwj")
@@ -437,6 +437,7 @@ hframes = 22
 vframes = 2
 
 [node name="Value" type="Label" parent="CanvasLayer/Health"]
+layout_mode = 0
 offset_left = -26.0
 offset_top = 22.0
 offset_right = 24.0
@@ -455,6 +456,7 @@ libraries = {
 }
 
 [node name="Progress" type="TextureProgressBar" parent="CanvasLayer/Health"]
+layout_mode = 0
 offset_left = -78.0
 offset_top = 130.0
 offset_right = -30.0
@@ -465,6 +467,7 @@ texture_under = ExtResource("17_g0my4")
 texture_progress = ExtResource("18_0rvnr")
 
 [node name="ProgressValue" type="Label" parent="CanvasLayer/Health"]
+layout_mode = 0
 offset_left = -30.0
 offset_top = 181.0
 offset_right = 16.0
@@ -481,6 +484,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Plateau" type="TextureRect" parent="CanvasLayer/Overlay"]
+layout_mode = 0
 offset_left = 102.0
 offset_top = 598.0
 offset_right = 502.0
@@ -488,40 +492,46 @@ offset_bottom = 998.0
 texture = ExtResource("9_7mpky")
 
 [node name="DiceHand" type="Control" parent="CanvasLayer/Overlay"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 
 [node name="Dice1" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("10_avm8c")]
+layout_mode = 0
 offset_left = 760.0
 offset_top = 822.0
 offset_right = 820.0
 offset_bottom = 882.0
 
 [node name="Dice2" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("10_avm8c")]
+layout_mode = 0
 offset_left = 350.0
 offset_top = 760.0
 offset_right = 410.0
 offset_bottom = 820.0
 
 [node name="Dice3" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("10_avm8c")]
+layout_mode = 0
 offset_left = 215.0
 offset_top = 800.0
 offset_right = 275.0
 offset_bottom = 860.0
 
 [node name="Dice4" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("10_avm8c")]
+layout_mode = 0
 offset_left = 300.0
 offset_top = 670.0
 offset_right = 360.0
 offset_bottom = 730.0
 
 [node name="Dice5" parent="CanvasLayer/Overlay/DiceHand" instance=ExtResource("10_avm8c")]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 700.0
 offset_right = 255.0
 offset_bottom = 760.0
 
 [node name="Gobelet" type="TextureButton" parent="CanvasLayer/Overlay"]
+layout_mode = 0
 offset_left = 555.0
 offset_top = 812.0
 offset_right = 665.0
@@ -531,7 +541,7 @@ texture_hover = ExtResource("12_k5q2t")
 
 [node name="Tooltip" type="Control" parent="CanvasLayer/Overlay/Gobelet"]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = 119.0
 offset_top = 42.0
@@ -540,6 +550,7 @@ offset_bottom = 92.0
 theme = ExtResource("13_hhfpv")
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Overlay/Gobelet/Tooltip"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -549,6 +560,7 @@ grow_vertical = 2
 texture = ExtResource("14_jy0qd")
 
 [node name="nbLancers" type="Label" parent="CanvasLayer/Overlay/Gobelet/Tooltip"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = -6.0
 offset_right = 220.0
@@ -621,6 +633,7 @@ theme = ExtResource("1_jxisc")
 [node name="Quitter" type="Button" parent="CanvasLayer/Pause"]
 process_mode = 3
 visible = false
+layout_mode = 0
 offset_left = 1549.0
 offset_top = 995.0
 offset_right = 1738.0
@@ -642,11 +655,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -4.0
+offset_right = -44.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="Anim" type="RichTextLabel" parent="CanvasLayer/GameOver"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -665,6 +683,7 @@ text = "[wave amp=70 freq=5]GAME OVER"
 fit_content_height = true
 
 [node name="Label" type="Label" parent="CanvasLayer/GameOver"]
+layout_mode = 0
 offset_left = 650.0
 offset_top = 455.0
 offset_right = 1450.0
@@ -682,11 +701,14 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -54.0
+offset_right = -54.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="Anim" type="RichTextLabel" parent="CanvasLayer/Victory"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -705,6 +727,7 @@ text = "[wave amp=50 freq=10]VICTOIRE"
 fit_content_height = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Victory"]
+layout_mode = 0
 offset_left = 489.0
 offset_top = 476.0
 offset_right = 1574.0
@@ -734,6 +757,7 @@ texture = ExtResource("27_jbqai")
 
 [node name="Close" type="Button" parent="CanvasLayer/HelpMenu"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 423.0
 offset_top = 741.0
 offset_right = 523.0
@@ -755,7 +779,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Tooltip" type="Control" parent="CanvasLayer/Tuto"]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
 offset_left = -595.0
 offset_top = -464.0
@@ -763,6 +787,7 @@ offset_right = -370.0
 offset_bottom = -264.0
 
 [node name="bg" type="TextureRect" parent="CanvasLayer/Tuto/Tooltip"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -776,6 +801,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("28_gjbsl")
 
 [node name="Text" type="RichTextLabel" parent="CanvasLayer/Tuto/Tooltip"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = -20.0
 offset_right = 227.0
@@ -788,5 +814,4 @@ text = "Bienvenue dans Dicey Defense"
 fit_content_height = true
 tab_size = 3
 
-[connection signal="pressed" from="CanvasLayer/HelpButton" to="." method="trigger_help"]
 [connection signal="pressed" from="CanvasLayer/HelpMenu/Close" to="." method="trigger_help"]

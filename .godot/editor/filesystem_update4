@@ -12,3 +12,7 @@ res://Scenes/UI/UI_tuto.tscn
 res://Scenes/dice.tscn
 res://Scenes/Units/Builder.tscn
 res://Scenes/UI/menu.tscn
+res://Scripts/GameManager/tuto.gd
+res://Scripts/GameManager/main.gd
+res://Scripts/UI/UI_tuto.gd
+res://Scripts/GameManager/YamsManager.gd
