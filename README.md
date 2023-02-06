@@ -13,4 +13,7 @@ Le jeu se sépare en 3 phases :
 
 La partie se termine lorsque le joueur arrive à venir à bout de 13 vagues d'ennemies (correspondant au nombre de tours du Yam's) ou lorsque suffisament d'ennemis ont réussi à atteindre le donjon et à récupérer leurs reliques.   
 
+___   
+
+Le jeu est disponible sur [itch.io](https://gubendo.itch.io/dicey-defense), n'hésitez pas à me contacter pour le moindre feedback/retour de bug :)       
 [Game Design Document](meta/GDD.pdf)
