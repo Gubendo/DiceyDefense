@@ -20,6 +20,8 @@ var shield_upgrade: Resource = preload("res://Sprites/UI/shield-upgrade.png")
 @onready var enemy_music = load("res://Music/Enemy.wav")
 @onready var victory_music = load("res://Music/Victory.wav")
 
+var debug: bool = true
+
 func _ready() -> void:
 	rng.randomize()
 	connect_signals()

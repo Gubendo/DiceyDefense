@@ -20,7 +20,7 @@ var settings: Dictionary = {
 	"fullscreen_on": false,
 	"vsync_on": false,
 	"brightness": 1,
-	"glow": 0,
+	"glow": false,
 	"master_vol": 100,
 	"music_vol": 100,
 	"sfx_vol": 100, 

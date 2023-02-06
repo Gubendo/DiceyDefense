@@ -39,7 +39,6 @@ var base_scale: Vector2
 
 var save_system = SaveSystem
 
-var debug: bool = false
 
 signal choix(coup)
 # Called when the node enters the scene tree for the first time.
@@ -113,7 +112,7 @@ func on_activate() -> void:
 func select_enemy() -> void:
 	var progress_array: Array = []
 	for i in enemies_in_range:
-		if i != null and not i.dead:
+		if is_instance_valid(i) and not i.dead:
 			progress_array.append(i.progress)
 	var max_progress = progress_array.max()
 	var max_enemy = progress_array.find(max_progress)
@@ -223,7 +222,7 @@ func enable_tooltip() -> void:
 func disable_tooltip() -> void:
 	tooltip.visible = false
 	unitHover.visible = false
-	if(!activated or !debug):
+	if(!activated or !$/root/Main.debug):
 		rangeSprite.modulate.a = 0
 	unhighlight_dices()
 

@@ -85,7 +85,7 @@ func _input(event: InputEvent) -> void:
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("clic_gauche"):
+	if Input.is_action_just_pressed("clic_gauche") and !get_tree().is_paused():
 		var mousePos: Vector2 = get_viewport().get_mouse_position()
 		for node in dicesList:
 			if node.get_global_rect().has_point(mousePos):
@@ -100,7 +100,7 @@ func _process(_delta: float) -> void:
 				update_dice_pos()
 				break
 				
-	"""if Input.is_action_just_pressed("clic_droit"):
+	if Input.is_action_just_pressed("clic_droit") and $/root/Main.debug:
 		var mousePos: Vector2 = get_viewport().get_mouse_position()
 		for node in dicesList:
 			if node.get_global_rect().has_point(mousePos):
@@ -113,7 +113,7 @@ func _process(_delta: float) -> void:
 				for unit in $/root/Main/Units.get_children():
 					if !unit.activated : 
 						unit.level = $/root/Main/YamsManager.combinaisons[GameData.unit_data[unit.name]["value"]][2]
-				break"""
+				break
 	
 		
 	var enemies: float = $/root/Main.enemies_in_wave
@@ -313,4 +313,6 @@ func trigger_help() -> void:
 		help_animation.play("show_help")
 		helpOpen = true
 		lock_input()
+		
+
 

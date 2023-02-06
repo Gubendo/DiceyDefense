@@ -13,6 +13,12 @@ func special() -> void:
 	if attack_target != null:
 		shoot_arrow()
 		$AudioStreamPlayer2D.play()
+	else:
+		select_enemy()
+		attack_target = target
+		if attack_target != null: 
+			shoot_arrow()
+			$AudioStreamPlayer2D.play()
 
 	
 func update_tooltip() -> void:

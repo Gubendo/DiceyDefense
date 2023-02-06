@@ -37,6 +37,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 59.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Advice" type="Label" parent="Popup/TabContainer/Vidéo"]
 offset_left = 247.0
@@ -122,7 +124,7 @@ offset_right = 336.0
 offset_bottom = 228.0
 text = "Eclat"
 
-[node name="GlowBtn" type="HSlider" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
+[node name="GlowBtn" type="CheckButton" parent="Popup/TabContainer/Vidéo/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(200, 0)
 offset_left = 400.0
 offset_top = 212.0
@@ -130,9 +132,6 @@ offset_right = 600.0
 offset_bottom = 228.0
 size_flags_horizontal = 10
 size_flags_vertical = 8
-max_value = 0.6
-step = 0.01
-value = 0.3
 
 [node name="Audio" type="Control" parent="Popup/TabContainer"]
 visible = false
@@ -189,7 +188,7 @@ stretch_mode = 0
 [connection signal="item_selected" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/AffichageBtn" to="Popup" method="display"]
 [connection signal="toggled" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/VSyncBtn" to="Popup" method="vsync"]
 [connection signal="value_changed" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/BrightnessBtn" to="Popup" method="brightness"]
-[connection signal="value_changed" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/GlowBtn" to="Popup" method="glow"]
+[connection signal="toggled" from="Popup/TabContainer/Vidéo/MarginContainer/GridContainer/GlowBtn" to="Popup" method="glow"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/MasterSlider" to="Popup" method="master_volume"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/MusicSlider" to="Popup" method="music_volume"]
 [connection signal="value_changed" from="Popup/TabContainer/Audio/MarginContainer/GridContainer/SFXSlider" to="Popup" method="sfx_volume"]

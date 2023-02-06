@@ -1,10 +1,13 @@
-AudioStreamPlayer
+Control
 TextureRect
+RichTextLabel
+Node
+CheckButton
+AudioStreamPlayer
 Node2D
 AnimationPlayer
 Sprite2D
 AudioStreamPlayer2D
-Node
 CPUParticles2D
 WorldEnvironment
 RigidBody2D
@@ -25,8 +28,5 @@ MarginContainer
 ScrollContainer
 Container
 HSlider
-Control
 TabBar
 Window
-CheckButton
-OptionButton

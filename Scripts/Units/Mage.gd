@@ -9,10 +9,16 @@ func _init() -> void:
 	ranged = true
 
 func special() -> void:
+	print("MAGE : Je tire une boule de givre")
 	if attack_target != null:
-		print("MAGE : Je tire une boule de givre")
 		shoot_frostbolt()
 		$AudioStreamPlayer2D.play()
+	else:
+		select_enemy()
+		attack_target = target
+		if attack_target != null: 
+			shoot_frostbolt()
+			$AudioStreamPlayer2D.play()
 
 	
 func update_tooltip() -> void:
@@ -37,5 +43,6 @@ func shoot_frostbolt() -> void:
 	$/root/Main/Temporary.add_child(bolt)
 
 func on_activate() -> void:
+	update_tooltip_size(45)
 	if level == 5:
 		$Unit/Sprite.texture = load("res://Animations/Mage/mage-max.png")

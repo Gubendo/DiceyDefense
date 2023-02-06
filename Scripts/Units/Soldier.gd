@@ -10,6 +10,13 @@ func special() -> void:
 		$AudioStreamPlayer2D.play()
 		attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
 		damage_dealt += stats[level]["damage"] * buff_dmg
+	else:
+		select_enemy()
+		attack_target = target
+		if attack_target != null: 
+			$AudioStreamPlayer2D.play()
+			attack_target.take_dmg(stats[level]["damage"] * buff_dmg)
+			damage_dealt += stats[level]["damage"] * buff_dmg
 
 func update_tooltip() -> void:
 	update_stats()

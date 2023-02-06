@@ -20,23 +20,27 @@ func _process(_delta: float) -> void:
 func connect_signals() -> void:
 	$MainMenu/VBoxContainer/Continue.pressed.connect(continueGame)
 	$MainMenu/VBoxContainer/NewGame.pressed.connect(newGame)
+	$MainMenu/VBoxContainer/Tutorial.pressed.connect(tutorial)
 	$MainMenu/VBoxContainer/Options.pressed.connect(options)
 	$MainMenu/VBoxContainer/Quit.pressed.connect(quit)
 	
 	$MainMenu/VBoxContainer/Continue.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/Continue))
 	$MainMenu/VBoxContainer/NewGame.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/NewGame))
+	$MainMenu/VBoxContainer/Tutorial.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/Tutorial))
 	$MainMenu/VBoxContainer/Options.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/Options))
 	$MainMenu/VBoxContainer/Quit.mouse_entered.connect(focusButton.bind($MainMenu/VBoxContainer/Quit))
 	
 	$MainMenu/VBoxContainer/Continue.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Continue, 0))
 	$MainMenu/VBoxContainer/NewGame.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/NewGame, 93))
-	$MainMenu/VBoxContainer/Options.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Options, 186))
-	$MainMenu/VBoxContainer/Quit.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Quit, 279))
+	$MainMenu/VBoxContainer/Tutorial.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Tutorial, 186))
+	$MainMenu/VBoxContainer/Options.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Options, 279))
+	$MainMenu/VBoxContainer/Quit.focus_entered.connect(focusIn.bind($MainMenu/VBoxContainer/Quit, 372))
 	
 	$MainMenu/VBoxContainer/Continue.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Continue, 0))
 	$MainMenu/VBoxContainer/NewGame.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/NewGame, 93))
-	$MainMenu/VBoxContainer/Options.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Options, 186))
-	$MainMenu/VBoxContainer/Quit.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Quit, 279))
+	$MainMenu/VBoxContainer/Tutorial.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Tutorial, 186))
+	$MainMenu/VBoxContainer/Options.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Options, 279))
+	$MainMenu/VBoxContainer/Quit.focus_exited.connect(focusOut.bind($MainMenu/VBoxContainer/Quit, 372))
 
 	
 func continueGame() -> void:
@@ -58,6 +62,10 @@ func quit() -> void:
 func options() -> void:
 	Sfx.click_button()
 	$Settings/Popup.open_window()
+
+func tutorial() -> void:
+	Sfx.click_button()
+	get_tree().change_scene_to_file("res://Scenes/tuto.tscn")
 	
 func disable_resume() -> void:
 	$MainMenu/VBoxContainer/NewGame.grab_focus()

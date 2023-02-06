@@ -12,6 +12,12 @@ func special() -> void:
 	if attack_target != null:
 		shoot_caillou()
 		$AudioStreamPlayer2D.play()
+	else:
+		select_enemy()
+		attack_target = target
+		if attack_target != null: 
+			shoot_caillou()
+			$AudioStreamPlayer2D.play()
 
 func on_activate() -> void:
 	unit.visible = false

@@ -20,13 +20,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	t+= delta * speed_factor
 	if t >= 1.0:
-		slow_unit()
+		slow_units()
 		queue_free()
 	if is_instance_valid(target):
 		end_pos = target.global_position
 	position = quadratic_bezier(start_pos, middle_pos, end_pos, t)
 
-func slow_unit() -> void:
+func slow_units() -> void:
 	if is_instance_valid(target):
 		target.apply_slow(slow_value, slow_duration)
 		target.take_dmg(damage)

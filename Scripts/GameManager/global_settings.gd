@@ -22,7 +22,7 @@ func toggle_brightness(value: float) -> void:
 	SaveSystem.game_data["settings"]["brightness"] = value
 	SaveSystem.save_game()
 	
-func toggle_glow(value: float) -> void:
+func toggle_glow(value: bool) -> void:
 	emit_signal("glow_updated", value)
 	SaveSystem.game_data["settings"]["glow"] = value
 	SaveSystem.save_game()

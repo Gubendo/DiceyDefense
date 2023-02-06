@@ -10,4 +10,5 @@ func update_brightness(value):
 	environment.adjustment_brightness = value
 	
 func update_glow(value):
-	environment.glow_hdr_threshold = 1.7 - value
+	if value: environment.glow_hdr_threshold = 1.3
+	else: environment.glow_hdr_threshold = 1.7

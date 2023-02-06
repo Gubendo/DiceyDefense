@@ -5,7 +5,7 @@ extends Container
 @onready var display_btn: OptionButton = $"TabContainer/Vidéo/MarginContainer/GridContainer/AffichageBtn"
 @onready var vsync_btn: CheckButton = $"TabContainer/Vidéo/MarginContainer/GridContainer/VSyncBtn"
 @onready var brightness_slider: HSlider = $"TabContainer/Vidéo/MarginContainer/GridContainer/BrightnessBtn"
-@onready var glow_slider: HSlider = $"TabContainer/Vidéo/MarginContainer/GridContainer/GlowBtn"
+@onready var glow_slider: CheckButton = $"TabContainer/Vidéo/MarginContainer/GridContainer/GlowBtn"
 # Audio
 @onready var master_slider: HSlider = $TabContainer/Audio/MarginContainer/GridContainer/MasterSlider
 @onready var music_slider: HSlider = $TabContainer/Audio/MarginContainer/GridContainer/MusicSlider
@@ -38,8 +38,8 @@ func vsync(button_pressed: bool) -> void:
 func brightness(value: float) -> void:
 	GlobalSettings.toggle_brightness(value)
 
-func glow(value: float) -> void:
-	GlobalSettings.toggle_glow(value)
+func glow(button_pressed: bool) -> void:
+	GlobalSettings.toggle_glow(button_pressed)
 	
 func master_volume(value: float) -> void:
 	GlobalSettings.update_master_vol(value)
@@ -77,7 +77,7 @@ func load_settings() -> void:
 	brightness_slider.value = SaveSystem.game_data["settings"]["brightness"]
 	GlobalSettings.toggle_brightness(SaveSystem.game_data["settings"]["brightness"])
 	
-	glow_slider.value = SaveSystem.game_data["settings"]["glow"]
+	glow_slider.button_pressed = SaveSystem.game_data["settings"]["glow"]
 	GlobalSettings.toggle_glow(SaveSystem.game_data["settings"]["glow"])
 	
 	master_slider.value = SaveSystem.game_data["settings"]["master_vol"]

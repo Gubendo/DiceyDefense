@@ -8,10 +8,16 @@ func _init() -> void:
 	unitName = "IngeSR"
 
 func special() -> void:
+	print("INGENIEUR SENIOR : Mon trébuchet tire")
 	if attack_target != null:
-		print("INGENIEUR SENIOR : Mon trébuchet tire")
 		shoot_caillou()
 		$AudioStreamPlayer2D.play()
+	else:
+		select_enemy()
+		attack_target = target
+		if attack_target != null: 
+			shoot_caillou()
+			$AudioStreamPlayer2D.play()
 
 
 func on_activate() -> void:

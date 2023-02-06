@@ -8,3 +8,7 @@ func _ready() -> void:
 	
 func highlight(value: bool) -> void:
 	highlight_texture.visible = value
+	
+func disconnect_signal() -> void:
+	self.mouse_entered.disconnect(highlight.bind(true))
+	self.mouse_exited.disconnect(highlight.bind(false))

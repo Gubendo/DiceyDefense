@@ -6,10 +6,16 @@ func _init() -> void:
 	unitName = "Loup"
 
 func special() -> void:
+	print("LOUP : Je graille un coup")
 	if attack_target != null:
-		print("LOUP : Je graille un coup")
 		$AudioStreamPlayer2D.play()
 		attack_target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
+	else:
+		select_enemy()
+		attack_target = target
+		if attack_target != null: 
+			attack_target.apply_bleed(stats[level]["bleed"], stats[level]["duration"], stats[level]["freq"])
+			$AudioStreamPlayer2D.play()
 
 	
 func update_tooltip() -> void:

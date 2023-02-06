@@ -21,8 +21,6 @@ func _process(delta: float) -> void:
 	if t >= 1.0:
 		damage_aoe()
 		queue_free()
-	if is_instance_valid(target):
-		end_pos = target.global_position
 	position = quadratic_bezier(start_pos, middle_pos, end_pos, t)
 
 func damage_aoe() -> void:
@@ -38,4 +36,7 @@ func quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, tau: float) -> Vect
 	return r
 	
 func get_all_enemies() -> Array:
-	return $/root/Main/KingsRoad.get_children()
+	var enemies: Array = []
+	for enemy in $/root/Main/KingsRoad.get_children():
+		if enemy.name.left(5) != "shock": enemies.append(enemy)
+	return enemies
